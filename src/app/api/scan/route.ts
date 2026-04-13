@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { getAccountCharacters, getCharacterProfile, getRaidProfile, RaidProfile } from "@/lib/blizzard-api";
 import { getRioCharacterProfile } from "@/lib/raiderio-api";
+import { getWeeklyRaidKillsFromWcl } from "@/lib/warcraftlogs-api";
 import { CURRENT_SEASON } from "@/lib/season-config";
 import { CharacterData } from "@/types/character";
 import { NextResponse } from "next/server";
@@ -75,15 +76,22 @@ export async function POST() {
 
       const batchResults = await Promise.allSettled(
         batch.map(async (char) => {
-          const [profile, rio, raidData] = await Promise.allSettled([
+          const [profile, rio, raidData, wclData] = await Promise.allSettled([
             getCharacterProfile(region, char.realm.slug, char.name, accessToken),
             getRioCharacterProfile(region, char.realm.slug, char.name),
             getRaidProfile(region, char.realm.slug, char.name, accessToken),
+            getWeeklyRaidKillsFromWcl(region, char.realm.slug, char.name),
           ]);
 
           const blzProfile  = profile.status   === "fulfilled" ? profile.value   : null;
           const rioProfile  = rio.status        === "fulfilled" ? rio.value       : null;
           const raidProfile = raidData.status   === "fulfilled" ? raidData.value  : null;
+          const wclResult   = wclData.status    === "fulfilled" ? wclData.value   : null;
+
+          // Prefer WCL weekly raid kills when available, fall back to Blizzard encounters/raids
+          const weeklyRaidBosses = wclResult
+            ? wclResult.bossKills
+            : calcWeeklyRaidBosses(raidProfile, region);
 
           const charData: CharacterData = {
             id: char.id,
@@ -107,7 +115,7 @@ export async function POST() {
             gear: rioProfile?.gear?.items ?? null,
             profileUrl: rioProfile?.profile_url ?? "",
             lastScanned: new Date().toISOString(),
-            weeklyRaidBosses: calcWeeklyRaidBosses(raidProfile, region),
+            weeklyRaidBosses,
           };
 
           return charData;

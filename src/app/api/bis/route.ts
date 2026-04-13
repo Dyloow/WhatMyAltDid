@@ -12,33 +12,31 @@ export interface BisItem {
   icon: string;
   icon_url: string;
   frequency: number;       // 0–1
-  raw_count: number;       // absolute number of players wearing this
+  raw_count: number;
   slot: string;
-  dungeon: string | null;  // null = raid or unknown source
+  dungeon: string | null;
   dungeon_display: string | null;
-  is_dungeon_only: boolean;
-}
-
-export interface DungeonPriority {
-  dungeon_name: string;
-  dungeon_display: string;
-  bis_count: number;
-  items: BisItem[];
 }
 
 export interface BisAnalysisResult {
-  analyzed_count: number;   // players with gear data
-  total_scanned: number;    // total players found in top runs
+  analyzed_count: number;
+  total_scanned: number;
   season: string;
   class: string;
   spec: string;
-  bis_dungeon: Record<string, BisItem>;
-  bis_full: Record<string, BisItem>;
-  dungeon_priority: DungeonPriority[];
+  bis: Record<string, BisItem>;
+  bis_alternatives: Record<string, BisItem>;
   error?: string;
 }
 
 type SlotAggregate = Map<number, { item: RioGearItem; count: number }>;
+
+/** Slots that get the top-2 alternative display (weapons, trinkets, rings) */
+const ALTERNATIVE_SLOTS = new Set([
+  "mainhand", "offhand",
+  "trinket1", "trinket2",
+  "finger1", "finger2",
+]);
 
 function iconUrl(icon: string) {
   if (!icon) return "";
@@ -56,25 +54,20 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // 1. Find up to 300 players for this class/spec via free runs endpoint.
-    //    We ask for 300 because most profiles won't have gear tracked by RIO —
-    //    we keep fetching until we have 50 valid gear profiles or exhaust the pool.
     const topPlayers = await getRioTopPlayersBySpec(region, cls, spec, 300, CURRENT_SEASON.rioSeasonSlug);
 
     if (topPlayers.length === 0) {
       return NextResponse.json<BisAnalysisResult>({
         analyzed_count: 0, total_scanned: 0, season: CURRENT_SEASON.id, class: cls, spec,
-        bis_dungeon: {}, bis_full: {}, dungeon_priority: [],
-        error: `Aucun joueur ${spec} ${cls} trouvé dans les top runs Raider.IO. La spécialisation est peut-être trop rare dans les hautes clés.`,
+        bis: {}, bis_alternatives: {},
+        error: `Aucun joueur ${spec} ${cls} trouvé dans les top runs Raider.IO.`,
       });
     }
 
     const totalScanned = topPlayers.length;
 
-    // 2. Fetch gear profiles in batches of 10.
-    //    Most RIO profiles won't have gear indexed — collect everything we can.
+    // Fetch gear profiles in batches of 10
     const allProfiles: Array<Record<string, RioGearItem>> = [];
-
     for (let i = 0; i < topPlayers.length; i += 10) {
       const chunk = topPlayers.slice(i, i + 10);
       const settled = await Promise.allSettled(
@@ -83,7 +76,6 @@ export async function GET(req: NextRequest) {
       for (const res of settled) {
         if (res.status === "fulfilled" && res.value?.gear?.items) {
           const items = res.value.gear.items;
-          // Only add if it has at least 5 item slots (basic sanity check)
           if (Object.keys(items).length >= 5) {
             allProfiles.push(items);
           }
@@ -94,12 +86,12 @@ export async function GET(req: NextRequest) {
     if (allProfiles.length === 0) {
       return NextResponse.json<BisAnalysisResult>({
         analyzed_count: 0, total_scanned: totalScanned, season: CURRENT_SEASON.id, class: cls, spec,
-        bis_dungeon: {}, bis_full: {}, dungeon_priority: [],
-        error: `Impossible de récupérer l'équipement des joueurs du top (${totalScanned} joueurs trouvés, aucun gear disponible via Raider.IO). Réessayez plus tard.`,
+        bis: {}, bis_alternatives: {},
+        error: `Impossible de récupérer l'équipement des joueurs du top (${totalScanned} trouvés, aucun gear disponible). Réessayez plus tard.`,
       });
     }
 
-    // 3. Aggregate gear per slot
+    // Aggregate gear per slot
     const slotMaps: Record<string, SlotAggregate> = {};
     for (const gear of allProfiles) {
       for (const [slot, item] of Object.entries(gear)) {
@@ -110,10 +102,9 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    // 4. Build item → dungeon source map via Blizzard journal
-    //    Only dungeons with a known journalInstanceId are looked up.
-    const itemToDungeon: Record<number, string> = {};        // item_id → dungeon rioName
-    const itemToDungeonDisplay: Record<number, string> = {}; // item_id → dungeon display name
+    // Item → dungeon source map via Blizzard journal
+    const itemToDungeon: Record<number, string> = {};
+    const itemToDungeonDisplay: Record<number, string> = {};
     await Promise.allSettled(
       CURRENT_SEASON.dungeons
         .filter((d) => d.journalInstanceId)
@@ -127,17 +118,13 @@ export async function GET(req: NextRequest) {
         })
     );
 
-    // 5. Find BiS items
-    //    Threshold scales with sample size. We always require at least 2 players.
     const analyzed = allProfiles.length;
     const THRESHOLD = analyzed < 10
-      ? Math.max(2 / analyzed, 0.33)   // tiny sample: need 33% + abs 2
-      : analyzed < 30
-        ? 0.25                          // small sample: 25%
-        : 0.40;                         // large sample: 40%
+      ? Math.max(2 / analyzed, 0.33)
+      : analyzed < 30 ? 0.25 : 0.40;
 
-    const bisFull:    Record<string, BisItem> = {};
-    const bisDungeon: Record<string, BisItem> = {};
+    const bis: Record<string, BisItem> = {};
+    const bisAlternatives: Record<string, BisItem> = {};
 
     function makeBisItem(slot: string, entry: { item: RioGearItem; count: number }): BisItem {
       const dungeon = itemToDungeon[entry.item.item_id] ?? null;
@@ -153,7 +140,6 @@ export async function GET(req: NextRequest) {
         slot,
         dungeon,
         dungeon_display: dungeonDisplay,
-        is_dungeon_only: dungeon !== null,
       };
     }
 
@@ -162,45 +148,25 @@ export async function GET(req: NextRequest) {
       const top = sorted[0];
       if (!top || top.count / analyzed < THRESHOLD) continue;
 
-      bisFull[slot] = makeBisItem(slot, top);
-      if (bisFull[slot].is_dungeon_only) {
-        bisDungeon[slot] = bisFull[slot];
-      } else {
-        // Look for the best dungeon alternative that also meets threshold
-        for (const candidate of sorted.slice(1)) {
-          if (candidate.count / analyzed < THRESHOLD) break;
-          if (itemToDungeon[candidate.item.item_id]) {
-            bisDungeon[slot] = makeBisItem(slot, candidate);
-            break;
-          }
+      bis[slot] = makeBisItem(slot, top);
+
+      // For weapons, trinkets, and rings: pick the #2 alternative
+      if (ALTERNATIVE_SLOTS.has(slot) && sorted.length > 1) {
+        const alt = sorted[1];
+        // Lower threshold for alternatives — at least some meaningful usage
+        if (alt.count / analyzed >= Math.max(THRESHOLD * 0.5, 2 / analyzed)) {
+          bisAlternatives[slot] = makeBisItem(slot, alt);
         }
       }
     }
-
-    // 6. Dungeon priority (by number of BiS items)
-    const byDungeon: Record<string, { items: BisItem[]; display: string }> = {};
-    for (const item of Object.values(bisDungeon)) {
-      if (!item.dungeon) continue;
-      if (!byDungeon[item.dungeon]) byDungeon[item.dungeon] = { items: [], display: item.dungeon_display ?? item.dungeon };
-      byDungeon[item.dungeon].items.push(item);
-    }
-    const dungeonPriority: DungeonPriority[] = Object.entries(byDungeon)
-      .map(([dungeon_name, { items, display }]) => ({
-        dungeon_name,
-        dungeon_display: display,
-        bis_count: items.length,
-        items,
-      }))
-      .sort((a, b) => b.bis_count - a.bis_count);
 
     return NextResponse.json<BisAnalysisResult>({
       analyzed_count: analyzed,
       total_scanned: totalScanned,
       season: CURRENT_SEASON.id,
       class: cls, spec,
-      bis_dungeon: bisDungeon,
-      bis_full: bisFull,
-      dungeon_priority: dungeonPriority,
+      bis,
+      bis_alternatives: bisAlternatives,
     });
   } catch (e) {
     console.error("BiS error:", e);

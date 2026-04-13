@@ -29,7 +29,6 @@ const SLOT_NAMES: Record<string, string> = {
   mainhand: "Main dir.", offhand: "Main sec.",
 };
 
-// WoW paper-doll layout: left col, right col, bottom row
 const LEFT_SLOTS  = ["head", "neck", "shoulder", "back", "chest", "wrist"];
 const RIGHT_SLOTS = ["hands", "waist", "legs", "feet", "finger1", "finger2"];
 const BOTTOM_SLOTS = ["trinket1", "trinket2", "mainhand", "offhand"];
@@ -43,30 +42,129 @@ function zamimg(icon: string, size: "small" | "medium" = "small") {
   return `https://wow.zamimg.com/images/wow/icons/${size}/${icon}.jpg`;
 }
 
+// ─── Item row (shared between BiS and Alt) ────────────────────────────────────
+
+function ItemRow({
+  label,
+  labelColor,
+  item,
+  analyzed,
+  charItem,
+  highlight,
+}: {
+  label: string;
+  labelColor: string;
+  item: BisItem;
+  analyzed: number;
+  charItem?: RioGearItem;
+  highlight?: boolean;
+}) {
+  const delta = charItem ? item.item_level - charItem.item_level : null;
+  const isUpgrade = delta !== null && delta > 0;
+  const hasIt = charItem && charItem.item_id === item.item_id;
+
+  return (
+    <div style={{
+      display: "flex",
+      alignItems: "center",
+      gap: "5px",
+      marginTop: "5px",
+      paddingTop: "5px",
+      borderTop: "1px solid var(--border)",
+    }}>
+      <span style={{
+        fontSize: "8px",
+        color: labelColor,
+        width: "28px",
+        flexShrink: 0,
+        fontWeight: 700,
+        fontFamily: "'JetBrains Mono', monospace",
+      }}>
+        {label}
+      </span>
+      <a
+        href={wowhead(item.item_id)}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`${item.name} — ${item.raw_count}/${analyzed} joueurs`}
+        style={{ display: "flex", flexShrink: 0 }}
+      >
+        {item.icon && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={item.icon_url || zamimg(item.icon)}
+            alt=""
+            width={20}
+            height={20}
+            style={{
+              borderRadius: "3px",
+              outline: highlight && isUpgrade ? "1px solid rgba(255,192,0,0.6)" : "none",
+              outlineOffset: "1px",
+            }}
+            onError={e => { e.currentTarget.style.display = "none"; }}
+          />
+        )}
+      </a>
+      <div style={{ lineHeight: 1.2, minWidth: 0, overflow: "hidden" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <span style={{
+            fontSize: "11px",
+            color: isUpgrade ? "var(--positive)" : "var(--text-2)",
+            fontFamily: "'JetBrains Mono', monospace",
+            fontWeight: 600,
+          }}>
+            {item.item_level}
+          </span>
+          {isUpgrade && (
+            <span style={{ fontSize: "9px", color: "var(--positive)", fontWeight: 700 }}>
+              +{delta}
+            </span>
+          )}
+          {hasIt && (
+            <span style={{ fontSize: "9px", color: "var(--positive)", fontWeight: 700 }}>
+              ✓
+            </span>
+          )}
+        </div>
+        <div style={{ fontSize: "8px", color: "var(--text-3)" }}>
+          {item.raw_count}/{analyzed} joueurs
+          {item.dungeon_display && (
+            <span style={{ marginLeft: "3px", color: "var(--text-3)" }}>
+              · {item.dungeon_display}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Slot card ────────────────────────────────────────────────────────────────
 
 interface SlotCardProps {
   slot: string;
   bisItem?: BisItem;
+  altItem?: BisItem;
   charItem?: RioGearItem;
   analyzed: number;
 }
 
-function SlotCard({ slot, bisItem, charItem, analyzed }: SlotCardProps) {
+function SlotCard({ slot, bisItem, altItem, charItem, analyzed }: SlotCardProps) {
   const hasBis = !!(bisItem && charItem && charItem.item_id === bisItem.item_id);
-  const delta   = bisItem && charItem ? bisItem.item_level - charItem.item_level : null;
+  const hasAlt = !!(altItem && charItem && charItem.item_id === altItem.item_id);
+  const delta  = bisItem && charItem ? bisItem.item_level - charItem.item_level : null;
   const isUpgrade = delta !== null && delta > 0;
-  const hasDowngrade = delta !== null && delta < 0;
+
+  // Show alt row when: altItem exists AND player doesn't already have BiS AND alt differs from BiS
+  const showAlt = !!(altItem && !hasBis && bisItem && altItem.item_id !== bisItem.item_id);
 
   let borderColor = "var(--border)";
   let bgColor     = "var(--surface)";
-  if (hasBis)                          { borderColor = "rgba(62,202,114,0.5)";   bgColor = "rgba(62,202,114,0.05)"; }
-  else if (isUpgrade)                   { borderColor = "rgba(255,192,0,0.45)"; }
-  else if (bisItem && !charItem)        { borderColor = "rgba(232,80,80,0.35)"; }
-  else if (hasDowngrade)                { borderColor = "var(--border)"; }
+  if (hasBis || hasAlt)                { borderColor = "rgba(62,202,114,0.5)";  bgColor = "rgba(62,202,114,0.05)"; }
+  else if (isUpgrade)                  { borderColor = "rgba(255,192,0,0.45)"; }
+  else if (bisItem && !charItem)       { borderColor = "rgba(232,80,80,0.35)"; }
 
-  const curIcon  = charItem?.icon ?? "";
-  const bisIcon  = bisItem?.icon ?? "";
+  const curIcon = charItem?.icon ?? "";
 
   return (
     <div style={{
@@ -130,6 +228,11 @@ function SlotCard({ slot, bisItem, charItem, analyzed }: SlotCardProps) {
                 BiS ✓
               </span>
             )}
+            {hasAlt && !hasBis && (
+              <span style={{ fontSize: "9px", color: "var(--arcane)", fontWeight: 700 }}>
+                Alt ✓
+              </span>
+            )}
           </>
         ) : (
           <span style={{ fontSize: "10px", color: "var(--text-3)", fontStyle: "italic" }}>—</span>
@@ -138,54 +241,25 @@ function SlotCard({ slot, bisItem, charItem, analyzed }: SlotCardProps) {
 
       {/* BiS item (only shown when not already BiS) */}
       {bisItem && !hasBis && (
-        <div style={{ display: "flex", alignItems: "center", gap: "5px", marginTop: "5px", paddingTop: "5px", borderTop: "1px solid var(--border)" }}>
-          <span style={{ fontSize: "8px", color: "var(--gold)", width: "28px", flexShrink: 0, fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>
-            bis
-          </span>
-          <a
-            href={wowhead(bisItem.item_id)}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`${bisItem.name} — ${bisItem.raw_count}/${analyzed} joueurs`}
-            style={{ display: "flex", flexShrink: 0 }}
-          >
-            {bisIcon && (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={bisItem.icon_url || zamimg(bisIcon)}
-                alt=""
-                width={20}
-                height={20}
-                style={{
-                  borderRadius: "3px",
-                  outline: isUpgrade ? "1px solid rgba(255,192,0,0.6)" : "none",
-                  outlineOffset: "1px",
-                }}
-                onError={e => { e.currentTarget.style.display = "none"; }}
-              />
-            )}
-          </a>
-          <div style={{ lineHeight: 1.2 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-              <span style={{
-                fontSize: "11px",
-                color: isUpgrade ? "var(--positive)" : "var(--text-2)",
-                fontFamily: "'JetBrains Mono', monospace",
-                fontWeight: 600,
-              }}>
-                {bisItem.item_level}
-              </span>
-              {isUpgrade && (
-                <span style={{ fontSize: "9px", color: "var(--positive)", fontWeight: 700 }}>
-                  +{delta}
-                </span>
-              )}
-            </div>
-            <div style={{ fontSize: "8px", color: "var(--text-3)" }}>
-              {bisItem.raw_count}/{analyzed} joueurs
-            </div>
-          </div>
-        </div>
+        <ItemRow
+          label="bis"
+          labelColor="var(--gold)"
+          item={bisItem}
+          analyzed={analyzed}
+          charItem={charItem}
+          highlight
+        />
+      )}
+
+      {/* Alternative item (weapons, trinkets, rings only) */}
+      {showAlt && (
+        <ItemRow
+          label="alt"
+          labelColor="var(--arcane)"
+          item={altItem!}
+          analyzed={analyzed}
+          charItem={charItem}
+        />
       )}
 
       {/* No BiS data for this slot */}
@@ -214,8 +288,6 @@ function CharacterCenter({
   totalScanned: number;
 }) {
   const classSlug = characterClass.toLowerCase().replace(/\s+/g, "").replace("'", "");
-  // Try to derive the main 3D render from RIO's thumbnail URL
-  // thumbnail: .../avatar/ID-hash.jpg  →  main: .../main/ID-hash.jpg
   const mainRender = thumbnailUrl?.replace("/avatar/", "/main/") ?? null;
   const avatarUrl  = thumbnailUrl ?? null;
 
@@ -292,69 +364,6 @@ function CharacterCenter({
   );
 }
 
-// ─── Dungeon priority card ────────────────────────────────────────────────────
-
-function DungeonPriorityCard({
-  dp,
-  rank,
-  characterGear,
-}: {
-  dp: { dungeon_name: string; dungeon_display: string; bis_count: number; items: BisItem[] };
-  rank: number;
-  characterGear: Record<string, RioGearItem>;
-}) {
-  const missing = dp.items.filter(item => characterGear[item.slot]?.item_id !== item.item_id);
-  if (missing.length === 0) return null;
-
-  const accentColor = rank === 0 ? "var(--gold)" : rank === 1 ? "var(--arcane)" : "var(--border-2)";
-
-  return (
-    <div style={{
-      padding: "10px 12px",
-      background: "var(--surface-2)",
-      border: "1px solid var(--border)",
-      borderLeft: `3px solid ${accentColor}`,
-      borderRadius: "6px",
-    }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-        <span style={{ fontWeight: 600, fontSize: "12px", color: "var(--text)", fontFamily: "'Cinzel', serif" }}>
-          {dp.dungeon_display || dp.dungeon_name}
-        </span>
-        <span style={{ fontSize: "11px", color: accentColor, fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>
-          {missing.length} BiS manquant{missing.length > 1 ? "s" : ""}
-        </span>
-      </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-        {missing.map(item => (
-          <a
-            key={item.item_id}
-            href={wowhead(item.item_id)}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "flex", alignItems: "center", gap: "5px", textDecoration: "none" }}
-            title={item.name}
-          >
-            {item.icon && (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={item.icon_url || zamimg(item.icon)}
-                alt=""
-                width={20}
-                height={20}
-                style={{ borderRadius: "3px" }}
-                onError={e => { e.currentTarget.style.display = "none"; }}
-              />
-            )}
-            <span style={{ fontSize: "11px", color: "var(--text-2)" }}>
-              {SLOT_NAMES[item.slot] ?? item.slot}
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ─── Main component ───────────────────────────────────────────────────────────
 
 interface Props {
@@ -368,7 +377,6 @@ interface Props {
 export function BisPanel({ region, characterClass, defaultSpec, characterGear, thumbnailUrl }: Props) {
   const specs = CLASS_SPECS[characterClass] ?? [];
   const [selectedSpec, setSelectedSpec] = useState(specs.includes(defaultSpec) ? defaultSpec : specs[0] ?? "");
-  const [activeTab, setActiveTab] = useState<"dungeon" | "full">("dungeon");
   const [result, setResult] = useState<BisAnalysisResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -390,13 +398,8 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
     }
   }
 
-  // When the dungeon tab is selected but dungeon-source detection returned nothing
-  // (happens when journal IDs aren't available for this season's items), fall back
-  // to bisFull so the tab is never completely empty.
-  const dungeonEmpty = result && Object.keys(result.bis_dungeon ?? {}).length === 0;
-  const bisMap = activeTab === "dungeon"
-    ? (dungeonEmpty ? result?.bis_full : result?.bis_dungeon)
-    : result?.bis_full;
+  const bisMap = result?.bis;
+  const altMap = result?.bis_alternatives;
 
   return (
     <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", overflow: "hidden" }}>
@@ -483,53 +486,11 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
         </div>
       )}
 
-      {/* ── Tabs (dungeon vs full) ── */}
-      {result && !error && (
-        <div style={{ borderBottom: "1px solid var(--border)", display: "flex" }}>
-          {(["dungeon", "full"] as const).map(tab => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              style={{
-                padding: "9px 18px",
-                fontSize: "12px",
-                fontWeight: 600,
-                background: "none",
-                border: "none",
-                borderBottom: `2px solid ${activeTab === tab ? "var(--gold)" : "transparent"}`,
-                color: activeTab === tab ? "var(--text)" : "var(--text-2)",
-                cursor: "pointer",
-                transition: "color 0.15s",
-              }}
-            >
-              {tab === "dungeon" ? "Donjons seulement" : "Raid + Donjon"}
-            </button>
-          ))}
-        </div>
-      )}
-
       {/* ── Paper doll layout ── */}
       {result && !error && (
         <div style={{ padding: "16px" }}>
 
-          {/* Dungeon fallback notice */}
-      {activeTab === "dungeon" && dungeonEmpty && Object.keys(result.bis_full ?? {}).length > 0 && (
-        <div style={{
-          marginBottom: "12px",
-          padding: "8px 12px",
-          background: "rgba(255,192,0,0.07)",
-          border: "1px solid rgba(255,192,0,0.25)",
-          borderRadius: "6px",
-          fontSize: "11px",
-          color: "var(--text-2)",
-          lineHeight: 1.5,
-        }}>
-          <strong style={{ color: "var(--gold)" }}>Source des donjons non détectée</strong> pour la saison en cours —
-          affichage de tous les items BiS (raid inclus).
-        </div>
-      )}
-
-      {/* Three-column: left slots | character | right slots */}
+          {/* Three-column: left slots | character | right slots */}
           <div style={{
             display: "flex",
             gap: "12px",
@@ -544,6 +505,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                   key={slot}
                   slot={slot}
                   bisItem={bisMap?.[slot]}
+                  altItem={altMap?.[slot]}
                   charItem={characterGear[slot]}
                   analyzed={result.analyzed_count}
                 />
@@ -566,6 +528,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                   key={slot}
                   slot={slot}
                   bisItem={bisMap?.[slot]}
+                  altItem={altMap?.[slot]}
                   charItem={characterGear[slot]}
                   analyzed={result.analyzed_count}
                 />
@@ -586,6 +549,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                 key={slot}
                 slot={slot}
                 bisItem={bisMap?.[slot]}
+                altItem={altMap?.[slot]}
                 charItem={characterGear[slot]}
                 analyzed={result.analyzed_count}
               />
@@ -610,35 +574,6 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               </span>
             </div>
           )}
-        </div>
-      )}
-
-      {/* ── Dungeon farming priority ── */}
-      {result && !error && activeTab === "dungeon" && (result.dungeon_priority ?? []).length > 0 && (
-        <div style={{ padding: "0 16px 16px" }}>
-          <div style={{
-            fontSize: "10px",
-            fontWeight: 600,
-            textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            color: "var(--text-3)",
-            fontFamily: "'JetBrains Mono', monospace",
-            marginBottom: "10px",
-            paddingTop: "16px",
-            borderTop: "1px solid var(--border)",
-          }}>
-            Donjons prioritaires à farmer
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {(result.dungeon_priority ?? []).map((dp, i) => (
-              <DungeonPriorityCard
-                key={dp.dungeon_name}
-                dp={dp}
-                rank={i}
-                characterGear={characterGear}
-              />
-            ))}
-          </div>
         </div>
       )}
 
