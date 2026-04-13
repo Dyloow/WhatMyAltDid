@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Dark Theme (default) ──────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg:            #07090f;
+  --surface:       #0d0f1a;
+  --surface-2:     #121525;
+  --surface-3:     #171a2d;
+  --border:        #1c1f35;
+  --border-2:      #252848;
+  --text:          #e8edf8;
+  --text-2:        #8d96b8;
+  --text-3:        #525c7a;
+
+  --gold:          #c9a84c;
+  --gold-dim:      rgba(201,168,76,0.12);
+  --gold-glow:     rgba(201,168,76,0.25);
+  --arcane:        #4d96f5;
+  --arcane-dim:    rgba(77,150,245,0.12);
+  --purple:        #9d6ef5;
+  --purple-dim:    rgba(157,110,245,0.12);
+
+  --positive:      #3eca72;
+  --positive-dim:  rgba(62,202,114,0.12);
+  --warning:       #e59e30;
+  --warning-dim:   rgba(229,158,48,0.12);
+  --negative:      #e85050;
+  --negative-dim:  rgba(232,80,80,0.12);
+
+  --score-legendary: #ff8000;
+  --score-epic:      #a335ee;
+  --score-rare:      #0070dd;
+  --score-uncommon:  #1eff00;
+  --score-common:    #9d9d9d;
+
+  --vault-active:  var(--gold);
+  --vault-empty:   var(--border-2);
+
+  --background:        var(--bg);
+  --foreground:        var(--text);
+  --card:              var(--surface);
+  --card-foreground:   var(--text);
+  --popover:           var(--surface-2);
+  --popover-foreground: var(--text);
+  --primary:           var(--gold);
+  --primary-foreground: #07090f;
+  --secondary:         var(--surface-2);
+  --secondary-foreground: var(--text);
+  --muted:             var(--surface-2);
+  --muted-foreground:  var(--text-2);
+  --destructive:       var(--negative);
+  --border:            var(--border);
+  --input:             var(--surface-2);
+  --ring:              var(--gold);
+  --radius:            0.5rem;
+
+  --accent:        var(--gold);
+  --accent-dim:    var(--gold-dim);
+  --key-gold:      var(--gold);
+  --wow-gold:      var(--gold);
+}
+
+/* ─── Light Theme ───────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:            #f2f3f8;
+  --surface:       #ffffff;
+  --surface-2:     #f5f6fa;
+  --surface-3:     #eceef5;
+  --border:        #dde0ee;
+  --border-2:      #c8cce0;
+  --text:          #151828;
+  --text-2:        #5a6080;
+  --text-3:        #9099be;
+
+  --gold:          #a87c20;
+  --gold-dim:      rgba(168,124,32,0.1);
+  --gold-glow:     rgba(168,124,32,0.2);
+  --arcane:        #2471d4;
+  --arcane-dim:    rgba(36,113,212,0.1);
+  --purple:        #7340c9;
+  --purple-dim:    rgba(115,64,201,0.1);
+
+  --positive:      #18803c;
+  --positive-dim:  rgba(24,128,60,0.1);
+  --warning:       #b97a10;
+  --warning-dim:   rgba(185,122,16,0.1);
+  --negative:      #c43030;
+  --negative-dim:  rgba(196,48,48,0.1);
+
+  --score-legendary: #cf5900;
+  --score-epic:      #7340c9;
+  --score-rare:      #1a5eab;
+  --score-uncommon:  #1a7a40;
+  --score-common:    #5a5a5a;
+
+  --vault-active:  var(--gold);
+  --vault-empty:   var(--border-2);
+
+  --background:        var(--bg);
+  --foreground:        var(--text);
+  --card:              var(--surface);
+  --card-foreground:   var(--text);
+  --popover:           var(--surface);
+  --popover-foreground: var(--text);
+  --primary:           var(--gold);
+  --primary-foreground: #fff;
+  --secondary:         var(--surface-2);
+  --secondary-foreground: var(--text);
+  --muted:             var(--surface-2);
+  --muted-foreground:  var(--text-2);
+  --destructive:       var(--negative);
+  --input:             var(--surface-2);
+  --ring:              var(--gold);
+
+  --accent:        var(--gold);
+  --accent-dim:    var(--gold-dim);
+  --key-gold:      var(--gold);
+  --wow-gold:      var(--gold);
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Keyframes ─────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes gold-glow {
+  0%, 100% { box-shadow: 0 0 0 1px var(--border), 0 0 16px var(--gold-dim); }
+  50%       { box-shadow: 0 0 0 1px var(--gold), 0 0 24px var(--gold-glow); }
+}
+
+/* ─── Utility ───────────────────────────────────────────────── */
+.font-display { font-family: 'Cinzel', serif; }
+.font-logo    { font-family: 'Cinzel Decorative', serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+.animate-fade-in  { animation: fade-in 0.3s ease both; }
+.animate-slide-in { animation: slide-right 0.25s ease both; }
+
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--surface)    25%,
+    var(--surface-2)  50%,
+    var(--surface)    75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: 4px;
+}
+
+/* Stagger for card grids */
+.stagger-grid > *:nth-child(1)  { animation-delay: 0ms; }
+.stagger-grid > *:nth-child(2)  { animation-delay: 50ms; }
+.stagger-grid > *:nth-child(3)  { animation-delay: 100ms; }
+.stagger-grid > *:nth-child(4)  { animation-delay: 150ms; }
+.stagger-grid > *:nth-child(5)  { animation-delay: 200ms; }
+.stagger-grid > *:nth-child(6)  { animation-delay: 250ms; }
+.stagger-grid > *:nth-child(n+7){ animation-delay: 300ms; }
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    { background: var(--border-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }

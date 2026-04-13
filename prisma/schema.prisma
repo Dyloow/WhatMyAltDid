@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String      @id @default(uuid()) @db.Uuid
+  battlenetId String      @unique @map("battlenet_id")
+  battletag   String
+  region      String      @default("eu")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  lastLogin   DateTime?   @map("last_login")
+  characters  Character[]
+
+  @@map("users")
+}
+
+model Character {
+  id            String        @id @default(uuid()) @db.Uuid
+  userId        String        @map("user_id") @db.Uuid
+  characterId   BigInt        @map("character_id")
+  name          String
+  realmSlug     String        @map("realm_slug")
+  region        String
+  classId       Int?          @map("class_id")
+  specId        Int?          @map("spec_id")
+  level         Int?
+  itemLevelAvg  Float?        @map("item_level_avg")
+  isHidden      Boolean       @default(false) @map("is_hidden")
+  lastScannedAt DateTime?     @map("last_scanned_at")
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  weeklyMplus   WeeklyMplus[]
+  weeklyVault   WeeklyVault[]
+
+  @@unique([userId, characterId])
+  @@map("characters")
+}
+
+model WeeklyMplus {
+  id              String    @id @default(uuid()) @db.Uuid
+  characterId     String    @map("character_id") @db.Uuid
+  weekStart       DateTime  @map("week_start") @db.Date
+  runsCount       Int       @default(0) @map("runs_count")
+  highestKeyLevel Int?      @map("highest_key_level")
+  highestKeyTimed Boolean?  @map("highest_key_timed")
+  rioScore        Float?    @map("rio_score")
+  vaultIlvl       Int?      @map("vault_ilvl")
+  character       Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, weekStart])
+  @@map("weekly_mplus")
+}
+
+model WeeklyVault {
+  id              String    @id @default(uuid()) @db.Uuid
+  characterId     String    @map("character_id") @db.Uuid
+  weekStart       DateTime  @map("week_start") @db.Date
+  dungeonRuns     Int       @default(0) @map("dungeon_runs")
+  dungeonSlots    Int       @default(0) @map("dungeon_slots")
+  dungeonVaultIlvl Int?     @map("dungeon_vault_ilvl")
+  raidBosses      Int       @default(0) @map("raid_bosses")
+  raidSlots       Int       @default(0) @map("raid_slots")
+  raidVaultIlvl   Int?      @map("raid_vault_ilvl")
+  worldActivities Int       @default(0) @map("world_activities")
+  worldSlots      Int       @default(0) @map("world_slots")
+  character       Character @relation(fields: [characterId], references: [id], onDelete: Cascade)
+
+  @@unique([characterId, weekStart])
+  @@map("weekly_vault")
+}
