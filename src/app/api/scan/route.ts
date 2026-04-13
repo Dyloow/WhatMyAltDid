@@ -23,6 +23,16 @@ function getLastResetTimestamp(region: string): number {
   return d.getTime();
 }
 
+/**
+ * Normalise a Blizzard encounter timestamp to milliseconds.
+ * The encounters/raids endpoint returns timestamps in SECONDS (not ms),
+ * but Date.now() / getLastResetTimestamp() return milliseconds.
+ * Heuristic: timestamps < 5 × 10^9 are in seconds.
+ */
+function toMs(ts: number): number {
+  return ts < 5e9 ? ts * 1000 : ts;
+}
+
 /** Count unique boss IDs killed since the last weekly reset (any difficulty). */
 function calcWeeklyRaidBosses(raid: RaidProfile | null, region: string): number {
   if (!raid) return 0;
@@ -32,7 +42,7 @@ function calcWeeklyRaidBosses(raid: RaidProfile | null, region: string): number 
     for (const instance of expansion.instances ?? []) {
       for (const mode of instance.modes ?? []) {
         for (const enc of mode.progress?.encounters ?? []) {
-          if (enc.last_kill_timestamp && enc.last_kill_timestamp > since) {
+          if (enc.last_kill_timestamp && toMs(enc.last_kill_timestamp) > since) {
             killed.add(enc.encounter.id);
           }
         }

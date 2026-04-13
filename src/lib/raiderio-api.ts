@@ -179,8 +179,11 @@ interface RioRunsResponse {
 }
 
 /**
- * Collect up to `count` unique players of a given class/spec by scanning
- * the top M+ run rankings (free RIO endpoint).
+ * Collect up to `count` unique players of a given class/spec.
+ * Strategy:
+ *   1. Try the character rankings endpoint first — top players are actively
+ *      ranked and almost certainly have gear indexed on RIO.
+ *   2. Fall back to scanning top M+ runs for additional players.
  * Season slug fallback order: configured season → season-tww-2 → current
  */
 export async function getRioTopPlayersBySpec(
@@ -192,21 +195,54 @@ export async function getRioTopPlayersBySpec(
 ): Promise<Array<{ name: string; realm: string }>> {
   const clsSlug  = cls.toLowerCase().replace(/\s+/g, "-");
   const specSlug = spec.toLowerCase().replace(/\s+/g, "-");
-  const cacheKey = `rio:topplayers2:${region}:${clsSlug}:${specSlug}`;
+  // v3: busts old caches that may have been built with fewer pages / wrong structure
+  const cacheKey = `rio:topplayers3:${region}:${clsSlug}:${specSlug}`;
 
   try {
     return await cachedFetch(cacheKey, 3600, async () => {
       const seen = new Set<string>();
       const characters: Array<{ name: string; realm: string }> = [];
 
-      // Fallback chain: configured season → tww-2 (last known real slug) → current
+      function addChar(name: string, realmSlug: string) {
+        const uid = `${realmSlug}:${name.toLowerCase()}`;
+        if (!seen.has(uid)) {
+          seen.add(uid);
+          characters.push({ name, realm: realmSlug });
+        }
+      }
+
+      // Fallback chain: configured season → tww-2 → current
       const slugsToTry = [...new Set([season, "season-tww-2", "current"])];
 
+      // ── Priority 1: character rankings endpoint ──────────────────────────
+      // Top-ranked players are very likely to have gear indexed in RIO,
+      // making these names far more productive than random run members.
+      for (const s of slugsToTry) {
+        try {
+          const url = `${RIO_BASE}/mythic-plus/rankings/characters?region=${region}&season=${s}&class=${clsSlug}&spec=${specSlug}&page=0`;
+          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          if (!res.ok) continue;
+          const data = await res.json() as Record<string, unknown>;
+          const ranked: RioRankedCharacter[] =
+            (Array.isArray(data) ? data : null) ??
+            (Array.isArray(data.rankedCharacters) ? data.rankedCharacters as RioRankedCharacter[] : null) ??
+            (data.rankings && Array.isArray((data.rankings as Record<string, unknown>).rankedCharacters)
+              ? (data.rankings as { rankedCharacters: RioRankedCharacter[] }).rankedCharacters
+              : null) ??
+            [];
+          for (const rc of ranked) {
+            addChar(rc.character.name, rc.character.realm.slug);
+          }
+          if (characters.length > 0) break; // got ranking data — stop trying other slugs
+        } catch { /* ignore, fall through to runs */ }
+      }
+
+      // ── Priority 2: scan top M+ runs for more players ───────────────────
       for (const s of slugsToTry) {
         if (characters.length >= count) break;
 
-        // Scan up to 30 pages × 20 runs × 5 members = 3 000 members per season slug
-        for (let page = 0; page < 30 && characters.length < count; page++) {
+        // Scan up to 50 pages × 20 runs × 5 members = 5 000 member slots
+        for (let page = 0; page < 50 && characters.length < count; page++) {
           const url = `${RIO_BASE}/mythic-plus/runs?season=${s}&region=${region}&dungeon=all&page=${page}`;
           let res: Response;
           try {
@@ -224,12 +260,8 @@ export async function getRioTopPlayersBySpec(
             for (const member of (ranking.run.roster ?? [])) {
               const char = member.character;
               if (char?.class?.slug === clsSlug && char?.spec?.slug === specSlug) {
-                const uid = `${char.realm.slug}:${char.name.toLowerCase()}`;
-                if (!seen.has(uid)) {
-                  seen.add(uid);
-                  characters.push({ name: char.name, realm: char.realm.slug });
-                  if (characters.length >= count) break;
-                }
+                addChar(char.name, char.realm.slug);
+                if (characters.length >= count) break;
               }
             }
             if (characters.length >= count) break;

@@ -360,6 +360,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
             characterClass={profile.class}
             defaultSpec={profile.active_spec_name}
             characterGear={gear}
+            thumbnailUrl={profile.thumbnail_url}
           />
         )}
       </div>
