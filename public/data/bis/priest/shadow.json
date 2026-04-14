@@ -1,0 +1,203 @@
+{
+  "analyzed_count": 7,
+  "total_scanned": 150,
+  "season": "season-mn-1",
+  "class": "Priest",
+  "spec": "Shadow",
+  "bis": {
+    "head": {
+      "item_id": 250051,
+      "name": "Blind Oath's Winged Crest",
+      "item_level": 289,
+      "icon": "inv_helm_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.7142857142857143,
+      "raw_count": 5,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 249368,
+      "name": "Eternal Voidsong Chain",
+      "item_level": 276,
+      "icon": "inv_12_jewelry_silvermoonelf_necklace_blue1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_blue1.jpg",
+      "frequency": 0.2857142857142857,
+      "raw_count": 2,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 250049,
+      "name": "Blind Oath's Seraphguards",
+      "item_level": 276,
+      "icon": "inv_shoulder_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.5714285714285714,
+      "raw_count": 4,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 249370,
+      "name": "Draconic Nullcape",
+      "item_level": 266,
+      "icon": "inv_cape_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.2857142857142857,
+      "raw_count": 2,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250054,
+      "name": "Blind Oath's Raiment",
+      "item_level": 263,
+      "icon": "inv_robe_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 7,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 239664,
+      "name": "Arcanoweave Cord",
+      "item_level": 285,
+      "icon": "inv_belt_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.7142857142857143,
+      "raw_count": 5,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 151305,
+      "name": "Entropic Wristwraps",
+      "item_level": 276,
+      "icon": "inv_bracer_cloth_legiondungeon_c_03",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_legiondungeon_c_03.jpg",
+      "frequency": 0.42857142857142855,
+      "raw_count": 3,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 250052,
+      "name": "Blind Oath's Touch",
+      "item_level": 276,
+      "icon": "inv_glove_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.7142857142857143,
+      "raw_count": 5,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 250050,
+      "name": "Blind Oath's Leggings",
+      "item_level": 289,
+      "icon": "inv_pant_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 7,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 258584,
+      "name": "Lightbinder Treads",
+      "item_level": 276,
+      "icon": "inv_cloth_draenordungeon_c_01boot",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cloth_draenordungeon_c_01boot.jpg",
+      "frequency": 0.2857142857142857,
+      "raw_count": 2,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.7142857142857143,
+      "raw_count": 5,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 264507,
+      "name": "Crucible of Erratic Energies",
+      "item_level": 263,
+      "icon": "inv_112_raidtrinkets_etherealenergystoragebattery_gold",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_112_raidtrinkets_etherealenergystoragebattery_gold.jpg",
+      "frequency": 0.5714285714285714,
+      "raw_count": 4,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 0.8571428571428571,
+      "raw_count": 6,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.5714285714285714,
+      "raw_count": 4,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249809,
+      "name": "Locus-Walker's Ribbon",
+      "item_level": 263,
+      "icon": "inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon.jpg",
+      "frequency": 0.42857142857142855,
+      "raw_count": 3,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 251201,
+      "name": "Corespark Multitool",
+      "item_level": 289,
+      "icon": "inv_staff_2h_domanaar_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_domanaar_b_01.jpg",
+      "frequency": 0.14285714285714285,
+      "raw_count": 1,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  }
+}

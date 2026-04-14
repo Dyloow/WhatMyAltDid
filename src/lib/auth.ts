@@ -84,6 +84,7 @@ export const authConfig: NextAuthConfig = {
     error: "/auth/error",
   },
   session: { strategy: "jwt" },
+  trustHost: true,
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);

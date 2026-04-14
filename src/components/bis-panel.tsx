@@ -2,11 +2,11 @@
 
 import { RioGearItem } from "@/lib/raiderio-api";
 import { BisAnalysisResult, BisItem } from "@/app/api/bis/route";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CLASS_SPECS: Record<string, string[]> = {
   "Death Knight":  ["Blood", "Frost", "Unholy"],
-  "Demon Hunter":  ["Havoc", "Vengeance"],
+  "Demon Hunter":  ["Devourer", "Havoc", "Vengeance"],
   Druid:           ["Balance", "Feral", "Guardian", "Restoration"],
   Evoker:          ["Augmentation", "Devastation", "Preservation"],
   Hunter:          ["Beast Mastery", "Marksmanship", "Survival"],
@@ -48,16 +48,16 @@ function ItemRow({
   label,
   labelColor,
   item,
-  analyzed,
   charItem,
   highlight,
+  isAlternative,
 }: {
   label: string;
   labelColor: string;
   item: BisItem;
-  analyzed: number;
   charItem?: RioGearItem;
   highlight?: boolean;
+  isAlternative?: boolean;
 }) {
   const delta = charItem ? item.item_level - charItem.item_level : null;
   const isUpgrade = delta !== null && delta > 0;
@@ -86,7 +86,7 @@ function ItemRow({
         href={wowhead(item.item_id)}
         target="_blank"
         rel="noopener noreferrer"
-        title={`${item.name} — ${item.raw_count}/${analyzed} joueurs`}
+        title={`${item.name} — ${Math.round(item.frequency * 100)}% des votes`}
         style={{ display: "flex", flexShrink: 0 }}
       >
         {item.icon && (
@@ -121,13 +121,20 @@ function ItemRow({
             </span>
           )}
           {hasIt && (
-            <span style={{ fontSize: "9px", color: "var(--positive)", fontWeight: 700 }}>
-              ✓
+            <span style={{ 
+              fontSize: "9px", 
+              color: "var(--positive)", 
+              fontWeight: 700,
+              background: isAlternative ? "rgba(62,202,114,0.15)" : "transparent",
+              padding: isAlternative ? "1px 3px" : "0",
+              borderRadius: isAlternative ? "3px" : "0",
+            }}>
+              {isAlternative ? "ALT ✓" : "✓"}
             </span>
           )}
         </div>
         <div style={{ fontSize: "8px", color: "var(--text-3)" }}>
-          {item.raw_count}/{analyzed} joueurs
+          {Math.round(item.frequency * 100)}% votes
           {item.dungeon_display && (
             <span style={{ marginLeft: "3px", color: "var(--text-3)" }}>
               · {item.dungeon_display}
@@ -146,10 +153,9 @@ interface SlotCardProps {
   bisItem?: BisItem;
   altItem?: BisItem;
   charItem?: RioGearItem;
-  analyzed: number;
 }
 
-function SlotCard({ slot, bisItem, altItem, charItem, analyzed }: SlotCardProps) {
+function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
   const hasBis = !!(bisItem && charItem && charItem.item_id === bisItem.item_id);
   const hasAlt = !!(altItem && charItem && charItem.item_id === altItem.item_id);
   const delta  = bisItem && charItem ? bisItem.item_level - charItem.item_level : null;
@@ -167,14 +173,14 @@ function SlotCard({ slot, bisItem, altItem, charItem, analyzed }: SlotCardProps)
   const curIcon = charItem?.icon ?? "";
 
   return (
-    <div style={{
+    <div className="animate-scale-in hover-lift" style={{
       background: bgColor,
       border: `1px solid ${borderColor}`,
       borderRadius: "7px",
       padding: "8px 10px",
       width: "148px",
       flexShrink: 0,
-      transition: "border-color 0.15s",
+      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
     }}>
       {/* Slot label */}
       <div style={{
@@ -245,7 +251,6 @@ function SlotCard({ slot, bisItem, altItem, charItem, analyzed }: SlotCardProps)
           label="bis"
           labelColor="var(--gold)"
           item={bisItem}
-          analyzed={analyzed}
           charItem={charItem}
           highlight
         />
@@ -257,8 +262,8 @@ function SlotCard({ slot, bisItem, altItem, charItem, analyzed }: SlotCardProps)
           label="alt"
           labelColor="var(--arcane)"
           item={altItem!}
-          analyzed={analyzed}
           charItem={charItem}
+          isAlternative={true}
         />
       )}
 
@@ -381,25 +386,133 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function runAnalysis() {
+  async function loadBisData() {
     setLoading(true);
     setError(null);
     try {
       const res = await fetch(
-        `/api/bis?region=${encodeURIComponent(region)}&class=${encodeURIComponent(characterClass)}&spec=${encodeURIComponent(selectedSpec)}`
+        `/api/bis/data?region=${encodeURIComponent(region)}&class=${encodeURIComponent(characterClass)}&spec=${encodeURIComponent(selectedSpec)}`
       );
       const data: BisAnalysisResult = await res.json();
       if (data.error) { setError(data.error); setResult(null); }
       else setResult(data);
     } catch {
-      setError("Erreur réseau lors de l'analyse. Réessayez.");
+      setError("Erreur lors du chargement des données BiS. Réessayez.");
     } finally {
       setLoading(false);
     }
   }
 
+  // Charger automatiquement au montage et quand la spec change
+  useEffect(() => {
+    if (selectedSpec) {
+      loadBisData();
+    }
+  }, [selectedSpec]);
+
   const bisMap = result?.bis;
   const altMap = result?.bis_alternatives;
+
+  // Smart distribution logic for paired slots (trinkets, rings)
+  const distributedBis: Record<string, BisItem> = {};
+  const distributedAlt: Record<string, BisItem> = {};
+
+  if (bisMap && altMap) {
+    // Copy all non-paired slots first
+    for (const [slot, item] of Object.entries(bisMap)) {
+      if (!slot.match(/^(trinket|finger)/)) {
+        distributedBis[slot] = item;
+      }
+    }
+    for (const [slot, item] of Object.entries(altMap)) {
+      if (!slot.match(/^(trinket|finger)/)) {
+        distributedAlt[slot] = item;
+      }
+    }
+
+    // Helper to distribute paired slots intelligently
+    function distributePairedSlots(
+      slot1Name: string,
+      slot2Name: string,
+      bis1: BisItem | undefined,
+      bis2: BisItem | undefined,
+      alt1: BisItem | undefined,
+      alt2: BisItem | undefined,
+      char1: RioGearItem | undefined,
+      char2: RioGearItem | undefined
+    ) {
+      // Collect all unique items with their vote counts
+      const itemMap = new Map<number, BisItem>();
+      if (bis1) itemMap.set(bis1.item_id, bis1);
+      if (bis2 && bis2.item_id !== bis1?.item_id) itemMap.set(bis2.item_id, bis2);
+      if (alt1 && !itemMap.has(alt1.item_id)) itemMap.set(alt1.item_id, alt1);
+      if (alt2 && !itemMap.has(alt2.item_id)) itemMap.set(alt2.item_id, alt2);
+
+      // Sort by votes (raw_count)
+      const sortedItems = Array.from(itemMap.values()).sort((a, b) => b.raw_count - a.raw_count);
+      
+      if (sortedItems.length === 0) return;
+
+      const has1 = char1 ? sortedItems.findIndex(item => item.item_id === char1.item_id) : -1;
+      const has2 = char2 ? sortedItems.findIndex(item => item.item_id === char2.item_id) : -1;
+
+      // Player has top 2 items already
+      if (has1 >= 0 && has2 >= 0 && has1 < 2 && has2 < 2) {
+        // Great! Show what they have
+        return;
+      }
+
+      // Distribute top 2 items
+      const top1 = sortedItems[0];
+      const top2 = sortedItems[1];
+
+      // Player has the top item in slot 1
+      if (char1?.item_id === top1.item_id) {
+        // They have top in slot 1, show it and recommend #2 in slot 2
+        distributedBis[slot1Name] = top1;
+        if (top2) distributedBis[slot2Name] = top2;
+      } 
+      // Player has the top item in slot 2
+      else if (char2?.item_id === top1.item_id) {
+        // They have top in slot 2, show it and recommend #2 in slot 1
+        distributedBis[slot2Name] = top1;
+        if (top2) distributedBis[slot1Name] = top2;
+      } 
+      // Player doesn't have the top item
+      else {
+        // Show top in slot 1, #2 in slot 2
+        distributedBis[slot1Name] = top1;
+        if (top2) {
+          distributedBis[slot2Name] = top2;
+          // Show 3rd option as alternative for slot 2 if available
+          if (sortedItems[2]) {
+            distributedAlt[slot2Name] = sortedItems[2];
+          }
+        }
+      }
+
+      // Add alternatives where appropriate
+      if (!distributedAlt[slot1Name] && top2 && char1?.item_id !== top1.item_id) {
+        distributedAlt[slot1Name] = top2;
+      }
+    }
+
+    // Apply to trinkets
+    distributePairedSlots(
+      'trinket1', 'trinket2',
+      bisMap.trinket1, bisMap.trinket2,
+      altMap.trinket1, altMap.trinket2,
+      characterGear.trinket1, characterGear.trinket2
+    );
+
+    // Apply to rings
+    distributePairedSlots(
+      'finger1', 'finger2',
+      bisMap.finger1, bisMap.finger2,
+      altMap.finger1, altMap.finger2,
+      characterGear.finger1, characterGear.finger2
+    );
+  }
 
   return (
     <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", overflow: "hidden" }}>
@@ -436,39 +549,14 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
             {specs.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
 
-          <button
-            onClick={runAnalysis}
-            disabled={loading || !selectedSpec}
-            style={{
-              padding: "5px 14px",
-              background: loading ? "var(--surface-3)" : "var(--gold)",
-              color: loading ? "var(--text-3)" : "#07090f",
-              border: loading ? "1px solid var(--border-2)" : "none",
-              borderRadius: "5px",
-              fontSize: "11px",
-              fontWeight: 700,
-              cursor: loading || !selectedSpec ? "not-allowed" : "pointer",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase",
-              transition: "all 0.15s",
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-            }}
-          >
-            {loading && (
-              <span style={{
-                width: "10px",
-                height: "10px",
-                borderRadius: "50%",
-                border: "2px solid var(--text-3)",
-                borderTopColor: "transparent",
-                display: "inline-block",
-                animation: "spin 0.8s linear infinite",
-              }} />
-            )}
-            {loading ? "Analyse…" : result ? "Relancer" : "Analyser"}
-          </button>
+          <div style={{
+            fontSize: "10px",
+            color: "var(--text-3)",
+            fontFamily: "'JetBrains Mono', monospace",
+            opacity: 0.7,
+          }}>
+            Mise à jour quotidienne à 6h
+          </div>
         </div>
       </div>
 
@@ -486,8 +574,66 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
         </div>
       )}
 
+      {/* ── Loading spinner ── */}
+      {loading && (
+        <div style={{
+          padding: "80px 20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+        }}>
+          <div style={{ position: "relative", width: "80px", height: "80px" }}>
+            {/* Outer rotating ring */}
+            <div style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              border: "3px solid transparent",
+              borderTopColor: "var(--gold)",
+              borderRightColor: "var(--gold)",
+              borderRadius: "50%",
+              animation: "spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite",
+            }} />
+            {/* Middle counter-rotating ring */}
+            <div style={{
+              position: "absolute",
+              top: "10px",
+              left: "10px",
+              width: "60px",
+              height: "60px",
+              border: "3px solid transparent",
+              borderBottomColor: "var(--arcane)",
+              borderLeftColor: "var(--arcane)",
+              borderRadius: "50%",
+              animation: "spin-reverse 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite",
+            }} />
+            {/* Inner pulsing core */}
+            <div style={{
+              position: "absolute",
+              top: "30px",
+              left: "30px",
+              width: "20px",
+              height: "20px",
+              background: "radial-gradient(circle, var(--gold), transparent)",
+              borderRadius: "50%",
+              animation: "pulse 1.5s ease-in-out infinite",
+            }} />
+          </div>
+          <div style={{
+            fontSize: "13px",
+            color: "var(--text-2)",
+            fontFamily: "'JetBrains Mono', monospace",
+            letterSpacing: "0.05em",
+            animation: "fade-in-out 2s ease-in-out infinite",
+          }}>
+            Analyse des meilleurs joueurs {selectedSpec}...
+          </div>
+        </div>
+      )}
+
       {/* ── Paper doll layout ── */}
-      {result && !error && (
+      {result && !error && !loading && (
         <div style={{ padding: "16px" }}>
 
           {/* Three-column: left slots | character | right slots */}
@@ -504,10 +650,9 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                 <SlotCard
                   key={slot}
                   slot={slot}
-                  bisItem={bisMap?.[slot]}
-                  altItem={altMap?.[slot]}
+                  bisItem={distributedBis?.[slot]}
+                  altItem={distributedAlt?.[slot]}
                   charItem={characterGear[slot]}
-                  analyzed={result.analyzed_count}
                 />
               ))}
             </div>
@@ -527,10 +672,9 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                 <SlotCard
                   key={slot}
                   slot={slot}
-                  bisItem={bisMap?.[slot]}
-                  altItem={altMap?.[slot]}
+                  bisItem={distributedBis?.[slot]}
+                  altItem={distributedAlt?.[slot]}
                   charItem={characterGear[slot]}
-                  analyzed={result.analyzed_count}
                 />
               ))}
             </div>
@@ -548,16 +692,15 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               <SlotCard
                 key={slot}
                 slot={slot}
-                bisItem={bisMap?.[slot]}
-                altItem={altMap?.[slot]}
+                bisItem={distributedBis?.[slot]}
+                altItem={distributedAlt?.[slot]}
                 charItem={characterGear[slot]}
-                analyzed={result.analyzed_count}
               />
             ))}
           </div>
 
           {/* Empty state */}
-          {Object.keys(bisMap ?? {}).length === 0 && (
+          {Object.keys(distributedBis ?? {}).length === 0 && (
             <div style={{
               textAlign: "center",
               color: "var(--text-3)",

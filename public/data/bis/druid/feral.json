@@ -1,0 +1,203 @@
+{
+  "analyzed_count": 38,
+  "total_scanned": 150,
+  "season": "season-mn-1",
+  "class": "Druid",
+  "spec": "Feral",
+  "bis": {
+    "head": {
+      "item_id": 250024,
+      "name": "Branches of the Luminous Bloom",
+      "item_level": 276,
+      "icon": "inv_helm_leather_raiddruidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddruidmidnight_d_01.jpg",
+      "frequency": 0.9274245343609505,
+      "raw_count": 35,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 266,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.2774566473988439,
+      "raw_count": 10,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 250022,
+      "name": "Seedpods of the Luminous Bloom",
+      "item_level": 289,
+      "icon": "inv_shoulder_leather_raiddruidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raiddruidmidnight_d_01.jpg",
+      "frequency": 0.9691714836223507,
+      "raw_count": 37,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 258575,
+      "name": "Rigid Scale Greatcloak",
+      "item_level": 266,
+      "icon": "inv_cape_draenordungeon_c_02_plate",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
+      "frequency": 0.4039820166987797,
+      "raw_count": 17,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250027,
+      "name": "Trunk of the Luminous Bloom",
+      "item_level": 276,
+      "icon": "inv_chest_leather_raiddruidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raiddruidmidnight_d_01.jpg",
+      "frequency": 0.9588953114964676,
+      "raw_count": 36,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 244573,
+      "name": "Silvermoon Agent's Utility Belt",
+      "item_level": 285,
+      "icon": "inv_belt_leather_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_questbloodelf_b_01.jpg",
+      "frequency": 0.2761721258831085,
+      "raw_count": 10,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 244576,
+      "name": "Silvermoon Agent's Deflectors",
+      "item_level": 285,
+      "icon": "inv_bracer_leather_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_questbloodelf_b_01.jpg",
+      "frequency": 0.46885035324341684,
+      "raw_count": 18,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 250025,
+      "name": "Arbortenders of the Luminous Bloom",
+      "item_level": 276,
+      "icon": "inv_glove_leather_raiddruidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raiddruidmidnight_d_01.jpg",
+      "frequency": 0.5510597302504817,
+      "raw_count": 21,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 250023,
+      "name": "Phloemwraps of the Luminous Bloom",
+      "item_level": 276,
+      "icon": "inv_pant_leather_raiddruidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raiddruidmidnight_d_01.jpg",
+      "frequency": 0.9800899165061014,
+      "raw_count": 37,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 258577,
+      "name": "Boots of Burning Focus",
+      "item_level": 266,
+      "icon": "inv_leather_draenordungeon_c_01boot",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_draenordungeon_c_01boot.jpg",
+      "frequency": 0.4155427103403982,
+      "raw_count": 15,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.5163776493256262,
+      "raw_count": 20,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 193701,
+      "name": "Algeth'ar Puzzle Box",
+      "item_level": 276,
+      "icon": "inv_misc_enggizmos_18",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
+      "frequency": 0.9852280025690431,
+      "raw_count": 37,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245771,
+      "name": "Aln'hara Pikestaff",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_01.jpg",
+      "frequency": 0.3243416827231856,
+      "raw_count": 13,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 263,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.4393063583815029,
+      "raw_count": 16,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 272,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 0.27874116891457934,
+      "raw_count": 11,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237847,
+      "name": "Blood Knight's Impetus",
+      "item_level": 285,
+      "icon": "inv_polearm_2h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_polearm_2h_questbloodelf_b_01.jpg",
+      "frequency": 0.27552986512524086,
+      "raw_count": 11,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  }
+}

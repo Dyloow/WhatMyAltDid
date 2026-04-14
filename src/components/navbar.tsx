@@ -8,12 +8,13 @@ export function Navbar() {
   const { data: session, status } = useSession();
 
   return (
-    <header style={{
+    <header className="animate-slide-in-down" style={{
       backgroundColor: "var(--surface)",
       borderBottom: "1px solid var(--border)",
       position: "sticky",
       top: 0,
       zIndex: 50,
+      backdropFilter: "blur(8px)",
     }}>
       <div style={{
         maxWidth: "1400px",
@@ -26,7 +27,7 @@ export function Navbar() {
         gap: "16px",
       }}>
 
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" className="hover-scale" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", transition: "transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)" }}>
           <span style={{
             fontFamily: "'Cinzel Decorative', serif",
             fontSize: "14px",
@@ -34,6 +35,7 @@ export function Navbar() {
             color: "var(--gold)",
             letterSpacing: "0.03em",
             lineHeight: 1,
+            textShadow: "0 0 20px var(--gold-glow)",
           }}>
             WhatMyAltDid
           </span>

@@ -106,9 +106,33 @@ export async function getRioCharacterProfileFull(
   try {
     return await cachedFetch(key, 900, async () => {
       const url = `${RIO_BASE}/characters/profile?region=${region}&realm=${encodeURIComponent(realm)}&name=${encodeURIComponent(name)}&fields=${FULL_FIELDS}`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`RIO ${res.status}`);
-      return res.json() as Promise<RioCharacterProfile>;
+      
+      // Retry logic with exponential backoff for rate limiting
+      let lastError: Error | null = null;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          if (res.status === 429) {
+            // Rate limited - wait and retry
+            await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+            continue;
+          }
+          if (!res.ok) {
+            // Don't cache 404s or other errors
+            return null;
+          }
+          return res.json() as Promise<RioCharacterProfile>;
+        } catch (err) {
+          lastError = err instanceof Error ? err : new Error(String(err));
+          if (attempt < 2) {
+            // Wait before retry
+            await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 500));
+          }
+        }
+      }
+      
+      // All retries failed
+      throw lastError || new Error('Failed after retries');
     });
   } catch {
     return null;
@@ -162,29 +186,35 @@ export async function getRioRankings(
   }
 }
 
-// Actual RIO runs API response structure (confirmed via live API inspection)
-interface RioRunsResponse {
-  rankings?: Array<{
-    run: {
-      roster?: Array<{
-        character: {
-          name: string;
-          realm: { slug: string };
-          class: { slug: string };
-          spec: { slug: string };
+/**
+ * Response structure from /mythic-plus/rankings/specs endpoint
+ * This endpoint returns spec-specific leaderboards directly
+ */
+interface RioSpecRankingsResponse {
+  rankings: {
+    rankedCharacters: Array<{
+      rank: number;
+      score: number;
+      character: {
+        name: string;
+        realm: {
+          slug: string;
         };
-      }>;
-    };
-  }>;
+        region: {
+          slug: string;
+        };
+      };
+    }>;
+  };
 }
 
 /**
- * Collect up to `count` unique players of a given class/spec.
- * Strategy:
- *   1. Try the character rankings endpoint first — top players are actively
- *      ranked and almost certainly have gear indexed on RIO.
- *   2. Fall back to scanning top M+ runs for additional players.
- * Season slug fallback order: configured season → season-tww-2 → current
+ * Collect up to `count` unique top players of a given class/spec.
+ * Uses the /mythic-plus/rankings/specs endpoint which returns players
+ * ranked by M+ score for that specific spec.
+ * 
+ * This is much more efficient than scanning global runs and filtering,
+ * especially for underplayed specs.
  */
 export async function getRioTopPlayersBySpec(
   region: string,
@@ -195,15 +225,18 @@ export async function getRioTopPlayersBySpec(
 ): Promise<Array<{ name: string; realm: string }>> {
   const clsSlug  = cls.toLowerCase().replace(/\s+/g, "-");
   const specSlug = spec.toLowerCase().replace(/\s+/g, "-");
-  // v3: busts old caches that may have been built with fewer pages / wrong structure
-  const cacheKey = `rio:topplayers3:${region}:${clsSlug}:${specSlug}`;
+  // v4: new endpoint and cache key
+  const cacheKey = `rio:topplayers4:${region}:${clsSlug}:${specSlug}`;
 
   try {
     return await cachedFetch(cacheKey, 3600, async () => {
       const seen = new Set<string>();
       const characters: Array<{ name: string; realm: string }> = [];
 
-      function addChar(name: string, realmSlug: string) {
+      function addChar(name: string, realmSlug: string, charRegion: string) {
+        // Only add characters from the requested region
+        if (charRegion !== region) return;
+        
         const uid = `${realmSlug}:${name.toLowerCase()}`;
         if (!seen.has(uid)) {
           seen.add(uid);
@@ -214,62 +247,53 @@ export async function getRioTopPlayersBySpec(
       // Fallback chain: configured season → tww-2 → current
       const slugsToTry = [...new Set([season, "season-tww-2", "current"])];
 
-      // ── Priority 1: character rankings endpoint ──────────────────────────
-      // Top-ranked players are very likely to have gear indexed in RIO,
-      // making these names far more productive than random run members.
-      for (const s of slugsToTry) {
-        try {
-          const url = `${RIO_BASE}/mythic-plus/rankings/characters?region=${region}&season=${s}&class=${clsSlug}&spec=${specSlug}&page=0`;
-          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
-          if (!res.ok) continue;
-          const data = await res.json() as Record<string, unknown>;
-          const ranked: RioRankedCharacter[] =
-            (Array.isArray(data) ? data : null) ??
-            (Array.isArray(data.rankedCharacters) ? data.rankedCharacters as RioRankedCharacter[] : null) ??
-            (data.rankings && Array.isArray((data.rankings as Record<string, unknown>).rankedCharacters)
-              ? (data.rankings as { rankedCharacters: RioRankedCharacter[] }).rankedCharacters
-              : null) ??
-            [];
-          for (const rc of ranked) {
-            addChar(rc.character.name, rc.character.realm.slug);
-          }
-          if (characters.length > 0) break; // got ranking data — stop trying other slugs
-        } catch { /* ignore, fall through to runs */ }
-      }
+      // Use /mythic-plus/rankings/specs endpoint with pagination
+      // Each page returns 100 characters, we may need multiple pages
+      const charsPerPage = 100;
+      const maxPages = Math.ceil(count / charsPerPage) + 1; // +1 for safety
 
-      // ── Priority 2: scan top M+ runs for more players ───────────────────
       for (const s of slugsToTry) {
         if (characters.length >= count) break;
 
-        // Scan up to 50 pages × 20 runs × 5 members = 5 000 member slots
-        for (let page = 0; page < 50 && characters.length < count; page++) {
-          const url = `${RIO_BASE}/mythic-plus/runs?season=${s}&region=${region}&dungeon=all&page=${page}`;
-          let res: Response;
+        for (let page = 0; page < maxPages && characters.length < count; page++) {
           try {
-            res = await fetch(url, { signal: AbortSignal.timeout(10000) });
-          } catch {
-            break;
-          }
-          if (!res.ok) break;
-
-          const data = await res.json() as RioRunsResponse;
-          const rankings = data.rankings;
-          if (!rankings?.length) break;
-
-          for (const ranking of rankings) {
-            for (const member of (ranking.run.roster ?? [])) {
-              const char = member.character;
-              if (char?.class?.slug === clsSlug && char?.spec?.slug === specSlug) {
-                addChar(char.name, char.realm.slug);
-                if (characters.length >= count) break;
+            // Use 'world' region to get all regions, then filter
+            const url = `https://raider.io/api/mythic-plus/rankings/specs?region=world&season=${s}&class=${clsSlug}&spec=${specSlug}&page=${page}`;
+            const res = await fetch(url, { 
+              signal: AbortSignal.timeout(10000),
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; WhatMyAltDid/1.0)',
+                'Accept': 'application/json',
               }
+            });
+            
+            if (!res.ok) {
+              if (res.status === 404) break; // No more pages
+              continue;
             }
-            if (characters.length >= count) break;
+
+            const data = await res.json() as RioSpecRankingsResponse;
+            const rankedChars = data?.rankings?.rankedCharacters;
+            
+            if (!rankedChars || rankedChars.length === 0) break;
+
+            for (const rc of rankedChars) {
+              if (characters.length >= count) break;
+              addChar(rc.character.name, rc.character.realm.slug, rc.character.region.slug);
+            }
+
+            // Small delay between pages to be nice to the API
+            if (page > 0 && page % 2 === 0) {
+              await new Promise(resolve => setTimeout(resolve, 50));
+            }
+          } catch (err) {
+            // On error, try next season
+            break;
           }
         }
 
-        // If we found players with this season slug, stop trying others
-        if (characters.length > 0) break;
+        // If we found enough players with this season slug, stop trying others
+        if (characters.length >= count) break;
       }
 
       return characters;

@@ -1,0 +1,147 @@
+🚀 Génération de toutes les données BiS
+
+Région: eu
+Saison: season-mn-1
+Workers: 3 en parallèle
+Output: /Users/walidlachiri/perso/WhatMyAltDid/app/public/data/bis
+
+📋 Total: 40 specs à analyser
+
+[Worker 1] Traitement: Death Knight Blood
+  [Death Knight Blood] Démarrage...
+[Worker 2] Traitement: Death Knight Frost
+  [Death Knight Frost] Démarrage...
+[Worker 3] Traitement: Death Knight Unholy
+  [Death Knight Unholy] Démarrage...
+  [Death Knight Frost] ❌ Aucun profil avec gear (150 scannés)
+[Worker 2] ✅ Sauvegardé: death-knight/frost.json
+  [Death Knight Unholy] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: death-knight/unholy.json
+[Worker 2] Traitement: Demon Hunter Havoc
+  [Demon Hunter Havoc] Démarrage...
+  [Death Knight Blood] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: death-knight/blood.json
+[Worker 3] Traitement: Demon Hunter Vengeance
+  [Demon Hunter Vengeance] Démarrage...
+[Worker 1] Traitement: Demon Hunter Devourer
+  [Demon Hunter Devourer] Démarrage...
+  [Demon Hunter Vengeance] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: demon-hunter/vengeance.json
+  [Demon Hunter Havoc] ❌ Aucun profil avec gear (150 scannés)
+[Worker 2] ✅ Sauvegardé: demon-hunter/havoc.json
+[Worker 3] Traitement: Druid Guardian
+  [Druid Guardian] Démarrage...
+  [Demon Hunter Devourer] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: demon-hunter/devourer.json
+[Worker 2] Traitement: Druid Feral
+  [Druid Feral] Démarrage...
+[Worker 1] Traitement: Druid Balance
+  [Druid Balance] Démarrage...
+  [Druid Guardian] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: druid/guardian.json
+[Worker 3] Traitement: Evoker Devastation
+  [Evoker Devastation] Démarrage...
+  [Druid Feral] ❌ Aucun profil avec gear (150 scannés)
+[Worker 2] ✅ Sauvegardé: druid/feral.json
+[Worker 2] Traitement: Evoker Augmentation
+  [Evoker Augmentation] Démarrage...
+  [Druid Balance] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: druid/balance.json
+[Worker 1] Traitement: Druid Restoration
+  [Druid Restoration] Démarrage...
+  [Evoker Devastation] ✅ 7/150 joueurs, 13 slots BiS
+[Worker 3] ✅ Sauvegardé: evoker/devastation.json
+[Worker 3] Traitement: Hunter Marksmanship
+  [Hunter Marksmanship] Démarrage...
+  [Evoker Augmentation] ✅ 7/150 joueurs, 14 slots BiS
+[Worker 2] ✅ Sauvegardé: evoker/augmentation.json
+[Worker 2] Traitement: Hunter Beast Mastery
+  [Hunter Beast Mastery] Démarrage...
+  [Druid Restoration] ✅ 6/150 joueurs, 13 slots BiS
+[Worker 1] ✅ Sauvegardé: druid/restoration.json
+[Worker 1] Traitement: Evoker Preservation
+  [Evoker Preservation] Démarrage...
+  [Hunter Marksmanship] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: hunter/marksmanship.json
+[Worker 3] Traitement: Mage Fire
+  [Mage Fire] Démarrage...
+  [Hunter Beast Mastery] ❌ Aucun profil avec gear (150 scannés)
+[Worker 2] ✅ Sauvegardé: hunter/beast-mastery.json
+[Worker 2] Traitement: Mage Arcane
+  [Mage Arcane] Démarrage...
+  [Evoker Preservation] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: evoker/preservation.json
+[Worker 1] Traitement: Hunter Survival
+  [Hunter Survival] Démarrage...
+  [Mage Fire] ✅ 1/150 joueurs, 14 slots BiS
+[Worker 3] ✅ Sauvegardé: mage/fire.json
+[Worker 3] Traitement: Monk Mistweaver
+  [Monk Mistweaver] Démarrage...
+  [Mage Arcane] ✅ 4/150 joueurs, 13 slots BiS
+[Worker 2] ✅ Sauvegardé: mage/arcane.json
+[Worker 2] Traitement: Monk Brewmaster
+  [Monk Brewmaster] Démarrage...
+  [Hunter Survival] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: hunter/survival.json
+[Worker 1] Traitement: Mage Frost
+  [Mage Frost] Démarrage...
+  [Monk Mistweaver] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: monk/mistweaver.json
+[Worker 3] Traitement: Paladin Protection
+  [Paladin Protection] Démarrage...
+  [Monk Brewmaster] ❌ Aucun profil avec gear (150 scannés)
+[Worker 2] ✅ Sauvegardé: monk/brewmaster.json
+[Worker 2] Traitement: Paladin Holy
+  [Paladin Holy] Démarrage...
+  [Mage Frost] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: mage/frost.json
+[Worker 1] Traitement: Monk Windwalker
+  [Monk Windwalker] Démarrage...
+  [Paladin Protection] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: paladin/protection.json
+[Worker 3] Traitement: Priest Holy
+  [Priest Holy] Démarrage...
+  [Paladin Holy] ✅ 2/150 joueurs, 14 slots BiS
+[Worker 2] ✅ Sauvegardé: paladin/holy.json
+  [Monk Windwalker] ✅ 3/150 joueurs, 14 slots BiS
+[Worker 1] ✅ Sauvegardé: monk/windwalker.json
+[Worker 2] Traitement: Priest Discipline
+  [Priest Discipline] Démarrage...
+[Worker 1] Traitement: Paladin Retribution
+  [Paladin Retribution] Démarrage...
+  [Priest Holy] ❌ Aucun profil avec gear (150 scannés)
+[Worker 3] ✅ Sauvegardé: priest/holy.json
+[Worker 3] Traitement: Rogue Outlaw
+  [Rogue Outlaw] Démarrage...
+  [Paladin Retribution] ❌ Aucun profil avec gear (150 scannés)
+[Worker 1] ✅ Sauvegardé: paladin/retribution.json
+  [Priest Discipline] ✅ 3/150 joueurs, 13 slots BiS
+[Worker 2] ✅ Sauvegardé: priest/discipline.json
+[Worker 1] Traitement: Priest Shadow
+  [Priest Shadow] Démarrage...
+[Worker 2] Traitement: Rogue Assassination
+  [Rogue Assassination] Démarrage...
+  [Rogue Outlaw] ✅ 5/150 joueurs, 14 slots BiS
+[Worker 3] ✅ Sauvegardé: rogue/outlaw.json
+[Worker 3] Traitement: Shaman Enhancement
+  [Shaman Enhancement] Démarrage...
+  [Priest Shadow] ✅ 7/150 joueurs, 13 slots BiS
+[Worker 1] ✅ Sauvegardé: priest/shadow.json
+[Worker 1] Traitement: Rogue Subtlety
+  [Rogue Subtlety] Démarrage...
+  [Rogue Assassination] ✅ 8/150 joueurs, 14 slots BiS
+[Worker 2] ✅ Sauvegardé: rogue/assassination.json
+[Worker 2] Traitement: Shaman Elemental
+  [Shaman Elemental] Démarrage...
+  [Shaman Enhancement] ✅ 36/150 joueurs, 14 slots BiS
+[Worker 3] ✅ Sauvegardé: shaman/enhancement.json
+[Worker 3] Traitement: Warlock Demonology
+  [Warlock Demonology] Démarrage...
+  [Shaman Elemental] ✅ 22/150 joueurs, 13 slots BiS
+[Worker 2] ✅ Sauvegardé: shaman/elemental.json
+[Worker 2] Traitement: Warlock Affliction
+  [Warlock Affliction] Démarrage...
+  [Rogue Subtlety] ✅ 31/150 joueurs, 14 slots BiS
+[Worker 1] ✅ Sauvegardé: rogue/subtlety.json
+[Worker 1] Traitement: Shaman Restoration
+  [Shaman Restoration] Démarrage...

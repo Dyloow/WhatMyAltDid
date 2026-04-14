@@ -48,6 +48,7 @@ export function CharacterCard({ character }: Props) {
   const bestKey = runs.reduce((m, r) => Math.max(m, r.mythic_level), 0);
   const vaultIlvl = getVaultIlvl(bestKey);
   const vaultSlots = getVaultSlots("dungeon", runs.length);
+  const scoreColor = getScoreColor(score);
   const iconSlug = classIconSlug(character.className);
   const detailHref = `/character/${character.region}/${character.realmSlug}/${encodeURIComponent(character.name)}`;
 
@@ -70,7 +71,7 @@ export function CharacterCard({ character }: Props) {
 
   return (
     <div
-      className="animate-fade-in"
+      className="animate-scale-in hover-lift"
       style={{
         background: "var(--surface)",
         border: "1px solid var(--border)",
@@ -79,12 +80,12 @@ export function CharacterCard({ character }: Props) {
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
-        transition: "border-color 0.2s, box-shadow 0.2s",
+        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         cursor: "default",
       }}
       onMouseOver={e => {
         (e.currentTarget as HTMLDivElement).style.borderColor = classColor;
-        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 0 1px ${classColor}22, 0 4px 24px ${classColor}18`;
+        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 0 1px ${classColor}22, 0 8px 32px ${classColor}24`;
       }}
       onMouseOut={e => {
         (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";

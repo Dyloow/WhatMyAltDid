@@ -1,0 +1,191 @@
+{
+  "analyzed_count": 25,
+  "total_scanned": 150,
+  "season": "season-mn-1",
+  "class": "Death Knight",
+  "spec": "Blood",
+  "bis": {
+    "head": {
+      "item_id": 249970,
+      "name": "Relentless Rider's Crown",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_helm",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_helm.jpg",
+      "frequency": 0.9104846686449061,
+      "raw_count": 21,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 251096,
+      "name": "Pendant of Aching Grief",
+      "item_level": 266,
+      "icon": "inv_12_jewelry_silvermoonelf_necklace_white",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_white.jpg",
+      "frequency": 0.3664688427299703,
+      "raw_count": 8,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 249968,
+      "name": "Relentless Rider's Dreadthorns",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_shoulder",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_shoulder.jpg",
+      "frequency": 0.7096933728981206,
+      "raw_count": 16,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 251206,
+      "name": "Fluxweave Cloak",
+      "item_level": 266,
+      "icon": "inv_cape_cloth_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_dungeonharronir_c_01.jpg",
+      "frequency": 0.3189910979228487,
+      "raw_count": 7,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 249973,
+      "name": "Relentless Rider's Cuirass",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_chest",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_chest.jpg",
+      "frequency": 0.9154302670623146,
+      "raw_count": 21,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 249967,
+      "name": "Relentless Rider's Chain",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_belt",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_belt.jpg",
+      "frequency": 0.4169139465875371,
+      "raw_count": 10,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 237834,
+      "name": "Spellbreaker's Bracers",
+      "item_level": 285,
+      "icon": "inv_plate_questbloodelf_b_01_bracer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
+      "frequency": 0.36795252225519287,
+      "raw_count": 9,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 249971,
+      "name": "Relentless Rider's Bonegrasps",
+      "item_level": 289,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_glove",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_glove.jpg",
+      "frequency": 0.7299703264094956,
+      "raw_count": 17,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 249969,
+      "name": "Relentless Rider's Legguards",
+      "item_level": 289,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_pant",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_pant.jpg",
+      "frequency": 0.9574678536102869,
+      "raw_count": 22,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 249381,
+      "name": "Greaves of the Unformed",
+      "item_level": 276,
+      "icon": "inv_boot_plate_raidwarriormidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriormidnight_d_01.jpg",
+      "frequency": 0.27398615232443124,
+      "raw_count": 6,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.34817012858555885,
+      "raw_count": 8,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 252420,
+      "name": "Solarflare Prism",
+      "item_level": 276,
+      "icon": "inv_enchant_shardbrilliantlarge",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_enchant_shardbrilliantlarge.jpg",
+      "frequency": 0.4505440158259149,
+      "raw_count": 10,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237846,
+      "name": "Blood Knight's Warblade",
+      "item_level": 285,
+      "icon": "inv_sword_2h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
+      "frequency": 0.9055390702274976,
+      "raw_count": 21,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.29920870425321466,
+      "raw_count": 7,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249342,
+      "name": "Heart of Ancient Hunger",
+      "item_level": 269,
+      "icon": "inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger.jpg",
+      "frequency": 0.32888229475766567,
+      "raw_count": 8,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  }
+}

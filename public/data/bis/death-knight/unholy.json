@@ -1,0 +1,191 @@
+{
+  "analyzed_count": 100,
+  "total_scanned": 150,
+  "season": "season-mn-1",
+  "class": "Death Knight",
+  "spec": "Unholy",
+  "bis": {
+    "head": {
+      "item_id": 249970,
+      "name": "Relentless Rider's Crown",
+      "item_level": 282,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_helm",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_helm.jpg",
+      "frequency": 0.9718446601941747,
+      "raw_count": 92,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 276,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.40058252427184465,
+      "raw_count": 40,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 50234,
+      "name": "Shoulderplates of Frozen Blood",
+      "item_level": 276,
+      "icon": "inv_shoulder_121",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_121.jpg",
+      "frequency": 0.48854368932038833,
+      "raw_count": 46,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 258575,
+      "name": "Rigid Scale Greatcloak",
+      "item_level": 269,
+      "icon": "inv_cape_draenordungeon_c_02_plate",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
+      "frequency": 0.5044660194174757,
+      "raw_count": 47,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 249973,
+      "name": "Relentless Rider's Cuirass",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_chest",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_chest.jpg",
+      "frequency": 0.9914563106796116,
+      "raw_count": 93,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 249967,
+      "name": "Relentless Rider's Chain",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_belt",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_belt.jpg",
+      "frequency": 0.669126213592233,
+      "raw_count": 62,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 237834,
+      "name": "Spellbreaker's Bracers",
+      "item_level": 285,
+      "icon": "inv_plate_questbloodelf_b_01_bracer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
+      "frequency": 0.6935922330097087,
+      "raw_count": 66,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 249971,
+      "name": "Relentless Rider's Bonegrasps",
+      "item_level": 282,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_glove",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_glove.jpg",
+      "frequency": 0.9652427184466019,
+      "raw_count": 88,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 249969,
+      "name": "Relentless Rider's Legguards",
+      "item_level": 276,
+      "icon": "inv_plate_raiddeathknightmidnight_d_01_pant",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_pant.jpg",
+      "frequency": 0.9869902912621359,
+      "raw_count": 92,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 249381,
+      "name": "Greaves of the Unformed",
+      "item_level": 276,
+      "icon": "inv_boot_plate_raidwarriormidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriormidnight_d_01.jpg",
+      "frequency": 0.5454368932038834,
+      "raw_count": 47,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 193708,
+      "name": "Platinum Star Band",
+      "item_level": 276,
+      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
+      "frequency": 0.8289320388349515,
+      "raw_count": 76,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249344,
+      "name": "Light Company Guidon",
+      "item_level": 289,
+      "icon": "inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner.jpg",
+      "frequency": 0.885242718446602,
+      "raw_count": 79,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237846,
+      "name": "Blood Knight's Warblade",
+      "item_level": 285,
+      "icon": "inv_sword_2h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
+      "frequency": 0.8155339805825242,
+      "raw_count": 76,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251115,
+      "name": "Bifurcation Band",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency2_void",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency2_void.jpg",
+      "frequency": 0.3755339805825243,
+      "raw_count": 31,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 0.6007766990291262,
+      "raw_count": 57,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  }
+}

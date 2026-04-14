@@ -54,7 +54,9 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const topPlayers = await getRioTopPlayersBySpec(region, cls, spec, 300, CURRENT_SEASON.rioSeasonSlug);
+    // Request 150 players to ensure we get at least 100 with valid gear data
+    // Some top players may not have gear indexed in RaiderIO
+    const topPlayers = await getRioTopPlayersBySpec(region, cls, spec, 150, CURRENT_SEASON.rioSeasonSlug);
 
     if (topPlayers.length === 0) {
       return NextResponse.json<BisAnalysisResult>({
@@ -66,20 +68,34 @@ export async function GET(req: NextRequest) {
 
     const totalScanned = topPlayers.length;
 
-    // Fetch gear profiles in batches of 10
-    const allProfiles: Array<Record<string, RioGearItem>> = [];
-    for (let i = 0; i < topPlayers.length; i += 10) {
-      const chunk = topPlayers.slice(i, i + 10);
+    // Fetch gear profiles in batches of 5 (reduce load on RaiderIO API)
+    // Stop once we have 100 valid profiles
+    const TARGET_PROFILES = 100;
+    const allProfiles: Array<{ gear: Record<string, RioGearItem>; weight: number }> = [];
+    
+    for (let i = 0; i < topPlayers.length && allProfiles.length < TARGET_PROFILES; i += 5) {
+      const chunk = topPlayers.slice(i, i + 5);
       const settled = await Promise.allSettled(
         chunk.map((p) => getRioCharacterProfileFull(region, p.realm, p.name))
       );
-      for (const res of settled) {
+      for (let j = 0; j < settled.length; j++) {
+        if (allProfiles.length >= TARGET_PROFILES) break;
+        
+        const res = settled[j];
         if (res.status === "fulfilled" && res.value?.gear?.items) {
           const items = res.value.gear.items;
           if (Object.keys(items).length >= 5) {
-            allProfiles.push(items);
+            // Weight based on ranking: top player = 101 votes, player #100 = 2 votes
+            const globalIndex = i + j;
+            const weight = Math.max(1, 101 - globalIndex);
+            allProfiles.push({ gear: items, weight });
           }
         }
+      }
+      
+      // Small delay between batches to avoid rate limiting
+      if (allProfiles.length < TARGET_PROFILES && i + 5 < topPlayers.length) {
+        await new Promise(resolve => setTimeout(resolve, 100));
       }
     }
 
@@ -91,18 +107,7 @@ export async function GET(req: NextRequest) {
       });
     }
 
-    // Aggregate gear per slot
-    const slotMaps: Record<string, SlotAggregate> = {};
-    for (const gear of allProfiles) {
-      for (const [slot, item] of Object.entries(gear)) {
-        if (!slotMaps[slot]) slotMaps[slot] = new Map();
-        const existing = slotMaps[slot].get(item.item_id);
-        if (existing) existing.count += 1;
-        else slotMaps[slot].set(item.item_id, { item, count: 1 });
-      }
-    }
-
-    // Item → dungeon source map via Blizzard journal
+    // Item → dungeon source map via Blizzard journal (needs to happen BEFORE aggregation)
     const itemToDungeon: Record<number, string> = {};
     const itemToDungeonDisplay: Record<number, string> = {};
     await Promise.allSettled(
@@ -118,10 +123,50 @@ export async function GET(req: NextRequest) {
         })
     );
 
+    // Aggregate gear per slot with weighted votes
+    // Filter items: only consider items from current season (ilvl 245-300 OR from season dungeons)
+    const MIN_ILVL = 245;
+    const MAX_ILVL = 300; // Midnight Season 1 max ilvl
+    const slotMaps: Record<string, SlotAggregate> = {};
+    
+    // Merge paired slots (rings, trinkets) for better aggregation
+    const slotMapping: Record<string, string> = {
+      finger1: 'finger',
+      finger2: 'finger',
+      trinket1: 'trinket',
+      trinket2: 'trinket',
+    };
+    
+    for (const { gear, weight } of allProfiles) {
+      for (const [slot, item] of Object.entries(gear)) {
+        // Only include items from current season dungeons OR within reasonable ilvl range
+        const isFromSeasonDungeon = itemToDungeon[item.item_id] !== undefined;
+        const isReasonableIlvl = item.item_level >= MIN_ILVL && item.item_level <= MAX_ILVL;
+        
+        if (!isFromSeasonDungeon && !isReasonableIlvl) {
+          continue;
+        }
+        
+        // Map paired slots to merged key
+        const aggregateSlot = slotMapping[slot] || slot;
+        
+        if (!slotMaps[aggregateSlot]) slotMaps[aggregateSlot] = new Map();
+        const existing = slotMaps[aggregateSlot].get(item.item_id);
+        if (existing) existing.count += weight;
+        else slotMaps[aggregateSlot].set(item.item_id, { item, count: weight });
+      }
+    }
+
     const analyzed = allProfiles.length;
+    // Calculate total weighted votes available
+    const totalVotes = allProfiles.reduce((sum, p) => sum + p.weight, 0);
+    // With weighted voting, we can use lower thresholds
+    // Show top item if it has at least 8-10% of votes (represents meaningful consensus)
     const THRESHOLD = analyzed < 10
       ? Math.max(2 / analyzed, 0.33)
-      : analyzed < 30 ? 0.25 : 0.40;
+      : analyzed < 30 ? 0.20
+      : analyzed < 100 ? 0.12
+      : 0.08;  // For 100+ players: show if top item has 8%+ votes
 
     const bis: Record<string, BisItem> = {};
     const bisAlternatives: Record<string, BisItem> = {};
@@ -135,7 +180,7 @@ export async function GET(req: NextRequest) {
         item_level:      entry.item.item_level,
         icon:            entry.item.icon ?? "",
         icon_url:        iconUrl(entry.item.icon ?? ""),
-        frequency:       Math.round((entry.count / analyzed) * 100) / 100,
+        frequency:       Math.round((entry.count / totalVotes) * 100) / 100,
         raw_count:       entry.count,
         slot,
         dungeon,
@@ -146,16 +191,55 @@ export async function GET(req: NextRequest) {
     for (const [slot, aggregate] of Object.entries(slotMaps)) {
       const sorted = Array.from(aggregate.values()).sort((a, b) => b.count - a.count);
       const top = sorted[0];
-      if (!top || top.count / analyzed < THRESHOLD) continue;
+      if (!top) continue;
+      
+      // Show top item if it meets threshold OR if it's clearly the most popular (even if below threshold)
+      const topFrequency = top.count / totalVotes;
+      if (topFrequency >= THRESHOLD || (sorted.length > 1 && topFrequency >= THRESHOLD * 0.6)) {
+        // For merged paired slots (finger, trinket), assign to both slots
+        if (slot === 'finger') {
+          bis.finger1 = makeBisItem('finger1', top);
+          bis.finger2 = makeBisItem('finger2', top);
+        } else if (slot === 'trinket') {
+          bis.trinket1 = makeBisItem('trinket1', top);
+          bis.trinket2 = makeBisItem('trinket2', top);
+        } else {
+          bis[slot] = makeBisItem(slot, top);
+        }
+      }
 
-      bis[slot] = makeBisItem(slot, top);
-
-      // For weapons, trinkets, and rings: pick the #2 alternative
-      if (ALTERNATIVE_SLOTS.has(slot) && sorted.length > 1) {
-        const alt = sorted[1];
-        // Lower threshold for alternatives — at least some meaningful usage
-        if (alt.count / analyzed >= Math.max(THRESHOLD * 0.5, 2 / analyzed)) {
-          bisAlternatives[slot] = makeBisItem(slot, alt);
+      // For paired slots: find distinct alternatives
+      if (slot === 'finger' || slot === 'trinket') {
+        const slot1 = slot === 'finger' ? 'finger1' : 'trinket1';
+        const slot2 = slot === 'finger' ? 'finger2' : 'trinket2';
+        
+        // Find 2nd best item (different from top)
+        if (sorted.length > 1) {
+          for (let i = 1; i < sorted.length; i++) {
+            const alt = sorted[i];
+            if (alt.item.item_id !== top.item.item_id) {
+              const altThreshold = Math.max(THRESHOLD * 0.5, 0.05);
+              if (alt.count / totalVotes >= altThreshold) {
+                bisAlternatives[slot1] = makeBisItem(slot1, alt);
+                bisAlternatives[slot2] = makeBisItem(slot2, alt);
+                break;
+              }
+            }
+          }
+        }
+      }
+      // For other alternative slots (mainhand, offhand)
+      else if (ALTERNATIVE_SLOTS.has(slot) && sorted.length > 1) {
+        for (let i = 1; i < sorted.length; i++) {
+          const alt = sorted[i];
+          if (bis[slot] && alt.item.item_id === bis[slot].item_id) {
+            continue;
+          }
+          const altThreshold = Math.max(THRESHOLD * 0.5, 0.05);
+          if (alt.count / totalVotes >= altThreshold) {
+            bisAlternatives[slot] = makeBisItem(slot, alt);
+            break;
+          }
         }
       }
     }

@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-04-14T13:50:02.612Z",
+  "season": "season-mn-1",
+  "region": "eu",
+  "specs": [
+    {
+      "class": "Death Knight",
+      "spec": "Blood",
+      "file": "death-knight/blood.json"
+    },
+    {
+      "class": "Death Knight",
+      "spec": "Frost",
+      "file": "death-knight/frost.json"
+    },
+    {
+      "class": "Death Knight",
+      "spec": "Unholy",
+      "file": "death-knight/unholy.json"
+    },
+    {
+      "class": "Demon Hunter",
+      "spec": "Devourer",
+      "file": "demon-hunter/devourer.json"
+    },
+    {
+      "class": "Demon Hunter",
+      "spec": "Havoc",
+      "file": "demon-hunter/havoc.json"
+    },
+    {
+      "class": "Demon Hunter",
+      "spec": "Vengeance",
+      "file": "demon-hunter/vengeance.json"
+    },
+    {
+      "class": "Druid",
+      "spec": "Balance",
+      "file": "druid/balance.json"
+    },
+    {
+      "class": "Druid",
+      "spec": "Feral",
+      "file": "druid/feral.json"
+    },
+    {
+      "class": "Druid",
+      "spec": "Guardian",
+      "file": "druid/guardian.json"
+    },
+    {
+      "class": "Druid",
+      "spec": "Restoration",
+      "file": "druid/restoration.json"
+    },
+    {
+      "class": "Evoker",
+      "spec": "Augmentation",
+      "file": "evoker/augmentation.json"
+    },
+    {
+      "class": "Evoker",
+      "spec": "Devastation",
+      "file": "evoker/devastation.json"
+    },
+    {
+      "class": "Evoker",
+      "spec": "Preservation",
+      "file": "evoker/preservation.json"
+    },
+    {
+      "class": "Hunter",
+      "spec": "Beast Mastery",
+      "file": "hunter/beast-mastery.json"
+    },
+    {
+      "class": "Hunter",
+      "spec": "Marksmanship",
+      "file": "hunter/marksmanship.json"
+    },
+    {
+      "class": "Hunter",
+      "spec": "Survival",
+      "file": "hunter/survival.json"
+    },
+    {
+      "class": "Mage",
+      "spec": "Arcane",
+      "file": "mage/arcane.json"
+    },
+    {
+      "class": "Mage",
+      "spec": "Fire",
+      "file": "mage/fire.json"
+    },
+    {
+      "class": "Mage",
+      "spec": "Frost",
+      "file": "mage/frost.json"
+    },
+    {
+      "class": "Monk",
+      "spec": "Brewmaster",
+      "file": "monk/brewmaster.json"
+    },
+    {
+      "class": "Monk",
+      "spec": "Mistweaver",
+      "file": "monk/mistweaver.json"
+    },
+    {
+      "class": "Monk",
+      "spec": "Windwalker",
+      "file": "monk/windwalker.json"
+    },
+    {
+      "class": "Paladin",
+      "spec": "Holy",
+      "file": "paladin/holy.json"
+    },
+    {
+      "class": "Paladin",
+      "spec": "Protection",
+      "file": "paladin/protection.json"
+    },
+    {
+      "class": "Paladin",
+      "spec": "Retribution",
+      "file": "paladin/retribution.json"
+    },
+    {
+      "class": "Priest",
+      "spec": "Discipline",
+      "file": "priest/discipline.json"
+    },
+    {
+      "class": "Priest",
+      "spec": "Holy",
+      "file": "priest/holy.json"
+    },
+    {
+      "class": "Priest",
+      "spec": "Shadow",
+      "file": "priest/shadow.json"
+    },
+    {
+      "class": "Rogue",
+      "spec": "Assassination",
+      "file": "rogue/assassination.json"
+    },
+    {
+      "class": "Rogue",
+      "spec": "Outlaw",
+      "file": "rogue/outlaw.json"
+    },
+    {
+      "class": "Rogue",
+      "spec": "Subtlety",
+      "file": "rogue/subtlety.json"
+    },
+    {
+      "class": "Shaman",
+      "spec": "Elemental",
+      "file": "shaman/elemental.json"
+    },
+    {
+      "class": "Shaman",
+      "spec": "Enhancement",
+      "file": "shaman/enhancement.json"
+    },
+    {
+      "class": "Shaman",
+      "spec": "Restoration",
+      "file": "shaman/restoration.json"
+    },
+    {
+      "class": "Warlock",
+      "spec": "Affliction",
+      "file": "warlock/affliction.json"
+    },
+    {
+      "class": "Warlock",
+      "spec": "Demonology",
+      "file": "warlock/demonology.json"
+    },
+    {
+      "class": "Warlock",
+      "spec": "Destruction",
+      "file": "warlock/destruction.json"
+    },
+    {
+      "class": "Warrior",
+      "spec": "Arms",
+      "file": "warrior/arms.json"
+    },
+    {
+      "class": "Warrior",
+      "spec": "Fury",
+      "file": "warrior/fury.json"
+    },
+    {
+      "class": "Warrior",
+      "spec": "Protection",
+      "file": "warrior/protection.json"
+    }
+  ]
+}

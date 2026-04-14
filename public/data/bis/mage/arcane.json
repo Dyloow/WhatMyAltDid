@@ -1,0 +1,191 @@
+{
+  "analyzed_count": 4,
+  "total_scanned": 150,
+  "season": "season-mn-1",
+  "class": "Mage",
+  "spec": "Arcane",
+  "bis": {
+    "head": {
+      "item_id": 250060,
+      "name": "Voidbreaker's Veil",
+      "item_level": 285,
+      "icon": "inv_helm_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 4,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 249337,
+      "name": "Ribbon of Coiled Malice",
+      "item_level": 276,
+      "icon": "inv_12_jewelry_devouringhost_necklace_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_necklace_bronze.jpg",
+      "frequency": 0.506631299734748,
+      "raw_count": 2,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 250058,
+      "name": "Voidbreaker's Leyline Nexi",
+      "item_level": 276,
+      "icon": "inv_shoulder_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.5039787798408488,
+      "raw_count": 2,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 251206,
+      "name": "Fluxweave Cloak",
+      "item_level": 266,
+      "icon": "inv_cape_cloth_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_dungeonharronir_c_01.jpg",
+      "frequency": 0.493368700265252,
+      "raw_count": 2,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250063,
+      "name": "Voidbreaker's Robe",
+      "item_level": 285,
+      "icon": "inv_chest_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 4,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 250057,
+      "name": "Voidbreaker's Sage Cord",
+      "item_level": 285,
+      "icon": "inv_belt_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.4986737400530504,
+      "raw_count": 2,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 239648,
+      "name": "Martyr's Bindings",
+      "item_level": 285,
+      "icon": "inv_bracer_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.506631299734748,
+      "raw_count": 2,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 250061,
+      "name": "Voidbreaker's Gloves",
+      "item_level": 272,
+      "icon": "inv_glove_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 4,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 250059,
+      "name": "Voidbreaker's Britches",
+      "item_level": 285,
+      "icon": "inv_pant_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.7506631299734748,
+      "raw_count": 3,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 249373,
+      "name": "Dream-Scorched Striders",
+      "item_level": 272,
+      "icon": "inv_boot_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.2546419098143236,
+      "raw_count": 1,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 272,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.506631299734748,
+      "raw_count": 2,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 263,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 1,
+      "raw_count": 4,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 1,
+      "raw_count": 4,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 272,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.506631299734748,
+      "raw_count": 2,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249346,
+      "name": "Vaelgor's Final Stare",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
+      "frequency": 0.7506631299734748,
+      "raw_count": 3,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  }
+}
