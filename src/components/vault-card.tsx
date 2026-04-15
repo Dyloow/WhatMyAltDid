@@ -89,9 +89,10 @@ export function VaultCard({ character }: { character: CharacterData }) {
       {/* Categories */}
       <div style={{ padding: "10px 14px", display: "flex", flexDirection: "column", gap: "10px" }}>
         {[vault.dungeon, vault.raid].map((cat) => {
+          const isRaid = cat.label === "Raid";
           const max = cat.thresholds[cat.thresholds.length - 1] ?? 8;
           const pct = Math.min(100, (cat.current / max) * 100);
-          const barColor = cat.label.includes("M+") ? "var(--gold)" : "var(--purple)";
+          const barColor = !isRaid ? "var(--gold)" : "var(--purple)";
           return (
             <div key={cat.label}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "11px" }}>

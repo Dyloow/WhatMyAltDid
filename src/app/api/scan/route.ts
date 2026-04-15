@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import { getAccountCharacters, getCharacterProfile, getRaidProfile, RaidProfile } from "@/lib/blizzard-api";
+import { getAccountCharacters, getCharacterProfile, getRaidProfileFresh, RaidProfile } from "@/lib/blizzard-api";
 import { getRioCharacterProfile } from "@/lib/raiderio-api";
 import { getWeeklyRaidKillsFromWcl } from "@/lib/warcraftlogs-api";
 import { CURRENT_SEASON } from "@/lib/season-config";
@@ -79,19 +79,18 @@ export async function POST() {
           const [profile, rio, raidData, wclData] = await Promise.allSettled([
             getCharacterProfile(region, char.realm.slug, char.name, accessToken),
             getRioCharacterProfile(region, char.realm.slug, char.name),
-            getRaidProfile(region, char.realm.slug, char.name, accessToken),
+            getRaidProfileFresh(region, char.realm.slug, char.name, accessToken),
             getWeeklyRaidKillsFromWcl(region, char.realm.slug, char.name),
           ]);
 
-          const blzProfile  = profile.status   === "fulfilled" ? profile.value   : null;
-          const rioProfile  = rio.status        === "fulfilled" ? rio.value       : null;
-          const raidProfile = raidData.status   === "fulfilled" ? raidData.value  : null;
-          const wclResult   = wclData.status    === "fulfilled" ? wclData.value   : null;
+          const blzProfile   = profile.status    === "fulfilled" ? profile.value    : null;
+          const rioProfile   = rio.status         === "fulfilled" ? rio.value        : null;
+          const raidProfile  = raidData.status    === "fulfilled" ? raidData.value   : null;
+          const wclResult    = wclData.status     === "fulfilled" ? wclData.value    : null;
 
-          // Prefer WCL weekly raid kills when available, fall back to Blizzard encounters/raids
-          const weeklyRaidBosses = wclResult
-            ? wclResult.bossKills
-            : calcWeeklyRaidBosses(raidProfile, region);
+          const blzBosses = calcWeeklyRaidBosses(raidProfile, region);
+          const wclBosses = wclResult?.bossKills ?? 0;
+          const weeklyRaidBosses = Math.max(blzBosses, wclBosses);
 
           const charData: CharacterData = {
             id: char.id,

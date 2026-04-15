@@ -27,6 +27,25 @@ function getAuthUrls(reg: string) {
 
 const urls = getAuthUrls(region);
 
+async function refreshBlizzardToken(refreshToken: string): Promise<{
+  access_token: string;
+  expires_in: number;
+  refresh_token?: string;
+}> {
+  const res = await fetch(urls.token, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refreshToken,
+      client_id: process.env.BATTLENET_CLIENT_ID ?? "",
+      client_secret: process.env.BATTLENET_CLIENT_SECRET ?? "",
+    }),
+  });
+  if (!res.ok) throw new Error(`Token refresh failed: ${res.status}`);
+  return res.json();
+}
+
 export const authConfig: NextAuthConfig = {
   providers: [
     {
@@ -67,7 +86,25 @@ export const authConfig: NextAuthConfig = {
         token.refreshToken = account.refresh_token as string | undefined;
         token.expiresAt = account.expires_at;
         token.region = region;
+        return token;
       }
+
+      // Refresh the access token if it's expired
+      const expiresAt = token.expiresAt as number | undefined;
+      if (expiresAt && expiresAt * 1000 < Date.now() && token.refreshToken) {
+        try {
+          const refreshed = await refreshBlizzardToken(token.refreshToken as string);
+          token.accessToken = refreshed.access_token;
+          token.expiresAt = Math.floor(Date.now() / 1000) + refreshed.expires_in;
+          if (refreshed.refresh_token) {
+            token.refreshToken = refreshed.refresh_token;
+          }
+        } catch {
+          // Refresh failed — token stays stale, user may need to re-login
+          console.warn("[Auth] Token refresh failed, user may need to re-authenticate");
+        }
+      }
+
       return token;
     },
     async session({ session, token }) {

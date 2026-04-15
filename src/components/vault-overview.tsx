@@ -84,6 +84,7 @@ export function VaultOverview() {
             <tbody>
               {vaults.map(({ char, vault }, i) => {
                 const classColor = CLASS_COLORS[char.className] ?? "var(--text-2)";
+                const maxRaidBosses = vault.raid.thresholds[vault.raid.thresholds.length - 1];
                 return (
                   <tr
                     key={char.id}
@@ -127,7 +128,7 @@ export function VaultOverview() {
                     </td>
                     <td style={{ padding: "8px 12px", textAlign: "center", fontFamily: "'JetBrains Mono', monospace" }}>
                       <span style={{ color: vault.raid.current > 0 ? "var(--purple)" : "var(--text-3)" }}>
-                        {vault.raid.current}/{vault.raid.thresholds[vault.raid.thresholds.length - 1]}
+                        {vault.raid.current}/{maxRaidBosses}
                       </span>
                     </td>
                     <td style={{ padding: "8px 12px", textAlign: "center" }}>
