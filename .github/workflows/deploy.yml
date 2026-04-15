@@ -85,8 +85,8 @@ jobs:
             export IMAGE_TAG=sha-${{ github.sha }}
             echo "IMAGE_TAG=${IMAGE_TAG}" > .image_tag.env
 
-            # Login GHCR depuis le serveur
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            # Login GHCR depuis le serveur (PAT avec read:packages)
+            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
             # Pull la nouvelle image
             IMAGE_TAG=${IMAGE_TAG} docker compose pull app
