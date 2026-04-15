@@ -1,0 +1,12 @@
+.git
+.github
+.next
+node_modules
+*.md
+*.log
+.env*
+!.env.example
+prisma/migrations
+tests
+scripts
+generation.log
