@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 import { CharacterData } from "@/types/character";
 
 interface RosterState {
@@ -27,59 +28,70 @@ interface RosterState {
   scan: () => Promise<void>;
 }
 
-export const useRosterStore = create<RosterState>((set, get) => ({
-  characters: [],
-  isScanning: false,
-  lastScanAt: null,
-  error: null,
-  view: (typeof window !== "undefined"
-    ? (localStorage.getItem("roster-view") as RosterState["view"])
-    : null) ?? "grid",
-  filters: { faction: null, className: null, role: null, realm: null },
-  sortBy: "score",
-  sortDir: "desc",
+export const useRosterStore = create<RosterState>()(
+  persist(
+    (set, get) => ({
+      characters: [],
+      isScanning: false,
+      lastScanAt: null,
+      error: null,
+      view: "grid" as RosterState["view"],
+      filters: { faction: null, className: null, role: null, realm: null },
+      sortBy: "score",
+      sortDir: "desc",
 
-  setCharacters: (characters) =>
-    set({ characters, lastScanAt: new Date().toISOString() }),
-  addCharacter: (char) =>
-    set((s) => {
-      const exists = s.characters.some(
-        (c) => c.name.toLowerCase() === char.name.toLowerCase() && c.realmSlug === char.realmSlug && c.region === char.region
-      );
-      if (exists) return s;
-      return { characters: [...s.characters, char] };
+      setCharacters: (characters) =>
+        set({ characters, lastScanAt: new Date().toISOString() }),
+      addCharacter: (char) =>
+        set((s) => {
+          const exists = s.characters.some(
+            (c) => c.name.toLowerCase() === char.name.toLowerCase() && c.realmSlug === char.realmSlug && c.region === char.region
+          );
+          if (exists) return s;
+          return { characters: [...s.characters, char] };
+        }),
+      removeCharacter: (id) =>
+        set((s) => ({ characters: s.characters.filter((c) => c.id !== id) })),
+      setScanning: (isScanning) => set({ isScanning }),
+      setError: (error) => set({ error }),
+      setView: (view) => set({ view }),
+      setFilter: (key, value) =>
+        set((s) => ({ filters: { ...s.filters, [key]: value } })),
+      setSortBy: (sortBy) => set({ sortBy }),
+      toggleSortDir: () => set((s) => ({ sortDir: s.sortDir === "asc" ? "desc" : "asc" })),
+
+      scan: async () => {
+        const state = get();
+        if (state.isScanning) return;
+        set({ isScanning: true, error: null });
+        try {
+          const res = await fetch("/api/scan", { method: "POST" });
+          if (!res.ok) throw new Error("Scan failed");
+          const data = await res.json();
+          set({
+            characters: data,
+            isScanning: false,
+            lastScanAt: new Date().toISOString(),
+          });
+        } catch (err) {
+          set({
+            isScanning: false,
+            error: err instanceof Error ? err.message : "Scan error",
+          });
+        }
+      },
     }),
-  removeCharacter: (id) =>
-    set((s) => ({ characters: s.characters.filter((c) => c.id !== id) })),
-  setScanning: (isScanning) => set({ isScanning }),
-  setError: (error) => set({ error }),
-  setView: (view) => {
-    if (typeof window !== "undefined") localStorage.setItem("roster-view", view);
-    set({ view });
-  },
-  setFilter: (key, value) =>
-    set((s) => ({ filters: { ...s.filters, [key]: value } })),
-  setSortBy: (sortBy) => set({ sortBy }),
-  toggleSortDir: () => set((s) => ({ sortDir: s.sortDir === "asc" ? "desc" : "asc" })),
-
-  scan: async () => {
-    const state = get();
-    if (state.isScanning) return;
-    set({ isScanning: true, error: null });
-    try {
-      const res = await fetch("/api/scan", { method: "POST" });
-      if (!res.ok) throw new Error("Scan failed");
-      const data = await res.json();
-      set({
-        characters: data,
-        isScanning: false,
-        lastScanAt: new Date().toISOString(),
-      });
-    } catch (err) {
-      set({
-        isScanning: false,
-        error: err instanceof Error ? err.message : "Scan error",
-      });
+    {
+      name: "roster-store",
+      storage: createJSONStorage(() => sessionStorage),
+      partialize: (state) => ({
+        characters: state.characters,
+        lastScanAt: state.lastScanAt,
+        view: state.view,
+        sortBy: state.sortBy,
+        sortDir: state.sortDir,
+        filters: state.filters,
+      }),
     }
-  },
-}));
+  )
+);

@@ -153,7 +153,7 @@ export async function getRaidProfile(
 ): Promise<RaidProfile | null> {
   const key = `blz:char:${region}:${realm}:${name}:raids`;
   try {
-    return await cachedFetch(key, 1800, () =>
+    return await cachedFetch(key, 300, () =>
       blizzardFetch<RaidProfile>(
         `/profile/wow/character/${realm}/${encodeURIComponent(name.toLowerCase())}/encounters/raids`,
         { region, accessToken }
@@ -162,6 +162,92 @@ export async function getRaidProfile(
   } catch {
     return null;
   }
+}
+
+/**
+ * Get raid profile using client credentials (no user session needed).
+ * Works for any public character profile.
+ */
+export async function getRaidProfilePublic(
+  region: string,
+  realm: string,
+  name: string,
+): Promise<RaidProfile | null> {
+  const key = `blz:pub:${region}:${realm}:${name}:raids`;
+  try {
+    return await cachedFetch(key, 300, async () => {
+      const token = await getClientCredentialsToken(region);
+      return blizzardFetch<RaidProfile>(
+        `/profile/wow/character/${realm}/${encodeURIComponent(name.toLowerCase())}/encounters/raids`,
+        { region, accessToken: token }
+      );
+    });
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Fetch raid profile bypassing ALL caching — tries both user token
+ * and client credentials, returns whichever has more recent data.
+ */
+export async function getRaidProfileFresh(
+  region: string,
+  realm: string,
+  name: string,
+  userAccessToken?: string,
+): Promise<RaidProfile | null> {
+  const path = `/profile/wow/character/${realm}/${encodeURIComponent(name.toLowerCase())}/encounters/raids`;
+  const base = API_BASE(region);
+  const bustParam = `_t=${Date.now()}`;
+  const url = `${base}${path}?namespace=profile-${region}&locale=fr_FR&${bustParam}`;
+
+  async function fetchWith(token: string): Promise<RaidProfile | null> {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Cache-Control": "no-cache",
+        },
+        cache: "no-store",
+      });
+      if (!res.ok) return null;
+      return res.json() as Promise<RaidProfile>;
+    } catch {
+      return null;
+    }
+  }
+
+  // Fire both token paths in parallel and take the one with the most recent kill
+  const tokens: string[] = [];
+  if (userAccessToken) tokens.push(userAccessToken);
+  try {
+    const clientToken = await getClientCredentialsToken(region);
+    tokens.push(clientToken);
+  } catch { /* ignore */ }
+
+  const results = await Promise.all(tokens.map(t => fetchWith(t)));
+  const valid = results.filter((r): r is RaidProfile => r !== null);
+
+  if (valid.length === 0) return null;
+  if (valid.length === 1) return valid[0];
+
+  // Pick whichever profile has the most recent last_kill_timestamp anywhere
+  function latestTimestamp(profile: RaidProfile): number {
+    let latest = 0;
+    for (const exp of profile.expansions ?? []) {
+      for (const inst of exp.instances ?? []) {
+        for (const mode of inst.modes ?? []) {
+          for (const enc of mode.progress?.encounters ?? []) {
+            if (enc.last_kill_timestamp > latest) latest = enc.last_kill_timestamp;
+          }
+        }
+      }
+    }
+    return latest;
+  }
+
+  return valid.sort((a, b) => latestTimestamp(b) - latestTimestamp(a))[0];
 }
 
 // ─── Game Data (client credentials, no user token needed) ────────────────────
