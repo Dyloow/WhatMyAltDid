@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WhatMyAltDid
+
+WoW alt tracker — track Mythic+ runs, Great Vault progress, and Best in Slot gear across all your characters.
+
+## Features
+
+- **Battle.net OAuth** — log in with your Blizzard account, auto-import your characters
+- **Mythic+ Dashboard** — weekly key count, highest key, Rio score, dungeon-by-dungeon grid
+- **Great Vault Tracker** — dungeon / raid / world activity slots with ilvl rewards
+- **Best in Slot Analysis** — aggregates gear from top 50 players per spec via Raider.IO, shows BiS items, enchants & gems with Wowhead tooltips
+- **Character Profiles** — public pages at `/character/:region/:realm/:name`
+- **9 Languages** — FR, EN, DE, ES, PT, IT, RU, KO, ZH
+- **Dark / Light Theme**
+
+## Tech Stack
+
+| Layer     | Tech                                  |
+| --------- | ------------------------------------- |
+| Framework | Next.js 16 (App Router)               |
+| Database  | PostgreSQL + Prisma                   |
+| Auth      | NextAuth.js v5 (Battle.net OAuth2)    |
+| State     | Zustand                               |
+| Styling   | Tailwind CSS v4 + CSS variables       |
+| UI        | shadcn/ui components                  |
+| APIs      | Blizzard API, Raider.IO, WarcraftLogs |
+| Tooltips  | Wowhead embedded tooltips             |
+| Cache     | Upstash Redis / ioredis               |
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── bis/           # BiS analysis endpoint
+│   │   ├── scan/          # Character scan (Blizzard + RIO + WCL)
+│   │   ├── affixes/       # Weekly affix data
+│   │   ├── characters/    # User characters CRUD
+│   │   └── character/     # Character lookup
+│   ├── auth/              # Battle.net callback & error
+│   ├── character/         # Public character pages
+│   └── dashboard/         # Main dashboard (M+, Vault)
+├── components/            # React components
+├── lib/                   # Utils, API clients, auth, i18n
+└── types/                 # TypeScript types
+scripts/
+└── generate-all-bis.ts    # BiS data generator (40 specs)
+public/data/bis/           # Generated BiS JSON files
+prisma/
+└── schema.prisma          # Database schema
+```
+
+## Environment Variables
+
+```env
+# Battle.net OAuth
+BATTLENET_CLIENT_ID=
+BATTLENET_CLIENT_SECRET=
+BATTLENET_REGION=eu          # eu | us | cn
+
+# Auth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=
+
+# Database
+DATABASE_URL=postgresql://...
+
+# Redis (optional, for caching)
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Setup database
+npx prisma generate
+npx prisma db push
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## BiS Data Generation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The `scripts/generate-all-bis.ts` script analyzes the top 50 players per spec from Raider.IO to build Best in Slot recommendations.
 
-## Learn More
+```bash
+# Run manually
+npx tsx scripts/generate-all-bis.ts
 
-To learn more about Next.js, take a look at the following resources:
+# Force regenerate all specs
+npx tsx scripts/generate-all-bis.ts --force
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Output: `public/data/bis/<class>/<spec>.json` (40 files + `_index.json`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Automated Updates (GitHub Actions)
 
-## Deploy on Vercel
+A workflow runs daily at **06:00 UTC** (EU server reset) to regenerate BiS data and auto-commit changes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+.github/workflows/generate-bis-data.yml
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Runs `generate-all-bis.ts --force` with Battle.net API credentials from secrets
+- Commits updated JSON files to `public/data/bis/`
+- Uses `[skip ci]` to avoid triggering another build
+- Can be triggered manually via `workflow_dispatch`
+
+**Required GitHub Secrets:**
+
+- `BATTLENET_CLIENT_ID`
+- `BATTLENET_CLIENT_SECRET`
+
+## Database Schema
+
+| Model         | Description                                  |
+| ------------- | -------------------------------------------- |
+| `User`        | Battle.net identity (battletag, region)      |
+| `Character`   | WoW character (class, spec, ilvl, Rio score) |
+| `WeeklyMplus` | Weekly M+ runs per character                 |
+| `WeeklyVault` | Weekly vault slot progress                   |
+
+## Deployment
+
+Designed for [Vercel](https://vercel.com) with:
+
+- PostgreSQL (Neon, Supabase, etc.)
+- Upstash Redis for caching
+- GitHub Actions for BiS data updates
