@@ -81,8 +81,8 @@ jobs:
             set -e
             cd ${{ secrets.DEPLOY_PATH }}
 
-            # Mise à jour du tag de l'image
-            export IMAGE_TAG=sha-${{ github.sha }}
+            # Mise à jour du tag de l'image (7 premiers chars, cohérent avec le build)
+            export IMAGE_TAG=sha-$(echo "${{ github.sha }}" | cut -c1-7)
             echo "IMAGE_TAG=${IMAGE_TAG}" > .image_tag.env
 
             # Login GHCR depuis le serveur (PAT avec read:packages)
