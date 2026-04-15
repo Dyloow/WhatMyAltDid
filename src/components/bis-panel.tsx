@@ -33,6 +33,58 @@ const LEFT_SLOTS  = ["head", "neck", "shoulder", "back", "chest", "wrist"];
 const RIGHT_SLOTS = ["hands", "waist", "legs", "feet", "finger1", "finger2"];
 const BOTTOM_SLOTS = ["trinket1", "trinket2", "mainhand", "offhand"];
 
+// Enchant effect ID → display name (from SpellItemEnchantment DB)
+const ENCHANT_NAMES: Record<number, string> = {
+  3368: "Rune of the Fallen Crusader",
+  4897: "Goblin Glider",
+  6241: "Rune of Sanguination",
+  6245: "Rune of the Apocalypse",
+  7935: "Spellthread (Int + Stam)",
+  7937: "Spellthread (Int + Mana)",
+  7963: "Lynx's Dexterity",
+  7967: "Eyes of the Eagle",
+  7969: "Zul'jin's Mastery",
+  7983: "Berserker's Rage",
+  7987: "Mark of the Worldsoul",
+  7993: "Shaladrassil's Roots",
+  7997: "Nature's Fury",
+  8013: "Mark of the Magister",
+  8019: "Farstrider's Hunt",
+  8025: "Silvermoon's Alacrity",
+  8027: "Silvermoon's Tenacity",
+  8039: "Acuity of the Ren'dorei",
+  8041: "Arcane Mastery",
+  8159: "Armor Kit (Agi/Str + Stam)",
+  8163: "Armor Kit (Agi/Str + Armor)",
+};
+
+// Gem item ID → display name
+const GEM_NAMES: Record<number, string> = {
+  240858: "Flawless Ruby",
+  240889: "Flawless Keen Peridot",
+  240890: "Flawless Deadly Peridot",
+  240891: "Flawless Quick Peridot",
+  240892: "Flawless Masterful Peridot",
+  240893: "Flawless Versatile Peridot",
+  240894: "Flawless Energized Peridot",
+  240897: "Flawless Keen Amethyst",
+  240898: "Flawless Deadly Amethyst",
+  240899: "Flawless Quick Amethyst",
+  240900: "Flawless Masterful Amethyst",
+  240902: "Flawless Energized Amethyst",
+  240905: "Flawless Keen Garnet",
+  240906: "Flawless Deadly Garnet",
+  240907: "Flawless Quick Garnet",
+  240908: "Flawless Masterful Garnet",
+  240910: "Flawless Energized Garnet",
+  240914: "Flawless Deadly Sapphire",
+  240916: "Flawless Masterful Sapphire",
+  240918: "Flawless Energized Sapphire",
+  240967: "Flawless Emerald",
+  240969: "Flawless Onyx",
+  240983: "Eversong Diamond",
+};
+
 function wowhead(itemId: number) {
   return `https://www.wowhead.com/fr/item=${itemId}`;
 }
@@ -284,13 +336,11 @@ function CharacterCenter({
   characterClass,
   spec,
   analyzed,
-  totalScanned,
 }: {
   thumbnailUrl?: string;
   characterClass: string;
   spec: string;
   analyzed: number;
-  totalScanned: number;
 }) {
   const classSlug = characterClass.toLowerCase().replace(/\s+/g, "").replace("'", "");
   const mainRender = thumbnailUrl?.replace("/avatar/", "/main/") ?? null;
@@ -356,13 +406,7 @@ function CharacterCenter({
           <span style={{ color: "var(--gold)", fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>
             {analyzed}
           </span>{" "}
-          joueurs analysés
-          {totalScanned > 0 && totalScanned !== analyzed && (
-            <>
-              <br />
-              <span style={{ color: "var(--text-3)" }}>({totalScanned} trouvés au total)</span>
-            </>
-          )}
+          meilleurs joueurs analysés
         </div>
       )}
     </div>
@@ -408,111 +452,39 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
     if (selectedSpec) {
       loadBisData();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSpec]);
 
-  const bisMap = result?.bis;
-  const altMap = result?.bis_alternatives;
+  const rawBis = result?.bis;
+  const rawAlt = result?.bis_alternatives;
 
-  // Smart distribution logic for paired slots (trinkets, rings)
-  const distributedBis: Record<string, BisItem> = {};
-  const distributedAlt: Record<string, BisItem> = {};
+  // Remap merged slots (finger/trinket) to numbered slots (finger1/finger2, trinket1/trinket2)
+  // The generation script aggregates both ring slots into "finger" and both trinket slots into "trinket"
+  const bisMap: Record<string, BisItem> = rawBis ? { ...rawBis } : {};
+  const altMap: Record<string, BisItem> = rawAlt ? { ...rawAlt } : {};
 
-  if (bisMap && altMap) {
-    // Copy all non-paired slots first
-    for (const [slot, item] of Object.entries(bisMap)) {
-      if (!slot.match(/^(trinket|finger)/)) {
-        distributedBis[slot] = item;
-      }
+  // Split merged "finger" → finger1 (top) + finger2 (alternative)
+  if (bisMap.finger && !bisMap.finger1) {
+    bisMap.finger1 = bisMap.finger;
+    if (altMap.finger) {
+      bisMap.finger2 = altMap.finger;
+      delete altMap.finger;
     }
-    for (const [slot, item] of Object.entries(altMap)) {
-      if (!slot.match(/^(trinket|finger)/)) {
-        distributedAlt[slot] = item;
-      }
-    }
-
-    // Helper to distribute paired slots intelligently
-    function distributePairedSlots(
-      slot1Name: string,
-      slot2Name: string,
-      bis1: BisItem | undefined,
-      bis2: BisItem | undefined,
-      alt1: BisItem | undefined,
-      alt2: BisItem | undefined,
-      char1: RioGearItem | undefined,
-      char2: RioGearItem | undefined
-    ) {
-      // Collect all unique items with their vote counts
-      const itemMap = new Map<number, BisItem>();
-      if (bis1) itemMap.set(bis1.item_id, bis1);
-      if (bis2 && bis2.item_id !== bis1?.item_id) itemMap.set(bis2.item_id, bis2);
-      if (alt1 && !itemMap.has(alt1.item_id)) itemMap.set(alt1.item_id, alt1);
-      if (alt2 && !itemMap.has(alt2.item_id)) itemMap.set(alt2.item_id, alt2);
-
-      // Sort by votes (raw_count)
-      const sortedItems = Array.from(itemMap.values()).sort((a, b) => b.raw_count - a.raw_count);
-      
-      if (sortedItems.length === 0) return;
-
-      const has1 = char1 ? sortedItems.findIndex(item => item.item_id === char1.item_id) : -1;
-      const has2 = char2 ? sortedItems.findIndex(item => item.item_id === char2.item_id) : -1;
-
-      // Player has top 2 items already
-      if (has1 >= 0 && has2 >= 0 && has1 < 2 && has2 < 2) {
-        // Great! Show what they have
-        return;
-      }
-
-      // Distribute top 2 items
-      const top1 = sortedItems[0];
-      const top2 = sortedItems[1];
-
-      // Player has the top item in slot 1
-      if (char1?.item_id === top1.item_id) {
-        // They have top in slot 1, show it and recommend #2 in slot 2
-        distributedBis[slot1Name] = top1;
-        if (top2) distributedBis[slot2Name] = top2;
-      } 
-      // Player has the top item in slot 2
-      else if (char2?.item_id === top1.item_id) {
-        // They have top in slot 2, show it and recommend #2 in slot 1
-        distributedBis[slot2Name] = top1;
-        if (top2) distributedBis[slot1Name] = top2;
-      } 
-      // Player doesn't have the top item
-      else {
-        // Show top in slot 1, #2 in slot 2
-        distributedBis[slot1Name] = top1;
-        if (top2) {
-          distributedBis[slot2Name] = top2;
-          // Show 3rd option as alternative for slot 2 if available
-          if (sortedItems[2]) {
-            distributedAlt[slot2Name] = sortedItems[2];
-          }
-        }
-      }
-
-      // Add alternatives where appropriate
-      if (!distributedAlt[slot1Name] && top2 && char1?.item_id !== top1.item_id) {
-        distributedAlt[slot1Name] = top2;
-      }
-    }
-
-    // Apply to trinkets
-    distributePairedSlots(
-      'trinket1', 'trinket2',
-      bisMap.trinket1, bisMap.trinket2,
-      altMap.trinket1, altMap.trinket2,
-      characterGear.trinket1, characterGear.trinket2
-    );
-
-    // Apply to rings
-    distributePairedSlots(
-      'finger1', 'finger2',
-      bisMap.finger1, bisMap.finger2,
-      altMap.finger1, altMap.finger2,
-      characterGear.finger1, characterGear.finger2
-    );
+    delete bisMap.finger;
   }
+  // Split merged "trinket" → trinket1 (top) + trinket2 (alternative)
+  if (bisMap.trinket && !bisMap.trinket1) {
+    bisMap.trinket1 = bisMap.trinket;
+    if (altMap.trinket) {
+      bisMap.trinket2 = altMap.trinket;
+      delete altMap.trinket;
+    }
+    delete bisMap.trinket;
+  }
+
+  // Build final display maps — all slots go into distributedBis/distributedAlt
+  const distributedBis: Record<string, BisItem> = { ...bisMap };
+  const distributedAlt: Record<string, BisItem> = { ...altMap };
 
   return (
     <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", overflow: "hidden" }}>
@@ -555,7 +527,12 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
             fontFamily: "'JetBrains Mono', monospace",
             opacity: 0.7,
           }}>
-            Mise à jour quotidienne à 6h
+            MAJ quotidienne 6h
+            {result?.generated_at && (
+              <span style={{ marginLeft: "4px", color: "var(--text-3)" }}>
+                · {new Date(result.generated_at).toLocaleDateString("fr-FR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -663,7 +640,6 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               characterClass={characterClass}
               spec={selectedSpec}
               analyzed={result.analyzed_count}
-              totalScanned={result.total_scanned ?? 0}
             />
 
             {/* Right column */}
@@ -698,6 +674,131 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               />
             ))}
           </div>
+
+          {/* ── Enchants & Gems ── */}
+          {result.enchants && Object.keys(result.enchants).length > 0 && (
+            <div style={{
+              marginTop: "12px",
+              borderTop: "1px solid var(--border)",
+              paddingTop: "12px",
+            }}>
+              <div style={{
+                fontSize: "9px",
+                fontWeight: 700,
+                color: "var(--text-3)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                marginBottom: "8px",
+                fontFamily: "'JetBrains Mono', monospace",
+              }}>
+                Enchantements recommandés
+              </div>
+              <div style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "4px",
+              }}>
+                {Object.entries(result.enchants).map(([slot, ench]) => {
+                  const slotLabel = SLOT_NAMES[slot] ?? SLOT_NAMES[slot.replace(/\d$/, "")] ?? slot;
+                  const enchantName = ENCHANT_NAMES[ench.enchant_id] ?? `#${ench.enchant_id}`;
+                  const charSlot = slot === "finger" ? "finger1" : slot;
+                  const charItem = characterGear[charSlot];
+                  const hasEnchant = charItem && charItem.enchant === ench.enchant_id;
+                  return (
+                    <div
+                      key={slot}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        padding: "4px 10px",
+                        background: hasEnchant ? "rgba(62,202,114,0.08)" : "var(--surface-2)",
+                        border: `1px solid ${hasEnchant ? "rgba(62,202,114,0.3)" : "var(--border)"}`,
+                        borderRadius: "4px",
+                        fontSize: "10px",
+                      }}
+                    >
+                      <span style={{ color: "var(--text-3)", fontSize: "9px", minWidth: "45px" }}>
+                        {slotLabel}
+                      </span>
+                      <span style={{ color: "var(--arcane)", fontWeight: 600 }}>
+                        {enchantName}
+                      </span>
+                      <span style={{ color: "var(--text-3)", fontSize: "9px", fontFamily: "'JetBrains Mono', monospace" }}>
+                        {Math.round(ench.frequency * 100)}%
+                      </span>
+                      {hasEnchant && (
+                        <span style={{ color: "var(--positive)", fontSize: "9px", fontWeight: 700 }}>✓</span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {result.gems && result.gems.length > 0 && (
+            <div style={{
+              marginTop: "10px",
+              borderTop: "1px solid var(--border)",
+              paddingTop: "10px",
+            }}>
+              <div style={{
+                fontSize: "9px",
+                fontWeight: 700,
+                color: "var(--text-3)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                marginBottom: "8px",
+                fontFamily: "'JetBrains Mono', monospace",
+              }}>
+                Gemmes populaires
+              </div>
+              <div style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "4px",
+              }}>
+                {result.gems.map((gem) => {
+                  const hasGem = Object.values(characterGear).some(
+                    (item) => item?.gems?.includes(gem.gem_id)
+                  );
+                  const gemName = GEM_NAMES[gem.gem_id] ?? `Gem #${gem.gem_id}`;
+                  return (
+                    <a
+                      key={gem.gem_id}
+                      href={`https://www.wowhead.com/fr/item=${gem.gem_id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        padding: "4px 10px",
+                        background: hasGem ? "rgba(62,202,114,0.08)" : "var(--surface-2)",
+                        border: `1px solid ${hasGem ? "rgba(62,202,114,0.3)" : "var(--border)"}`,
+                        borderRadius: "4px",
+                        fontSize: "10px",
+                        color: "var(--text-2)",
+                        textDecoration: "none",
+                        transition: "border-color 0.2s",
+                      }}
+                    >
+                      <span style={{ color: "var(--gold)", fontWeight: 600 }}>
+                        {gemName}
+                      </span>
+                      <span style={{ color: "var(--text-3)", fontSize: "9px", fontFamily: "'JetBrains Mono', monospace" }}>
+                        {Math.round(gem.frequency * 100)}%
+                      </span>
+                      {hasGem && (
+                        <span style={{ color: "var(--positive)", fontSize: "9px", fontWeight: 700 }}>✓</span>
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Empty state */}
           {Object.keys(distributedBis ?? {}).length === 0 && (

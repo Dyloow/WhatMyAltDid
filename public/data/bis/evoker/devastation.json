@@ -1,10 +1,275 @@
 {
-  "analyzed_count": 0,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Evoker",
   "spec": "Devastation",
-  "bis": {},
-  "bis_alternatives": {},
-  "error": "Impossible de récupérer l'équipement"
+  "bis": {
+    "head": {
+      "item_id": 249997,
+      "name": "Hornhelm of the Black Talon",
+      "item_level": 289,
+      "icon": "inv_helm_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.8015810276679842,
+      "raw_count": 40,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 269,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.6515415019762846,
+      "raw_count": 33,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 249995,
+      "name": "Beacons of the Black Talon",
+      "item_level": 289,
+      "icon": "inv_shoulder_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.9593675889328063,
+      "raw_count": 48,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 260312,
+      "name": "Defiant Defender's Drape",
+      "item_level": 266,
+      "icon": "inv_cape_plate_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_dungeonharronir_c_01.jpg",
+      "frequency": 0.26877470355731226,
+      "raw_count": 13,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250000,
+      "name": "Frenzyward of the Black Talon",
+      "item_level": 276,
+      "icon": "inv_chest_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.9343873517786562,
+      "raw_count": 47,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 49810,
+      "name": "Scabrous Zombie Belt",
+      "item_level": 289,
+      "icon": "inv_belt_69",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_69.jpg",
+      "frequency": 0.27304347826086955,
+      "raw_count": 14,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 244584,
+      "name": "Farstrider's Plated Bracers",
+      "item_level": 285,
+      "icon": "inv_bracer_mail_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_questbloodelf_b_01.jpg",
+      "frequency": 0.7800790513833992,
+      "raw_count": 39,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 249998,
+      "name": "Enforcer's Grips of the Black Talon",
+      "item_level": 263,
+      "icon": "inv_glove_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.4690909090909091,
+      "raw_count": 23,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 249996,
+      "name": "Greaves of the Black Talon",
+      "item_level": 276,
+      "icon": "inv_pant_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.9829249011857708,
+      "raw_count": 49,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 249999,
+      "name": "Spelltreads of the Black Talon",
+      "item_level": 276,
+      "icon": "inv_boot_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.4052173913043478,
+      "raw_count": 20,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.7808695652173913,
+      "raw_count": 39,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249346,
+      "name": "Vaelgor's Final Stare",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
+      "frequency": 0.48711462450592885,
+      "raw_count": 24,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 0.7097233201581028,
+      "raw_count": 36,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 249276,
+      "name": "Grimoire of the Eternal Light",
+      "item_level": 289,
+      "icon": "inv_offhand_1h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_raidmidnight_d_01.jpg",
+      "frequency": 0.09960474308300395,
+      "raw_count": 5,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 289,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.44806324110671936,
+      "raw_count": 22,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 250256,
+      "name": "Heart of Wind",
+      "item_level": 276,
+      "icon": "inv_10_jewelcrafting3_soulcage_air",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
+      "frequency": 0.30150197628458497,
+      "raw_count": 15,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237849,
+      "name": "Magister's Valediction",
+      "item_level": 285,
+      "icon": "mace_2h_blacksmithing_d_04_icon",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/mace_2h_blacksmithing_d_04_icon.jpg",
+      "frequency": 0.08442687747035574,
+      "raw_count": 4,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9228458498023715,
+      "raw_count": 46
+    },
+    "legs": {
+      "enchant_id": 7935,
+      "slot": "legs",
+      "frequency": 0.8366798418972332,
+      "raw_count": 42
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.7124110671936759,
+      "raw_count": 36
+    },
+    "finger": {
+      "enchant_id": 7997,
+      "slot": "finger",
+      "frequency": 1.0001581027667985,
+      "raw_count": 52
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.9547826086956521,
+      "raw_count": 48
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240906,
+      "frequency": 1.3203162055335969,
+      "raw_count": 67
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.781501976284585,
+      "raw_count": 39
+    },
+    {
+      "gem_id": 240890,
+      "frequency": 0.38450592885375495,
+      "raw_count": 18
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 0.21802371541501978,
+      "raw_count": 12
+    },
+    {
+      "gem_id": 240905,
+      "frequency": 0.20063241106719368,
+      "raw_count": 10
+    }
+  ],
+  "generated_at": "2026-04-15T12:49:50.489Z"
 }

@@ -54,10 +54,10 @@ function keyUpgrade(n: number) {
 type Tab = "gear" | "runs" | "weekly" | "bis";
 
 const TABS: { key: Tab; label: string }[] = [
-  { key: "gear",   label: "Équipement" },
+  { key: "bis",    label: "Analyse BiS" },
   { key: "runs",   label: "Meilleures clés" },
   { key: "weekly", label: "Semaine en cours" },
-  { key: "bis",    label: "Analyse BiS" },
+  { key: "gear",   label: "Équipement" },
 ];
 
 interface Props {
@@ -68,7 +68,7 @@ interface Props {
 }
 
 export function CharacterDetailClient({ profile, region, realm, name }: Props) {
-  const [tab, setTab] = useState<Tab>("runs");
+  const [tab, setTab] = useState<Tab>("bis");
   const classColor = CLASS_COLORS[profile.class] ?? "var(--gold)";
   const score = profile.mythic_plus_scores_by_season?.[0]?.scores.all ?? 0;
   const gear = profile.gear?.items ?? {};

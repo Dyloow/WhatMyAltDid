@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 78,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Shaman",
@@ -11,8 +11,8 @@
       "item_level": 276,
       "icon": "inv_helm_mail_raidshamanmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidshamanmidnight_d_01.jpg",
-      "frequency": 0.3825136612021858,
-      "raw_count": 32,
+      "frequency": 0.3925691699604743,
+      "raw_count": 21,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,8 +23,8 @@
       "item_level": 276,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.4337957124842371,
-      "raw_count": 33,
+      "frequency": 0.4610276679841897,
+      "raw_count": 23,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,8 +35,8 @@
       "item_level": 289,
       "icon": "inv_shoulder_mail_raidshamanmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidshamanmidnight_d_01.jpg",
-      "frequency": 0.9627994955863808,
-      "raw_count": 74,
+      "frequency": 0.9478260869565217,
+      "raw_count": 47,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 276,
       "icon": "inv_misc_cape_18",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_cape_18.jpg",
-      "frequency": 0.3572929802437999,
-      "raw_count": 27,
+      "frequency": 0.39652173913043476,
+      "raw_count": 20,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,11 +56,11 @@
     "chest": {
       "item_id": 249982,
       "name": "Embrace of the Primal Core",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_robe_mail_raidshamanmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_mail_raidshamanmidnight_d_01.jpg",
-      "frequency": 0.844682639764607,
-      "raw_count": 65,
+      "frequency": 0.8346245059288537,
+      "raw_count": 41,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 276,
       "icon": "inv_belt_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.24905422446406053,
-      "raw_count": 18,
+      "frequency": 0.27019762845849804,
+      "raw_count": 13,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_mail_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_questbloodelf_b_01.jpg",
-      "frequency": 0.5590584279108869,
-      "raw_count": 40,
+      "frequency": 0.5857707509881422,
+      "raw_count": 28,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 276,
       "icon": "inv_glove_mail_raidshamanmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidshamanmidnight_d_01.jpg",
-      "frequency": 0.930432955023119,
-      "raw_count": 73,
+      "frequency": 0.9400790513833992,
+      "raw_count": 47,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -104,11 +104,11 @@
     "legs": {
       "item_id": 249978,
       "name": "Leggings of the Primal Core",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_pant_mail_raidshamanmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidshamanmidnight_d_01.jpg",
-      "frequency": 0.9840269020596889,
-      "raw_count": 76,
+      "frequency": 0.9830830039525692,
+      "raw_count": 49,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 276,
       "icon": "inv_boot_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.4426229508196721,
-      "raw_count": 34,
+      "frequency": 0.43462450592885377,
+      "raw_count": 21,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -128,11 +128,11 @@
     "finger": {
       "item_id": 151308,
       "name": "Eredath Seal of Nobility",
-      "item_level": 266,
+      "item_level": 272,
       "icon": "inv_70_dungeon_ring3c",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring3c.jpg",
-      "frequency": 0.45081967213114754,
-      "raw_count": 36,
+      "frequency": 0.4588142292490119,
+      "raw_count": 23,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 263,
       "icon": "inv_112_raidtrinkets_etherealenergystoragebattery_gold",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_112_raidtrinkets_etherealenergystoragebattery_gold.jpg",
-      "frequency": 0.7286675073560319,
-      "raw_count": 57,
+      "frequency": 0.6616600790513834,
+      "raw_count": 33,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "mace_2h_blacksmithing_d_04_icon",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/mace_2h_blacksmithing_d_04_icon.jpg",
-      "frequency": 0.25283732660781844,
-      "raw_count": 18,
+      "frequency": 0.25976284584980236,
+      "raw_count": 13,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -164,11 +164,11 @@
     "offhand": {
       "item_id": 249275,
       "name": "Bulwark of Noble Resolve",
-      "item_level": 276,
+      "item_level": 285,
       "icon": "inv_shield_1h_raidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shield_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.14102564102564102,
-      "raw_count": 11,
+      "frequency": 0.18434782608695652,
+      "raw_count": 9,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -181,8 +181,8 @@
       "item_level": 282,
       "icon": "inv_12_jewelry_devouringhost_ring_silver2",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_ring_silver2.jpg",
-      "frequency": 0.34615384615384615,
-      "raw_count": 25,
+      "frequency": 0.36632411067193676,
+      "raw_count": 18,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -190,11 +190,11 @@
     "trinket": {
       "item_id": 250256,
       "name": "Heart of Wind",
-      "item_level": 266,
+      "item_level": 269,
       "icon": "inv_10_jewelcrafting3_soulcage_air",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
-      "frequency": 0.29655317360235395,
-      "raw_count": 24,
+      "frequency": 0.24885375494071146,
+      "raw_count": 12,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -205,8 +205,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.2341319882303489,
-      "raw_count": 19,
+      "frequency": 0.22276679841897234,
+      "raw_count": 11,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -217,11 +217,71 @@
       "item_level": 285,
       "icon": "inv_shield_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shield_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.1403951240016814,
-      "raw_count": 10,
+      "frequency": 0.14418972332015811,
+      "raw_count": 7,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
     }
-  }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 8013,
+      "slot": "chest",
+      "frequency": 0.8249802371541501,
+      "raw_count": 41
+    },
+    "legs": {
+      "enchant_id": 7937,
+      "slot": "legs",
+      "frequency": 0.7712252964426878,
+      "raw_count": 38
+    },
+    "feet": {
+      "enchant_id": 7993,
+      "slot": "feet",
+      "frequency": 0.566798418972332,
+      "raw_count": 28
+    },
+    "finger": {
+      "enchant_id": 7997,
+      "slot": "finger",
+      "frequency": 1.2869565217391303,
+      "raw_count": 63
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.9225296442687747,
+      "raw_count": 46
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240910,
+      "frequency": 1.0893280632411066,
+      "raw_count": 54
+    },
+    {
+      "gem_id": 240914,
+      "frequency": 0.4874308300395257,
+      "raw_count": 24
+    },
+    {
+      "gem_id": 240969,
+      "frequency": 0.4044268774703557,
+      "raw_count": 20
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.3661660079051383,
+      "raw_count": 18
+    },
+    {
+      "gem_id": 240906,
+      "frequency": 0.19968379446640316,
+      "raw_count": 10
+    }
+  ],
+  "generated_at": "2026-04-15T12:31:07.271Z"
 }

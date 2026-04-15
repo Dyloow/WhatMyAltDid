@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Generate BiS data for all specs
-        run: npx tsx scripts/generate-all-bis.ts
+        run: npx tsx scripts/generate-all-bis.ts --force
         env:
           BATTLENET_CLIENT_ID: ${{ secrets.BATTLENET_CLIENT_ID }}
           BATTLENET_CLIENT_SECRET: ${{ secrets.BATTLENET_CLIENT_SECRET }}

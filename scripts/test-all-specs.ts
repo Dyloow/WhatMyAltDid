@@ -3,6 +3,7 @@
  * Script de test pour toutes les classes/specs
  * Usage: npx tsx scripts/test-all-specs.ts
  */
+export {};
 
 const API_BASE = 'http://localhost:3000';
 

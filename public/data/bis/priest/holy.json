@@ -1,10 +1,263 @@
 {
-  "analyzed_count": 0,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Priest",
   "spec": "Holy",
-  "bis": {},
-  "bis_alternatives": {},
-  "error": "Impossible de récupérer l'équipement"
+  "bis": {
+    "head": {
+      "item_id": 250051,
+      "name": "Blind Oath's Winged Crest",
+      "item_level": 276,
+      "icon": "inv_helm_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.9609486166007906,
+      "raw_count": 48,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 269,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.35541501976284584,
+      "raw_count": 18,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 250049,
+      "name": "Blind Oath's Seraphguards",
+      "item_level": 276,
+      "icon": "inv_shoulder_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.9837154150197629,
+      "raw_count": 49,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 49823,
+      "name": "Cloak of the Fallen Cardinal",
+      "item_level": 266,
+      "icon": "inv_misc_cape_18",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_cape_18.jpg",
+      "frequency": 0.22988142292490119,
+      "raw_count": 11,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250054,
+      "name": "Blind Oath's Raiment",
+      "item_level": 276,
+      "icon": "inv_robe_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.769802371541502,
+      "raw_count": 38,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 239664,
+      "name": "Arcanoweave Cord",
+      "item_level": 285,
+      "icon": "inv_belt_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.4958102766798419,
+      "raw_count": 25,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 239648,
+      "name": "Martyr's Bindings",
+      "item_level": 285,
+      "icon": "inv_bracer_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.2754150197628458,
+      "raw_count": 14,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 250052,
+      "name": "Blind Oath's Touch",
+      "item_level": 289,
+      "icon": "inv_glove_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.7212648221343874,
+      "raw_count": 36,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 250050,
+      "name": "Blind Oath's Leggings",
+      "item_level": 276,
+      "icon": "inv_pant_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 0.736600790513834,
+      "raw_count": 37,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 251167,
+      "name": "Nightprey Stalkers",
+      "item_level": 289,
+      "icon": "inv_boot_cloth_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_dungeonharronir_c_01.jpg",
+      "frequency": 0.33280632411067196,
+      "raw_count": 17,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.3900395256916996,
+      "raw_count": 19,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249808,
+      "name": "Litany of Lightblind Wrath",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
+      "frequency": 0.4942292490118577,
+      "raw_count": 25,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 0.8651383399209486,
+      "raw_count": 43,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 245769,
+      "name": "Aln'hara Lantern",
+      "item_level": 285,
+      "icon": "inv_offhand_1h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
+      "frequency": 0.08047430830039526,
+      "raw_count": 4,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 151311,
+      "name": "Band of the Triumvirate",
+      "item_level": 276,
+      "icon": "inv_70_dungeon_ring2b",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring2b.jpg",
+      "frequency": 0.3612648221343874,
+      "raw_count": 18,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 264507,
+      "name": "Crucible of Erratic Energies",
+      "item_level": 263,
+      "icon": "inv_112_raidtrinkets_etherealenergystoragebattery_gold",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_112_raidtrinkets_etherealenergystoragebattery_gold.jpg",
+      "frequency": 0.3438735177865613,
+      "raw_count": 17,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 8013,
+      "slot": "chest",
+      "frequency": 0.4950197628458498,
+      "raw_count": 25
+    },
+    "legs": {
+      "enchant_id": 7937,
+      "slot": "legs",
+      "frequency": 0.5560474308300395,
+      "raw_count": 28
+    },
+    "feet": {
+      "enchant_id": 7993,
+      "slot": "feet",
+      "frequency": 0.6170750988142293,
+      "raw_count": 30
+    },
+    "finger": {
+      "enchant_id": 7997,
+      "slot": "finger",
+      "frequency": 0.7133596837944663,
+      "raw_count": 36
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.9201581027667984,
+      "raw_count": 46
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240983,
+      "frequency": 0.7041897233201581,
+      "raw_count": 35
+    },
+    {
+      "gem_id": 240910,
+      "frequency": 0.5233201581027668,
+      "raw_count": 27
+    },
+    {
+      "gem_id": 240890,
+      "frequency": 0.2844268774703557,
+      "raw_count": 15
+    },
+    {
+      "gem_id": 240906,
+      "frequency": 0.20300395256916995,
+      "raw_count": 10
+    },
+    {
+      "gem_id": 240914,
+      "frequency": 0.18988142292490118,
+      "raw_count": 9
+    }
+  ],
+  "generated_at": "2026-04-15T12:29:24.300Z"
 }

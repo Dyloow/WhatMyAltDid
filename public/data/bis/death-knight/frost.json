@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 61,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Death Knight",
@@ -11,20 +11,20 @@
       "item_level": 289,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_helm",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_helm.jpg",
-      "frequency": 1,
-      "raw_count": 61,
+      "frequency": 0.9165217391304348,
+      "raw_count": 46,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 249337,
-      "name": "Ribbon of Coiled Malice",
-      "item_level": 279,
-      "icon": "inv_12_jewelry_devouringhost_necklace_bronze",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_necklace_bronze.jpg",
-      "frequency": 0.5251141552511416,
-      "raw_count": 6,
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 266,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.22940711462450594,
+      "raw_count": 12,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,20 +35,20 @@
       "item_level": 276,
       "icon": "inv_shoulder_121",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_121.jpg",
-      "frequency": 0.6255707762557078,
-      "raw_count": 23,
+      "frequency": 0.3954150197628459,
+      "raw_count": 20,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
     },
     "back": {
-      "item_id": 239656,
-      "name": "Adherent's Silken Shroud",
-      "item_level": 272,
-      "icon": "inv_cape_cloth_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.5114155251141552,
-      "raw_count": 12,
+      "item_id": 258575,
+      "name": "Rigid Scale Greatcloak",
+      "item_level": 269,
+      "icon": "inv_cape_draenordungeon_c_02_plate",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
+      "frequency": 0.5830830039525692,
+      "raw_count": 29,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 289,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_chest",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_chest.jpg",
-      "frequency": 0.9908675799086758,
-      "raw_count": 59,
+      "frequency": 0.9799209486166008,
+      "raw_count": 49,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -68,23 +68,23 @@
     "waist": {
       "item_id": 249967,
       "name": "Relentless Rider's Chain",
-      "item_level": 272,
+      "item_level": 276,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_belt",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_belt.jpg",
-      "frequency": 0.7031963470319634,
-      "raw_count": 25,
+      "frequency": 0.6423715415019763,
+      "raw_count": 32,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
     },
     "wrist": {
-      "item_id": 249326,
-      "name": "Light's March Bracers",
-      "item_level": 276,
-      "icon": "inv_bracer_plate_raidwarriormidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 0.4657534246575342,
-      "raw_count": 2,
+      "item_id": 237834,
+      "name": "Spellbreaker's Bracers",
+      "item_level": 285,
+      "icon": "inv_plate_questbloodelf_b_01_bracer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
+      "frequency": 0.7193675889328063,
+      "raw_count": 36,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 289,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_glove",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_glove.jpg",
-      "frequency": 0.9497716894977168,
-      "raw_count": 55,
+      "frequency": 0.981501976284585,
+      "raw_count": 49,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 276,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_pant",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_pant.jpg",
-      "frequency": 0.9178082191780822,
-      "raw_count": 56,
+      "frequency": 0.9816600790513834,
+      "raw_count": 49,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -116,11 +116,11 @@
     "feet": {
       "item_id": 249381,
       "name": "Greaves of the Unformed",
-      "item_level": 279,
+      "item_level": 289,
       "icon": "inv_boot_plate_raidwarriormidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 0.7351598173515982,
-      "raw_count": 20,
+      "frequency": 0.2858498023715415,
+      "raw_count": 14,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,7 +131,7 @@
       "item_level": 276,
       "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
-      "frequency": 0.7990867579908676,
+      "frequency": 0.7818181818181819,
       "raw_count": 39,
       "slot": "finger",
       "dungeon": null,
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.7397260273972602,
-      "raw_count": 23,
+      "frequency": 0.4866403162055336,
+      "raw_count": 24,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,22 +155,34 @@
       "item_level": 285,
       "icon": "inv_sword_2h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
-      "frequency": 0.730593607305936,
-      "raw_count": 29,
+      "frequency": 0.5040316205533597,
+      "raw_count": 25,
       "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 237839,
+      "name": "Spellbreaker's Blade",
+      "item_level": 285,
+      "icon": "inv_sword_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
+      "frequency": 0.14245059288537548,
+      "raw_count": 7,
+      "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
     }
   },
   "bis_alternatives": {
     "finger": {
-      "item_id": 249369,
-      "name": "Bond of Light",
+      "item_id": 251115,
+      "name": "Bifurcation Band",
       "item_level": 276,
-      "icon": "inv_12_jewelry_silvermoonelf_ring_blue1",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_ring_blue1.jpg",
-      "frequency": 0.5114155251141552,
-      "raw_count": 5,
+      "icon": "inv_12_trinket_devouring_host_currency2_void",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency2_void.jpg",
+      "frequency": 0.22308300395256916,
+      "raw_count": 11,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -181,11 +193,95 @@
       "item_level": 289,
       "icon": "inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner.jpg",
-      "frequency": 0.6255707762557078,
-      "raw_count": 26,
+      "frequency": 0.4398418972332016,
+      "raw_count": 21,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237839,
+      "name": "Spellbreaker's Blade",
+      "item_level": 285,
+      "icon": "inv_sword_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
+      "frequency": 0.12316205533596838,
+      "raw_count": 6,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 258525,
+      "name": "Scepter of the Endless Night",
+      "item_level": 276,
+      "icon": "inv_mace_1h_cataclysm_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mace_1h_cataclysm_c_01.jpg",
+      "frequency": 0.058023715415019765,
+      "raw_count": 3,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
     }
-  }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.8643478260869565,
+      "raw_count": 43
+    },
+    "legs": {
+      "enchant_id": 8159,
+      "slot": "legs",
+      "frequency": 0.9400790513833992,
+      "raw_count": 47
+    },
+    "feet": {
+      "enchant_id": 8019,
+      "slot": "feet",
+      "frequency": 0.38308300395256917,
+      "raw_count": 19
+    },
+    "finger": {
+      "enchant_id": 7967,
+      "slot": "finger",
+      "frequency": 0.7892490118577075,
+      "raw_count": 39
+    },
+    "mainhand": {
+      "enchant_id": 3368,
+      "slot": "mainhand",
+      "frequency": 0.45296442687747035,
+      "raw_count": 23
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240898,
+      "frequency": 1.3046640316205533,
+      "raw_count": 64
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 0.8102766798418972,
+      "raw_count": 40
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.6994466403162055,
+      "raw_count": 35
+    },
+    {
+      "gem_id": 240907,
+      "frequency": 0.13043478260869565,
+      "raw_count": 7
+    },
+    {
+      "gem_id": 240897,
+      "frequency": 0.12964426877470356,
+      "raw_count": 6
+    }
+  ],
+  "generated_at": "2026-04-15T12:40:46.993Z"
 }

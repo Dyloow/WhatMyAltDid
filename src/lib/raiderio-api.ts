@@ -107,27 +107,24 @@ export async function getRioCharacterProfileFull(
     return await cachedFetch(key, 900, async () => {
       const url = `${RIO_BASE}/characters/profile?region=${region}&realm=${encodeURIComponent(realm)}&name=${encodeURIComponent(name)}&fields=${FULL_FIELDS}`;
       
-      // Retry logic with exponential backoff for rate limiting
+      // Retry logic with backoff for rate limiting / timeouts
       let lastError: Error | null = null;
-      for (let attempt = 0; attempt < 3; attempt++) {
+      for (let attempt = 0; attempt < 2; attempt++) {
         try {
-          const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+          const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
           if (res.status === 429) {
             // Rate limited - wait and retry
-            await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+            await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
             continue;
           }
           if (!res.ok) {
-            // Don't cache 404s or other errors
             return null;
           }
           return res.json() as Promise<RioCharacterProfile>;
         } catch (err) {
           lastError = err instanceof Error ? err : new Error(String(err));
-          if (attempt < 2) {
-            // Wait before retry
-            await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 500));
-          }
+          // Don't retry on timeout — fail fast and move to next player
+          break;
         }
       }
       

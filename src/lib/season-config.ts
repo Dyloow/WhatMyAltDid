@@ -105,7 +105,7 @@ export const CURRENT_SEASON: SeasonConfig = {
   ],
   vaultSlots: {
     dungeon: [1, 4, 8],
-    raid: [2, 4, 9],
+    raid: [2, 4, 6],
     world: [2, 5, 8],
   },
   raidIlvlRanges: {

@@ -1,6 +1,6 @@
 {
-  "analyzed_count": 79,
-  "total_scanned": 150,
+  "analyzed_count": 50,
+  "total_scanned": 147,
   "season": "season-mn-1",
   "class": "Demon Hunter",
   "spec": "Devourer",
@@ -12,7 +12,7 @@
       "icon": "inv_helm_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddemonhuntermidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 79,
+      "raw_count": 50,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,8 +23,8 @@
       "item_level": 276,
       "icon": "inv_12_jewelry_silvermoonelf_necklace_blue1",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_blue1.jpg",
-      "frequency": 0.34491213731099307,
-      "raw_count": 29,
+      "frequency": 0.2788293303642437,
+      "raw_count": 14,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -32,11 +32,11 @@
     "shoulder": {
       "item_id": 250031,
       "name": "Devouring Reaver's Exhaustplates",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_shoulder_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.9662852472415202,
-      "raw_count": 77,
+      "frequency": 0.9580085891522189,
+      "raw_count": 48,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 279,
       "icon": "inv_cape_plate_raidpaladinmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_raidpaladinmidnight_d_01.jpg",
-      "frequency": 0.40457703310175724,
-      "raw_count": 30,
+      "frequency": 0.39001113408620963,
+      "raw_count": 19,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,11 +56,11 @@
     "chest": {
       "item_id": 250036,
       "name": "Devouring Reaver's Engine",
-      "item_level": 289,
+      "item_level": 279,
       "icon": "inv_chest_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.9930527176134042,
-      "raw_count": 78,
+      "frequency": 0.9813901701924607,
+      "raw_count": 49,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.7231303637106661,
-      "raw_count": 58,
+      "frequency": 0.7596627962462223,
+      "raw_count": 38,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -80,11 +80,11 @@
     "wrist": {
       "item_id": 250029,
       "name": "Devouring Reaver's Support Straps",
-      "item_level": 266,
+      "item_level": 269,
       "icon": "inv_bracer_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.4574989783408255,
-      "raw_count": 34,
+      "frequency": 0.4135517735008748,
+      "raw_count": 20,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 276,
       "icon": "inv_glove_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.9844707805476093,
-      "raw_count": 78,
+      "frequency": 0.962303165261651,
+      "raw_count": 48,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -104,11 +104,11 @@
     "legs": {
       "item_id": 49817,
       "name": "Shaggy Wyrmleather Leggings",
-      "item_level": 276,
+      "item_level": 282,
       "icon": "inv_pants_leather_30a",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pants_leather_30a.jpg",
-      "frequency": 0.4372701266857376,
-      "raw_count": 37,
+      "frequency": 0.3181167488468268,
+      "raw_count": 16,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -116,11 +116,11 @@
     "feet": {
       "item_id": 250035,
       "name": "Devouring Reaver's Soul Flatteners",
-      "item_level": 272,
+      "item_level": 279,
       "icon": "inv_boot_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.6544748671843074,
-      "raw_count": 50,
+      "frequency": 0.7684110068395101,
+      "raw_count": 39,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 266,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.8261136085002043,
-      "raw_count": 63,
+      "frequency": 0.8156513440432639,
+      "raw_count": 41,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -140,11 +140,11 @@
     "trinket": {
       "item_id": 249343,
       "name": "Gaze of the Alnseer",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.8402125051082959,
-      "raw_count": 64,
+      "frequency": 0.8271035470017496,
+      "raw_count": 41,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_glaive_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.4476910502656314,
-      "raw_count": 38,
+      "frequency": 0.41132495625894705,
+      "raw_count": 21,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -167,8 +167,8 @@
       "item_level": 285,
       "icon": "inv_glaive_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.5341234164282795,
-      "raw_count": 43,
+      "frequency": 0.5304596787020837,
+      "raw_count": 26,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -181,8 +181,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency2_void",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency2_void.jpg",
-      "frequency": 0.6117695136902329,
-      "raw_count": 47,
+      "frequency": 0.5716557976777478,
+      "raw_count": 28,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,8 +193,8 @@
       "item_level": 289,
       "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
-      "frequency": 0.7247650183898652,
-      "raw_count": 55,
+      "frequency": 0.6717035151900748,
+      "raw_count": 34,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -205,23 +205,83 @@
       "item_level": 289,
       "icon": "inv_glaive_1h_raidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.2278299959133633,
-      "raw_count": 17,
+      "frequency": 0.2209320820741212,
+      "raw_count": 11,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     },
     "offhand": {
-      "item_id": 249294,
-      "name": "Blade of the Blind Verdict",
+      "item_id": 249280,
+      "name": "Emblazoned Sunglaive",
       "item_level": 276,
-      "icon": "inv_sword_1h_raidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.14589293011851245,
-      "raw_count": 12,
+      "icon": "inv_glaive_1h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_raidmidnight_d_01.jpg",
+      "frequency": 0.11786225544774932,
+      "raw_count": 6,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
     }
-  }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9589629393987593,
+      "raw_count": 48
+    },
+    "legs": {
+      "enchant_id": 7935,
+      "slot": "legs",
+      "frequency": 0.9055193255924925,
+      "raw_count": 45
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.8261491967552091,
+      "raw_count": 41
+    },
+    "finger": {
+      "enchant_id": 8025,
+      "slot": "finger",
+      "frequency": 1.1344043263877843,
+      "raw_count": 56
+    },
+    "mainhand": {
+      "enchant_id": 7983,
+      "slot": "mainhand",
+      "frequency": 0.5011929378081756,
+      "raw_count": 25
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240900,
+      "frequency": 1.3830125656115795,
+      "raw_count": 69
+    },
+    {
+      "gem_id": 240892,
+      "frequency": 1.2268172419277874,
+      "raw_count": 60
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.9020200413551773,
+      "raw_count": 45
+    },
+    {
+      "gem_id": 240899,
+      "frequency": 0.149673930332432,
+      "raw_count": 8
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 0.05837442341339272,
+      "raw_count": 3
+    }
+  ],
+  "generated_at": "2026-04-15T12:41:00.223Z"
 }

@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 38,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Druid",
@@ -8,23 +8,23 @@
     "head": {
       "item_id": 250024,
       "name": "Branches of the Luminous Bloom",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_helm_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9274245343609505,
-      "raw_count": 35,
+      "frequency": 0.9454545454545454,
+      "raw_count": 47,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 50228,
-      "name": "Barbed Ymirheim Choker",
-      "item_level": 266,
-      "icon": "inv_jewelry_necklace_22",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.2774566473988439,
-      "raw_count": 10,
+      "item_id": 266314,
+      "name": "Novice Combatant's Necklace",
+      "item_level": 276,
+      "icon": "inv_112_raidtrinkets_necklace01_etherealnontechnologicalstyle_terra",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_112_raidtrinkets_necklace01_etherealnontechnologicalstyle_terra.jpg",
+      "frequency": 0.33233201581027666,
+      "raw_count": 16,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -32,11 +32,11 @@
     "shoulder": {
       "item_id": 250022,
       "name": "Seedpods of the Luminous Bloom",
-      "item_level": 289,
+      "item_level": 272,
       "icon": "inv_shoulder_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9691714836223507,
-      "raw_count": 37,
+      "frequency": 0.8945454545454545,
+      "raw_count": 45,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 266,
       "icon": "inv_cape_draenordungeon_c_02_plate",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
-      "frequency": 0.4039820166987797,
-      "raw_count": 17,
+      "frequency": 0.3266403162055336,
+      "raw_count": 16,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 276,
       "icon": "inv_chest_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9588953114964676,
-      "raw_count": 36,
+      "frequency": 0.833201581027668,
+      "raw_count": 42,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.2761721258831085,
-      "raw_count": 10,
+      "frequency": 0.3359683794466403,
+      "raw_count": 17,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.46885035324341684,
-      "raw_count": 18,
+      "frequency": 0.516205533596838,
+      "raw_count": 26,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -92,11 +92,11 @@
     "hands": {
       "item_id": 250025,
       "name": "Arbortenders of the Luminous Bloom",
-      "item_level": 276,
+      "item_level": 272,
       "icon": "inv_glove_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.5510597302504817,
-      "raw_count": 21,
+      "frequency": 0.5244268774703558,
+      "raw_count": 26,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 276,
       "icon": "inv_pant_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9800899165061014,
-      "raw_count": 37,
+      "frequency": 0.961897233201581,
+      "raw_count": 48,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 266,
       "icon": "inv_leather_draenordungeon_c_01boot",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_draenordungeon_c_01boot.jpg",
-      "frequency": 0.4155427103403982,
-      "raw_count": 15,
+      "frequency": 0.21691699604743084,
+      "raw_count": 11,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -128,11 +128,11 @@
     "finger": {
       "item_id": 251093,
       "name": "Omission of Light",
-      "item_level": 266,
+      "item_level": 289,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.5163776493256262,
-      "raw_count": 20,
+      "frequency": 0.6529644268774704,
+      "raw_count": 33,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_misc_enggizmos_18",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
-      "frequency": 0.9852280025690431,
-      "raw_count": 37,
+      "frequency": 0.8937549407114624,
+      "raw_count": 45,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_01.jpg",
-      "frequency": 0.3243416827231856,
-      "raw_count": 13,
+      "frequency": 0.3054545454545455,
+      "raw_count": 15,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -166,11 +166,11 @@
     "finger": {
       "item_id": 251217,
       "name": "Occlusion of Void",
-      "item_level": 263,
+      "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.4393063583815029,
-      "raw_count": 16,
+      "frequency": 0.44521739130434784,
+      "raw_count": 23,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -178,26 +178,86 @@
     "trinket": {
       "item_id": 249343,
       "name": "Gaze of the Alnseer",
-      "item_level": 272,
+      "item_level": 289,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.27874116891457934,
-      "raw_count": 11,
+      "frequency": 0.4507509881422925,
+      "raw_count": 22,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 237847,
-      "name": "Blood Knight's Impetus",
-      "item_level": 285,
-      "icon": "inv_polearm_2h_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_polearm_2h_questbloodelf_b_01.jpg",
-      "frequency": 0.27552986512524086,
-      "raw_count": 11,
+      "item_id": 249302,
+      "name": "Inescapable Reach",
+      "item_level": 289,
+      "icon": "inv_polearm_2h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_polearm_2h_raidmidnight_d_01.jpg",
+      "frequency": 0.25770750988142294,
+      "raw_count": 13,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     }
-  }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9211067193675889,
+      "raw_count": 46
+    },
+    "legs": {
+      "enchant_id": 8159,
+      "slot": "legs",
+      "frequency": 0.9177865612648222,
+      "raw_count": 46
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.7426086956521739,
+      "raw_count": 37
+    },
+    "finger": {
+      "enchant_id": 7967,
+      "slot": "finger",
+      "frequency": 0.7928853754940711,
+      "raw_count": 40
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.9623715415019762,
+      "raw_count": 48
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240900,
+      "frequency": 1.1427667984189724,
+      "raw_count": 58
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.8445849802371541,
+      "raw_count": 42
+    },
+    {
+      "gem_id": 240892,
+      "frequency": 0.5057707509881423,
+      "raw_count": 25
+    },
+    {
+      "gem_id": 240898,
+      "frequency": 0.313201581027668,
+      "raw_count": 15
+    },
+    {
+      "gem_id": 240899,
+      "frequency": 0.13628458498023716,
+      "raw_count": 7
+    }
+  ],
+  "generated_at": "2026-04-15T12:42:29.366Z"
 }

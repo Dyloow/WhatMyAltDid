@@ -18,6 +18,19 @@ export interface BisItem {
   dungeon_display: string | null;
 }
 
+export interface BisEnchant {
+  enchant_id: number;
+  slot: string;
+  frequency: number;
+  raw_count: number;
+}
+
+export interface BisGem {
+  gem_id: number;
+  frequency: number;
+  raw_count: number;
+}
+
 export interface BisAnalysisResult {
   analyzed_count: number;
   total_scanned: number;
@@ -26,6 +39,9 @@ export interface BisAnalysisResult {
   spec: string;
   bis: Record<string, BisItem>;
   bis_alternatives: Record<string, BisItem>;
+  enchants?: Record<string, BisEnchant>;
+  gems?: BisGem[];
+  generated_at?: string;
   error?: string;
 }
 

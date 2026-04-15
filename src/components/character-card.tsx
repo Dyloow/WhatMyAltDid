@@ -48,6 +48,7 @@ export function CharacterCard({ character }: Props) {
   const bestKey = runs.reduce((m, r) => Math.max(m, r.mythic_level), 0);
   const vaultIlvl = getVaultIlvl(bestKey);
   const vaultSlots = getVaultSlots("dungeon", runs.length);
+  const raidVaultSlots = getVaultSlots("raid", character.weeklyRaidBosses);
   const scoreColor = getScoreColor(score);
   const iconSlug = classIconSlug(character.className);
   const detailHref = `/character/${character.region}/${character.realmSlug}/${encodeURIComponent(character.name)}`;
@@ -204,13 +205,19 @@ export function CharacterCard({ character }: Props) {
           )}
         </div>
 
-        {/* Raid */}
+        {/* Raid vault + progression */}
         <div>
           <div style={{ fontSize: "10px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "4px", fontFamily: "'JetBrains Mono', monospace" }}>
-            Raid
+            Vault Raid
           </div>
-          {raidBadges.length > 0 ? (
-            <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--text)", fontFamily: "'JetBrains Mono', monospace" }}>
+              {character.weeklyRaidBosses}/{CURRENT_SEASON.vaultSlots.raid[CURRENT_SEASON.vaultSlots.raid.length - 1]}
+            </span>
+            <VaultDots slots={raidVaultSlots} />
+          </div>
+          {raidBadges.length > 0 && (
+            <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px", marginTop: "4px" }}>
               {raidBadges.map((b, i) => (
                 <span key={i} style={{
                   fontSize: "10px",
@@ -226,8 +233,6 @@ export function CharacterCard({ character }: Props) {
                 </span>
               ))}
             </div>
-          ) : (
-            <span style={{ fontSize: "11px", color: "var(--text-3)" }}>—</span>
           )}
         </div>
       </div>

@@ -1,10 +1,275 @@
 {
-  "analyzed_count": 0,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Warlock",
   "spec": "Destruction",
-  "bis": {},
-  "bis_alternatives": {},
-  "error": "Impossible de récupérer l'équipement"
+  "bis": {
+    "head": {
+      "item_id": 250042,
+      "name": "Abyssal Immolator's Smoldering Flames",
+      "item_level": 276,
+      "icon": "inv_helm_cloth_raidwarlockmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidwarlockmidnight_d_01.jpg",
+      "frequency": 0.949429296131896,
+      "raw_count": 47,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 276,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.4806594800253646,
+      "raw_count": 24,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 250040,
+      "name": "Abyssal Immolator's Fury",
+      "item_level": 289,
+      "icon": "inv_shoulder_cloth_raidwarlockmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidwarlockmidnight_d_01.jpg",
+      "frequency": 0.2907419150285352,
+      "raw_count": 15,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 239656,
+      "name": "Adherent's Silken Shroud",
+      "item_level": 272,
+      "icon": "inv_cape_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.45529486366518707,
+      "raw_count": 23,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250045,
+      "name": "Abyssal Immolator's Dreadrobe",
+      "item_level": 289,
+      "icon": "inv_chest_cloth_raidwarlockmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_raidwarlockmidnight_d_01.jpg",
+      "frequency": 0.9838300570703868,
+      "raw_count": 49,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 250039,
+      "name": "Abyssal Immolator's Blazing Core",
+      "item_level": 289,
+      "icon": "inv_belt_cloth_raidwarlockmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_raidwarlockmidnight_d_01.jpg",
+      "frequency": 0.4852568167406468,
+      "raw_count": 24,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 239648,
+      "name": "Martyr's Bindings",
+      "item_level": 285,
+      "icon": "inv_bracer_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.5927393785668992,
+      "raw_count": 29,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 250043,
+      "name": "Abyssal Immolator's Grasps",
+      "item_level": 276,
+      "icon": "inv_glove_cloth_raidwarlockmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidwarlockmidnight_d_01.jpg",
+      "frequency": 0.9606848446417248,
+      "raw_count": 48,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 250041,
+      "name": "Abyssal Immolator's Pillars",
+      "item_level": 276,
+      "icon": "inv_pant_cloth_raidwarlockmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidwarlockmidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 50,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 49805,
+      "name": "Ice-Steeped Sandals",
+      "item_level": 276,
+      "icon": "inv_boots_cloth_26",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boots_cloth_26.jpg",
+      "frequency": 0.2317691819911224,
+      "raw_count": 11,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.7469879518072289,
+      "raw_count": 37,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 263,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 0.47479391249207353,
+      "raw_count": 24,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 0.6610653138871274,
+      "raw_count": 33,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 245769,
+      "name": "Aln'hara Lantern",
+      "item_level": 285,
+      "icon": "inv_offhand_1h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
+      "frequency": 0.14109067850348764,
+      "raw_count": 7,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.6219086873811034,
+      "raw_count": 31,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 250256,
+      "name": "Heart of Wind",
+      "item_level": 276,
+      "icon": "inv_10_jewelcrafting3_soulcage_air",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
+      "frequency": 0.385859226379201,
+      "raw_count": 19,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237843,
+      "name": "Magister's Mana Sword",
+      "item_level": 285,
+      "icon": "inv_sword_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
+      "frequency": 0.08512999365884591,
+      "raw_count": 4,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9031388712745719,
+      "raw_count": 45
+    },
+    "legs": {
+      "enchant_id": 7935,
+      "slot": "legs",
+      "frequency": 0.8230818008877616,
+      "raw_count": 41
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.6723208623969562,
+      "raw_count": 33
+    },
+    "finger": {
+      "enchant_id": 8025,
+      "slot": "finger",
+      "frequency": 0.6135066582117945,
+      "raw_count": 31
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.7593532022828154,
+      "raw_count": 38
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240890,
+      "frequency": 0.5919467343056436,
+      "raw_count": 30
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.5778376664552949,
+      "raw_count": 29
+    },
+    {
+      "gem_id": 240898,
+      "frequency": 0.4021876981610653,
+      "raw_count": 19
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 0.36889663918833226,
+      "raw_count": 18
+    },
+    {
+      "gem_id": 240906,
+      "frequency": 0.3216550412175016,
+      "raw_count": 16
+    }
+  ],
+  "generated_at": "2026-04-15T12:33:00.595Z"
 }

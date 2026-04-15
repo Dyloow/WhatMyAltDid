@@ -1,10 +1,287 @@
 {
-  "analyzed_count": 0,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Paladin",
   "spec": "Protection",
-  "bis": {},
-  "bis_alternatives": {},
-  "error": "Impossible de récupérer l'équipement"
+  "bis": {
+    "head": {
+      "item_id": 249961,
+      "name": "Luminant Verdict's Unwavering Gaze",
+      "item_level": 272,
+      "icon": "inv_helm_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.8809486166007905,
+      "raw_count": 44,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 266,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.49976284584980235,
+      "raw_count": 25,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 249959,
+      "name": "Luminant Verdict's Providence Watch",
+      "item_level": 276,
+      "icon": "inv_shoulder_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.8736758893280633,
+      "raw_count": 44,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 49823,
+      "name": "Cloak of the Fallen Cardinal",
+      "item_level": 266,
+      "icon": "inv_misc_cape_18",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_cape_18.jpg",
+      "frequency": 0.2588142292490119,
+      "raw_count": 13,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 249964,
+      "name": "Luminant Verdict's Divine Warplate",
+      "item_level": 279,
+      "icon": "inv_chest_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.8090118577075098,
+      "raw_count": 41,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 49808,
+      "name": "Bent Gold Belt",
+      "item_level": 276,
+      "icon": "inv_belt_70",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_70.jpg",
+      "frequency": 0.23699604743083003,
+      "raw_count": 12,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 237834,
+      "name": "Spellbreaker's Bracers",
+      "item_level": 285,
+      "icon": "inv_plate_questbloodelf_b_01_bracer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
+      "frequency": 0.3250592885375494,
+      "raw_count": 16,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 249962,
+      "name": "Luminant Verdict's Gauntlets",
+      "item_level": 289,
+      "icon": "inv_glove_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.5819762845849802,
+      "raw_count": 28,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 249960,
+      "name": "Luminant Verdict's Greaves",
+      "item_level": 276,
+      "icon": "inv_pant_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.9549407114624506,
+      "raw_count": 48,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 237828,
+      "name": "Spellbreaker's March",
+      "item_level": 285,
+      "icon": "inv_plate_questbloodelf_b_01_boot",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_boot.jpg",
+      "frequency": 0.2433201581027668,
+      "raw_count": 12,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.5437154150197628,
+      "raw_count": 27,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249342,
+      "name": "Heart of Ancient Hunger",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger.jpg",
+      "frequency": 0.5813438735177866,
+      "raw_count": 29,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 237839,
+      "name": "Spellbreaker's Blade",
+      "item_level": 285,
+      "icon": "inv_sword_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
+      "frequency": 0.6368379446640317,
+      "raw_count": 32,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 237831,
+      "name": "Spellbreaker's Rebuke",
+      "item_level": 285,
+      "icon": "inv_shield_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shield_1h_questbloodelf_b_01.jpg",
+      "frequency": 0.5958893280632411,
+      "raw_count": 30,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 49812,
+      "name": "Purloined Wedding Ring",
+      "item_level": 266,
+      "icon": "inv_jewelry_ring_42",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_ring_42.jpg",
+      "frequency": 0.34055335968379447,
+      "raw_count": 17,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 250256,
+      "name": "Heart of Wind",
+      "item_level": 276,
+      "icon": "inv_10_jewelcrafting3_soulcage_air",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
+      "frequency": 0.3473517786561265,
+      "raw_count": 18,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 249281,
+      "name": "Blade of the Final Twilight",
+      "item_level": 289,
+      "icon": "inv_sword_1h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_raidmidnight_d_01.jpg",
+      "frequency": 0.08743083003952569,
+      "raw_count": 4,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 249275,
+      "name": "Bulwark of Noble Resolve",
+      "item_level": 289,
+      "icon": "inv_shield_1h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shield_1h_raidmidnight_d_01.jpg",
+      "frequency": 0.12521739130434784,
+      "raw_count": 6,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.6237154150197628,
+      "raw_count": 31
+    },
+    "legs": {
+      "enchant_id": 8159,
+      "slot": "legs",
+      "frequency": 0.9179446640316206,
+      "raw_count": 46
+    },
+    "feet": {
+      "enchant_id": 7993,
+      "slot": "feet",
+      "frequency": 0.5645849802371542,
+      "raw_count": 27
+    },
+    "finger": {
+      "enchant_id": 8025,
+      "slot": "finger",
+      "frequency": 0.8921739130434783,
+      "raw_count": 45
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.7753359683794466,
+      "raw_count": 38
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240983,
+      "frequency": 0.7370750988142293,
+      "raw_count": 37
+    },
+    {
+      "gem_id": 240906,
+      "frequency": 0.6145454545454545,
+      "raw_count": 31
+    },
+    {
+      "gem_id": 240890,
+      "frequency": 0.4978656126482213,
+      "raw_count": 25
+    },
+    {
+      "gem_id": 240894,
+      "frequency": 0.41865612648221345,
+      "raw_count": 21
+    },
+    {
+      "gem_id": 240916,
+      "frequency": 0.26466403162055335,
+      "raw_count": 12
+    }
+  ],
+  "generated_at": "2026-04-15T12:34:25.289Z"
 }

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from 'fs';
 import path from 'path';
-import type { BisAnalysisResult } from '../bis/route';
+import type { BisAnalysisResult } from '../route';
 
 export const dynamic = "force-dynamic";
 

@@ -1,10 +1,269 @@
 {
-  "analyzed_count": 0,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Hunter",
   "spec": "Marksmanship",
-  "bis": {},
-  "bis_alternatives": {},
-  "error": "Impossible de récupérer l'équipement"
+  "bis": {
+    "head": {
+      "item_id": 249988,
+      "name": "Primal Sentry's Maw",
+      "item_level": 276,
+      "icon": "inv_helm_mail_raidhuntermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidhuntermidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 50,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 276,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.2983527669813067,
+      "raw_count": 16,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 249318,
+      "name": "Nullwalker's Dread Epaulettes",
+      "item_level": 289,
+      "icon": "inv_shoulder_mail_raidevokermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidevokermidnight_d_01.jpg",
+      "frequency": 0.29391079030168427,
+      "raw_count": 15,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 258575,
+      "name": "Rigid Scale Greatcloak",
+      "item_level": 276,
+      "icon": "inv_cape_draenordungeon_c_02_plate",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
+      "frequency": 0.40125856005922633,
+      "raw_count": 20,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 249991,
+      "name": "Primal Sentry's Scaleplate",
+      "item_level": 289,
+      "icon": "inv_chest_mail_raidhuntermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidhuntermidnight_d_01.jpg",
+      "frequency": 0.9700166574125486,
+      "raw_count": 48,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 244611,
+      "name": "World Tender's Barkclasp",
+      "item_level": 285,
+      "icon": "inv_belt_mail_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_questbloodelf_b_01.jpg",
+      "frequency": 0.7843790486766611,
+      "raw_count": 40,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 249304,
+      "name": "Fallen King's Cuffs",
+      "item_level": 276,
+      "icon": "inv_bracer_mail_raidshamanmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidshamanmidnight_d_01.jpg",
+      "frequency": 0.3988524893577642,
+      "raw_count": 20,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 249989,
+      "name": "Primal Sentry's Talonguards",
+      "item_level": 276,
+      "icon": "inv_glove_mail_raidhuntermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidhuntermidnight_d_01.jpg",
+      "frequency": 0.9851934110679252,
+      "raw_count": 49,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 249987,
+      "name": "Primal Sentry's Legguards",
+      "item_level": 276,
+      "icon": "inv_pant_mail_raidhuntermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidhuntermidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 50,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 244610,
+      "name": "World Tender's Rootslippers",
+      "item_level": 285,
+      "icon": "inv_boot_mail_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_questbloodelf_b_01.jpg",
+      "frequency": 0.7519896353877475,
+      "raw_count": 38,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 193708,
+      "name": "Platinum Star Band",
+      "item_level": 276,
+      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
+      "frequency": 0.7758652600407181,
+      "raw_count": 40,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 193701,
+      "name": "Algeth'ar Puzzle Box",
+      "item_level": 276,
+      "icon": "inv_misc_enggizmos_18",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
+      "frequency": 0.9420692208032575,
+      "raw_count": 47,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 249279,
+      "name": "Sunstrike Rifle",
+      "item_level": 289,
+      "icon": "inv_firearm_2h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_firearm_2h_raidmidnight_d_01.jpg",
+      "frequency": 0.3870072182121044,
+      "raw_count": 18,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 249336,
+      "name": "Signet of the Starved Beast",
+      "item_level": 289,
+      "icon": "inv_12_jewelry_devouringhost_ring_silver2",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_ring_silver2.jpg",
+      "frequency": 0.4808439755691283,
+      "raw_count": 21,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 252420,
+      "name": "Solarflare Prism",
+      "item_level": 276,
+      "icon": "inv_enchant_shardbrilliantlarge",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_enchant_shardbrilliantlarge.jpg",
+      "frequency": 0.31630575606144734,
+      "raw_count": 16,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 265337,
+      "name": "Aln'hara Sprigshot",
+      "item_level": 285,
+      "icon": "inv_bow_1h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bow_1h_dungeonharronir_c_01.jpg",
+      "frequency": 0.18341662039607626,
+      "raw_count": 9,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9020914306866555,
+      "raw_count": 45
+    },
+    "legs": {
+      "enchant_id": 8159,
+      "slot": "legs",
+      "frequency": 0.9431797149731631,
+      "raw_count": 47
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.4841754580788451,
+      "raw_count": 23
+    },
+    "finger": {
+      "enchant_id": 7967,
+      "slot": "finger",
+      "frequency": 1.634832500462706,
+      "raw_count": 80
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.9563205626503795,
+      "raw_count": 47
+    },
+    "back": {
+      "enchant_id": 4897,
+      "slot": "back",
+      "frequency": 0.055339626133629465,
+      "raw_count": 3
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240908,
+      "frequency": 1.2034055154543772,
+      "raw_count": 54
+    },
+    {
+      "gem_id": 240898,
+      "frequency": 0.549509531741625,
+      "raw_count": 26
+    },
+    {
+      "gem_id": 240967,
+      "frequency": 0.47973348139922267,
+      "raw_count": 23
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.3451786044789932,
+      "raw_count": 17
+    },
+    {
+      "gem_id": 240907,
+      "frequency": 0.2567092356098464,
+      "raw_count": 15
+    }
+  ],
+  "generated_at": "2026-04-15T12:44:55.526Z"
 }

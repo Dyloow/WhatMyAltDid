@@ -1,10 +1,251 @@
 {
-  "analyzed_count": 0,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Mage",
   "spec": "Frost",
-  "bis": {},
-  "bis_alternatives": {},
-  "error": "Impossible de récupérer l'équipement"
+  "bis": {
+    "head": {
+      "item_id": 250060,
+      "name": "Voidbreaker's Veil",
+      "item_level": 289,
+      "icon": "inv_helm_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.9008695652173913,
+      "raw_count": 45,
+      "slot": "head",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "neck": {
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
+      "item_level": 276,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.571699604743083,
+      "raw_count": 29,
+      "slot": "neck",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "shoulder": {
+      "item_id": 251085,
+      "name": "Mantle of Dark Devotion",
+      "item_level": 272,
+      "icon": "inv_shoulder_cloth_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_dungeonharronir_c_01.jpg",
+      "frequency": 0.46561264822134385,
+      "raw_count": 23,
+      "slot": "shoulder",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "back": {
+      "item_id": 258575,
+      "name": "Rigid Scale Greatcloak",
+      "item_level": 276,
+      "icon": "inv_cape_draenordungeon_c_02_plate",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
+      "frequency": 0.38893280632411065,
+      "raw_count": 20,
+      "slot": "back",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "chest": {
+      "item_id": 250063,
+      "name": "Voidbreaker's Robe",
+      "item_level": 289,
+      "icon": "inv_chest_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.9656916996047431,
+      "raw_count": 48,
+      "slot": "chest",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "waist": {
+      "item_id": 250057,
+      "name": "Voidbreaker's Sage Cord",
+      "item_level": 289,
+      "icon": "inv_belt_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.6115415019762845,
+      "raw_count": 31,
+      "slot": "waist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "wrist": {
+      "item_id": 239648,
+      "name": "Martyr's Bindings",
+      "item_level": 285,
+      "icon": "inv_bracer_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.5079841897233202,
+      "raw_count": 26,
+      "slot": "wrist",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "hands": {
+      "item_id": 250061,
+      "name": "Voidbreaker's Gloves",
+      "item_level": 276,
+      "icon": "inv_glove_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.9769169960474309,
+      "raw_count": 49,
+      "slot": "hands",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "legs": {
+      "item_id": 250059,
+      "name": "Voidbreaker's Britches",
+      "item_level": 289,
+      "icon": "inv_pant_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.9392885375494071,
+      "raw_count": 47,
+      "slot": "legs",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "feet": {
+      "item_id": 249373,
+      "name": "Dream-Scorched Striders",
+      "item_level": 289,
+      "icon": "inv_boot_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.4958102766798419,
+      "raw_count": 25,
+      "slot": "feet",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "finger": {
+      "item_id": 193708,
+      "name": "Platinum Star Band",
+      "item_level": 276,
+      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
+      "frequency": 0.7144664031620553,
+      "raw_count": 35,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 0.8825296442687747,
+      "raw_count": 44,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 0.9277470355731225,
+      "raw_count": 46,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251217,
+      "name": "Occlusion of Void",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.3781818181818182,
+      "raw_count": 19,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249346,
+      "name": "Vaelgor's Final Stare",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
+      "frequency": 0.8237154150197629,
+      "raw_count": 41,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9377075098814229,
+      "raw_count": 47
+    },
+    "legs": {
+      "enchant_id": 7935,
+      "slot": "legs",
+      "frequency": 0.9193675889328063,
+      "raw_count": 46
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.8417391304347827,
+      "raw_count": 42
+    },
+    "finger": {
+      "enchant_id": 7967,
+      "slot": "finger",
+      "frequency": 1.0186561264822134,
+      "raw_count": 50
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.9007114624505929,
+      "raw_count": 45
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240898,
+      "frequency": 1.401581027667984,
+      "raw_count": 70
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 1.1351778656126483,
+      "raw_count": 58
+    },
+    {
+      "gem_id": 240983,
+      "frequency": 0.7895652173913044,
+      "raw_count": 39
+    },
+    {
+      "gem_id": 240967,
+      "frequency": 0.1875098814229249,
+      "raw_count": 10
+    },
+    {
+      "gem_id": 240906,
+      "frequency": 0.15699604743083004,
+      "raw_count": 7
+    }
+  ],
+  "generated_at": "2026-04-15T12:46:46.324Z"
 }

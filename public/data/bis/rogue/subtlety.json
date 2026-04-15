@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 31,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Rogue",
@@ -8,11 +8,11 @@
     "head": {
       "item_id": 250006,
       "name": "Masquerade of the Grim Jest",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_helm_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 31,
+      "frequency": 0.9179446640316206,
+      "raw_count": 46,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,8 +23,8 @@
       "item_level": 266,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.5711827956989247,
-      "raw_count": 17,
+      "frequency": 0.5203162055335968,
+      "raw_count": 26,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,8 +35,8 @@
       "item_level": 276,
       "icon": "inv_shoulder_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 31,
+      "frequency": 0.9590513833992095,
+      "raw_count": 48,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 266,
       "icon": "inv_cape_draenordungeon_c_02_plate",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
-      "frequency": 0.509247311827957,
-      "raw_count": 16,
+      "frequency": 0.36695652173913046,
+      "raw_count": 18,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 276,
       "icon": "inv_chest_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 0.9578494623655914,
-      "raw_count": 29,
+      "frequency": 0.980395256916996,
+      "raw_count": 49,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.7836559139784947,
-      "raw_count": 24,
+      "frequency": 0.7038735177865613,
+      "raw_count": 35,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.2567741935483871,
-      "raw_count": 8,
+      "frequency": 0.4143873517786561,
+      "raw_count": 21,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -92,11 +92,11 @@
     "hands": {
       "item_id": 250007,
       "name": "Sleight of Hand of the Grim Jest",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_glove_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raidroguemidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 31,
+      "raw_count": 50,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 276,
       "icon": "inv_pants_leather_30a",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pants_leather_30a.jpg",
-      "frequency": 0.4150537634408602,
-      "raw_count": 13,
+      "frequency": 0.4398418972332016,
+      "raw_count": 22,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,20 +119,20 @@
       "item_level": 276,
       "icon": "inv_boot_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 0.3660215053763441,
-      "raw_count": 12,
+      "frequency": 0.37612648221343875,
+      "raw_count": 19,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
     },
     "finger": {
-      "item_id": 251217,
-      "name": "Occlusion of Void",
+      "item_id": 193708,
+      "name": "Platinum Star Band",
       "item_level": 276,
-      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.40516129032258064,
-      "raw_count": 12,
+      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
+      "frequency": 0.518893280632411,
+      "raw_count": 26,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.7019354838709677,
-      "raw_count": 22,
+      "frequency": 0.6656126482213439,
+      "raw_count": 33,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_knife_1h_questbloodelf_b_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_questbloodelf_b_02.jpg",
-      "frequency": 0.5230107526881721,
-      "raw_count": 17,
+      "frequency": 0.5489328063241107,
+      "raw_count": 28,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -167,8 +167,8 @@
       "item_level": 285,
       "icon": "inv_knife_1h_questbloodelf_b_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_questbloodelf_b_02.jpg",
-      "frequency": 0.47698924731182796,
-      "raw_count": 14,
+      "frequency": 0.42845849802371544,
+      "raw_count": 21,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -176,13 +176,13 @@
   },
   "bis_alternatives": {
     "finger": {
-      "item_id": 251093,
-      "name": "Omission of Light",
-      "item_level": 276,
-      "icon": "inv_12_trinket_devouring_host_currency1_silver",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.3720430107526882,
-      "raw_count": 12,
+      "item_id": 251115,
+      "name": "Bifurcation Band",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency2_void",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency2_void.jpg",
+      "frequency": 0.3661660079051383,
+      "raw_count": 18,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,8 +193,8 @@
       "item_level": 276,
       "icon": "inv_misc_enggizmos_18",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
-      "frequency": 0.5673118279569892,
-      "raw_count": 17,
+      "frequency": 0.5988932806324111,
+      "raw_count": 30,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -205,23 +205,83 @@
       "item_level": 289,
       "icon": "inv_knife_1h_raidmidnight_d_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_raidmidnight_d_02.jpg",
-      "frequency": 0.4266666666666667,
-      "raw_count": 12,
+      "frequency": 0.3911462450592885,
+      "raw_count": 19,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     },
     "offhand": {
-      "item_id": 258436,
-      "name": "Edge of the Burning Sun",
-      "item_level": 266,
-      "icon": "inv_knife_1h_draenordungeon_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_draenordungeon_c_01.jpg",
-      "frequency": 0.19053763440860216,
-      "raw_count": 6,
+      "item_id": 249925,
+      "name": "Hungering Victory",
+      "item_level": 276,
+      "icon": "inv_knife_1h_raidmidnight_d_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_raidmidnight_d_02.jpg",
+      "frequency": 0.21818181818181817,
+      "raw_count": 11,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
     }
-  }
+  },
+  "enchants": {
+    "chest": {
+      "enchant_id": 7987,
+      "slot": "chest",
+      "frequency": 0.9421343873517787,
+      "raw_count": 47
+    },
+    "legs": {
+      "enchant_id": 8159,
+      "slot": "legs",
+      "frequency": 0.980395256916996,
+      "raw_count": 49
+    },
+    "feet": {
+      "enchant_id": 7963,
+      "slot": "feet",
+      "frequency": 0.8490118577075099,
+      "raw_count": 42
+    },
+    "finger": {
+      "enchant_id": 7967,
+      "slot": "finger",
+      "frequency": 1.161106719367589,
+      "raw_count": 58
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.8118577075098814,
+      "raw_count": 41
+    }
+  },
+  "gems": [
+    {
+      "gem_id": 240983,
+      "frequency": 0.9351778656126483,
+      "raw_count": 47
+    },
+    {
+      "gem_id": 240898,
+      "frequency": 0.505296442687747,
+      "raw_count": 26
+    },
+    {
+      "gem_id": 240900,
+      "frequency": 0.49407114624505927,
+      "raw_count": 25
+    },
+    {
+      "gem_id": 240892,
+      "frequency": 0.4216600790513834,
+      "raw_count": 22
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 0.418498023715415,
+      "raw_count": 19
+    }
+  ],
+  "generated_at": "2026-04-15T12:30:51.150Z"
 }
