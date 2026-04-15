@@ -3,6 +3,7 @@
 import { CharacterData } from "@/types/character";
 import { calculateVault, getVaultTodos } from "@/lib/vault-calculator";
 import { CLASS_COLORS, CURRENT_SEASON } from "@/lib/season-config";
+import { useI18n } from "@/lib/i18n";
 
 function VaultDots({ slots, max = 3 }: { slots: number; max?: number }) {
   return (
@@ -46,6 +47,7 @@ export function VaultCard({ character }: { character: CharacterData }) {
   const vault = calculateVault(character);
   const todos = getVaultTodos(character);
   const classColor = CLASS_COLORS[character.className] ?? "var(--text-2)";
+  const { t } = useI18n();
 
   return (
     <div style={{
@@ -120,7 +122,7 @@ export function VaultCard({ character }: { character: CharacterData }) {
             textTransform: "uppercase" as const, letterSpacing: "0.1em",
             fontFamily: "'JetBrains Mono', monospace", marginBottom: 6,
           }}>
-            À faire
+            {t("vault.todo")}
           </div>
           {todos.map((t, i) => (
             <div key={i} style={{

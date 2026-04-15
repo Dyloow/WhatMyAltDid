@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 function getNextReset(): Date {
   const now = new Date();
@@ -13,8 +14,8 @@ function getNextReset(): Date {
   return next;
 }
 
-function formatCountdown(ms: number): string {
-  if (ms <= 0) return "Reset maintenant !";
+function formatCountdown(ms: number, resetText: string): string {
+  if (ms <= 0) return resetText;
   const totalSec = Math.floor(ms / 1000);
   const days = Math.floor(totalSec / 86400);
   const hours = Math.floor((totalSec % 86400) / 3600);
@@ -29,18 +30,19 @@ function formatCountdown(ms: number): string {
 export function CountdownTimer() {
   const [remaining, setRemaining] = useState("");
   const [urgent, setUrgent] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     function update() {
       const next = getNextReset();
       const ms = next.getTime() - Date.now();
-      setRemaining(formatCountdown(ms));
+      setRemaining(formatCountdown(ms, t("timer.reset")));
       setUrgent(ms < 86400000); // < 24h = urgent
     }
     update();
     const id = setInterval(update, 60_000);
     return () => clearInterval(id);
-  }, []);
+  }, [t]);
 
   return (
     <div style={{

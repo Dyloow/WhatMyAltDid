@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRosterStore } from "@/lib/store";
 import { CharacterData } from "@/types/character";
+import { useI18n } from "@/lib/i18n";
 
 const EU_REALMS = [
   "Archimonde", "Elune", "Hyjal", "Kael'thas", "Ysondre",
@@ -18,6 +19,7 @@ interface Props {
 
 export function AddCharacterModal({ open, onClose }: Props) {
   const { addCharacter } = useRosterStore();
+  const { t } = useI18n();
   const [region, setRegion] = useState("eu");
   const [realm, setRealm] = useState("");
   const [name, setName] = useState("");
@@ -54,13 +56,13 @@ export function AddCharacterModal({ open, onClose }: Props) {
       );
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error ?? "Personnage introuvable.");
+        setError(data.error ?? t("modal.error.notfound"));
       } else {
         setSuccess(data as CharacterData);
         addCharacter(data as CharacterData);
       }
     } catch {
-      setError("Erreur réseau. Réessayez.");
+      setError(t("modal.error.network"));
     } finally {
       setLoading(false);
     }
@@ -111,16 +113,16 @@ export function AddCharacterModal({ open, onClose }: Props) {
         }}>
           <div>
             <div style={{ fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
-              Ajouter un personnage
+              {t("modal.title")}
             </div>
             <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--text)", marginTop: "2px", fontFamily: "'Cinzel', serif" }}>
-              Recherche manuelle
+              {t("modal.subtitle")}
             </div>
           </div>
           <button
             onClick={onClose}
             style={{ background: "none", border: "none", color: "var(--text-3)", cursor: "pointer", fontSize: "18px", padding: "4px", lineHeight: 1 }}
-            aria-label="Fermer"
+            aria-label={t("modal.close")}
           >
             ×
           </button>
@@ -138,14 +140,14 @@ export function AddCharacterModal({ open, onClose }: Props) {
                 {success.className} · {success.specName} · {success.realm}
               </div>
               <div style={{ fontSize: "12px", color: "var(--text-3)", marginBottom: "20px" }}>
-                Personnage ajouté au tableau de bord.
+                {t("modal.success")}
               </div>
               <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
                 <button onClick={handleAddAnother} style={btnSecondary}>
-                  + Ajouter un autre
+                  {t("modal.addAnother")}
                 </button>
                 <button onClick={onClose} style={btnPrimary}>
-                  Terminer
+                  {t("modal.done")}
                 </button>
               </div>
             </div>
@@ -153,7 +155,7 @@ export function AddCharacterModal({ open, onClose }: Props) {
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               {/* Region */}
               <div>
-                <label style={labelStyle}>Région</label>
+                <label style={labelStyle}>{t("modal.region")}</label>
                 <div style={{ display: "flex", gap: "6px" }}>
                   {["eu", "us", "kr", "tw"].map(r => (
                     <button
@@ -183,12 +185,12 @@ export function AddCharacterModal({ open, onClose }: Props) {
 
               {/* Realm */}
               <div>
-                <label style={labelStyle}>Serveur</label>
+                <label style={labelStyle}>{t("modal.realm")}</label>
                 <input
                   type="text"
                   value={realm}
                   onChange={e => setRealm(e.target.value)}
-                  placeholder="ex: Hyjal, Archimonde…"
+                  placeholder={t("modal.realm.placeholder")}
                   list="realm-list"
                   disabled={loading}
                   style={inputStyle}
@@ -200,13 +202,13 @@ export function AddCharacterModal({ open, onClose }: Props) {
 
               {/* Name */}
               <div>
-                <label style={labelStyle}>Nom du personnage</label>
+                <label style={labelStyle}>{t("modal.name")}</label>
                 <input
                   ref={nameRef}
                   type="text"
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  placeholder="ex: Dÿløw"
+                  placeholder={t("modal.name.placeholder")}
                   disabled={loading}
                   style={inputStyle}
                   autoComplete="off"
@@ -232,7 +234,7 @@ export function AddCharacterModal({ open, onClose }: Props) {
                 {loading && (
                   <span style={{ width: "11px", height: "11px", borderRadius: "50%", border: "2px solid #07090f", borderTopColor: "transparent", display: "inline-block", animation: "spin 0.8s linear infinite" }} />
                 )}
-                {loading ? "Recherche…" : "Rechercher & ajouter"}
+                {loading ? t("modal.searching") : t("modal.search")}
               </button>
             </form>
           )}

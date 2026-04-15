@@ -19,8 +19,14 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `var whTooltips = { colorLinks: false, iconizeLinks: false, renameLinks: false };`,
+          }}
+        />
+        <script src="https://wow.zamimg.com/js/tooltips.js" async />
       </head>
-      <body style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
+      <body suppressHydrationWarning style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
         <Providers>
           <Navbar />
           <main style={{ flex: 1 }}>{children}</main>

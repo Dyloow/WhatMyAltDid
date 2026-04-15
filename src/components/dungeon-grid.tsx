@@ -6,9 +6,11 @@ import { KeystoneCell } from "@/components/keystone-cell";
 import { AffixBar } from "@/components/affix-badge";
 import { RioAffix } from "@/lib/raiderio-api";
 import { useEffect, useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 export function DungeonGrid() {
   const { characters } = useRosterStore();
+  const { t } = useI18n();
   const [affixes, setAffixes] = useState<RioAffix[]>([]);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export function DungeonGrid() {
         color: "var(--text-3)",
         fontSize: "13px",
       }}>
-        Scannez vos personnages pour afficher le tableau M+
+        {t("grid.empty")}
       </div>
     );
   }
@@ -71,7 +73,7 @@ export function DungeonGrid() {
                 fontFamily: "'Cinzel', serif",
                 letterSpacing: "0.05em",
               }}>
-                Personnage
+                {t("grid.char")}
               </th>
               <th style={{
                 padding: "8px 10px",
@@ -183,9 +185,9 @@ export function DungeonGrid() {
 
       {/* Legend */}
       <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
-        <span><span style={{ color: "var(--positive)" }}>+X</span> = timé cette semaine</span>
-        <span><span style={{ color: "var(--text-2)" }}>+X</span> = meilleur run (saison)</span>
-        <span><span style={{ color: "var(--text-3)" }}>—</span> = non fait</span>
+        <span><span style={{ color: "var(--positive)" }}>+X</span> {t("grid.legend.timed")}</span>
+        <span><span style={{ color: "var(--text-2)" }}>+X</span> {t("grid.legend.best")}</span>
+        <span><span style={{ color: "var(--text-3)" }}>—</span> {t("grid.legend.none")}</span>
       </div>
     </div>
   );

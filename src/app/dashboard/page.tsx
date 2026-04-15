@@ -7,18 +7,20 @@ import { VaultOverview } from "@/components/vault-overview";
 import { RosterFilters } from "@/components/roster-filters";
 import { AddCharacterModal } from "@/components/add-character-modal";
 import { useMemo, useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 type StoreView = "grid" | "list" | "mplus" | "vault";
-
-const VIEWS: { key: StoreView; label: string; icon: string }[] = [
-  { key: "grid",  label: "Personnages",    icon: "⊞" },
-  { key: "mplus", label: "Tableau M+",     icon: "⚔" },
-  { key: "vault", label: "Grande Chambre", icon: "🏛" },
-];
 
 export default function DashboardPage() {
   const { characters, isScanning, scan, lastScanAt, error, view, setView, filters, sortBy, sortDir } = useRosterStore();
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const { t } = useI18n();
+
+  const VIEWS: { key: StoreView; label: string; icon: string }[] = [
+    { key: "grid",  label: t("dash.tab.chars"),  icon: "⊞" },
+    { key: "mplus", label: t("dash.tab.mplus"),  icon: "⚔" },
+    { key: "vault", label: t("dash.tab.vault"),  icon: "🏛" },
+  ];
 
   const timeSince = lastScanAt
     ? Math.round((Date.now() - new Date(lastScanAt).getTime()) / 60000)
@@ -128,7 +130,7 @@ export default function DashboardPage() {
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
           {timeSince !== null && !isScanning && (
             <span style={{ color: "var(--text-3)", fontSize: "10px", fontFamily: "'JetBrains Mono', monospace" }}>
-              il y a {timeSince} min
+              {t("dash.ago", timeSince)}
             </span>
           )}
           <button
@@ -148,7 +150,7 @@ export default function DashboardPage() {
               gap: "4px",
               lineHeight: 1,
             }}
-            title="Ajouter un personnage manuellement"
+            title={t("add.title")}
           >
             +
           </button>
@@ -175,7 +177,7 @@ export default function DashboardPage() {
             {isScanning && (
               <span style={{ width: "9px", height: "9px", borderRadius: "50%", border: "2px solid var(--text-3)", borderTopColor: "transparent", display: "inline-block", animation: "spin 0.8s linear infinite" }} />
             )}
-            {isScanning ? "Scan…" : "↻ Refresh"}
+            {isScanning ? t("dash.scanning") : t("dash.scan")}
           </button>
         </div>
       </div>
@@ -192,10 +194,10 @@ export default function DashboardPage() {
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 24px", gap: "12px" }}>
           <div style={{ fontSize: "40px", opacity: 0.3, fontFamily: "'Cinzel Decorative', serif", color: "var(--gold)" }}>⚔</div>
           <div style={{ fontSize: "16px", fontWeight: 700, color: "var(--text)", fontFamily: "'Cinzel', serif" }}>
-            Aucun personnage scanné
+            {t("dash.empty.title")}
           </div>
           <div style={{ fontSize: "13px", color: "var(--text-2)", textAlign: "center" as const, maxWidth: "320px", lineHeight: 1.6 }}>
-            Lancez un scan pour voir la progression hebdomadaire de tous vos alts.
+            {t("dash.empty.desc")}
           </div>
           <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
             <button
@@ -216,7 +218,7 @@ export default function DashboardPage() {
               onMouseOver={e => (e.currentTarget.style.opacity = "0.85")}
               onMouseOut={e => (e.currentTarget.style.opacity = "1")}
             >
-              Scanner mes personnages
+              {t("dash.empty.scan")}
             </button>
             <button
               onClick={() => setAddModalOpen(true)}
@@ -234,7 +236,7 @@ export default function DashboardPage() {
               onMouseOver={e => (e.currentTarget.style.opacity = "0.75")}
               onMouseOut={e => (e.currentTarget.style.opacity = "1")}
             >
-              + Ajouter manuellement
+              {t("dash.addManual")}
             </button>
           </div>
         </div>
@@ -275,7 +277,7 @@ export default function DashboardPage() {
 
       {(activeView === "grid" || activeView === "list") && characters.length > 0 && displayed.length === 0 && (
         <div style={{ padding: "40px", textAlign: "center" as const, color: "var(--text-3)", fontSize: "13px" }}>
-          Aucun personnage ne correspond aux filtres actuels.
+          {t("dash.empty.filter")}
         </div>
       )}
 

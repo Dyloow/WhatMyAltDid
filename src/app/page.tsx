@@ -4,39 +4,29 @@ import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { CURRENT_SEASON } from "@/lib/season-config";
+import { useI18n } from "@/lib/i18n";
 
 const CLASS_SHOWCASE = [
-  { cls: "warrior",     color: "#C69B3A", name: "Guerrier" },
-  { cls: "paladin",     color: "#F48CBA", name: "Paladin" },
-  { cls: "mage",        color: "#3FC7EB", name: "Mage" },
-  { cls: "rogue",       color: "#FFF468", name: "Voleur" },
-  { cls: "hunter",      color: "#AAD372", name: "Chasseur" },
-  { cls: "warlock",     color: "#8788EE", name: "Démoniste" },
-  { cls: "druid",       color: "#FF7C0A", name: "Druide" },
-  { cls: "demonhunter", color: "#A330C9", name: "Chasseur" },
+  { cls: "warrior",     color: "#C69B3A" },
+  { cls: "paladin",     color: "#F48CBA" },
+  { cls: "mage",        color: "#3FC7EB" },
+  { cls: "rogue",       color: "#FFF468" },
+  { cls: "hunter",      color: "#AAD372" },
+  { cls: "warlock",     color: "#8788EE" },
+  { cls: "druid",       color: "#FF7C0A" },
+  { cls: "demonhunter", color: "#A330C9" },
 ];
 
-const FEATURES = [
-  {
-    icon: "⚔",
-    title: "Tableau M+",
-    desc: "Tous vos runs de la semaine par donjon, en un coup d'œil.",
-  },
-  {
-    icon: "🏛",
-    title: "Grande Chambre",
-    desc: "Slots vault, ilvl projeté, et checklist de ce qu'il reste à faire.",
-  },
-  {
-    icon: "🎯",
-    title: "Analyse BiS",
-    desc: "Items prioritaires à farmer basés sur les meilleurs joueurs.",
-  },
+const FEATURES_KEYS = [
+  { icon: "⚔", titleKey: "home.feature.mplus", descKey: "home.feature.mplus.desc" },
+  { icon: "🏛", titleKey: "home.feature.vault", descKey: "home.feature.vault.desc" },
+  { icon: "🎯", titleKey: "home.feature.bis",   descKey: "home.feature.bis.desc" },
 ];
 
 export default function HomePage() {
   const { status } = useSession();
   const router = useRouter();
+  const { t } = useI18n();
 
   useEffect(() => {
     if (status === "authenticated") router.replace("/dashboard");
@@ -134,8 +124,8 @@ export default function HomePage() {
           lineHeight: 1.6,
           margin: "0 0 32px",
         }}>
-          Votre dashboard multi-alts WoW.<br />
-          Scannez tous vos personnages et voyez en un instant ce qu'ils ont fait — ou pas — cette semaine.
+          {t("home.tagline")}<br />
+          {t("home.subtitle")}
         </p>
 
         <button
@@ -170,11 +160,11 @@ export default function HomePage() {
           <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
             <path d="M9 0C4.03 0 0 4.03 0 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm4.5 9.75h-3.75v3.75h-1.5V9.75H4.5v-1.5h3.75V4.5h1.5v3.75h3.75v1.5z"/>
           </svg>
-          Se connecter avec Battle.net
+          {t("auth.login")}
         </button>
 
         <p style={{ fontSize: "11px", color: "var(--text-3)", marginTop: "12px" }}>
-          OAuth2 sécurisé · Lecture seule · Aucun mot de passe stocké
+          {t("auth.security")}
         </p>
       </div>
 
@@ -188,9 +178,9 @@ export default function HomePage() {
         position: "relative",
         zIndex: 1,
       }}>
-        {FEATURES.map((f, i) => (
+        {FEATURES_KEYS.map((f, i) => (
           <div
-            key={f.title}
+            key={f.titleKey}
             className="animate-fade-in"
             style={{
               background: "var(--surface)",
@@ -212,9 +202,9 @@ export default function HomePage() {
           >
             <div style={{ fontSize: "22px", marginBottom: "10px", fontFamily: "'Cinzel Decorative', serif" }}>{f.icon}</div>
             <div style={{ fontWeight: 700, fontSize: "13px", color: "var(--text)", marginBottom: "6px", fontFamily: "'Cinzel', serif", letterSpacing: "0.03em" }}>
-              {f.title}
+              {t(f.titleKey)}
             </div>
-            <div style={{ fontSize: "12px", color: "var(--text-2)", lineHeight: 1.6 }}>{f.desc}</div>
+            <div style={{ fontSize: "12px", color: "var(--text-2)", lineHeight: 1.6 }}>{t(f.descKey)}</div>
           </div>
         ))}
       </div>

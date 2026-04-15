@@ -1,27 +1,13 @@
 "use client";
 
-import { RioCharacterProfile, RioGearItem } from "@/lib/raiderio-api";
+import { RioCharacterProfile } from "@/lib/raiderio-api";
 import Link from "next/link";
 import { useState } from "react";
 import { BisPanel } from "./bis-panel";
 import { CLASS_COLORS } from "@/lib/season-config";
+import { useI18n } from "@/lib/i18n";
 
-// RIO returns these exact slot keys (no underscores for fingers/trinkets/weapons)
-const GEAR_SLOTS = [
-  "head", "neck", "shoulder", "back", "chest", "wrist",
-  "hands", "waist", "legs", "feet",
-  "finger1", "finger2", "trinket1", "trinket2",
-  "mainhand", "offhand",
-];
 
-const SLOT_NAMES: Record<string, string> = {
-  head: "Tête", neck: "Cou", shoulder: "Épaules", back: "Dos",
-  chest: "Poitrine", wrist: "Poignets", hands: "Mains", waist: "Ceinture",
-  legs: "Jambes", feet: "Pieds",
-  finger1: "Anneau 1", finger2: "Anneau 2",
-  trinket1: "Bibelot 1", trinket2: "Bibelot 2",
-  mainhand: "Main directrice", offhand: "Main secondaire",
-};
 
 function scoreColor(s: number) {
   if (s >= 3500) return "var(--score-legendary)";
@@ -31,15 +17,7 @@ function scoreColor(s: number) {
   return "var(--score-common)";
 }
 
-function qualityColor(quality?: { type: string }) {
-  switch (quality?.type) {
-    case "LEGENDARY": return "#ff8000";
-    case "EPIC":      return "#a335ee";
-    case "RARE":      return "#0070dd";
-    case "UNCOMMON":  return "#1eff00";
-    default:          return "var(--text-2)";
-  }
-}
+
 
 function formatTime(ms: number) {
   const m = Math.floor(ms / 60000);
@@ -51,14 +29,16 @@ function keyUpgrade(n: number) {
   return n >= 3 ? "+++" : n === 2 ? "++" : n === 1 ? "+" : "";
 }
 
-type Tab = "gear" | "runs" | "weekly" | "bis";
+type Tab = "runs" | "weekly" | "bis";
 
-const TABS: { key: Tab; label: string }[] = [
-  { key: "bis",    label: "Analyse BiS" },
-  { key: "runs",   label: "Meilleures clés" },
-  { key: "weekly", label: "Semaine en cours" },
-  { key: "gear",   label: "Équipement" },
-];
+function useTabs() {
+  const { t } = useI18n();
+  return [
+    { key: "bis" as Tab,    label: t("char.tab.bis") },
+    { key: "runs" as Tab,   label: t("char.tab.keys") },
+    { key: "weekly" as Tab, label: t("char.tab.week") },
+  ];
+}
 
 interface Props {
   profile: RioCharacterProfile;
@@ -69,10 +49,12 @@ interface Props {
 
 export function CharacterDetailClient({ profile, region, realm, name }: Props) {
   const [tab, setTab] = useState<Tab>("bis");
+  const { t, locale } = useI18n();
+  const TABS = useTabs();
   const classColor = CLASS_COLORS[profile.class] ?? "var(--gold)";
   const score = profile.mythic_plus_scores_by_season?.[0]?.scores.all ?? 0;
-  const gear = profile.gear?.items ?? {};
   const equippedIlvl = profile.gear?.item_level_equipped ?? 0;
+  const gear = profile.gear?.items ?? {};
   const bestRuns = profile.mythic_plus_best_runs ?? [];
   const weeklyRuns = profile.mythic_plus_weekly_highest_level_runs ?? [];
 
@@ -87,7 +69,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
           onMouseOver={e => (e.currentTarget.style.color = "var(--text)")}
           onMouseOut={e => (e.currentTarget.style.color = "var(--text-2)")}
         >
-          ← Tableau de bord
+          {t("char.back")}
         </Link>
         <div style={{ display: "flex", gap: "8px" }}>
           <a href={profile.profile_url} target="_blank" rel="noopener noreferrer"
@@ -142,7 +124,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
           </p>
           {equippedIlvl > 0 && (
             <p style={{ margin: 0, fontSize: "12px", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
-              {equippedIlvl} <span style={{ fontSize: "10px" }}>ilvl équipé</span>
+              {equippedIlvl} <span style={{ fontSize: "10px" }}>{t("char.ilvl")}</span>
             </p>
           )}
         </div>
@@ -160,7 +142,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
               {Math.round(score).toLocaleString("fr-FR")}
             </div>
             <div style={{ fontSize: "9px", color: "var(--text-3)", letterSpacing: "0.12em", textTransform: "uppercase" as const, marginTop: "4px" }}>
-              Score M+
+              {t("char.score")}
             </div>
           </div>
         )}
@@ -193,79 +175,16 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
       {/* ── Tab content ── */}
       <div style={{ animation: "fade-in 0.2s ease both" }}>
 
-        {/* Gear tab */}
-        {tab === "gear" && (
-          <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", overflow: "hidden" }}>
-            {Object.keys(gear).length === 0 ? (
-              <p style={{ padding: "24px", color: "var(--text-3)", fontSize: "13px", margin: 0 }}>Équipement non disponible.</p>
-            ) : (
-              <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                <thead>
-                  <tr style={{ background: "var(--surface-2)", borderBottom: "1px solid var(--border)" }}>
-                    {["Emplacement", "Item", "ilvl"].map(h => (
-                      <th key={h} style={{ padding: "8px 14px", fontSize: "10px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em", color: "var(--text-2)", textAlign: h === "ilvl" ? "right" as const : "left" as const, fontFamily: "'JetBrains Mono', monospace" }}>{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {GEAR_SLOTS.map(slot => {
-                    const item: RioGearItem | undefined = gear[slot];
-                    return (
-                      <tr key={slot}
-                        style={{ borderBottom: "1px solid var(--border)", transition: "background 0.1s" }}
-                        onMouseOver={e => (e.currentTarget.style.backgroundColor = "var(--surface-2)")}
-                        onMouseOut={e => (e.currentTarget.style.backgroundColor = "transparent")}
-                      >
-                        <td style={{ padding: "7px 14px", fontSize: "11px", color: "var(--text-3)", whiteSpace: "nowrap" as const, width: "130px" }}>
-                          {SLOT_NAMES[slot] ?? slot}
-                        </td>
-                        <td style={{ padding: "7px 8px", fontSize: "12px" }}>
-                          {item ? (
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              {item.icon && <img src={`https://wow.zamimg.com/images/wow/icons/small/${item.icon}.jpg`} alt="" width={20} height={20} style={{ borderRadius: "3px", flexShrink: 0 }} onError={e => { e.currentTarget.style.display = "none"; }} />}
-                              <span style={{ color: qualityColor(item.quality) }}>{item.name}</span>
-                              {item.is_legendary && <span style={{ fontSize: "9px", color: "#ff8000", border: "1px solid rgba(255,128,0,0.3)", borderRadius: "3px", padding: "1px 4px", fontWeight: 700 }}>LÉGENDAIRE</span>}
-                              {item.is_crafted && <span style={{ fontSize: "9px", color: "var(--arcane)", border: "1px solid rgba(77,150,245,0.3)", borderRadius: "3px", padding: "1px 4px" }}>Fabriqué</span>}
-                            </div>
-                          ) : (
-                            <span style={{ color: "var(--text-3)" }}>—</span>
-                          )}
-                        </td>
-                        <td style={{ padding: "7px 14px", textAlign: "right" as const, fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>
-                          {item ? (
-                            <span style={{
-                              color: equippedIlvl
-                                ? item.item_level >= equippedIlvl + 5 ? "var(--score-legendary)"
-                                  : item.item_level >= equippedIlvl ? "var(--score-epic)"
-                                  : item.item_level >= equippedIlvl - 10 ? "var(--score-rare)"
-                                  : "var(--text-2)"
-                                : "var(--text)",
-                              fontSize: "13px",
-                            }}>
-                              {item.item_level}
-                            </span>
-                          ) : null}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            )}
-          </div>
-        )}
-
         {/* Best runs tab */}
         {tab === "runs" && (
           <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", overflow: "hidden" }}>
             {bestRuns.length === 0 ? (
-              <p style={{ padding: "24px", color: "var(--text-3)", fontSize: "13px", margin: 0 }}>Aucune donnée disponible.</p>
+              <p style={{ padding: "24px", color: "var(--text-3)", fontSize: "13px", margin: 0 }}>{t("char.keys.empty")}</p>
             ) : (
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={{ background: "var(--surface-2)", borderBottom: "1px solid var(--border)" }}>
-                    {["Donjon", "Clé", "Temps", "Timer", "Score"].map(h => (
+                    {[t("char.keys.dungeon"), t("char.keys.key"), t("char.keys.time"), t("char.keys.timer"), t("char.keys.score")].map(h => (
                       <th key={h} style={{ padding: "8px 12px", fontSize: "10px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em", color: "var(--text-2)", textAlign: "left" as const, fontFamily: "'JetBrains Mono', monospace" }}>{h}</th>
                     ))}
                   </tr>
@@ -310,12 +229,12 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
         {tab === "weekly" && (
           <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", overflow: "hidden" }}>
             {weeklyRuns.length === 0 ? (
-              <p style={{ padding: "24px", color: "var(--text-3)", fontSize: "13px", margin: 0 }}>Aucune clé cette semaine.</p>
+              <p style={{ padding: "24px", color: "var(--text-3)", fontSize: "13px", margin: 0 }}>{t("char.week.empty")}</p>
             ) : (
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <thead>
                   <tr style={{ background: "var(--surface-2)", borderBottom: "1px solid var(--border)" }}>
-                    {["Donjon", "Clé", "Temps", "Timer"].map(h => (
+                    {[t("char.keys.dungeon"), t("char.keys.key"), t("char.keys.time"), t("char.keys.timer")].map(h => (
                       <th key={h} style={{ padding: "8px 12px", fontSize: "10px", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em", color: "var(--text-2)", textAlign: "left" as const, fontFamily: "'JetBrains Mono', monospace" }}>{h}</th>
                     ))}
                   </tr>

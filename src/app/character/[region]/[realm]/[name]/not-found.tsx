@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useI18n } from "@/lib/i18n";
 
 export default function NotFound() {
+  const { t } = useI18n();
+
   return (
     <div
       style={{
@@ -14,10 +19,10 @@ export default function NotFound() {
       }}
     >
       <h1 style={{ fontSize: "22px", fontWeight: 700, color: "var(--text)", margin: 0 }}>
-        Personnage introuvable
+        {t("char.notfound.title")}
       </h1>
       <p style={{ fontSize: "14px", color: "var(--text-2)", margin: 0 }}>
-        Ce personnage n&apos;existe pas ou n&apos;a pas de profil Raider.IO.
+        {t("char.notfound.desc")}
       </p>
       <Link
         href="/dashboard"
@@ -32,7 +37,7 @@ export default function NotFound() {
           textDecoration: "none",
         }}
       >
-        Retour au tableau de bord
+        {t("char.notfound.back")}
       </Link>
     </div>
   );

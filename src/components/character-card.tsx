@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CharacterData } from "@/types/character";
 import { CLASS_COLORS, CURRENT_SEASON, getVaultIlvl, getVaultSlots } from "@/lib/season-config";
+import { useI18n } from "@/lib/i18n";
 
 function classIconSlug(className: string): string {
   return className.toLowerCase().replace(/\s+/g, "").replace("'", "");
@@ -42,6 +43,7 @@ interface Props {
 }
 
 export function CharacterCard({ character }: Props) {
+  const { t } = useI18n();
   const classColor = CLASS_COLORS[character.className] ?? "var(--text-2)";
   const score = character.rioScore?.all ?? 0;
   const runs = character.weeklyRuns;
@@ -241,7 +243,7 @@ export function CharacterCard({ character }: Props) {
       {missing.length > 0 && missing.length < 8 && (
         <div style={{ padding: "8px 14px 10px" }}>
           <div style={{ fontSize: "10px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "5px", fontFamily: "'JetBrains Mono', monospace" }}>
-            Manquants cette semaine
+            {t("vault.missing")}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
             {missing.slice(0, 5).map(d => (

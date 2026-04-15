@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useI18n } from "@/lib/i18n";
 
 interface Props {
   name: string;
@@ -10,6 +11,7 @@ interface Props {
 
 export function CharacterNotIndexed({ name, realm, region }: Props) {
   const rioUrl = `https://raider.io/characters/${region}/${realm}/${encodeURIComponent(name)}`;
+  const { t } = useI18n();
 
   return (
     <div style={{
@@ -28,8 +30,9 @@ export function CharacterNotIndexed({ name, realm, region }: Props) {
       </h1>
 
       <p style={{ margin: 0, fontSize: "13px", color: "var(--text-2)", textAlign: "center", maxWidth: "380px", lineHeight: 1.6 }}>
-        Ce personnage n&apos;est pas indexé sur Raider.IO pour la saison en cours.
-        Il doit avoir complété au moins un donjon Mythique+ pour apparaître.
+        {t("char.notindexed.title")}
+        {" "}
+        {t("char.notindexed.desc")}
       </p>
 
       <div style={{ display: "flex", gap: "8px", marginTop: "4px", flexWrap: "wrap" as const, justifyContent: "center" }}>
@@ -49,7 +52,7 @@ export function CharacterNotIndexed({ name, realm, region }: Props) {
             transition: "opacity 0.15s",
           }}
         >
-          Voir sur Raider.IO ↗
+          {t("char.notindexed.rio")}
         </a>
         <Link
           href="/dashboard"
@@ -63,7 +66,7 @@ export function CharacterNotIndexed({ name, realm, region }: Props) {
             textDecoration: "none",
           }}
         >
-          Retour au tableau de bord
+          {t("char.notindexed.back")}
         </Link>
       </div>
     </div>

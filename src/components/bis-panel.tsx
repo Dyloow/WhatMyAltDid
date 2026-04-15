@@ -3,6 +3,7 @@
 import { RioGearItem } from "@/lib/raiderio-api";
 import { BisAnalysisResult, BisItem } from "@/app/api/bis/route";
 import { useState, useEffect } from "react";
+import { useI18n } from "@/lib/i18n";
 
 const CLASS_SPECS: Record<string, string[]> = {
   "Death Knight":  ["Blood", "Frost", "Unholy"],
@@ -20,45 +21,51 @@ const CLASS_SPECS: Record<string, string[]> = {
   Warrior:         ["Arms", "Fury", "Protection"],
 };
 
-const SLOT_NAMES: Record<string, string> = {
-  head: "Tête", neck: "Cou", shoulder: "Épaules", back: "Dos",
-  chest: "Poitrine", wrist: "Poignets", hands: "Mains", waist: "Ceinture",
-  legs: "Jambes", feet: "Pieds",
-  finger1: "Anneau 1", finger2: "Anneau 2",
-  trinket1: "Bibelot 1", trinket2: "Bibelot 2",
-  mainhand: "Main dir.", offhand: "Main sec.",
-};
+const SLOT_KEYS = [
+  "head", "neck", "shoulder", "back", "chest", "wrist",
+  "hands", "waist", "legs", "feet",
+  "finger1", "finger2", "trinket1", "trinket2",
+  "mainhand", "offhand",
+] as const;
+
+function useSlotNames() {
+  const { t } = useI18n();
+  const names: Record<string, string> = {};
+  for (const k of SLOT_KEYS) names[k] = t(`slot.${k}`);
+  return names;
+}
 
 const LEFT_SLOTS  = ["head", "neck", "shoulder", "back", "chest", "wrist"];
 const RIGHT_SLOTS = ["hands", "waist", "legs", "feet", "finger1", "finger2"];
 const BOTTOM_SLOTS = ["trinket1", "trinket2", "mainhand", "offhand"];
 
-// Enchant effect ID → display name (from SpellItemEnchantment DB)
-const ENCHANT_NAMES: Record<number, string> = {
-  3368: "Rune of the Fallen Crusader",
-  4897: "Goblin Glider",
-  6241: "Rune of Sanguination",
-  6245: "Rune of the Apocalypse",
-  7935: "Spellthread (Int + Stam)",
-  7937: "Spellthread (Int + Mana)",
-  7963: "Lynx's Dexterity",
-  7967: "Eyes of the Eagle",
-  7969: "Zul'jin's Mastery",
-  7983: "Berserker's Rage",
-  7987: "Mark of the Worldsoul",
-  7993: "Shaladrassil's Roots",
-  7997: "Nature's Fury",
-  8013: "Mark of the Magister",
-  8019: "Farstrider's Hunt",
-  8025: "Silvermoon's Alacrity",
-  8027: "Silvermoon's Tenacity",
-  8039: "Acuity of the Ren'dorei",
-  8041: "Arcane Mastery",
-  8159: "Armor Kit (Agi/Str + Stam)",
-  8163: "Armor Kit (Agi/Str + Armor)",
+// Enchant effect ID → { display name, Wowhead item or spell ID }
+// DK runes use spellId; everything else uses itemId (enchant scroll / consumable)
+const ENCHANT_DATA: Record<number, { name: string; itemId?: number; spellId?: number }> = {
+  3368: { name: "Rune of the Fallen Crusader", spellId: 53344 },
+  4897: { name: "Goblin Glider", itemId: 109076 },
+  6241: { name: "Rune of Sanguination", spellId: 326805 },
+  6245: { name: "Rune of the Apocalypse", spellId: 327082 },
+  7935: { name: "Sunset Spellthread", itemId: 222893 },
+  7937: { name: "Daybreak Spellthread", itemId: 222896 },
+  7963: { name: "Lynx's Dexterity", itemId: 243953 },
+  7967: { name: "Eyes of the Eagle", itemId: 243957 },
+  7969: { name: "Zul'jin's Mastery", itemId: 243959 },
+  7983: { name: "Berserker's Rage", itemId: 243973 },
+  7987: { name: "Mark of the Worldsoul", itemId: 243977 },
+  7993: { name: "Shaladrassil's Roots", itemId: 243983 },
+  7997: { name: "Nature's Fury", itemId: 243987 },
+  8013: { name: "Mark of the Magister", itemId: 244003 },
+  8019: { name: "Farstrider's Hunt", itemId: 244009 },
+  8025: { name: "Silvermoon's Alacrity", itemId: 244015 },
+  8027: { name: "Silvermoon's Tenacity", itemId: 244017 },
+  8039: { name: "Acuity of the Ren'dorei", itemId: 244029 },
+  8041: { name: "Arcane Mastery", itemId: 244031 },
+  8159: { name: "Defender's Armor Kit", itemId: 219907 },
+  8163: { name: "Stormbound Armor Kit", itemId: 219911 },
 };
 
-// Gem item ID → display name
+// Gem item ID → display name (EN fallback)
 const GEM_NAMES: Record<number, string> = {
   240858: "Flawless Ruby",
   240889: "Flawless Keen Peridot",
@@ -85,8 +92,12 @@ const GEM_NAMES: Record<number, string> = {
   240983: "Eversong Diamond",
 };
 
-function wowhead(itemId: number) {
-  return `https://www.wowhead.com/fr/item=${itemId}`;
+function useWowhead() {
+  const { wowheadPrefix } = useI18n();
+  return (itemId: number) => {
+    const prefix = wowheadPrefix ? `/${wowheadPrefix}` : "";
+    return `https://www.wowhead.com${prefix}/item=${itemId}`;
+  };
 }
 
 function zamimg(icon: string, size: "small" | "medium" = "small") {
@@ -103,6 +114,7 @@ function ItemRow({
   charItem,
   highlight,
   isAlternative,
+  wowheadUrl,
 }: {
   label: string;
   labelColor: string;
@@ -110,7 +122,9 @@ function ItemRow({
   charItem?: RioGearItem;
   highlight?: boolean;
   isAlternative?: boolean;
+  wowheadUrl: (id: number) => string;
 }) {
+  const { t } = useI18n();
   const delta = charItem ? item.item_level - charItem.item_level : null;
   const isUpgrade = delta !== null && delta > 0;
   const hasIt = charItem && charItem.item_id === item.item_id;
@@ -135,10 +149,11 @@ function ItemRow({
         {label}
       </span>
       <a
-        href={wowhead(item.item_id)}
+        href={wowheadUrl(item.item_id)}
         target="_blank"
         rel="noopener noreferrer"
-        title={`${item.name} — ${Math.round(item.frequency * 100)}% des votes`}
+        data-wh-rename-link="false"
+        data-wh-icon-size="small"
         style={{ display: "flex", flexShrink: 0 }}
       >
         {item.icon && (
@@ -186,7 +201,7 @@ function ItemRow({
           )}
         </div>
         <div style={{ fontSize: "8px", color: "var(--text-3)" }}>
-          {Math.round(item.frequency * 100)}% votes
+          {Math.round(item.frequency * 100)}% {t("bis.votes")}
           {item.dungeon_display && (
             <span style={{ marginLeft: "3px", color: "var(--text-3)" }}>
               · {item.dungeon_display}
@@ -208,6 +223,9 @@ interface SlotCardProps {
 }
 
 function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
+  const { t } = useI18n();
+  const wowheadUrl = useWowhead();
+  const SLOT_NAMES = useSlotNames();
   const hasBis = !!(bisItem && charItem && charItem.item_id === bisItem.item_id);
   const hasAlt = !!(altItem && charItem && charItem.item_id === altItem.item_id);
   const delta  = bisItem && charItem ? bisItem.item_level - charItem.item_level : null;
@@ -250,15 +268,16 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
       {/* Equipped item */}
       <div style={{ display: "flex", alignItems: "center", gap: "5px", minHeight: "22px" }}>
         <span style={{ fontSize: "8px", color: "var(--text-3)", width: "28px", flexShrink: 0, fontFamily: "'JetBrains Mono', monospace" }}>
-          vous
+          {t("bis.you")}
         </span>
         {charItem ? (
           <>
             <a
-              href={wowhead(charItem.item_id)}
+              href={wowheadUrl(charItem.item_id)}
               target="_blank"
               rel="noopener noreferrer"
-              title={charItem.name}
+              data-wh-rename-link="false"
+              data-wh-icon-size="small"
               style={{ display: "flex", flexShrink: 0 }}
             >
               {curIcon && (
@@ -305,6 +324,7 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
           item={bisItem}
           charItem={charItem}
           highlight
+          wowheadUrl={wowheadUrl}
         />
       )}
 
@@ -316,13 +336,14 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
           item={altItem!}
           charItem={charItem}
           isAlternative={true}
+          wowheadUrl={wowheadUrl}
         />
       )}
 
       {/* No BiS data for this slot */}
       {!bisItem && (
         <div style={{ fontSize: "9px", color: "var(--text-3)", marginTop: "4px", fontStyle: "italic" }}>
-          pas de données
+          {t("bis.noData")}
         </div>
       )}
     </div>
@@ -342,6 +363,7 @@ function CharacterCenter({
   spec: string;
   analyzed: number;
 }) {
+  const { t } = useI18n();
   const classSlug = characterClass.toLowerCase().replace(/\s+/g, "").replace("'", "");
   const mainRender = thumbnailUrl?.replace("/avatar/", "/main/") ?? null;
   const avatarUrl  = thumbnailUrl ?? null;
@@ -406,7 +428,7 @@ function CharacterCenter({
           <span style={{ color: "var(--gold)", fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>
             {analyzed}
           </span>{" "}
-          meilleurs joueurs analysés
+          {t("bis.analyzed")}
         </div>
       )}
     </div>
@@ -424,6 +446,8 @@ interface Props {
 }
 
 export function BisPanel({ region, characterClass, defaultSpec, characterGear, thumbnailUrl }: Props) {
+  const { t, locale, wowheadPrefix } = useI18n();
+  const SLOT_NAMES = useSlotNames();
   const specs = CLASS_SPECS[characterClass] ?? [];
   const [selectedSpec, setSelectedSpec] = useState(specs.includes(defaultSpec) ? defaultSpec : specs[0] ?? "");
   const [result, setResult] = useState<BisAnalysisResult | null>(null);
@@ -441,7 +465,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
       if (data.error) { setError(data.error); setResult(null); }
       else setResult(data);
     } catch {
-      setError("Erreur lors du chargement des données BiS. Réessayez.");
+      setError(t("bis.loadError"));
     } finally {
       setLoading(false);
     }
@@ -454,6 +478,13 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSpec]);
+
+  // Refresh Wowhead tooltips when data changes
+  useEffect(() => {
+    if (result && typeof window !== "undefined" && (window as any).$WowheadPower) {
+      (window as any).$WowheadPower.refreshLinks();
+    }
+  }, [result]);
 
   const rawBis = result?.bis;
   const rawAlt = result?.bis_alternatives;
@@ -500,7 +531,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
         background: "var(--surface-2)",
       }}>
         <div style={{ fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
-          Analyse BiS
+          {t("bis.title")}
         </div>
 
         <div style={{ display: "flex", gap: "8px", marginLeft: "auto", alignItems: "center" }}>
@@ -527,10 +558,10 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
             fontFamily: "'JetBrains Mono', monospace",
             opacity: 0.7,
           }}>
-            MAJ quotidienne 6h
+            {t("bis.daily")}
             {result?.generated_at && (
               <span style={{ marginLeft: "4px", color: "var(--text-3)" }}>
-                · {new Date(result.generated_at).toLocaleDateString("fr-FR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                · {new Date(result.generated_at).toLocaleDateString(locale === "en" ? "en-GB" : `${locale}-${locale.toUpperCase()}`, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
               </span>
             )}
           </div>
@@ -547,7 +578,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
           color: "var(--negative)",
           lineHeight: 1.5,
         }}>
-          <strong>Erreur :</strong> {error}
+          <strong>{t("bis.error")}</strong> {error}
         </div>
       )}
 
@@ -604,7 +635,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
             letterSpacing: "0.05em",
             animation: "fade-in-out 2s ease-in-out infinite",
           }}>
-            Analyse des meilleurs joueurs {selectedSpec}...
+            {t("bis.loading", selectedSpec)}
           </div>
         </div>
       )}
@@ -691,7 +722,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                 marginBottom: "8px",
                 fontFamily: "'JetBrains Mono', monospace",
               }}>
-                Enchantements recommandés
+                {t("bis.enchants")}
               </div>
               <div style={{
                 display: "flex",
@@ -700,10 +731,17 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               }}>
                 {Object.entries(result.enchants).map(([slot, ench]) => {
                   const slotLabel = SLOT_NAMES[slot] ?? SLOT_NAMES[slot.replace(/\d$/, "")] ?? slot;
-                  const enchantName = ENCHANT_NAMES[ench.enchant_id] ?? `#${ench.enchant_id}`;
                   const charSlot = slot === "finger" ? "finger1" : slot;
                   const charItem = characterGear[charSlot];
                   const hasEnchant = charItem && charItem.enchant === ench.enchant_id;
+                  const enchData = ENCHANT_DATA[ench.enchant_id];
+                  const enchantName = enchData?.name ?? `#${ench.enchant_id}`;
+                  const prefix = wowheadPrefix ? `/${wowheadPrefix}` : "";
+                  const enchUrl = enchData?.itemId
+                    ? `https://www.wowhead.com${prefix}/item=${enchData.itemId}`
+                    : enchData?.spellId
+                    ? `https://www.wowhead.com${prefix}/spell=${enchData.spellId}`
+                    : undefined;
                   return (
                     <div
                       key={slot}
@@ -721,11 +759,19 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                       <span style={{ color: "var(--text-3)", fontSize: "9px", minWidth: "45px" }}>
                         {slotLabel}
                       </span>
-                      <span style={{ color: "var(--arcane)", fontWeight: 600 }}>
-                        {enchantName}
-                      </span>
+                      {enchUrl ? (
+                        <a href={enchUrl} target="_blank" rel="noopener noreferrer"
+                          data-wh-rename-link="false"
+                          style={{ color: "var(--arcane)", fontWeight: 600, textDecoration: "none" }}>
+                          {enchantName}
+                        </a>
+                      ) : (
+                        <span style={{ color: "var(--arcane)", fontWeight: 600 }}>
+                          {enchantName}
+                        </span>
+                      )}
                       <span style={{ color: "var(--text-3)", fontSize: "9px", fontFamily: "'JetBrains Mono', monospace" }}>
-                        {Math.round(ench.frequency * 100)}%
+                        {Math.min(Math.round(ench.frequency * 100), 100)}%
                       </span>
                       {hasEnchant && (
                         <span style={{ color: "var(--positive)", fontSize: "9px", fontWeight: 700 }}>✓</span>
@@ -752,7 +798,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                 marginBottom: "8px",
                 fontFamily: "'JetBrains Mono', monospace",
               }}>
-                Gemmes populaires
+                {t("bis.gems")}
               </div>
               <div style={{
                 display: "flex",
@@ -764,12 +810,10 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                     (item) => item?.gems?.includes(gem.gem_id)
                   );
                   const gemName = GEM_NAMES[gem.gem_id] ?? `Gem #${gem.gem_id}`;
+                  const gemUrl = `https://www.wowhead.com${wowheadPrefix ? `/${wowheadPrefix}` : ""}/item=${gem.gem_id}`;
                   return (
-                    <a
+                    <div
                       key={gem.gem_id}
-                      href={`https://www.wowhead.com/fr/item=${gem.gem_id}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -779,21 +823,19 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                         border: `1px solid ${hasGem ? "rgba(62,202,114,0.3)" : "var(--border)"}`,
                         borderRadius: "4px",
                         fontSize: "10px",
-                        color: "var(--text-2)",
-                        textDecoration: "none",
-                        transition: "border-color 0.2s",
                       }}
                     >
-                      <span style={{ color: "var(--gold)", fontWeight: 600 }}>
+                      <a href={gemUrl} target="_blank" rel="noopener noreferrer"
+                        style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>
                         {gemName}
-                      </span>
+                      </a>
                       <span style={{ color: "var(--text-3)", fontSize: "9px", fontFamily: "'JetBrains Mono', monospace" }}>
-                        {Math.round(gem.frequency * 100)}%
+                        {Math.min(Math.round(gem.frequency * 100), 100)}%
                       </span>
                       {hasGem && (
                         <span style={{ color: "var(--positive)", fontSize: "9px", fontWeight: 700 }}>✓</span>
                       )}
-                    </a>
+                    </div>
                   );
                 })}
               </div>
@@ -810,11 +852,10 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               marginTop: "8px",
               borderTop: "1px solid var(--border)",
             }}>
-              Aucun item BiS identifié pour cette spec avec les données disponibles.
+              {t("bis.empty.title")}
               <br />
               <span style={{ fontSize: "11px" }}>
-                {result.analyzed_count} joueur{result.analyzed_count > 1 ? "s" : ""} analysé{result.analyzed_count > 1 ? "s" : ""},
-                données gear insuffisantes.
+                {t("bis.empty.insufficient", result.analyzed_count)}
               </span>
             </div>
           )}
@@ -833,10 +874,10 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
           <div style={{ fontSize: "28px", marginBottom: "8px", opacity: 0.3, fontFamily: "'Cinzel Decorative', serif", color: "var(--gold)" }}>
             ⚔
           </div>
-          Sélectionnez une spec et lancez l&apos;analyse
+          {t("bis.empty.prompt")}
           <br />
           <span style={{ fontSize: "11px" }}>
-            Basé sur l&apos;équipement des meilleurs joueurs de la saison en cours
+            {t("bis.empty.source")}
           </span>
         </div>
       )}

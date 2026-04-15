@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageSelector } from "@/components/language-selector";
+import { useI18n } from "@/lib/i18n";
 
 export function Navbar() {
   const { data: session, status } = useSession();
+  const { t } = useI18n();
 
   return (
     <header className="animate-slide-in-down" style={{
@@ -47,11 +50,12 @@ export function Navbar() {
             letterSpacing: "0.12em",
             textTransform: "uppercase" as const,
           }}>
-            Midnight S1
+            {t("nav.season")}
           </span>
         </Link>
 
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <LanguageSelector />
           <ThemeToggle />
 
           {status === "loading" && (
@@ -100,7 +104,7 @@ export function Navbar() {
                   e.currentTarget.style.color = "var(--text-2)";
                 }}
               >
-                Déco
+                {t("nav.disconnect")}
               </button>
             </div>
           )}
@@ -122,7 +126,7 @@ export function Navbar() {
               onMouseOver={e => (e.currentTarget.style.backgroundColor = "#005bb5")}
               onMouseOut={e => (e.currentTarget.style.backgroundColor = "#0074e0")}
             >
-              Battle.net
+              {t("auth.loginShort")}
             </button>
           )}
         </div>

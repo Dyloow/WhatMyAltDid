@@ -1,6 +1,7 @@
 "use client";
 
 import { RioBestRun } from "@/lib/raiderio-api";
+import { useI18n } from "@/lib/i18n";
 
 function fmt(ms: number) {
   const s = Math.floor(ms / 1000);
@@ -22,6 +23,8 @@ interface KeystoneCellProps {
 }
 
 export function KeystoneCell({ run, isWeekly }: KeystoneCellProps) {
+  const { t } = useI18n();
+
   if (!run) {
     return (
       <td style={{ padding: "6px 4px", textAlign: "center" }}>
@@ -37,7 +40,7 @@ export function KeystoneCell({ run, isWeekly }: KeystoneCellProps) {
     `${run.dungeon}`,
     `+${run.mythic_level} ${timed ? "✓" : "✗"}`,
     `${fmt(run.clear_time_ms)} / ${fmt(run.par_time_ms)}`,
-    timed ? `+${upgrade} timé` : "hors timer",
+    timed ? `+${upgrade} ${t("key.timed")}` : t("key.overtimed"),
   ].join("\n");
 
   return (

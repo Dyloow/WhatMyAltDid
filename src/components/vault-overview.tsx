@@ -5,6 +5,7 @@ import { VaultCard } from "@/components/vault-card";
 import { CountdownTimer } from "@/components/countdown-timer";
 import { calculateVault } from "@/lib/vault-calculator";
 import { CLASS_COLORS } from "@/lib/season-config";
+import { useI18n } from "@/lib/i18n";
 
 function VaultDots({ slots }: { slots: number }) {
   return (
@@ -28,6 +29,7 @@ function VaultDots({ slots }: { slots: number }) {
 
 export function VaultOverview() {
   const { characters } = useRosterStore();
+  const { t } = useI18n();
 
   const vaults = characters.map((char) => ({
     char,
@@ -47,10 +49,10 @@ export function VaultOverview() {
             color: "var(--gold)",
             letterSpacing: "0.05em",
           }}>
-            Grande Chambre
+            {t("vault.title")}
           </h2>
           <p style={{ margin: "2px 0 0", fontSize: "11px", color: "var(--text-3)" }}>
-            Progression hebdomadaire · {characters.length} personnage{characters.length > 1 ? "s" : ""}
+            {t("vault.subtitle", characters.length)}
           </p>
         </div>
         <CountdownTimer />
@@ -62,10 +64,10 @@ export function VaultOverview() {
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px", backgroundColor: "var(--surface)" }}>
             <thead>
               <tr style={{ backgroundColor: "var(--surface-2)", borderBottom: "1px solid var(--border)" }}>
-                {["Personnage", "M+ Runs", "M+ Slots", "Vault ilvl", "Raid Bosses", "Raid Slots", "Total"].map(h => (
+                {[t("vault.char"), t("vault.mplusRuns"), t("vault.mplusSlots"), t("vault.vaultIlvl"), t("vault.raidBosses"), t("vault.raidSlots"), t("vault.total")].map(h => (
                   <th key={h} style={{
                     padding: "8px 12px",
-                    textAlign: h === "Personnage" ? "left" : "center",
+                    textAlign: h === t("vault.char") ? "left" : "center",
                     color: "var(--text-2)",
                     fontWeight: 600,
                     fontSize: "10px",
