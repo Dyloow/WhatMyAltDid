@@ -1,0 +1,36 @@
+services:
+  app:
+    image: ghcr.io/dyloow/whatmyaltdid:${IMAGE_TAG:-latest}
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      BATTLENET_CLIENT_ID: ${BATTLENET_CLIENT_ID}
+      BATTLENET_CLIENT_SECRET: ${BATTLENET_CLIENT_SECRET}
+      WARCRAFTLOGS_CLIENT_ID: ${WARCRAFTLOGS_CLIENT_ID}
+      WARCRAFTLOGS_CLIENT_SECRET: ${WARCRAFTLOGS_CLIENT_SECRET}
+      UPSTASH_REDIS_REST_URL: ${UPSTASH_REDIS_REST_URL:-}
+      UPSTASH_REDIS_REST_TOKEN: ${UPSTASH_REDIS_REST_TOKEN:-}
+      NODE_ENV: production
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whatmyaltdid.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.whatmyaltdid.entrypoints=websecure"
+      - "traefik.http.routers.whatmyaltdid.tls.certresolver=letsencrypt"
+      - "traefik.http.services.whatmyaltdid.loadbalancer.server.port=3000"
+      # Healthcheck Traefik — retire le container si unhealthy
+      - "traefik.http.services.whatmyaltdid.loadbalancer.healthcheck.path=/api/health"
+      - "traefik.http.services.whatmyaltdid.loadbalancer.healthcheck.interval=10s"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+
+networks:
+  proxy:
+    external: true
