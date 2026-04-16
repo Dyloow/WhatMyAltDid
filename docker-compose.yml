@@ -27,7 +27,7 @@ services:
       - "traefik.http.services.whatmyaltdid.loadbalancer.healthcheck.path=/api/health"
       - "traefik.http.services.whatmyaltdid.loadbalancer.healthcheck.interval=10s"
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      test: ["CMD-SHELL", "wget -qO /dev/null http://127.0.0.1:3000/api/health"]
       interval: 15s
       timeout: 5s
       start_period: 60s
