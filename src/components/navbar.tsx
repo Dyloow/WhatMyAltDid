@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageSelector } from "@/components/language-selector";
@@ -22,8 +23,8 @@ export function Navbar() {
       <div style={{
         maxWidth: "1400px",
         margin: "0 auto",
-        padding: "0 20px",
-        height: "54px",
+        padding: "0 24px",
+        height: "64px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -31,19 +32,18 @@ export function Navbar() {
       }}>
 
         <Link href="/" className="hover-scale" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", transition: "transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)" }}>
+          <div style={{ height: "48px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+            <Image
+              src="/logo_header.png"
+              alt="WhatMyAltDid"
+              width={260}
+              height={80}
+              style={{ height: "64px", width: "auto", objectFit: "contain", margin: "-8px 0" }}
+              priority
+            />
+          </div>
           <span style={{
-            fontFamily: "'Cinzel Decorative', serif",
-            fontSize: "14px",
-            fontWeight: 900,
-            color: "var(--gold)",
-            letterSpacing: "0.03em",
-            lineHeight: 1,
-            textShadow: "0 0 20px var(--gold-glow)",
-          }}>
-            WhatMyAltDid
-          </span>
-          <span style={{
-            fontSize: "9px",
+            fontSize: "10px",
             fontFamily: "'JetBrains Mono', monospace",
             color: "var(--text-3)",
             fontWeight: 500,
@@ -54,26 +54,26 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <LanguageSelector />
           <ThemeToggle />
 
           {status === "loading" && (
             <div style={{
-              width: "88px", height: "28px",
-              borderRadius: "5px",
+              width: "100px", height: "34px",
+              borderRadius: "6px",
               backgroundColor: "var(--surface-2)",
               animation: "pulse-soft 1.5s ease-in-out infinite",
             }} />
           )}
 
           {status === "authenticated" && session && (
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <span style={{
-                fontSize: "11px",
+                fontSize: "13px",
                 color: "var(--text-2)",
                 fontFamily: "'JetBrains Mono', monospace",
-                maxWidth: "160px",
+                maxWidth: "180px",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap" as const,
@@ -86,9 +86,9 @@ export function Navbar() {
                   backgroundColor: "transparent",
                   border: "1px solid var(--border-2)",
                   color: "var(--text-2)",
-                  borderRadius: "5px",
-                  padding: "4px 10px",
-                  fontSize: "10px",
+                  borderRadius: "6px",
+                  padding: "6px 14px",
+                  fontSize: "12px",
                   fontWeight: 600,
                   cursor: "pointer",
                   letterSpacing: "0.06em",
@@ -117,8 +117,8 @@ export function Navbar() {
                 color: "#fff",
                 border: "none",
                 borderRadius: "6px",
-                padding: "5px 14px",
-                fontSize: "12px",
+                padding: "8px 18px",
+                fontSize: "13px",
                 fontWeight: 700,
                 cursor: "pointer",
                 transition: "background 0.15s",

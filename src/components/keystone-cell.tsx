@@ -27,8 +27,8 @@ export function KeystoneCell({ run, isWeekly }: KeystoneCellProps) {
 
   if (!run) {
     return (
-      <td style={{ padding: "6px 4px", textAlign: "center" }}>
-        <span style={{ color: "var(--text-3)", fontSize: "12px", fontFamily: "'JetBrains Mono', monospace" }}>—</span>
+      <td style={{ padding: "8px 6px", textAlign: "center" }}>
+        <span style={{ color: "var(--text-3)", fontSize: "14px", fontFamily: "'JetBrains Mono', monospace" }}>—</span>
       </td>
     );
   }
@@ -44,16 +44,16 @@ export function KeystoneCell({ run, isWeekly }: KeystoneCellProps) {
   ].join("\n");
 
   return (
-    <td style={{ padding: "6px 4px", textAlign: "center" }}>
+    <td style={{ padding: "8px 6px", textAlign: "center" }}>
       <span
         title={title}
         style={{
           display: "inline-flex",
           alignItems: "center",
           gap: "1px",
-          padding: "3px 7px",
-          borderRadius: "4px",
-          fontSize: "12px",
+          padding: "5px 10px",
+          borderRadius: "5px",
+          fontSize: "14px",
           fontWeight: 700,
           backgroundColor: isWeekly ? colors.bg : "transparent",
           color: colors.text,
@@ -70,7 +70,7 @@ export function KeystoneCell({ run, isWeekly }: KeystoneCellProps) {
         }}
       >
         +{run.mythic_level}
-        {timed && upgrade && <span style={{ fontSize: "9px", marginLeft: "1px", opacity: 0.8 }}>{upgrade}</span>}
+        {timed && upgrade && <span style={{ fontSize: "11px", marginLeft: "1px", opacity: 0.8 }}>{upgrade}</span>}
       </span>
     </td>
   );

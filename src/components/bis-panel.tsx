@@ -133,15 +133,15 @@ function ItemRow({
     <div style={{
       display: "flex",
       alignItems: "center",
-      gap: "5px",
-      marginTop: "5px",
-      paddingTop: "5px",
+      gap: "8px",
+      marginTop: "6px",
+      paddingTop: "6px",
       borderTop: "1px solid var(--border)",
     }}>
       <span style={{
-        fontSize: "8px",
+        fontSize: "10px",
         color: labelColor,
-        width: "28px",
+        width: "32px",
         flexShrink: 0,
         fontWeight: 700,
         fontFamily: "'JetBrains Mono', monospace",
@@ -161,10 +161,10 @@ function ItemRow({
           <img
             src={item.icon_url || zamimg(item.icon)}
             alt=""
-            width={20}
-            height={20}
+            width={28}
+            height={28}
             style={{
-              borderRadius: "3px",
+              borderRadius: "4px",
               outline: highlight && isUpgrade ? "1px solid rgba(255,192,0,0.6)" : "none",
               outlineOffset: "1px",
             }}
@@ -172,10 +172,10 @@ function ItemRow({
           />
         )}
       </a>
-      <div style={{ lineHeight: 1.2, minWidth: 0, overflow: "hidden" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+      <div style={{ lineHeight: 1.3, minWidth: 0, overflow: "hidden" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
           <span style={{
-            fontSize: "11px",
+            fontSize: "13px",
             color: isUpgrade ? "var(--positive)" : "var(--text-2)",
             fontFamily: "'JetBrains Mono', monospace",
             fontWeight: 600,
@@ -183,24 +183,24 @@ function ItemRow({
             {item.item_level}
           </span>
           {isUpgrade && (
-            <span style={{ fontSize: "9px", color: "var(--positive)", fontWeight: 700 }}>
+            <span style={{ fontSize: "11px", color: "var(--positive)", fontWeight: 700 }}>
               +{delta}
             </span>
           )}
           {hasIt && (
             <span style={{ 
-              fontSize: "9px", 
+              fontSize: "10px", 
               color: "var(--positive)", 
               fontWeight: 700,
               background: isAlternative ? "rgba(62,202,114,0.15)" : "transparent",
-              padding: isAlternative ? "1px 3px" : "0",
+              padding: isAlternative ? "1px 4px" : "0",
               borderRadius: isAlternative ? "3px" : "0",
             }}>
               {isAlternative ? "ALT ✓" : "✓"}
             </span>
           )}
         </div>
-        <div style={{ fontSize: "8px", color: "var(--text-3)" }}>
+        <div style={{ fontSize: "10px", color: "var(--text-3)" }}>
           {Math.round(item.frequency * 100)}% {t("bis.votes")}
           {item.dungeon_display && (
             <span style={{ marginLeft: "3px", color: "var(--text-3)" }}>
@@ -246,28 +246,28 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
     <div className="animate-scale-in hover-lift" style={{
       background: bgColor,
       border: `1px solid ${borderColor}`,
-      borderRadius: "7px",
-      padding: "8px 10px",
-      width: "148px",
+      borderRadius: "8px",
+      padding: "10px 12px",
+      width: "190px",
       flexShrink: 0,
       transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
     }}>
       {/* Slot label */}
       <div style={{
-        fontSize: "8px",
+        fontSize: "10px",
         fontWeight: 700,
         color: "var(--text-3)",
         textTransform: "uppercase",
         letterSpacing: "0.1em",
-        marginBottom: "6px",
+        marginBottom: "8px",
         fontFamily: "'JetBrains Mono', monospace",
       }}>
         {SLOT_NAMES[slot] ?? slot}
       </div>
 
       {/* Equipped item */}
-      <div style={{ display: "flex", alignItems: "center", gap: "5px", minHeight: "22px" }}>
-        <span style={{ fontSize: "8px", color: "var(--text-3)", width: "28px", flexShrink: 0, fontFamily: "'JetBrains Mono', monospace" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", minHeight: "28px" }}>
+        <span style={{ fontSize: "10px", color: "var(--text-3)", width: "32px", flexShrink: 0, fontFamily: "'JetBrains Mono', monospace" }}>
           {t("bis.you")}
         </span>
         {charItem ? (
@@ -285,15 +285,15 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
                 <img
                   src={zamimg(curIcon)}
                   alt=""
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "3px" }}
+                  width={28}
+                  height={28}
+                  style={{ borderRadius: "4px" }}
                   onError={e => { e.currentTarget.style.display = "none"; }}
                 />
               )}
             </a>
             <span style={{
-              fontSize: "11px",
+              fontSize: "13px",
               color: "var(--text-2)",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
@@ -301,18 +301,18 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
               {charItem.item_level}
             </span>
             {hasBis && (
-              <span style={{ fontSize: "9px", color: "var(--positive)", fontWeight: 700 }}>
+              <span style={{ fontSize: "10px", color: "var(--positive)", fontWeight: 700 }}>
                 BiS ✓
               </span>
             )}
             {hasAlt && !hasBis && (
-              <span style={{ fontSize: "9px", color: "var(--arcane)", fontWeight: 700 }}>
+              <span style={{ fontSize: "10px", color: "var(--arcane)", fontWeight: 700 }}>
                 Alt ✓
               </span>
             )}
           </>
         ) : (
-          <span style={{ fontSize: "10px", color: "var(--text-3)", fontStyle: "italic" }}>—</span>
+          <span style={{ fontSize: "12px", color: "var(--text-3)", fontStyle: "italic" }}>—</span>
         )}
       </div>
 
@@ -342,7 +342,7 @@ function SlotCard({ slot, bisItem, altItem, charItem }: SlotCardProps) {
 
       {/* No BiS data for this slot */}
       {!bisItem && (
-        <div style={{ fontSize: "9px", color: "var(--text-3)", marginTop: "4px", fontStyle: "italic" }}>
+        <div style={{ fontSize: "11px", color: "var(--text-3)", marginTop: "5px", fontStyle: "italic" }}>
           {t("bis.noData")}
         </div>
       )}
@@ -373,14 +373,14 @@ function CharacterCenter({
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      gap: "10px",
-      padding: "8px 16px",
-      minWidth: "140px",
+      gap: "12px",
+      padding: "10px 20px",
+      minWidth: "160px",
     }}>
       {/* Portrait */}
       <div style={{
-        width: "96px",
-        height: "96px",
+        width: "120px",
+        height: "120px",
         borderRadius: "50%",
         overflow: "hidden",
         border: "2px solid var(--border-2)",
@@ -392,8 +392,8 @@ function CharacterCenter({
         <img
           src={mainRender ?? avatarUrl ?? `/classes/${classSlug}.jpg`}
           alt={characterClass}
-          width={96}
-          height={96}
+          width={120}
+          height={120}
           style={{ objectFit: "cover", objectPosition: "center top", display: "block" }}
           onError={e => {
             const el = e.currentTarget;
@@ -409,20 +409,20 @@ function CharacterCenter({
 
       {/* Spec + class */}
       <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: "11px", color: "var(--text)", fontFamily: "'Cinzel', serif", fontWeight: 600 }}>{spec}</div>
-        <div style={{ fontSize: "10px", color: "var(--text-2)" }}>{characterClass}</div>
+        <div style={{ fontSize: "14px", color: "var(--text)", fontFamily: "'Cinzel', serif", fontWeight: 600 }}>{spec}</div>
+        <div style={{ fontSize: "12px", color: "var(--text-2)" }}>{characterClass}</div>
       </div>
 
       {/* Sample info */}
       {analyzed > 0 && (
         <div style={{
-          fontSize: "9px",
+          fontSize: "11px",
           color: "var(--text-3)",
           textAlign: "center",
           lineHeight: 1.5,
           background: "var(--surface-2)",
-          borderRadius: "5px",
-          padding: "5px 8px",
+          borderRadius: "6px",
+          padding: "6px 10px",
           border: "1px solid var(--border)",
         }}>
           <span style={{ color: "var(--gold)", fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>
@@ -530,7 +530,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
         flexWrap: "wrap",
         background: "var(--surface-2)",
       }}>
-        <div style={{ fontSize: "10px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
+        <div style={{ fontSize: "12px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
           {t("bis.title")}
         </div>
 
@@ -642,18 +642,18 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
 
       {/* ── Paper doll layout ── */}
       {result && !error && !loading && (
-        <div style={{ padding: "16px" }}>
+        <div style={{ padding: "20px" }}>
 
           {/* Three-column: left slots | character | right slots */}
           <div style={{
             display: "flex",
-            gap: "12px",
+            gap: "16px",
             justifyContent: "center",
             alignItems: "flex-start",
             flexWrap: "wrap",
           }}>
             {/* Left column */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {LEFT_SLOTS.map(slot => (
                 <SlotCard
                   key={slot}
@@ -674,7 +674,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
             />
 
             {/* Right column */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {RIGHT_SLOTS.map(slot => (
                 <SlotCard
                   key={slot}
@@ -690,10 +690,10 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
           {/* Bottom row: trinkets + weapons */}
           <div style={{
             display: "flex",
-            gap: "6px",
+            gap: "8px",
             justifyContent: "center",
             flexWrap: "wrap",
-            marginTop: "8px",
+            marginTop: "12px",
           }}>
             {BOTTOM_SLOTS.map(slot => (
               <SlotCard
@@ -709,17 +709,17 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
           {/* ── Enchants & Gems ── */}
           {result.enchants && Object.keys(result.enchants).length > 0 && (
             <div style={{
-              marginTop: "12px",
+              marginTop: "16px",
               borderTop: "1px solid var(--border)",
-              paddingTop: "12px",
+              paddingTop: "16px",
             }}>
               <div style={{
-                fontSize: "9px",
+                fontSize: "11px",
                 fontWeight: 700,
                 color: "var(--text-3)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
-                marginBottom: "8px",
+                marginBottom: "10px",
                 fontFamily: "'JetBrains Mono', monospace",
               }}>
                 {t("bis.enchants")}
@@ -727,7 +727,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               <div style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "4px",
+                gap: "6px",
               }}>
                 {Object.entries(result.enchants).map(([slot, ench]) => {
                   const slotLabel = SLOT_NAMES[slot] ?? SLOT_NAMES[slot.replace(/\d$/, "")] ?? slot;
@@ -748,15 +748,15 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "6px",
-                        padding: "4px 10px",
+                        gap: "8px",
+                        padding: "6px 12px",
                         background: hasEnchant ? "rgba(62,202,114,0.08)" : "var(--surface-2)",
                         border: `1px solid ${hasEnchant ? "rgba(62,202,114,0.3)" : "var(--border)"}`,
-                        borderRadius: "4px",
-                        fontSize: "10px",
+                        borderRadius: "5px",
+                        fontSize: "12px",
                       }}
                     >
-                      <span style={{ color: "var(--text-3)", fontSize: "9px", minWidth: "45px" }}>
+                      <span style={{ color: "var(--text-3)", fontSize: "11px", minWidth: "50px" }}>
                         {slotLabel}
                       </span>
                       {enchUrl ? (
@@ -770,11 +770,11 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                           {enchantName}
                         </span>
                       )}
-                      <span style={{ color: "var(--text-3)", fontSize: "9px", fontFamily: "'JetBrains Mono', monospace" }}>
+                      <span style={{ color: "var(--text-3)", fontSize: "10px", fontFamily: "'JetBrains Mono', monospace" }}>
                         {Math.min(Math.round(ench.frequency * 100), 100)}%
                       </span>
                       {hasEnchant && (
-                        <span style={{ color: "var(--positive)", fontSize: "9px", fontWeight: 700 }}>✓</span>
+                        <span style={{ color: "var(--positive)", fontSize: "10px", fontWeight: 700 }}>✓</span>
                       )}
                     </div>
                   );
@@ -785,17 +785,17 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
 
           {result.gems && result.gems.length > 0 && (
             <div style={{
-              marginTop: "10px",
+              marginTop: "14px",
               borderTop: "1px solid var(--border)",
-              paddingTop: "10px",
+              paddingTop: "14px",
             }}>
               <div style={{
-                fontSize: "9px",
+                fontSize: "11px",
                 fontWeight: 700,
                 color: "var(--text-3)",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
-                marginBottom: "8px",
+                marginBottom: "10px",
                 fontFamily: "'JetBrains Mono', monospace",
               }}>
                 {t("bis.gems")}
@@ -803,7 +803,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               <div style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "4px",
+                gap: "6px",
               }}>
                 {result.gems.map((gem) => {
                   const hasGem = Object.values(characterGear).some(
@@ -817,23 +817,23 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "4px",
-                        padding: "4px 10px",
+                        gap: "6px",
+                        padding: "6px 12px",
                         background: hasGem ? "rgba(62,202,114,0.08)" : "var(--surface-2)",
                         border: `1px solid ${hasGem ? "rgba(62,202,114,0.3)" : "var(--border)"}`,
-                        borderRadius: "4px",
-                        fontSize: "10px",
+                        borderRadius: "5px",
+                        fontSize: "12px",
                       }}
                     >
                       <a href={gemUrl} target="_blank" rel="noopener noreferrer"
                         style={{ color: "var(--gold)", fontWeight: 600, textDecoration: "none" }}>
                         {gemName}
                       </a>
-                      <span style={{ color: "var(--text-3)", fontSize: "9px", fontFamily: "'JetBrains Mono', monospace" }}>
+                      <span style={{ color: "var(--text-3)", fontSize: "10px", fontFamily: "'JetBrains Mono', monospace" }}>
                         {Math.min(Math.round(gem.frequency * 100), 100)}%
                       </span>
                       {hasGem && (
-                        <span style={{ color: "var(--positive)", fontSize: "9px", fontWeight: 700 }}>✓</span>
+                        <span style={{ color: "var(--positive)", fontSize: "10px", fontWeight: 700 }}>✓</span>
                       )}
                     </div>
                   );

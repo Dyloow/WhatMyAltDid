@@ -27,8 +27,8 @@ function FilterPill({
     <button
       onClick={onClick}
       style={{
-        padding: "4px 10px",
-        fontSize: "11px",
+        padding: "5px 12px",
+        fontSize: "12px",
         fontWeight: 600,
         borderRadius: "4px",
         border: active ? `1px solid ${color}` : "1px solid var(--border-2)",

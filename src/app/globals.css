@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700;900&family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -7,8 +7,7 @@
 
 /* ─── Dark Theme (default) ──────────────────────────────────── */
 :root,
-[data-theme="dark"] {
-  --bg:            #07090f;
+[data-theme="dark"] {  color-scheme: dark;  --bg:            #07090f;
   --surface:       #0d0f1a;
   --surface-2:     #121525;
   --surface-3:     #171a2d;
@@ -67,8 +66,7 @@
 }
 
 /* ─── Light Theme ───────────────────────────────────────────── */
-[data-theme="light"] {
-  --bg:            #f2f3f8;
+[data-theme="light"] {  color-scheme: light;  --bg:            #f2f3f8;
   --surface:       #ffffff;
   --surface-2:     #f5f6fa;
   --surface-3:     #eceef5;
@@ -128,14 +126,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'DM Sans', sans-serif;
+  --font-sans: 'Eras Bold ITC', 'Nunito', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Eras Bold ITC', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -382,4 +380,131 @@ body {
 
 .hover-border-glow:hover {
   border-color: var(--gold);
+}
+
+/* ─── Smooth page transitions ─────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes text-glow {
+  0%, 100% { text-shadow: 0 0 4px var(--gold-dim); }
+  50% { text-shadow: 0 0 12px var(--gold-glow), 0 0 20px var(--gold-dim); }
+}
+
+@keyframes card-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-switch {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-card-entrance {
+  animation: card-entrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow 2.5s ease-in-out infinite;
+}
+
+.animate-fade-switch {
+  animation: fade-switch 0.25s ease both;
+}
+
+/* ─── Interactive card effects ────────────────────────────── */
+.card-interactive {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-3px);
+}
+
+.card-interactive:active {
+  transform: translateY(-1px) scale(0.995);
+  transition-duration: 0.08s;
+}
+
+/* ─── Button effects ──────────────────────────────────────── */
+.btn-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--gold-dim);
+}
+
+.btn-interactive:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.08s;
+}
+
+/* ─── Table row hover effect ──────────────────────────────── */
+.row-hover {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.row-hover:hover {
+  background-color: var(--surface-2) !important;
+}
+
+/* ─── Gold shimmer text ───────────────────────────────────── */
+.gold-shimmer {
+  background: linear-gradient(
+    120deg,
+    var(--gold) 0%,
+    #e8d48b 25%,
+    var(--gold) 50%,
+    #e8d48b 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s linear infinite;
+}
+
+/* ─── Stagger for vault/content grids ─────────────────────── */
+.stagger-cards > * {
+  animation: card-entrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.stagger-cards > *:nth-child(1)  { animation-delay: 0ms; }
+.stagger-cards > *:nth-child(2)  { animation-delay: 60ms; }
+.stagger-cards > *:nth-child(3)  { animation-delay: 120ms; }
+.stagger-cards > *:nth-child(4)  { animation-delay: 180ms; }
+.stagger-cards > *:nth-child(5)  { animation-delay: 240ms; }
+.stagger-cards > *:nth-child(6)  { animation-delay: 300ms; }
+.stagger-cards > *:nth-child(7)  { animation-delay: 360ms; }
+.stagger-cards > *:nth-child(8)  { animation-delay: 420ms; }
+.stagger-cards > *:nth-child(n+9){ animation-delay: 480ms; }
+
+/* ─── Smooth tab transition ───────────────────────────────── */
+.tab-content {
+  animation: fade-switch 0.2s ease both;
 }

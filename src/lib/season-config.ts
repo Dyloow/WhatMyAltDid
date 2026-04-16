@@ -54,14 +54,14 @@ export const CURRENT_SEASON: SeasonConfig = {
   maxLevel: 90,
   rioSeasonSlug: "season-mn-1",
   dungeons: [
-    { id: 1, name: "Terrasse des Magistères", shortName: "TdM", rioName: "Magisters' Terrace", origin: "Burning Crusade", journalInstanceId: 709 },
-    { id: 2, name: "Cavernes de Maisara", shortName: "CdM", rioName: "Maisara Caverns", origin: "Midnight", journalInstanceId: null },
-    { id: 3, name: "Point-nexus Xenas", shortName: "PnX", rioName: "Nexus-Point Xenas", origin: "Midnight", journalInstanceId: null },
-    { id: 4, name: "Flèche de Coursevent", shortName: "FdC", rioName: "Windrunner Spire", origin: "Midnight", journalInstanceId: null },
-    { id: 5, name: "Académie d'Algheth'ar", shortName: "AdA", rioName: "Algeth'ar Academy", origin: "Dragonflight", journalInstanceId: 1194 },
-    { id: 6, name: "Siège du Triumvirat", shortName: "SdT", rioName: "Seat of the Triumvirate", origin: "Legion", journalInstanceId: 877 },
-    { id: 7, name: "Orée-du-ciel", shortName: "OdC", rioName: "Skyreach", origin: "Warlords of Draenor", journalInstanceId: 1228 },
-    { id: 8, name: "Fosse de Saron", shortName: "FdS", rioName: "Pit of Saron", origin: "Wrath of the Lich King", journalInstanceId: 632 },
+    { id: 1, name: "Terrasse des Magistères", shortName: "MT", rioName: "Magisters' Terrace", origin: "Burning Crusade", journalInstanceId: 709 },
+    { id: 2, name: "Cavernes de Maisara", shortName: "MC", rioName: "Maisara Caverns", origin: "Midnight", journalInstanceId: null },
+    { id: 3, name: "Point-nexus Xenas", shortName: "NPX", rioName: "Nexus-Point Xenas", origin: "Midnight", journalInstanceId: null },
+    { id: 4, name: "Flèche de Coursevent", shortName: "WS", rioName: "Windrunner Spire", origin: "Midnight", journalInstanceId: null },
+    { id: 5, name: "Académie d'Algheth'ar", shortName: "AA", rioName: "Algeth'ar Academy", origin: "Dragonflight", journalInstanceId: 1194 },
+    { id: 6, name: "Siège du Triumvirat", shortName: "SotT", rioName: "Seat of the Triumvirate", origin: "Legion", journalInstanceId: 877 },
+    { id: 7, name: "Orée-du-ciel", shortName: "SR", rioName: "Skyreach", origin: "Warlords of Draenor", journalInstanceId: 1228 },
+    { id: 8, name: "Fosse de Saron", shortName: "PoS", rioName: "Pit of Saron", origin: "Wrath of the Lich King", journalInstanceId: 632 },
   ],
   raids: [
     {

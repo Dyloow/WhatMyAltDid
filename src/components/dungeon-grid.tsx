@@ -6,11 +6,13 @@ import { KeystoneCell } from "@/components/keystone-cell";
 import { AffixBar } from "@/components/affix-badge";
 import { RioAffix } from "@/lib/raiderio-api";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 
 export function DungeonGrid() {
   const { characters } = useRosterStore();
   const { t } = useI18n();
+  const router = useRouter();
   const [affixes, setAffixes] = useState<RioAffix[]>([]);
 
   useEffect(() => {
@@ -51,24 +53,24 @@ export function DungeonGrid() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+    <div className="animate-fade-switch" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
       <AffixBar affixes={affixes} />
 
       <div style={{ overflowX: "auto", borderRadius: "8px", border: "1px solid var(--border)" }}>
         <table style={{
           width: "100%",
           borderCollapse: "collapse",
-          fontSize: "12px",
+          fontSize: "14px",
           backgroundColor: "var(--surface)",
         }}>
           <thead>
             <tr style={{ backgroundColor: "var(--surface-2)", borderBottom: "1px solid var(--border)" }}>
               <th style={{
-                padding: "8px 14px",
+                padding: "12px 16px",
                 textAlign: "left",
                 color: "var(--text-2)",
                 fontWeight: 600,
-                fontSize: "11px",
+                fontSize: "13px",
                 whiteSpace: "nowrap" as const,
                 fontFamily: "'Cinzel', serif",
                 letterSpacing: "0.05em",
@@ -76,11 +78,11 @@ export function DungeonGrid() {
                 {t("grid.char")}
               </th>
               <th style={{
-                padding: "8px 10px",
+                padding: "12px 10px",
                 textAlign: "center",
                 color: "var(--text-2)",
                 fontWeight: 600,
-                fontSize: "10px",
+                fontSize: "12px",
                 whiteSpace: "nowrap" as const,
                 fontFamily: "'JetBrains Mono', monospace",
                 letterSpacing: "0.05em",
@@ -92,15 +94,15 @@ export function DungeonGrid() {
                   key={d.id}
                   title={d.name}
                   style={{
-                    padding: "8px 4px",
+                    padding: "12px 6px",
                     textAlign: "center",
                     color: "var(--text-2)",
                     fontWeight: 600,
-                    fontSize: "10px",
+                    fontSize: "12px",
                     whiteSpace: "nowrap" as const,
                     fontFamily: "'JetBrains Mono', monospace",
                     letterSpacing: "0.05em",
-                    minWidth: "52px",
+                    minWidth: "64px",
                   }}
                 >
                   {d.shortName}
@@ -112,36 +114,37 @@ export function DungeonGrid() {
             {charDungeonMap.map(({ char, bestByRio, weeklyByRio, weeklyTotal }, rowIdx) => {
               const classColor = CLASS_COLORS[char.className] ?? "var(--text-2)";
               const score = char.rioScore?.all ?? 0;
+              const charHref = `/character/${char.region}/${char.realmSlug}/${encodeURIComponent(char.name)}`;
               return (
                 <tr
                   key={char.id}
+                  className="row-hover"
                   style={{
                     borderBottom: rowIdx < charDungeonMap.length - 1 ? "1px solid var(--border)" : "none",
-                    transition: "background 0.1s",
+                    cursor: "pointer",
                   }}
-                  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "var(--surface-2)")}
-                  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                  onClick={() => router.push(charHref)}
                 >
                   {/* Character name */}
-                  <td style={{ padding: "7px 14px", whiteSpace: "nowrap" as const }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <td style={{ padding: "10px 16px", whiteSpace: "nowrap" as const }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={`/classes/${char.className.toLowerCase().replace(/\s+/g, "").replace("'", "")}.jpg`}
                         alt={char.className}
-                        width={20}
-                        height={20}
+                        width={28}
+                        height={28}
                         style={{ borderRadius: "3px", opacity: 0.9 }}
                         onError={(e) => { e.currentTarget.style.display = "none"; }}
                       />
                       <div>
-                        <span style={{ color: classColor, fontWeight: 600, fontFamily: "'Cinzel', serif", fontSize: "12px" }}>
+                        <span style={{ color: classColor, fontWeight: 600, fontFamily: "'Cinzel', serif", fontSize: "14px" }}>
                           {char.name}
                         </span>
                         {score > 0 && (
                           <span style={{
                             color: "var(--text-3)",
-                            fontSize: "10px",
+                            fontSize: "12px",
                             marginLeft: "6px",
                             fontFamily: "'JetBrains Mono', monospace",
                           }}>
@@ -153,10 +156,10 @@ export function DungeonGrid() {
                   </td>
 
                   {/* Weekly run count */}
-                  <td style={{ padding: "7px 10px", textAlign: "center" }}>
+                  <td style={{ padding: "10px 10px", textAlign: "center" }}>
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: "12px",
+                      fontSize: "14px",
                       fontWeight: 700,
                       color: weeklyTotal >= 8 ? "var(--positive)" : weeklyTotal >= 4 ? "var(--gold)" : weeklyTotal > 0 ? "var(--text-2)" : "var(--text-3)",
                     }}>
@@ -184,7 +187,7 @@ export function DungeonGrid() {
       </div>
 
       {/* Legend */}
-      <div style={{ display: "flex", gap: "16px", fontSize: "10px", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
+      <div style={{ display: "flex", gap: "16px", fontSize: "12px", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
         <span><span style={{ color: "var(--positive)" }}>+X</span> {t("grid.legend.timed")}</span>
         <span><span style={{ color: "var(--text-2)" }}>+X</span> {t("grid.legend.best")}</span>
         <span><span style={{ color: "var(--text-3)" }}>—</span> {t("grid.legend.none")}</span>

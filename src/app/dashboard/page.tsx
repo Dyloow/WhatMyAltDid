@@ -6,6 +6,7 @@ import { DungeonGrid } from "@/components/dungeon-grid";
 import { VaultOverview } from "@/components/vault-overview";
 import { RosterFilters } from "@/components/roster-filters";
 import { AddCharacterModal } from "@/components/add-character-modal";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
@@ -35,7 +36,13 @@ export default function DashboardPage() {
     let list = [...characters];
     if (filters.faction)   list = list.filter(c => c.faction === filters.faction);
     if (filters.className) list = list.filter(c => c.className === filters.className);
-    if (filters.role)      list = list.filter(c => c.specRole?.toUpperCase() === filters.role);
+    if (filters.role) {
+      list = list.filter(c => {
+        const role = c.specRole?.toUpperCase();
+        if (filters.role === "HEALER") return role === "HEALER" || role === "HEALING";
+        return role === filters.role;
+      });
+    }
     if (filters.realm)     list = list.filter(c => c.realmSlug === filters.realm);
 
     list.sort((a, b) => {
@@ -52,19 +59,19 @@ export default function DashboardPage() {
   const activeView: StoreView = (["grid", "list", "mplus", "vault"] as const).includes(view) ? view : "grid";
 
   return (
-    <div style={{ minHeight: "calc(100dvh - 54px)", backgroundColor: "var(--bg)" }}>
+    <div style={{ minHeight: "calc(100dvh - 64px)", backgroundColor: "var(--bg)" }}>
 
       {/* ── Sticky top bar ── */}
       <div style={{
         borderBottom: "1px solid var(--border)",
         backgroundColor: "var(--surface)",
-        padding: "0 20px",
+        padding: "0 24px",
         display: "flex",
         alignItems: "center",
-        gap: "16px",
-        height: "46px",
+        gap: "18px",
+        height: "56px",
         position: "sticky",
-        top: "54px",
+        top: "64px",
         zIndex: 40,
         flexWrap: "nowrap" as const,
         overflowX: "auto",
@@ -76,8 +83,8 @@ export default function DashboardPage() {
               key={key}
               onClick={() => setView(key)}
               style={{
-                padding: "5px 12px",
-                fontSize: "11px",
+                padding: "7px 16px",
+                fontSize: "13px",
                 fontWeight: 600,
                 background: activeView === key ? "var(--surface-3)" : "transparent",
                 color: activeView === key ? "var(--gold)" : "var(--text-2)",
@@ -92,7 +99,7 @@ export default function DashboardPage() {
                 letterSpacing: "0.03em",
               }}
             >
-              <span style={{ fontSize: "12px" }}>{icon}</span>
+              <span style={{ fontSize: "14px" }}>{icon}</span>
               <span style={{ display: "none" as const }} className="sm-visible">{label}</span>
               <span>{label}</span>
             </button>
@@ -101,7 +108,7 @@ export default function DashboardPage() {
 
         {/* Stats */}
         {characters.length > 0 && (
-          <div style={{ display: "flex", gap: "16px", fontSize: "11px", flexShrink: 0 }}>
+          <div style={{ display: "flex", gap: "18px", fontSize: "13px", flexShrink: 0 }}>
             <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               <strong style={{ color: "var(--text)", fontWeight: 700 }}>{totalRuns}</strong>
               <span style={{ color: "var(--text-3)" }}> runs</span>
@@ -129,7 +136,7 @@ export default function DashboardPage() {
         {/* Refresh + Add */}
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
           {timeSince !== null && !isScanning && (
-            <span style={{ color: "var(--text-3)", fontSize: "10px", fontFamily: "'JetBrains Mono', monospace" }}>
+            <span style={{ color: "var(--text-3)", fontSize: "11px", fontFamily: "'JetBrains Mono', monospace" }}>
               {t("dash.ago", timeSince)}
             </span>
           )}
@@ -139,9 +146,9 @@ export default function DashboardPage() {
               backgroundColor: "var(--surface-2)",
               color: "var(--text-2)",
               border: "1px solid var(--border-2)",
-              borderRadius: "5px",
-              padding: "4px 10px",
-              fontSize: "13px",
+              borderRadius: "6px",
+              padding: "6px 14px",
+              fontSize: "15px",
               fontWeight: 700,
               cursor: "pointer",
               transition: "all 0.15s",
@@ -161,9 +168,9 @@ export default function DashboardPage() {
               backgroundColor: isScanning ? "var(--surface-3)" : "var(--gold)",
               color: isScanning ? "var(--text-3)" : "#07090f",
               border: isScanning ? "1px solid var(--border-2)" : "none",
-              borderRadius: "5px",
-              padding: "4px 12px",
-              fontSize: "11px",
+              borderRadius: "6px",
+              padding: "6px 16px",
+              fontSize: "13px",
               fontWeight: 700,
               cursor: isScanning ? "not-allowed" : "pointer",
               transition: "all 0.15s",
@@ -171,7 +178,7 @@ export default function DashboardPage() {
               textTransform: "uppercase" as const,
               display: "flex",
               alignItems: "center",
-              gap: "5px",
+              gap: "6px",
             }}
           >
             {isScanning && (
@@ -192,7 +199,13 @@ export default function DashboardPage() {
       {/* ── Empty state ── */}
       {characters.length === 0 && !isScanning && (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 24px", gap: "12px" }}>
-          <div style={{ fontSize: "40px", opacity: 0.3, fontFamily: "'Cinzel Decorative', serif", color: "var(--gold)" }}>⚔</div>
+          <Image
+            src="/logo.png"
+            alt="WhatMyAltDid"
+            width={300}
+            height={200}
+            style={{ maxWidth: "200px", width: "100%", height: "auto", marginBottom: "8px", opacity: 0.7 }}
+          />
           <div style={{ fontSize: "16px", fontWeight: 700, color: "var(--text)", fontFamily: "'Cinzel', serif" }}>
             {t("dash.empty.title")}
           </div>
@@ -244,7 +257,7 @@ export default function DashboardPage() {
 
       {/* ── Loading skeletons ── */}
       {isScanning && characters.length === 0 && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 340px))", gap: "12px", padding: "20px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))", gap: "18px", padding: "24px" }}>
           {[1, 2, 3, 4, 5, 6].map(i => (
             <div key={i} style={{ height: "140px", borderRadius: "8px" }} className="skeleton" />
           ))}
@@ -253,7 +266,7 @@ export default function DashboardPage() {
 
       {/* ── Filters bar (only for cards view with results) ── */}
       {characters.length > 0 && (activeView === "grid" || activeView === "list") && (
-        <div style={{ padding: "10px 20px", borderBottom: "1px solid var(--border)", backgroundColor: "var(--surface)" }}>
+        <div style={{ padding: "12px 24px", borderBottom: "1px solid var(--border)", backgroundColor: "var(--surface)" }}>
           <RosterFilters />
         </div>
       )}
@@ -261,12 +274,13 @@ export default function DashboardPage() {
       {/* ── Content ── */}
       {(activeView === "grid" || activeView === "list") && displayed.length > 0 && (
         <div
-          className="stagger-grid"
+          className="stagger-cards animate-fade-switch"
+          key={`grid-${activeView}`}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 360px))",
-            gap: "12px",
-            padding: "16px 20px",
+            gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+            gap: "18px",
+            padding: "20px 24px",
           }}
         >
           {displayed.map(char => (
@@ -282,13 +296,13 @@ export default function DashboardPage() {
       )}
 
       {activeView === "mplus" && characters.length > 0 && (
-        <div style={{ padding: "16px 20px" }}>
+        <div className="tab-content" key="mplus" style={{ padding: "20px 24px" }}>
           <DungeonGrid />
         </div>
       )}
 
       {activeView === "vault" && characters.length > 0 && (
-        <div style={{ padding: "16px 20px" }}>
+        <div className="tab-content" key="vault" style={{ padding: "20px 24px" }}>
           <VaultOverview />
         </div>
       )}

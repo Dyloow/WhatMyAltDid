@@ -21,12 +21,12 @@ function getScoreColor(n: number): string {
 
 function VaultDots({ slots, max = 3 }: { slots: number; max?: number }) {
   return (
-    <span style={{ display: "inline-flex", gap: "3px" }}>
+    <span style={{ display: "inline-flex", gap: "5px" }}>
       {Array.from({ length: max }).map((_, i) => (
         <span
           key={i}
           style={{
-            width: 8, height: 8, borderRadius: "50%",
+            width: 12, height: 12, borderRadius: "50%",
             backgroundColor: i < slots ? "var(--vault-active)" : "var(--vault-empty)",
             display: "inline-block",
             boxShadow: i < slots ? "0 0 4px var(--gold-dim)" : "none",
@@ -73,8 +73,9 @@ export function CharacterCard({ character }: Props) {
   const missing = CURRENT_SEASON.dungeons.filter(d => !doneDungeons.has(d.rioName));
 
   return (
-    <div
-      className="animate-scale-in hover-lift"
+    <Link
+      href={detailHref}
+      className="animate-card-entrance card-interactive"
       style={{
         background: "var(--surface)",
         border: "1px solid var(--border)",
@@ -83,26 +84,27 @@ export function CharacterCard({ character }: Props) {
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
-        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-        cursor: "default",
+        cursor: "pointer",
+        textDecoration: "none",
+        color: "inherit",
       }}
       onMouseOver={e => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = classColor;
-        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 0 1px ${classColor}22, 0 8px 32px ${classColor}24`;
+        (e.currentTarget as HTMLAnchorElement).style.borderColor = classColor;
+        (e.currentTarget as HTMLAnchorElement).style.boxShadow = `0 0 0 1px ${classColor}22, 0 8px 32px ${classColor}24`;
       }}
       onMouseOut={e => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
-        (e.currentTarget as HTMLDivElement).style.borderLeftColor = classColor;
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+        (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+        (e.currentTarget as HTMLAnchorElement).style.borderLeftColor = classColor;
+        (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
       }}
     >
       {/* Header */}
       <div style={{
-        padding: "12px 14px",
+        padding: "16px 20px",
         borderBottom: "1px solid var(--border)",
         display: "flex",
         alignItems: "center",
-        gap: "10px",
+        gap: "14px",
       }}>
         {/* Class icon or thumbnail */}
         <div style={{ position: "relative", flexShrink: 0 }}>
@@ -111,8 +113,8 @@ export function CharacterCard({ character }: Props) {
             <img
               src={(character as unknown as { thumbnail_url?: string }).thumbnail_url}
               alt={character.name}
-              width={36}
-              height={36}
+              width={42}
+              height={42}
               style={{ borderRadius: "5px", border: `1px solid ${classColor}44` }}
               onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
@@ -121,8 +123,8 @@ export function CharacterCard({ character }: Props) {
             <img
               src={`/classes/${iconSlug}.jpg`}
               alt={character.className}
-              width={36}
-              height={36}
+              width={42}
+              height={42}
               style={{ borderRadius: "5px", border: `1px solid ${classColor}33` }}
               onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
@@ -131,33 +133,29 @@ export function CharacterCard({ character }: Props) {
 
         <div style={{ minWidth: 0, flex: 1 }}>
           <div style={{ display: "flex", alignItems: "baseline", gap: "6px", flexWrap: "wrap" as const }}>
-            <Link
-              href={detailHref}
+            <span
               style={{
                 color: classColor,
                 fontWeight: 700,
-                fontSize: "14px",
-                textDecoration: "none",
+                fontSize: "17px",
                 fontFamily: "'Cinzel', serif",
                 letterSpacing: "0.01em",
               }}
-              onMouseOver={e => (e.currentTarget.style.textDecoration = "underline")}
-              onMouseOut={e => (e.currentTarget.style.textDecoration = "none")}
             >
               {character.name}
-            </Link>
+            </span>
             {character.itemLevel > 0 && (
               <span style={{
                 color: "var(--text-3)",
-                fontSize: "11px",
+                fontSize: "13px",
                 fontFamily: "'JetBrains Mono', monospace",
               }}>
                 {character.itemLevel}
               </span>
             )}
           </div>
-          <div style={{ color: "var(--text-2)", fontSize: "11px", marginTop: "1px" }}>
-            {character.specName} {character.className}
+          <div style={{ color: "var(--text-2)", fontSize: "13px", marginTop: "2px" }}>
+            {character.specName} {t("class." + character.className)}
             <span style={{ color: "var(--text-3)" }}> · {character.realm}</span>
           </div>
         </div>
@@ -168,13 +166,13 @@ export function CharacterCard({ character }: Props) {
             <div style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 700,
-              fontSize: "15px",
+              fontSize: "17px",
               color: getScoreColor(score),
               lineHeight: 1,
             }}>
               {score.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}
             </div>
-            <div style={{ fontSize: "9px", color: "var(--text-3)", letterSpacing: "0.05em", textTransform: "uppercase" as const, marginTop: "2px" }}>
+            <div style={{ fontSize: "10px", color: "var(--text-3)", letterSpacing: "0.05em", textTransform: "uppercase" as const, marginTop: "2px" }}>
               Score
             </div>
           </div>
@@ -183,25 +181,25 @@ export function CharacterCard({ character }: Props) {
 
       {/* Stats row */}
       <div style={{
-        padding: "10px 14px",
+        padding: "14px 20px",
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        gap: "10px",
+        gap: "14px",
         borderBottom: missing.length > 0 ? "1px solid var(--border)" : "none",
       }}>
         {/* M+ Vault */}
         <div>
-          <div style={{ fontSize: "10px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "4px", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: "12px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "6px", fontFamily: "'JetBrains Mono', monospace" }}>
             Vault M+
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--text)", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <span style={{ fontSize: "15px", fontWeight: 700, color: "var(--text)", fontFamily: "'JetBrains Mono', monospace" }}>
               {runs.length}/{CURRENT_SEASON.vaultSlots.dungeon[CURRENT_SEASON.vaultSlots.dungeon.length - 1]}
             </span>
             <VaultDots slots={vaultSlots} />
           </div>
           {vaultIlvl && bestKey > 0 && (
-            <div style={{ fontSize: "10px", color: "var(--gold)", marginTop: "2px", fontFamily: "'JetBrains Mono', monospace" }}>
+            <div style={{ fontSize: "11px", color: "var(--gold)", marginTop: "3px", fontFamily: "'JetBrains Mono', monospace" }}>
               +{bestKey} → {vaultIlvl} ilvl
             </div>
           )}
@@ -209,11 +207,11 @@ export function CharacterCard({ character }: Props) {
 
         {/* Raid vault + progression */}
         <div>
-          <div style={{ fontSize: "10px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "4px", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ fontSize: "12px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "6px", fontFamily: "'JetBrains Mono', monospace" }}>
             Vault Raid
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--text)", fontFamily: "'JetBrains Mono', monospace" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <span style={{ fontSize: "15px", fontWeight: 700, color: "var(--text)", fontFamily: "'JetBrains Mono', monospace" }}>
               {character.weeklyRaidBosses}/{CURRENT_SEASON.vaultSlots.raid[CURRENT_SEASON.vaultSlots.raid.length - 1]}
             </span>
             <VaultDots slots={raidVaultSlots} />
@@ -222,13 +220,13 @@ export function CharacterCard({ character }: Props) {
             <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px", marginTop: "4px" }}>
               {raidBadges.map((b, i) => (
                 <span key={i} style={{
-                  fontSize: "10px",
+                  fontSize: "11px",
                   fontWeight: 700,
                   color: b.color,
                   background: `${b.color}18`,
                   border: `1px solid ${b.color}33`,
                   borderRadius: "3px",
-                  padding: "1px 5px",
+                  padding: "2px 6px",
                   fontFamily: "'JetBrains Mono', monospace",
                 }}>
                   {b.label}
@@ -241,19 +239,19 @@ export function CharacterCard({ character }: Props) {
 
       {/* Missing dungeons */}
       {missing.length > 0 && missing.length < 8 && (
-        <div style={{ padding: "8px 14px 10px" }}>
-          <div style={{ fontSize: "10px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "5px", fontFamily: "'JetBrains Mono', monospace" }}>
+        <div style={{ padding: "12px 20px 14px" }}>
+          <div style={{ fontSize: "11px", color: "var(--text-3)", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em", marginBottom: "6px", fontFamily: "'JetBrains Mono', monospace" }}>
             {t("vault.missing")}
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "4px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap" as const, gap: "5px" }}>
             {missing.slice(0, 5).map(d => (
               <span key={d.id} style={{
-                fontSize: "10px",
+                fontSize: "11px",
                 color: "var(--negative)",
                 background: "var(--negative-dim)",
                 border: "1px solid rgba(232,80,80,0.2)",
                 borderRadius: "3px",
-                padding: "1px 6px",
+                padding: "2px 7px",
               }}>
                 {d.shortName}
               </span>
@@ -266,6 +264,6 @@ export function CharacterCard({ character }: Props) {
           </div>
         </div>
       )}
-    </div>
+    </Link>
   );
 }

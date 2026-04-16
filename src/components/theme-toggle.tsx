@@ -10,12 +10,14 @@ export function ThemeToggle() {
     const initial = saved ?? "dark";
     setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
+    document.documentElement.style.colorScheme = initial;
   }, []);
 
   function toggle() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
+    document.documentElement.style.colorScheme = next;
     localStorage.setItem("theme", next);
   }
 

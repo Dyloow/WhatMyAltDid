@@ -3,6 +3,7 @@
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Image from "next/image";
 import { CURRENT_SEASON } from "@/lib/season-config";
 import { useI18n } from "@/lib/i18n";
 
@@ -34,7 +35,7 @@ export default function HomePage() {
 
   if (status === "loading" || status === "authenticated") {
     return (
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "calc(100dvh - 54px)" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "calc(100dvh - 64px)" }}>
         <div style={{ width: 28, height: 28, borderRadius: "50%", border: "2px solid var(--border-2)", borderTopColor: "var(--gold)", animation: "spin 0.8s linear infinite" }} />
       </div>
     );
@@ -42,7 +43,7 @@ export default function HomePage() {
 
   return (
     <div style={{
-      minHeight: "calc(100dvh - 54px)",
+      minHeight: "calc(100dvh - 64px)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -82,7 +83,7 @@ export default function HomePage() {
       </div>
 
       {/* Hero */}
-      <div style={{ textAlign: "center", maxWidth: "520px", position: "relative", zIndex: 1 }}>
+      <div className="animate-slide-in-up" style={{ textAlign: "center", maxWidth: "520px", position: "relative", zIndex: 1 }}>
         {/* Season badge */}
         <div style={{
           display: "inline-flex",
@@ -104,19 +105,16 @@ export default function HomePage() {
           {CURRENT_SEASON.name}
         </div>
 
-        {/* Title */}
-        <h1 style={{
-          fontFamily: "'Cinzel Decorative', serif",
-          fontSize: "clamp(28px, 6vw, 44px)",
-          fontWeight: 900,
-          color: "var(--gold)",
-          letterSpacing: "0.02em",
-          margin: "0 0 12px",
-          lineHeight: 1.1,
-          textShadow: "0 0 40px rgba(201,168,76,0.3)",
-        }}>
-          WhatMyAltDid
-        </h1>
+        {/* Logo */}
+        <Image
+          src="/logo.png"
+          alt="WhatMyAltDid"
+          width={500}
+          height={300}
+          className="animate-float"
+          style={{ maxWidth: "360px", width: "100%", height: "auto", marginBottom: "12px", display: "block", marginLeft: "auto", marginRight: "auto" }}
+          priority
+        />
 
         <p style={{
           fontSize: "15px",
@@ -130,6 +128,7 @@ export default function HomePage() {
 
         <button
           onClick={() => signIn("battlenet")}
+          className="btn-interactive"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -169,7 +168,7 @@ export default function HomePage() {
       </div>
 
       {/* Feature cards */}
-      <div style={{
+      <div className="stagger-cards" style={{
         display: "flex",
         gap: "14px",
         flexWrap: "wrap" as const,
@@ -178,26 +177,16 @@ export default function HomePage() {
         position: "relative",
         zIndex: 1,
       }}>
-        {FEATURES_KEYS.map((f, i) => (
+        {FEATURES_KEYS.map((f) => (
           <div
             key={f.titleKey}
-            className="animate-fade-in"
+            className="card-interactive"
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
               borderRadius: "10px",
               padding: "20px 22px",
               width: "220px",
-              animationDelay: `${i * 80}ms`,
-              transition: "border-color 0.2s, transform 0.2s",
-            }}
-            onMouseOver={e => {
-              (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border-2)";
-              (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-            }}
-            onMouseOut={e => {
-              (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border)";
-              (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
             }}
           >
             <div style={{ fontSize: "22px", marginBottom: "10px", fontFamily: "'Cinzel Decorative', serif" }}>{f.icon}</div>
@@ -210,7 +199,7 @@ export default function HomePage() {
       </div>
 
       {/* Class icons decorative row (bottom) */}
-      <div style={{ display: "flex", gap: "8px", opacity: 0.35, position: "relative", zIndex: 1 }}>
+      <div className="animate-slide-in-up" style={{ display: "flex", gap: "8px", opacity: 0.35, position: "relative", zIndex: 1, animationDelay: "0.3s" }}>
         {CLASS_SHOWCASE.slice(0, 6).map(({ cls, color }) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
