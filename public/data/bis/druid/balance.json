@@ -11,7 +11,7 @@
       "item_level": 289,
       "icon": "inv_helm_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9606324110671937,
+      "frequency": 0.9615810276679841,
       "raw_count": 48,
       "slot": "head",
       "dungeon": null,
@@ -23,7 +23,7 @@
       "item_level": 276,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.1984189723320158,
+      "frequency": 0.19193675889328063,
       "raw_count": 9,
       "slot": "neck",
       "dungeon": null,
@@ -35,8 +35,8 @@
       "item_level": 289,
       "icon": "inv_shoulder_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9424505928853755,
-      "raw_count": 47,
+      "frequency": 0.9584189723320158,
+      "raw_count": 48,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -44,11 +44,11 @@
     "back": {
       "item_id": 258575,
       "name": "Rigid Scale Greatcloak",
-      "item_level": 272,
+      "item_level": 289,
       "icon": "inv_cape_draenordungeon_c_02_plate",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
-      "frequency": 0.28047430830039527,
-      "raw_count": 14,
+      "frequency": 0.2607114624505929,
+      "raw_count": 13,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -66,13 +66,13 @@
       "dungeon_display": null
     },
     "waist": {
-      "item_id": 250021,
-      "name": "Barksash of the Luminous Bloom",
-      "item_level": 276,
-      "icon": "inv_belt_leather_raiddruidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.2882213438735178,
-      "raw_count": 15,
+      "item_id": 244573,
+      "name": "Silvermoon Agent's Utility Belt",
+      "item_level": 285,
+      "icon": "inv_belt_leather_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_questbloodelf_b_01.jpg",
+      "frequency": 0.31762845849802374,
+      "raw_count": 16,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.381501976284585,
-      "raw_count": 19,
+      "frequency": 0.5097233201581027,
+      "raw_count": 25,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -92,10 +92,10 @@
     "hands": {
       "item_id": 251113,
       "name": "Gloves of Viscous Goo",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_glove_leather_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_dungeonharronir_c_01.jpg",
-      "frequency": 0.2790513833992095,
+      "frequency": 0.2700395256916996,
       "raw_count": 14,
       "slot": "hands",
       "dungeon": null,
@@ -119,8 +119,8 @@
       "item_level": 276,
       "icon": "inv_boot_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.24790513833992095,
-      "raw_count": 12,
+      "frequency": 0.28221343873517785,
+      "raw_count": 14,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.6360474308300396,
-      "raw_count": 32,
+      "frequency": 0.6929644268774704,
+      "raw_count": 35,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -140,11 +140,11 @@
     "trinket": {
       "item_id": 249346,
       "name": "Vaelgor's Final Stare",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
-      "frequency": 0.7641106719367589,
-      "raw_count": 38,
+      "frequency": 0.7742292490118577,
+      "raw_count": 39,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.7400790513833992,
-      "raw_count": 37,
+      "frequency": 0.7718577075098815,
+      "raw_count": 39,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -167,7 +167,7 @@
       "item_level": 285,
       "icon": "inv_offhand_1h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
-      "frequency": 0.0934387351778656,
+      "frequency": 0.09375494071146245,
       "raw_count": 4,
       "slot": "offhand",
       "dungeon": null,
@@ -181,8 +181,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.5370750988142292,
-      "raw_count": 27,
+      "frequency": 0.5965217391304348,
+      "raw_count": 30,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,19 +193,19 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.6151778656126482,
-      "raw_count": 30,
+      "frequency": 0.6305138339920948,
+      "raw_count": 31,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 251083,
-      "name": "Excavating Cudgel",
-      "item_level": 276,
-      "icon": "inv_mace_1h_dungeonharronir_c_02",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mace_1h_dungeonharronir_c_02.jpg",
-      "frequency": 0.06292490118577075,
+      "item_id": 258514,
+      "name": "Umbral Spire of Zuraal",
+      "item_level": 289,
+      "icon": "inv_staff_2h_oribosdungeon_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_oribosdungeon_c_01.jpg",
+      "frequency": 0.0558102766798419,
       "raw_count": 3,
       "slot": "mainhand",
       "dungeon": null,
@@ -216,60 +216,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.9816600790513834,
+      "frequency": 0.9819762845849802,
       "raw_count": 49
     },
     "legs": {
       "enchant_id": 7935,
       "slot": "legs",
-      "frequency": 0.8825296442687747,
-      "raw_count": 44
+      "frequency": 0.9003952569169961,
+      "raw_count": 45
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.7329644268774703,
-      "raw_count": 36
+      "frequency": 0.7652173913043478,
+      "raw_count": 38
     },
     "finger": {
       "enchant_id": 7969,
       "slot": "finger",
-      "frequency": 1.0036363636363637,
-      "raw_count": 50
+      "frequency": 1.0684584980237155,
+      "raw_count": 53
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.9430830039525692,
-      "raw_count": 47
+      "frequency": 0.9650592885375494,
+      "raw_count": 48
     }
   },
   "gems": [
     {
       "gem_id": 240983,
-      "frequency": 0.8776284584980237,
+      "frequency": 0.8777865612648221,
       "raw_count": 44
     },
     {
       "gem_id": 240900,
-      "frequency": 0.8728853754940712,
-      "raw_count": 43
+      "frequency": 0.8085375494071146,
+      "raw_count": 39
     },
     {
       "gem_id": 240908,
-      "frequency": 0.42308300395256915,
-      "raw_count": 21
+      "frequency": 0.4591304347826087,
+      "raw_count": 23
     },
     {
       "gem_id": 240898,
-      "frequency": 0.39652173913043476,
-      "raw_count": 20
+      "frequency": 0.39557312252964427,
+      "raw_count": 21
     },
     {
       "gem_id": 240892,
-      "frequency": 0.3283794466403162,
-      "raw_count": 16
+      "frequency": 0.36300395256916995,
+      "raw_count": 18
     }
   ],
-  "generated_at": "2026-04-15T12:42:25.204Z"
+  "generated_at": "2026-04-16T08:39:26.282Z"
 }

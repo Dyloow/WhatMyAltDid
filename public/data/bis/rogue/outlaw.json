@@ -11,8 +11,8 @@
       "item_level": 263,
       "icon": "inv_helm_leather_legiondungeon_c_03",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_legiondungeon_c_03.jpg",
-      "frequency": 0.6950197628458498,
-      "raw_count": 35,
+      "frequency": 0.6735177865612648,
+      "raw_count": 34,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,7 +23,7 @@
       "item_level": 276,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.6733596837944664,
+      "frequency": 0.6705138339920949,
       "raw_count": 34,
       "slot": "neck",
       "dungeon": null,
@@ -35,8 +35,8 @@
       "item_level": 289,
       "icon": "inv_shoulder_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 50,
+      "frequency": 0.9791304347826087,
+      "raw_count": 49,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -44,11 +44,11 @@
     "back": {
       "item_id": 260312,
       "name": "Defiant Defender's Drape",
-      "item_level": 272,
+      "item_level": 276,
       "icon": "inv_cape_plate_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_dungeonharronir_c_01.jpg",
-      "frequency": 0.4267193675889328,
-      "raw_count": 21,
+      "frequency": 0.36442687747035574,
+      "raw_count": 18,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -68,23 +68,23 @@
     "waist": {
       "item_id": 49806,
       "name": "Flayer's Black Belt",
-      "item_level": 266,
+      "item_level": 276,
       "icon": "inv_belt_65",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_65.jpg",
-      "frequency": 0.5097233201581027,
-      "raw_count": 26,
+      "frequency": 0.4924901185770751,
+      "raw_count": 25,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
     },
     "wrist": {
-      "item_id": 50264,
-      "name": "Chewed Leather Wristguards",
+      "item_id": 250002,
+      "name": "Trick Bracers of the Grim Jest",
       "item_level": 276,
-      "icon": "inv_bracer_23a",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_23a.jpg",
-      "frequency": 0.36774703557312255,
-      "raw_count": 19,
+      "icon": "inv_bracer_leather_raidroguemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_raidroguemidnight_d_01.jpg",
+      "frequency": 0.3633201581027668,
+      "raw_count": 18,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 289,
       "icon": "inv_pant_leather_raidroguemidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 0.961897233201581,
-      "raw_count": 48,
+      "frequency": 0.9462450592885375,
+      "raw_count": 47,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -116,10 +116,10 @@
     "feet": {
       "item_id": 244569,
       "name": "Silvermoon Agent's Sneakers",
-      "item_level": 259,
+      "item_level": 285,
       "icon": "inv_boot_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.7935177865612648,
+      "frequency": 0.7871936758893281,
       "raw_count": 40,
       "slot": "feet",
       "dungeon": null,
@@ -131,20 +131,20 @@
       "item_level": 276,
       "icon": "inv_jewelry_ring_42",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_ring_42.jpg",
-      "frequency": 0.6978656126482213,
+      "frequency": 0.697391304347826,
       "raw_count": 34,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 249343,
-      "name": "Gaze of the Alnseer",
-      "item_level": 263,
-      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.6069565217391304,
-      "raw_count": 30,
+      "item_id": 252420,
+      "name": "Solarflare Prism",
+      "item_level": 276,
+      "icon": "inv_enchant_shardbrilliantlarge",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_enchant_shardbrilliantlarge.jpg",
+      "frequency": 0.6131225296442687,
+      "raw_count": 31,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_sword_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.7288537549407115,
-      "raw_count": 37,
+      "frequency": 0.7078260869565217,
+      "raw_count": 36,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -167,8 +167,8 @@
       "item_level": 285,
       "icon": "inv_knife_1h_questbloodelf_b_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_questbloodelf_b_02.jpg",
-      "frequency": 0.40695652173913044,
-      "raw_count": 20,
+      "frequency": 0.46134387351778655,
+      "raw_count": 23,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -181,20 +181,20 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.5179446640316205,
-      "raw_count": 26,
+      "frequency": 0.4817391304347826,
+      "raw_count": 24,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 252420,
-      "name": "Solarflare Prism",
-      "item_level": 276,
-      "icon": "inv_enchant_shardbrilliantlarge",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_enchant_shardbrilliantlarge.jpg",
-      "frequency": 0.5375494071146245,
-      "raw_count": 27,
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 289,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 0.5925691699604743,
+      "raw_count": 29,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -205,20 +205,20 @@
       "item_level": 289,
       "icon": "inv_hand_1h_raidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_hand_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.13723320158102767,
+      "frequency": 0.1367588932806324,
       "raw_count": 6,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     },
     "offhand": {
-      "item_id": 49807,
-      "name": "Krick's Beetle Stabber",
+      "item_id": 251212,
+      "name": "Radiant Slicer",
       "item_level": 276,
-      "icon": "inv_weapon_shortblade_80",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_weapon_shortblade_80.jpg",
-      "frequency": 0.17312252964426877,
-      "raw_count": 9,
+      "icon": "inv_knife_1h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_dungeonharronir_c_01.jpg",
+      "frequency": 0.14292490118577075,
+      "raw_count": 7,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -228,60 +228,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.8607114624505929,
-      "raw_count": 43
+      "frequency": 0.8423715415019762,
+      "raw_count": 42
     },
     "legs": {
       "enchant_id": 8159,
       "slot": "legs",
-      "frequency": 1,
-      "raw_count": 50
+      "frequency": 0.9587351778656127,
+      "raw_count": 48
     },
     "feet": {
       "enchant_id": 7993,
       "slot": "feet",
-      "frequency": 0.4485375494071146,
-      "raw_count": 22
+      "frequency": 0.4798418972332016,
+      "raw_count": 24
     },
     "finger": {
       "enchant_id": 7967,
       "slot": "finger",
-      "frequency": 1.5775494071146245,
-      "raw_count": 78
+      "frequency": 1.5288537549407115,
+      "raw_count": 75
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.8017391304347826,
-      "raw_count": 40
+      "frequency": 0.8192885375494071,
+      "raw_count": 41
     }
   },
   "gems": [
     {
       "gem_id": 240906,
-      "frequency": 1.1432411067193675,
-      "raw_count": 54
+      "frequency": 1.2521739130434784,
+      "raw_count": 61
     },
     {
       "gem_id": 240890,
-      "frequency": 0.9557312252964427,
-      "raw_count": 49
+      "frequency": 0.9324901185770751,
+      "raw_count": 48
     },
     {
       "gem_id": 240983,
-      "frequency": 0.7870355731225297,
-      "raw_count": 39
+      "frequency": 0.7704347826086957,
+      "raw_count": 38
     },
     {
       "gem_id": 240967,
-      "frequency": 0.19288537549407114,
-      "raw_count": 10
+      "frequency": 0.20948616600790515,
+      "raw_count": 11
     },
     {
-      "gem_id": 240905,
-      "frequency": 0.12474308300395257,
+      "gem_id": 240910,
+      "frequency": 0.1342292490118577,
       "raw_count": 6
     }
   ],
-  "generated_at": "2026-04-15T12:48:34.127Z"
+  "generated_at": "2026-04-16T08:46:14.698Z"
 }

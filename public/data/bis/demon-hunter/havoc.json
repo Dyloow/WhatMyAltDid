@@ -8,23 +8,23 @@
     "head": {
       "item_id": 250033,
       "name": "Devouring Reaver's Intake",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_helm_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.4970611596505163,
-      "raw_count": 25,
+      "frequency": 0.5642687747035573,
+      "raw_count": 28,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 50228,
-      "name": "Barbed Ymirheim Choker",
-      "item_level": 266,
-      "icon": "inv_jewelry_necklace_22",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.3212073073868149,
-      "raw_count": 16,
+      "item_id": 240950,
+      "name": "Masterwork Sin'dorei Amulet",
+      "item_level": 285,
+      "icon": "inv_12_profession_jewelcrafting_necklace2_gold",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_profession_jewelcrafting_necklace2_gold.jpg",
+      "frequency": 0.42782608695652175,
+      "raw_count": 21,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 285,
       "icon": "inv_cape_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.3949166004765687,
-      "raw_count": 20,
+      "frequency": 0.3758102766798419,
+      "raw_count": 19,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 276,
       "icon": "inv_chest_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.9815726767275615,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 50,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,7 +71,7 @@
       "item_level": 266,
       "icon": "inv_belt_leather_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_dungeonharronir_c_01.jpg",
-      "frequency": 0.3577442414614774,
+      "frequency": 0.36379446640316204,
       "raw_count": 18,
       "slot": "waist",
       "dungeon": null,
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.6659253375694996,
-      "raw_count": 34,
+      "frequency": 0.659604743083004,
+      "raw_count": 33,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 276,
       "icon": "inv_glove_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.9609213661636219,
-      "raw_count": 48,
+      "frequency": 0.9446640316205533,
+      "raw_count": 47,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 289,
       "icon": "inv_pant_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.6800635424940429,
-      "raw_count": 34,
+      "frequency": 0.6297233201581027,
+      "raw_count": 32,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 276,
       "icon": "inv_boot_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.427164416203336,
-      "raw_count": 21,
+      "frequency": 0.4657707509881423,
+      "raw_count": 23,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 276,
       "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
-      "frequency": 0.7158061953931691,
-      "raw_count": 36,
+      "frequency": 0.6901185770750988,
+      "raw_count": 34,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_misc_enggizmos_18",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
-      "frequency": 0.8154090548054012,
-      "raw_count": 41,
+      "frequency": 0.7467193675889328,
+      "raw_count": 37,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,20 +155,20 @@
       "item_level": 285,
       "icon": "inv_glaive_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.7391580619539317,
-      "raw_count": 37,
+      "frequency": 0.7198418972332016,
+      "raw_count": 36,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     },
     "offhand": {
-      "item_id": 249280,
-      "name": "Emblazoned Sunglaive",
-      "item_level": 276,
-      "icon": "inv_glaive_1h_raidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.3210484511517077,
-      "raw_count": 16,
+      "item_id": 237840,
+      "name": "Spellbreaker's Warglaive",
+      "item_level": 285,
+      "icon": "inv_glaive_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
+      "frequency": 0.3626877470355731,
+      "raw_count": 18,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -176,13 +176,13 @@
   },
   "bis_alternatives": {
     "finger": {
-      "item_id": 251217,
-      "name": "Occlusion of Void",
-      "item_level": 266,
-      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.2721207307386815,
-      "raw_count": 14,
+      "item_id": 251115,
+      "name": "Bifurcation Band",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency2_void",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency2_void.jpg",
+      "frequency": 0.21770750988142293,
+      "raw_count": 11,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,20 +193,32 @@
       "item_level": 289,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.6441620333598094,
+      "frequency": 0.6401581027667984,
       "raw_count": 32,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
+    "mainhand": {
+      "item_id": 251175,
+      "name": "Soulblight Cleaver",
+      "item_level": 289,
+      "icon": "inv_axe_1h_amani_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_axe_1h_amani_b_01.jpg",
+      "frequency": 0.05992094861660079,
+      "raw_count": 3,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
     "offhand": {
-      "item_id": 237840,
-      "name": "Spellbreaker's Warglaive",
-      "item_level": 285,
-      "icon": "inv_glaive_1h_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.2870532168387609,
-      "raw_count": 14,
+      "item_id": 249280,
+      "name": "Emblazoned Sunglaive",
+      "item_level": 279,
+      "icon": "inv_glaive_1h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_raidmidnight_d_01.jpg",
+      "frequency": 0.25565217391304346,
+      "raw_count": 13,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -216,60 +228,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.9091342335186656,
-      "raw_count": 45
+      "frequency": 0.9403952569169961,
+      "raw_count": 47
     },
     "legs": {
       "enchant_id": 8159,
       "slot": "legs",
-      "frequency": 0.7741064336775219,
-      "raw_count": 39
+      "frequency": 0.756205533596838,
+      "raw_count": 38
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.8208101667990468,
-      "raw_count": 41
+      "frequency": 0.8504347826086956,
+      "raw_count": 43
     },
     "finger": {
       "enchant_id": 7967,
       "slot": "finger",
-      "frequency": 1.3037331215250199,
-      "raw_count": 66
+      "frequency": 1.2238735177865612,
+      "raw_count": 61
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.7199364575059571,
+      "frequency": 0.7233201581027668,
       "raw_count": 36
     }
   },
   "gems": [
     {
       "gem_id": 240908,
-      "frequency": 1.5976171564733916,
-      "raw_count": 80
+      "frequency": 1.5293280632411068,
+      "raw_count": 76
     },
     {
       "gem_id": 240983,
-      "frequency": 0.8414614773629865,
-      "raw_count": 42
+      "frequency": 0.9000790513833992,
+      "raw_count": 45
     },
     {
       "gem_id": 240898,
-      "frequency": 0.3305798252581414,
-      "raw_count": 16
-    },
-    {
-      "gem_id": 240892,
-      "frequency": 0.23113582208101668,
-      "raw_count": 11
+      "frequency": 0.3459288537549407,
+      "raw_count": 17
     },
     {
       "gem_id": 240900,
-      "frequency": 0.16600476568705322,
-      "raw_count": 8
+      "frequency": 0.31367588932806323,
+      "raw_count": 15
+    },
+    {
+      "gem_id": 240892,
+      "frequency": 0.21802371541501978,
+      "raw_count": 11
     }
   ],
-  "generated_at": "2026-04-15T12:41:08.479Z"
+  "generated_at": "2026-04-16T08:38:09.241Z"
 }

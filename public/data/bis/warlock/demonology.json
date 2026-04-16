@@ -11,8 +11,8 @@
       "item_level": 289,
       "icon": "inv_helm_cloth_raidwarlockmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 50,
+      "frequency": 0.9813438735177865,
+      "raw_count": 49,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -20,11 +20,11 @@
     "neck": {
       "item_id": 50228,
       "name": "Barbed Ymirheim Choker",
-      "item_level": 272,
+      "item_level": 276,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.5599745466115177,
-      "raw_count": 28,
+      "frequency": 0.5457707509881423,
+      "raw_count": 27,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,8 +35,8 @@
       "item_level": 289,
       "icon": "inv_shoulder_cloth_raidwarlockmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 0.27060133630289535,
-      "raw_count": 13,
+      "frequency": 0.30434782608695654,
+      "raw_count": 15,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 285,
       "icon": "inv_cape_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.3557111040407254,
-      "raw_count": 18,
+      "frequency": 0.43889328063241106,
+      "raw_count": 22,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,11 +56,11 @@
     "chest": {
       "item_id": 250045,
       "name": "Abyssal Immolator's Dreadrobe",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_chest_cloth_raidwarlockmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 0.9630925867006045,
-      "raw_count": 48,
+      "frequency": 0.9041897233201581,
+      "raw_count": 45,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 276,
       "icon": "inv_belt_cloth_raidwarlockmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 0.48106904231625836,
-      "raw_count": 24,
+      "frequency": 0.45438735177865613,
+      "raw_count": 22,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.4643652561247216,
-      "raw_count": 23,
+      "frequency": 0.5087747035573122,
+      "raw_count": 25,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,7 +95,7 @@
       "item_level": 276,
       "icon": "inv_glove_cloth_raidwarlockmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 0.9778873687559656,
+      "frequency": 0.9783399209486165,
       "raw_count": 49,
       "slot": "hands",
       "dungeon": null,
@@ -104,23 +104,23 @@
     "legs": {
       "item_id": 250041,
       "name": "Abyssal Immolator's Pillars",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_pant_cloth_raidwarlockmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 0.9762965319758192,
+      "frequency": 0.976600790513834,
       "raw_count": 49,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
     },
     "feet": {
-      "item_id": 249305,
-      "name": "Slippers of the Midnight Flame",
-      "item_level": 279,
-      "icon": "inv_boot_cloth_raidwarlockmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_raidwarlockmidnight_d_01.jpg",
-      "frequency": 0.28985046134266623,
-      "raw_count": 15,
+      "item_id": 249373,
+      "name": "Dream-Scorched Striders",
+      "item_level": 289,
+      "icon": "inv_boot_cloth_raidmagemidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_raidmagemidnight_d_01.jpg",
+      "frequency": 0.29027667984189726,
+      "raw_count": 14,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.6802418071905822,
-      "raw_count": 34,
+      "frequency": 0.6248221343873518,
+      "raw_count": 31,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_icon_feather06a",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_icon_feather06a.jpg",
-      "frequency": 0.8331212217626471,
-      "raw_count": 42,
+      "frequency": 0.8162845849802371,
+      "raw_count": 41,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.9552974864778874,
-      "raw_count": 48,
+      "frequency": 0.9184189723320159,
+      "raw_count": 46,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -169,7 +169,7 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.4344575246579701,
+      "frequency": 0.4365217391304348,
       "raw_count": 22,
       "slot": "finger",
       "dungeon": null,
@@ -181,8 +181,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.3701877187400573,
-      "raw_count": 19,
+      "frequency": 0.44110671936758894,
+      "raw_count": 22,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -192,60 +192,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.9823417117403754,
+      "frequency": 0.9832411067193676,
       "raw_count": 49
     },
     "legs": {
       "enchant_id": 7935,
       "slot": "legs",
-      "frequency": 0.9823417117403754,
+      "frequency": 0.9832411067193676,
       "raw_count": 49
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.837098313713013,
+      "frequency": 0.8309881422924901,
       "raw_count": 41
     },
     "finger": {
       "enchant_id": 7997,
       "slot": "finger",
-      "frequency": 0.8588927776010181,
-      "raw_count": 42
+      "frequency": 0.8014229249011857,
+      "raw_count": 39
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.8891186764237989,
-      "raw_count": 44
+      "frequency": 0.9233201581027668,
+      "raw_count": 46
     }
   },
   "gems": [
     {
       "gem_id": 240906,
-      "frequency": 1.0857461024498887,
-      "raw_count": 54
+      "frequency": 1.1204743083003952,
+      "raw_count": 56
     },
     {
       "gem_id": 240983,
-      "frequency": 0.9828189627744194,
-      "raw_count": 49
+      "frequency": 0.9612648221343874,
+      "raw_count": 48
     },
     {
       "gem_id": 240908,
-      "frequency": 0.7763283487114222,
-      "raw_count": 38
-    },
-    {
-      "gem_id": 240890,
-      "frequency": 0.38720967228762326,
-      "raw_count": 20
+      "frequency": 0.7329644268774703,
+      "raw_count": 36
     },
     {
       "gem_id": 240898,
-      "frequency": 0.32818962774419347,
+      "frequency": 0.3465612648221344,
       "raw_count": 17
+    },
+    {
+      "gem_id": 240890,
+      "frequency": 0.3026086956521739,
+      "raw_count": 15
     }
   ],
-  "generated_at": "2026-04-15T12:48:47.169Z"
+  "generated_at": "2026-04-16T08:48:49.712Z"
 }
