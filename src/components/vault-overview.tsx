@@ -31,9 +31,9 @@ export function VaultOverview() {
       </div>
 
       {/* Cards grid — one card per character with Great Vault slots */}
-      <div className="stagger-cards" style={{
+      <div className="stagger-cards vault-grid" style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
         gap: "18px",
       }}>
         {characters.map((char) => (

@@ -42,7 +42,7 @@ export default function HomePage() {
   }
 
   return (
-    <div style={{
+    <div className="home-wrap" style={{
       minHeight: "calc(100dvh - 64px)",
       display: "flex",
       flexDirection: "column",
@@ -83,7 +83,7 @@ export default function HomePage() {
       </div>
 
       {/* Hero */}
-      <div className="animate-slide-in-up" style={{ textAlign: "center", maxWidth: "520px", position: "relative", zIndex: 1 }}>
+      <div className="animate-slide-in-up home-hero" style={{ textAlign: "center", maxWidth: "520px", position: "relative", zIndex: 1 }}>
         {/* Season badge */}
         <div style={{
           display: "inline-flex",
@@ -111,7 +111,7 @@ export default function HomePage() {
           alt="WhatMyAltDid"
           width={500}
           height={300}
-          className="animate-float"
+          className="animate-float home-hero-logo"
           style={{ maxWidth: "360px", width: "100%", height: "auto", marginBottom: "12px", display: "block", marginLeft: "auto", marginRight: "auto" }}
           priority
         />
@@ -168,7 +168,7 @@ export default function HomePage() {
       </div>
 
       {/* Feature cards */}
-      <div className="stagger-cards" style={{
+      <div className="stagger-cards home-features" style={{
         display: "flex",
         gap: "14px",
         flexWrap: "wrap" as const,
@@ -180,7 +180,7 @@ export default function HomePage() {
         {FEATURES_KEYS.map((f) => (
           <div
             key={f.titleKey}
-            className="card-interactive"
+            className="card-interactive home-feature-card"
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
@@ -199,7 +199,7 @@ export default function HomePage() {
       </div>
 
       {/* Class icons decorative row (bottom) */}
-      <div className="animate-slide-in-up" style={{ display: "flex", gap: "8px", opacity: 0.35, position: "relative", zIndex: 1, animationDelay: "0.3s" }}>
+      <div className="animate-slide-in-up home-class-row" style={{ display: "flex", gap: "8px", opacity: 0.35, position: "relative", zIndex: 1, animationDelay: "0.3s" }}>
         {CLASS_SHOWCASE.slice(0, 6).map(({ cls, color }) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img

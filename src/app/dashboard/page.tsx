@@ -1,26 +1,23 @@
 "use client";
 
 import { useRosterStore } from "@/lib/store";
-import { CharacterCard } from "@/components/character-card";
 import { DungeonGrid } from "@/components/dungeon-grid";
 import { VaultOverview } from "@/components/vault-overview";
-import { RosterFilters } from "@/components/roster-filters";
 import { AddCharacterModal } from "@/components/add-character-modal";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
-type StoreView = "grid" | "list" | "mplus" | "vault";
+type StoreView = "mplus" | "vault";
 
 export default function DashboardPage() {
-  const { characters, isScanning, scan, lastScanAt, error, view, setView, filters, sortBy, sortDir } = useRosterStore();
+  const { characters, isScanning, scan, lastScanAt, error, view, setView } = useRosterStore();
   const [addModalOpen, setAddModalOpen] = useState(false);
   const { t } = useI18n();
 
   const VIEWS: { key: StoreView; label: string; icon: string }[] = [
-    { key: "grid",  label: t("dash.tab.chars"),  icon: "⊞" },
-    { key: "mplus", label: t("dash.tab.mplus"),  icon: "⚔" },
     { key: "vault", label: t("dash.tab.vault"),  icon: "🏛" },
+    { key: "mplus", label: t("dash.tab.mplus"),  icon: "⚔" },
   ];
 
   const timeSince = lastScanAt
@@ -31,38 +28,13 @@ export default function DashboardPage() {
   const bestKey    = characters.reduce((m, c) => Math.max(m, ...c.weeklyRuns.map(r => r.mythic_level), 0), 0);
   const bestScore  = characters.reduce((m, c) => Math.max(m, c.rioScore?.all ?? 0), 0);
 
-  // Filter + sort
-  const displayed = useMemo(() => {
-    let list = [...characters];
-    if (filters.faction)   list = list.filter(c => c.faction === filters.faction);
-    if (filters.className) list = list.filter(c => c.className === filters.className);
-    if (filters.role) {
-      list = list.filter(c => {
-        const role = c.specRole?.toUpperCase();
-        if (filters.role === "HEALER") return role === "HEALER" || role === "HEALING";
-        return role === filters.role;
-      });
-    }
-    if (filters.realm)     list = list.filter(c => c.realmSlug === filters.realm);
-
-    list.sort((a, b) => {
-      let av = 0, bv = 0;
-      if (sortBy === "score")     { av = a.rioScore?.all ?? 0;       bv = b.rioScore?.all ?? 0; }
-      if (sortBy === "ilvl")      { av = a.itemLevel;                 bv = b.itemLevel; }
-      if (sortBy === "name")      { av = 0; bv = 0; return sortDir === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name); }
-      if (sortBy === "vaultMplus"){ av = a.weeklyRuns.length;         bv = b.weeklyRuns.length; }
-      return sortDir === "asc" ? av - bv : bv - av;
-    });
-    return list;
-  }, [characters, filters, sortBy, sortDir]);
-
-  const activeView: StoreView = (["grid", "list", "mplus", "vault"] as const).includes(view) ? view : "grid";
+  const activeView: StoreView = (["mplus", "vault"] as const).includes(view as StoreView) ? (view as StoreView) : "mplus";
 
   return (
     <div style={{ minHeight: "calc(100dvh - 64px)", backgroundColor: "var(--bg)" }}>
 
       {/* ── Sticky top bar ── */}
-      <div style={{
+      <div className="dash-bar" style={{
         borderBottom: "1px solid var(--border)",
         backgroundColor: "var(--surface)",
         padding: "0 24px",
@@ -77,7 +49,7 @@ export default function DashboardPage() {
         overflowX: "auto",
       }}>
         {/* View tabs */}
-        <div style={{ display: "flex", gap: 0, borderRadius: "5px", overflow: "hidden", border: "1px solid var(--border)", flexShrink: 0 }}>
+        <div className="dash-tabs" style={{ display: "flex", gap: 0, borderRadius: "5px", overflow: "hidden", border: "1px solid var(--border)", flexShrink: 0 }}>
           {VIEWS.map(({ key, label, icon }) => (
             <button
               key={key}
@@ -108,7 +80,7 @@ export default function DashboardPage() {
 
         {/* Stats */}
         {characters.length > 0 && (
-          <div style={{ display: "flex", gap: "18px", fontSize: "13px", flexShrink: 0 }}>
+          <div className="dash-stats" style={{ display: "flex", gap: "18px", fontSize: "13px", flexShrink: 0 }}>
             <span style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               <strong style={{ color: "var(--text)", fontWeight: 700 }}>{totalRuns}</strong>
               <span style={{ color: "var(--text-3)" }}> runs</span>
@@ -134,9 +106,9 @@ export default function DashboardPage() {
         )}
 
         {/* Refresh + Add */}
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
+        <div className="dash-actions" style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
           {timeSince !== null && !isScanning && (
-            <span style={{ color: "var(--text-3)", fontSize: "11px", fontFamily: "'JetBrains Mono', monospace" }}>
+            <span className="dash-ago" style={{ color: "var(--text-3)", fontSize: "11px", fontFamily: "'JetBrains Mono', monospace" }}>
               {t("dash.ago", timeSince)}
             </span>
           )}
@@ -198,13 +170,14 @@ export default function DashboardPage() {
 
       {/* ── Empty state ── */}
       {characters.length === 0 && !isScanning && (
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 24px", gap: "12px" }}>
+        <div className="dash-empty" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 24px", gap: "12px" }}>
           <Image
             src="/logo.png"
             alt="WhatMyAltDid"
-            width={300}
-            height={200}
-            style={{ maxWidth: "200px", width: "100%", height: "auto", marginBottom: "8px", opacity: 0.7 }}
+            width={500}
+            height={300}
+            className="animate-float"
+            style={{ maxWidth: "300px", width: "100%", height: "auto", marginBottom: "12px" }}
           />
           <div style={{ fontSize: "16px", fontWeight: 700, color: "var(--text)", fontFamily: "'Cinzel', serif" }}>
             {t("dash.empty.title")}
@@ -257,52 +230,22 @@ export default function DashboardPage() {
 
       {/* ── Loading skeletons ── */}
       {isScanning && characters.length === 0 && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))", gap: "18px", padding: "24px" }}>
+        <div className="skeleton-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "18px", padding: "24px" }}>
           {[1, 2, 3, 4, 5, 6].map(i => (
             <div key={i} style={{ height: "140px", borderRadius: "8px" }} className="skeleton" />
           ))}
         </div>
       )}
 
-      {/* ── Filters bar (only for cards view with results) ── */}
-      {characters.length > 0 && (activeView === "grid" || activeView === "list") && (
-        <div style={{ padding: "12px 24px", borderBottom: "1px solid var(--border)", backgroundColor: "var(--surface)" }}>
-          <RosterFilters />
-        </div>
-      )}
-
       {/* ── Content ── */}
-      {(activeView === "grid" || activeView === "list") && displayed.length > 0 && (
-        <div
-          className="stagger-cards animate-fade-switch"
-          key={`grid-${activeView}`}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
-            gap: "18px",
-            padding: "20px 24px",
-          }}
-        >
-          {displayed.map(char => (
-            <CharacterCard key={char.id} character={char} />
-          ))}
-        </div>
-      )}
-
-      {(activeView === "grid" || activeView === "list") && characters.length > 0 && displayed.length === 0 && (
-        <div style={{ padding: "40px", textAlign: "center" as const, color: "var(--text-3)", fontSize: "13px" }}>
-          {t("dash.empty.filter")}
-        </div>
-      )}
-
       {activeView === "mplus" && characters.length > 0 && (
-        <div className="tab-content" key="mplus" style={{ padding: "20px 24px" }}>
+        <div className="tab-content dash-content" key="mplus" style={{ padding: "20px 24px" }}>
           <DungeonGrid />
         </div>
       )}
 
       {activeView === "vault" && characters.length > 0 && (
-        <div className="tab-content" key="vault" style={{ padding: "20px 24px" }}>
+        <div className="tab-content dash-content" key="vault" style={{ padding: "20px 24px" }}>
           <VaultOverview />
         </div>
       )}

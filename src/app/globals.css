@@ -508,3 +508,115 @@ body {
 .tab-content {
   animation: fade-switch 0.2s ease both;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   mobile:  < 640px
+   tablet:  640–1024px
+   desktop: 1024–1440px
+   wide:    1440–1920px
+   4k:      > 1920px
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Mobile (< 640px) ──────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Navbar */
+  .navbar-inner { padding: 0 12px !important; height: 52px !important; }
+  .navbar-season { display: none !important; }
+  .navbar-username { display: none !important; }
+  .navbar-actions { gap: 6px !important; }
+  .navbar-actions button { padding: 5px 10px !important; font-size: 11px !important; }
+
+  /* Dashboard sticky bar */
+  .dash-bar { padding: 0 10px !important; height: 44px !important; gap: 8px !important; top: 52px !important; }
+  .dash-bar .dash-tabs button { padding: 5px 10px !important; font-size: 11px !important; }
+  .dash-stats { display: none !important; }
+  .dash-actions { gap: 4px !important; }
+  .dash-actions .dash-ago { display: none !important; }
+  .dash-actions button { padding: 5px 10px !important; font-size: 11px !important; }
+
+  /* Dashboard content */
+  .dash-content { padding: 12px 10px !important; }
+
+  /* Vault grid */
+  .vault-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+  /* Vault card slots */
+  .vault-slot { width: 48px !important; height: 48px !important; }
+  .vault-category-label { width: 60px !important; }
+
+  /* Dungeon grid */
+  .dungeon-table-wrap { border-radius: 6px !important; }
+  .dungeon-table { font-size: 11px !important; }
+  .dungeon-table th { padding: 8px 4px !important; font-size: 10px !important; min-width: 44px !important; }
+  .dungeon-table td { padding: 6px 4px !important; }
+  .dungeon-legend { flex-wrap: wrap; gap: 8px !important; font-size: 10px !important; }
+
+  /* Character detail */
+  .char-detail { padding: 12px 10px 40px !important; }
+  .char-hero { padding: 14px 12px !important; flex-direction: column !important; }
+  .char-hero h1 { font-size: 20px !important; }
+  .char-score-badge { padding: 8px 14px !important; }
+  .char-score-badge .score-number { font-size: 20px !important; }
+  .char-tabs button { padding: 7px 10px !important; font-size: 11px !important; }
+
+  /* Homepage */
+  .home-wrap { padding: 32px 16px !important; gap: 32px !important; }
+  .home-hero { max-width: 100% !important; }
+  .home-hero-logo { max-width: 240px !important; }
+  .home-features { gap: 10px !important; }
+  .home-feature-card { width: 100% !important; min-width: 0 !important; padding: 16px !important; }
+  .home-class-row img { width: 22px !important; height: 22px !important; }
+
+  /* Empty state */
+  .dash-empty { padding: 40px 16px !important; }
+  .skeleton-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ─── Tablet (640–1024px) ───────────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .navbar-inner { padding: 0 16px !important; }
+
+  .dash-bar { padding: 0 16px !important; top: 64px !important; }
+  .dash-content { padding: 16px !important; }
+
+  .vault-grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; gap: 14px !important; }
+
+  .home-features { max-width: 100% !important; }
+  .home-feature-card { width: 200px !important; }
+
+  .char-detail { padding: 16px 16px 48px !important; }
+}
+
+/* ─── Wide screens (1440–1920px) ────────────────────────────── */
+@media (min-width: 1440px) {
+  .navbar-inner { max-width: 1800px !important; }
+  .dash-content { padding: 24px 32px !important; }
+  .vault-grid { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)) !important; }
+  .char-detail { max-width: 1300px !important; }
+  .home-hero { max-width: 640px !important; }
+  .home-features { max-width: 960px !important; }
+  .home-feature-card { width: 280px !important; }
+}
+
+/* ─── 4K / Ultra-wide (> 1920px) ────────────────────────────── */
+@media (min-width: 1921px) {
+  .navbar-inner { max-width: 2400px !important; }
+  .dash-content { padding: 32px 48px !important; }
+  .vault-grid { grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)) !important; gap: 24px !important; }
+  .char-detail { max-width: 1800px !important; }
+  .home-hero { max-width: 720px !important; }
+  .home-hero-logo { max-width: 500px !important; }
+  .home-features { max-width: 1200px !important; }
+  .home-feature-card { width: 340px !important; padding: 28px !important; }
+  .home-wrap { gap: 72px !important; }
+
+  .dungeon-table { font-size: 16px !important; }
+  .dungeon-table th { padding: 14px 10px !important; font-size: 14px !important; min-width: 80px !important; }
+  .dungeon-table td { padding: 12px 10px !important; }
+
+  .vault-slot { width: 72px !important; height: 72px !important; }
+
+  .char-hero h1 { font-size: 30px !important; }
+  .char-score-badge .score-number { font-size: 32px !important; }
+}

@@ -63,8 +63,8 @@ export function DungeonGrid() {
     <div className="animate-fade-switch" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
       <AffixBar affixes={affixes} />
 
-      <div style={{ overflowX: "auto", borderRadius: "8px", border: "1px solid var(--border)" }}>
-        <table style={{
+      <div className="dungeon-table-wrap" style={{ overflowX: "auto", borderRadius: "8px", border: "1px solid var(--border)" }}>
+        <table className="dungeon-table" style={{
           width: "100%",
           borderCollapse: "collapse",
           fontSize: "14px",
@@ -194,7 +194,7 @@ export function DungeonGrid() {
       </div>
 
       {/* Legend */}
-      <div style={{ display: "flex", gap: "16px", fontSize: "12px", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
+      <div className="dungeon-legend" style={{ display: "flex", gap: "16px", fontSize: "12px", color: "var(--text-3)", fontFamily: "'JetBrains Mono', monospace" }}>
         <span><span style={{ color: "var(--positive)" }}>+X</span> {t("grid.legend.timed")}</span>
         <span><span style={{ color: "var(--text-2)" }}>+X</span> {t("grid.legend.best")}</span>
         <span><span style={{ color: "var(--text-3)" }}>—</span> {t("grid.legend.none")}</span>

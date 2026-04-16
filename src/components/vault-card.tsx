@@ -42,7 +42,7 @@ function VaultSlot({
       onMouseLeave={() => setHover(false)}
     >
       <div
-        className={unlocked ? "animate-glow-pulse" : ""}
+        className={`vault-slot ${unlocked ? "animate-glow-pulse" : ""}`}
         style={{
           width: 60,
           height: 60,
@@ -199,7 +199,7 @@ function VaultRow({
       gap: "12px",
     }}>
       {/* Category icon + label */}
-      <div style={{
+      <div className="vault-category-label" style={{
         width: "80px",
         flexShrink: 0,
         display: "flex",

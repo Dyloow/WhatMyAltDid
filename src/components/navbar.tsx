@@ -20,7 +20,7 @@ export function Navbar() {
       zIndex: 50,
       backdropFilter: "blur(8px)",
     }}>
-      <div style={{
+      <div className="navbar-inner" style={{
         maxWidth: "1400px",
         margin: "0 auto",
         padding: "0 24px",
@@ -32,17 +32,17 @@ export function Navbar() {
       }}>
 
         <Link href="/" className="hover-scale" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", transition: "transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)" }}>
-          <div style={{ height: "48px", overflow: "hidden", display: "flex", alignItems: "center" }}>
+          <div className="navbar-logo-wrap" style={{ height: "64px", overflow: "visible", display: "flex", alignItems: "center", marginLeft: "clamp(-40px, -5vw, -100px)" }}>
             <Image
               src="/logo_header.png"
               alt="WhatMyAltDid"
-              width={260}
-              height={80}
-              style={{ height: "64px", width: "auto", objectFit: "contain", margin: "-8px 0" }}
+              width={500}
+              height={150}
+              style={{ height: "clamp(100px, 12vw, 200px)", width: "auto", objectFit: "contain" }}
               priority
             />
           </div>
-          <span style={{
+          <span className="navbar-season" style={{
             fontSize: "10px",
             fontFamily: "'JetBrains Mono', monospace",
             color: "var(--text-3)",
@@ -54,7 +54,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div className="navbar-actions" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <LanguageSelector />
           <ThemeToggle />
 
@@ -69,7 +69,7 @@ export function Navbar() {
 
           {status === "authenticated" && session && (
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{
+              <span className="navbar-username" style={{
                 fontSize: "13px",
                 color: "var(--text-2)",
                 fontFamily: "'JetBrains Mono', monospace",

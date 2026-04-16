@@ -61,7 +61,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
   const classIconSlug = profile.class.toLowerCase().replace(/\s+/g, "").replace("'", "");
 
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "20px 16px 64px" }}>
+    <div className="char-detail" style={{ maxWidth: "1100px", margin: "0 auto", padding: "20px 16px 64px" }}>
 
       {/* ── Back nav ── */}
       <div style={{ marginBottom: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -84,7 +84,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
       </div>
 
       {/* ── Hero header ── */}
-      <div style={{
+      <div className="char-hero" style={{
         background: "var(--surface)",
         border: "1px solid var(--border)",
         borderLeft: `4px solid ${classColor}`,
@@ -130,7 +130,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
         </div>
 
         {score > 0 && (
-          <div style={{
+          <div className="char-score-badge" style={{
             textAlign: "center" as const,
             border: `1px solid ${scoreColor(score)}44`,
             borderRadius: "8px",
@@ -138,7 +138,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
             background: `${scoreColor(score)}10`,
             flexShrink: 0,
           }}>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "26px", color: scoreColor(score), lineHeight: 1 }}>
+            <div className="score-number" style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "26px", color: scoreColor(score), lineHeight: 1 }}>
               {Math.round(score).toLocaleString("fr-FR")}
             </div>
             <div style={{ fontSize: "9px", color: "var(--text-3)", letterSpacing: "0.12em", textTransform: "uppercase" as const, marginTop: "4px" }}>
@@ -149,7 +149,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
       </div>
 
       {/* ── Tabs ── */}
-      <div style={{ borderBottom: "1px solid var(--border)", display: "flex", marginBottom: "16px" }}>
+      <div className="char-tabs" style={{ borderBottom: "1px solid var(--border)", display: "flex", marginBottom: "16px" }}>
         {TABS.map(t => (
           <button
             key={t.key}
