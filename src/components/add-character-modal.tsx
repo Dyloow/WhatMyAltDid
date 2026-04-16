@@ -137,7 +137,7 @@ export function AddCharacterModal({ open, onClose }: Props) {
                 {success.name}
               </div>
               <div style={{ fontSize: "12px", color: "var(--text-2)", marginBottom: "16px" }}>
-                {success.className} · {success.specName} · {success.realm}
+                {t("class." + success.className) || success.className} · {t("spec." + success.specName) || success.specName} · {success.realm}
               </div>
               <div style={{ fontSize: "12px", color: "var(--text-3)", marginBottom: "20px" }}>
                 {t("modal.success")}

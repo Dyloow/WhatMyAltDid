@@ -11,16 +11,23 @@ import { useI18n } from "@/lib/i18n";
 
 export function DungeonGrid() {
   const { characters } = useRosterStore();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const router = useRouter();
   const [affixes, setAffixes] = useState<RioAffix[]>([]);
 
   useEffect(() => {
-    fetch("/api/affixes")
+    fetch(`/api/affixes?locale=${locale}`)
       .then((r) => r.json())
       .then(setAffixes)
       .catch(() => {});
-  }, []);
+  }, [locale]);
+
+  // Refresh Wowhead tooltips when affixes load
+  useEffect(() => {
+    if (affixes.length > 0 && typeof window !== "undefined" && (window as any).$WowheadPower) {
+      (window as any).$WowheadPower.refreshLinks();
+    }
+  }, [affixes]);
 
   const dungeons = CURRENT_SEASON.dungeons;
 

@@ -155,7 +155,7 @@ export function CharacterCard({ character }: Props) {
             )}
           </div>
           <div style={{ color: "var(--text-2)", fontSize: "13px", marginTop: "2px" }}>
-            {character.specName} {t("class." + character.className)}
+            {t("spec." + character.specName) || character.specName} {t("class." + character.className)}
             <span style={{ color: "var(--text-3)" }}> · {character.realm}</span>
           </div>
         </div>

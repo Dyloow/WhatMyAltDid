@@ -7,12 +7,12 @@ import { calculateVault, VaultCategory } from "@/lib/vault-calculator";
 import { CLASS_COLORS, CURRENT_SEASON, getVaultIlvl } from "@/lib/season-config";
 import { useI18n } from "@/lib/i18n";
 
-function getIlvlTier(ilvl: number | null): { label: string; color: string } | null {
+function getIlvlTierKey(ilvl: number | null): { key: string; color: string } | null {
   if (!ilvl) return null;
   const { raidIlvlRanges } = CURRENT_SEASON;
-  if (ilvl >= raidIlvlRanges.mythic[0]) return { label: "Mythique", color: "var(--score-legendary)" };
-  if (ilvl >= raidIlvlRanges.heroic[0]) return { label: "Héroïque", color: "var(--score-epic)" };
-  if (ilvl >= raidIlvlRanges.normal[0]) return { label: "Normal", color: "var(--score-uncommon)" };
+  if (ilvl >= raidIlvlRanges.mythic[0]) return { key: "vault.tierMythic", color: "var(--score-legendary)" };
+  if (ilvl >= raidIlvlRanges.heroic[0]) return { key: "vault.tierHeroic", color: "var(--score-epic)" };
+  if (ilvl >= raidIlvlRanges.normal[0]) return { key: "vault.tierNormal", color: "var(--score-uncommon)" };
   return null;
 }
 
@@ -33,6 +33,7 @@ function VaultSlot({
   categoryLabel: string;
 }) {
   const [hover, setHover] = useState(false);
+  const { t } = useI18n();
 
   return (
     <div
@@ -126,7 +127,7 @@ function VaultSlot({
           pointerEvents: "none",
         }}>
           <div style={{ fontWeight: 700, color: unlocked ? "var(--gold)" : "var(--text-2)", marginBottom: "2px" }}>
-            {categoryLabel} — Slot {slotIndex + 1}
+            {categoryLabel} — {t("vault.slot")} {slotIndex + 1}
           </div>
           {unlocked ? (
             <>
@@ -134,17 +135,17 @@ function VaultSlot({
                 ilvl <span style={{ color: "var(--gold)", fontWeight: 700, fontFamily: "'JetBrains Mono', monospace" }}>{ilvl ?? "—"}</span>
               </div>
               {(() => {
-                const tier = getIlvlTier(ilvl);
+                const tier = getIlvlTierKey(ilvl);
                 return tier ? (
                   <div style={{ fontSize: "11px", fontWeight: 700, color: tier.color }}>
-                    {tier.label}
+                    {t(tier.key)}
                   </div>
                 ) : null;
               })()}
             </>
           ) : (
             <div style={{ color: "var(--text-3)" }}>
-              {thresholdNeeded - current} de plus pour débloquer
+              {t("vault.moreToUnlock", thresholdNeeded - current)}
             </div>
           )}
           {/* Arrow */}
@@ -306,7 +307,7 @@ export function VaultCard({ character }: { character: CharacterData }) {
               {character.name}
             </div>
             <div style={{ color: "var(--text-3)", fontSize: "13px" }}>
-              {character.specName} {t("class." + character.className)}
+              {t("spec." + character.specName) || character.specName} {t("class." + character.className)}
             </div>
           </div>
         </div>

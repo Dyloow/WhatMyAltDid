@@ -409,8 +409,8 @@ function CharacterCenter({
 
       {/* Spec + class */}
       <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: "14px", color: "var(--text)", fontFamily: "'Cinzel', serif", fontWeight: 600 }}>{spec}</div>
-        <div style={{ fontSize: "12px", color: "var(--text-2)" }}>{characterClass}</div>
+        <div style={{ fontSize: "14px", color: "var(--text)", fontFamily: "'Cinzel', serif", fontWeight: 600 }}>{t("spec." + spec) || spec}</div>
+        <div style={{ fontSize: "12px", color: "var(--text-2)" }}>{t("class." + characterClass) || characterClass}</div>
       </div>
 
       {/* Sample info */}
@@ -549,7 +549,7 @@ export function BisPanel({ region, characterClass, defaultSpec, characterGear, t
               cursor: "pointer",
             }}
           >
-            {specs.map(s => <option key={s} value={s}>{s}</option>)}
+            {specs.map(s => <option key={s} value={s}>{t("spec." + s) || s}</option>)}
           </select>
 
           <div style={{

@@ -119,7 +119,7 @@ export function CharacterDetailClient({ profile, region, realm, name }: Props) {
             {profile.name}
           </h1>
           <p style={{ margin: "0 0 2px", fontSize: "13px", color: "var(--text-2)" }}>
-            {profile.active_spec_name} {t("class." + profile.class)}
+            {t("spec." + profile.active_spec_name) || profile.active_spec_name} {t("class." + profile.class)}
             <span style={{ color: "var(--text-3)" }}> · {profile.realm} · {region.toUpperCase()}</span>
           </p>
           {equippedIlvl > 0 && (

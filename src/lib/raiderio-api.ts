@@ -305,6 +305,8 @@ export interface RioAffix {
   name: string;
   description: string;
   icon: string;
+  icon_url?: string;
+  wowhead_url?: string;
 }
 
 export interface RioAffixesResponse {
@@ -313,10 +315,10 @@ export interface RioAffixesResponse {
   affix_details: RioAffix[];
 }
 
-export async function getCurrentAffixes(region = "eu"): Promise<RioAffix[]> {
-  const key = `rio:affixes:${region}`;
+export async function getCurrentAffixes(region = "eu", locale = "en"): Promise<RioAffix[]> {
+  const key = `rio:affixes:${region}:${locale}`;
   return cachedFetch(key, 21600, async () => {
-    const url = `${RIO_BASE}/mythic-plus/affixes?region=${region}&locale=fr`;
+    const url = `${RIO_BASE}/mythic-plus/affixes?region=${region}&locale=${locale}`;
     const res = await fetch(url);
     if (!res.ok) return [];
     const data = (await res.json()) as RioAffixesResponse;
