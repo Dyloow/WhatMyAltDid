@@ -32,13 +32,13 @@ export function Navbar() {
       }}>
 
         <Link href="/" className="hover-scale" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", transition: "transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)" }}>
-          <div className="navbar-logo-wrap" style={{ height: "64px", overflow: "visible", display: "flex", alignItems: "center", marginLeft: "clamp(-40px, -5vw, -100px)" }}>
+          <div className="navbar-logo-wrap" style={{ height: "64px", overflow: "visible", display: "flex", alignItems: "center", marginLeft: "clamp(-40px, -5vw, -100px)", pointerEvents: "none" }}>
             <Image
               src="/logo_header.png"
               alt="WhatMyAltDid"
               width={500}
               height={150}
-              style={{ height: "clamp(100px, 12vw, 200px)", width: "auto", objectFit: "contain" }}
+              style={{ height: "clamp(60px, 8vw, 100px)", width: "auto", objectFit: "contain" }}
               priority
             />
           </div>
