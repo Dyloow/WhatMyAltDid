@@ -12,6 +12,13 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
+      # Redirect HTTP → HTTPS
+      - "traefik.http.routers.whatmyaltdid-http.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.whatmyaltdid-http.entrypoints=web"
+      - "traefik.http.routers.whatmyaltdid-http.middlewares=redirect-https"
+      - "traefik.http.middlewares.redirect-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-https.redirectscheme.permanent=true"
+      # HTTPS
       - "traefik.http.routers.whatmyaltdid.rule=Host(`${APP_DOMAIN}`)"
       - "traefik.http.routers.whatmyaltdid.entrypoints=websecure"
       - "traefik.http.routers.whatmyaltdid.tls.certresolver=letsencrypt"
@@ -23,8 +30,8 @@ services:
       test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
       interval: 15s
       timeout: 5s
-      start_period: 30s
-      retries: 3
+      start_period: 60s
+      retries: 5
 
 networks:
   proxy:

@@ -93,7 +93,13 @@ jobs:
 
             # Redémarrage avec zero-downtime : le nouveau container démarre,
             # Traefik bascule le trafic, l'ancien s'arrête
-            IMAGE_TAG=${IMAGE_TAG} docker compose up -d --wait app
+            IMAGE_TAG=${IMAGE_TAG} docker compose up -d --wait app || {
+              echo "=== CONTAINER LOGS (last 100 lines) ==="
+              docker compose logs --tail=100 app
+              echo "=== CONTAINER STATUS ==="
+              docker compose ps app
+              exit 1
+            }
 
             # Nettoyage des anciennes images
             docker image prune -f
