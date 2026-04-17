@@ -6,7 +6,6 @@ node_modules
 *.log
 .env*
 !.env.example
-prisma/migrations
 tests
 scripts
 generation.log
