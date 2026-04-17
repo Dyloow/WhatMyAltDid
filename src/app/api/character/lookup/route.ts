@@ -1,31 +1,15 @@
 import { getRioCharacterProfileFull } from "@/lib/raiderio-api";
 import { getRaidProfileFresh, RaidProfile } from "@/lib/blizzard-api";
-import { CharacterData } from "@/types/character";
+import { getWeeklyRaidKillsFromWcl } from "@/lib/warcraftlogs-api";
+import { getWeeklyResetTimestamp, toMs } from "@/lib/weekly-reset";
+import { BossKill, CharacterData } from "@/types/character";
 import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-/** Returns the timestamp (ms) of the most recent weekly reset for the given region. */
-function getLastResetTimestamp(region: string): number {
-  const now = Date.now();
-  const isUS = region === "us";
-  const resetDay  = isUS ? 2 : 3;
-  const resetHour = isUS ? 15 : 7;
-  const d = new Date(now);
-  d.setUTCHours(resetHour, 0, 0, 0);
-  const diff = (d.getUTCDay() - resetDay + 7) % 7;
-  d.setUTCDate(d.getUTCDate() - diff);
-  if (d.getTime() > now) d.setUTCDate(d.getUTCDate() - 7);
-  return d.getTime();
-}
-
-function toMs(ts: number): number {
-  return ts < 5e9 ? ts * 1000 : ts;
-}
-
 function calcWeeklyRaidBosses(raid: RaidProfile | null, region: string): number {
   if (!raid) return 0;
-  const since = getLastResetTimestamp(region);
+  const since = getWeeklyResetTimestamp(region);
   const killed = new Set<number>();
   for (const expansion of raid.expansions ?? []) {
     for (const instance of expansion.instances ?? []) {
@@ -39,6 +23,44 @@ function calcWeeklyRaidBosses(raid: RaidProfile | null, region: string): number 
     }
   }
   return killed.size;
+}
+
+function extractWeeklyBossKills(raid: RaidProfile | null, region: string): BossKill[] {
+  if (!raid) return [];
+  const since = getWeeklyResetTimestamp(region);
+
+  const kills: BossKill[] = [];
+  const seen = new Set<string>();
+
+  for (const expansion of raid.expansions ?? []) {
+    for (const instance of expansion.instances ?? []) {
+      for (const mode of instance.modes ?? []) {
+        const difficultyRaw = mode.difficulty?.type?.toLowerCase() ?? "";
+        let difficulty: BossKill["difficulty"] | null = null;
+        if (difficultyRaw === "normal" || difficultyRaw === "lfr") difficulty = "normal";
+        else if (difficultyRaw === "heroic") difficulty = "heroic";
+        else if (difficultyRaw === "mythic") difficulty = "mythic";
+        if (!difficulty) continue;
+
+        for (const enc of mode.progress?.encounters ?? []) {
+          if (!enc.last_kill_timestamp) continue;
+          if (toMs(enc.last_kill_timestamp) <= since) continue;
+
+          const key = `${enc.encounter.id}:${difficulty}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+
+          kills.push({
+            bossId: enc.encounter.id,
+            bossName: enc.encounter.name,
+            difficulty,
+            killedAt: toMs(enc.last_kill_timestamp),
+          });
+        }
+      }
+    }
+  }
+  return kills;
 }
 
 export async function GET(req: NextRequest) {
@@ -60,17 +82,40 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  // Get weekly raid boss kills via Blizzard encounters/raids API (fresh, no cache)
   let weeklyRaidBosses = 0;
+  let weeklyBossKills: BossKill[] = [];
   try {
-    const raidProfile = await getRaidProfileFresh(region, realm, name);
-    weeklyRaidBosses = calcWeeklyRaidBosses(raidProfile, region);
+    const [raidProfile, wclResult] = await Promise.allSettled([
+      getRaidProfileFresh(region, realm, name),
+      getWeeklyRaidKillsFromWcl(region, realm, name),
+    ]);
+
+    const raid = raidProfile.status === "fulfilled" ? raidProfile.value : null;
+    const wcl  = wclResult.status  === "fulfilled" ? wclResult.value  : null;
+
+    const blzBosses = calcWeeklyRaidBosses(raid, region);
+    const wclBosses = wcl?.bossKills ?? 0;
+    weeklyRaidBosses = Math.max(blzBosses, wclBosses);
+
+    const blzKills = extractWeeklyBossKills(raid, region);
+    const wclKills = wcl?.bossKillDetails ?? [];
+    const seen = new Set<string>();
+    const merged: BossKill[] = [];
+    for (const k of blzKills) {
+      const key = `${k.bossId}:${k.difficulty}`;
+      if (!seen.has(key)) { seen.add(key); merged.push(k); }
+    }
+    for (const k of wclKills) {
+      const key = `${k.bossId}:${k.difficulty}`;
+      if (!seen.has(key)) { seen.add(key); merged.push(k); }
+    }
+    weeklyBossKills = merged;
   } catch (e) {
     console.warn(`[Lookup] Raid data fetch failed for ${name}:`, e);
   }
 
   const charData: CharacterData = {
-    id: Date.now(), // synthetic ID for manual entries
+    id: Date.now(),
     name: profile.name,
     realm: profile.realm,
     realmSlug: realm,
@@ -90,6 +135,7 @@ export async function GET(req: NextRequest) {
     profileUrl: profile.profile_url ?? "",
     lastScanned: new Date().toISOString(),
     weeklyRaidBosses,
+    weeklyBossKills,
   };
 
   return NextResponse.json(charData);

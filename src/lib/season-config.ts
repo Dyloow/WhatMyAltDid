@@ -9,11 +9,21 @@ export interface Dungeon {
 
 export interface RaidBoss {
   id: number;
+  /** i18n key for the boss name — e.g. "boss.averzian". Used in RaidTracker. */
+  i18nKey: string;
+  /** Real Blizzard journal encounter ID — used for boss portrait proxy (/api/boss-icon/[id]).
+   *  Discovered automatically from WCL kill data when available. */
+  journalId?: number;
+  /** Direct image URL override — paste any working URL here to bypass the API proxy. */
+  imageUrl?: string;
+  /** English name — used as tooltip/alt and i18n fallback. */
   name: string;
   raid: string;
 }
 
 export interface Raid {
+  /** i18n key for the raid name — e.g. "raid.void_spire". Used in RaidTracker. */
+  i18nKey: string;
   name: string;
   shortName: string;
   bosses: RaidBoss[];
@@ -65,30 +75,33 @@ export const CURRENT_SEASON: SeasonConfig = {
   ],
   raids: [
     {
+      i18nKey: "raid.void_spire",
       name: "Flèche du Vide",
-      shortName: "VS",
+      shortName: "FV",
       bosses: [
-        { id: 1, name: "Imperator Averzian", raid: "Flèche du Vide" },
-        { id: 2, name: "Vorasius", raid: "Flèche du Vide" },
-        { id: 3, name: "Fallen-King Salhadaar", raid: "Flèche du Vide" },
+        { id: 1, i18nKey: "boss.averzian",         journalId: 3176, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-host-general.png",             name: "Imperator Averzian",        raid: "Flèche du Vide" },
+        { id: 2, i18nKey: "boss.vorasius",          journalId: 3177, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-malformed-manifestation.png",  name: "Vorasius",                  raid: "Flèche du Vide" },
+        { id: 3, i18nKey: "boss.salhadaar",         journalId: 3179, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-salhadaar.png",                name: "Fallen-King Salhadaar",     raid: "Flèche du Vide" },
+        { id: 4, i18nKey: "boss.vaelgor_ezzorak",  journalId: 3178, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-dragon-duo.png",               name: "Vaelgor & Ezzorak",         raid: "Flèche du Vide" },
+        { id: 5, i18nKey: "boss.lightblinded",      journalId: 3180, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-paladin-trio.png",             name: "Lightblinded Vanguard",     raid: "Flèche du Vide" },
+        { id: 6, i18nKey: "boss.crown_cosmos",      journalId: 3181, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-lura-midnight.png",            name: "Crown of the Cosmos",       raid: "Flèche du Vide" },
       ],
     },
     {
+      i18nKey: "raid.dream_rift",
       name: "Faille du Rêve",
-      shortName: "DR",
+      shortName: "FR",
       bosses: [
-        { id: 4, name: "Vaelgor & Ezzorak", raid: "Faille du Rêve" },
-        { id: 5, name: "Chimaerus the Undreamt God", raid: "Faille du Rêve" },
-        { id: 6, name: "Lightblinded Vanguard", raid: "Faille du Rêve" },
+        { id: 7, i18nKey: "boss.chimaerus",         journalId: 3306, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-kaiju.png",                   name: "Chimaerus the Undreamt God", raid: "Faille du Rêve" },
       ],
     },
     {
+      i18nKey: "raid.queldanas_march",
       name: "Marche sur Quel'Danas",
       shortName: "MQD",
       bosses: [
-        { id: 7, name: "Crown of the Cosmos", raid: "Marche sur Quel'Danas" },
-        { id: 8, name: "Belo'ren, Child of Al'ar", raid: "Marche sur Quel'Danas" },
-        { id: 9, name: "Midnight Falls", raid: "Marche sur Quel'Danas" },
+        { id: 8, i18nKey: "boss.beloren",           journalId: 3182, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-light-void-phoenix.png",       name: "Belo'ren, Child of Al'ar",  raid: "Marche sur Quel'Danas" },
+        { id: 9, i18nKey: "boss.midnight_falls",    journalId: 3183, imageUrl: "https://wow.zamimg.com/images/wow/journal/ui-ej-boss-alleria.png",                  name: "Midnight Falls",            raid: "Marche sur Quel'Danas" },
       ],
     },
   ],

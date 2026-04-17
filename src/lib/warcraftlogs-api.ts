@@ -81,15 +81,20 @@ async function gql<T>(query: string, variables: Record<string, unknown>): Promis
 
 // ─── Weekly raid boss kills ───────────────────────────────────────────────────
 
+interface WclFight {
+  encounterID: number;
+  name: string;
+  kill: boolean;
+  difficulty: number | null;
+  startTime: number;
+  endTime: number;
+}
+
 interface WclReport {
   startTime: number;
   endTime: number;
   zone: { id: number; name: string } | null;
-  fights: Array<{
-    encounterID: number;
-    name: string;
-    kill: boolean;
-  }>;
+  fights: WclFight[];
 }
 
 interface WclCharacterData {
@@ -115,6 +120,9 @@ const RECENT_REPORTS_QUERY = `
               encounterID
               name
               kill
+              difficulty
+              startTime
+              endTime
             }
           }
         }
@@ -140,15 +148,32 @@ function getLastResetTimestamp(region: string): number {
   return d.getTime();
 }
 
+/** WCL difficulty numbers → our difficulty type.
+ *  WoW: 1=LFR, 2=Normal, 3=Heroic, 4=Mythic */
+function wclDiffToOurs(d: number | null): "normal" | "heroic" | "mythic" | null {
+  if (d === 1 || d === 2) return "normal";
+  if (d === 3) return "heroic";
+  if (d === 4) return "mythic";
+  return null;
+}
+
+export interface WclBossKill {
+  bossId: number;
+  bossName: string;
+  difficulty: "normal" | "heroic" | "mythic";
+  killedAt: number; // ms timestamp
+}
+
 export interface WclWeeklyRaidResult {
   bossKills: number;
-  bosses: Array<{ id: number; name: string }>;
+  bossKillDetails: WclBossKill[];
   source: "warcraftlogs";
 }
 
 /**
- * Get the number of unique raid bosses killed this week via Warcraft Logs.
+ * Get weekly raid boss kills via Warcraft Logs.
  * Returns null when WCL is not configured or data is unavailable.
+ * Provides real Blizzard encounter IDs and per-difficulty kill details.
  */
 export async function getWeeklyRaidKillsFromWcl(
   region: string,
@@ -170,22 +195,38 @@ export async function getWeeklyRaidKillsFromWcl(
       if (!data?.character?.recentReports?.data) return null;
 
       const since = getLastResetTimestamp(region);
-      const killed = new Map<number, string>(); // encounterID → name
+      // Deduplicate per bossId+difficulty, keep earliest kill timestamp
+      const seen = new Map<string, WclBossKill>();
 
       for (const report of data.character.recentReports.data) {
-        // Only look at reports from this week
         if (report.endTime < since) continue;
 
         for (const fight of report.fights) {
-          if (fight.kill && fight.encounterID > 0) {
-            killed.set(fight.encounterID, fight.name);
+          if (!fight.kill || fight.encounterID <= 0) continue;
+          const diff = wclDiffToOurs(fight.difficulty);
+          if (!diff) continue;
+
+          const key = `${fight.encounterID}:${diff}`;
+          if (!seen.has(key)) {
+            // WCL fight timestamps are relative to report.startTime (in ms)
+            const killedAt = report.startTime + fight.endTime;
+            seen.set(key, {
+              bossId: fight.encounterID,
+              bossName: fight.name,
+              difficulty: diff,
+              killedAt,
+            });
           }
         }
       }
 
+      const bossKillDetails = Array.from(seen.values());
+      // Count unique boss IDs (regardless of difficulty)
+      const uniqueBosses = new Set(bossKillDetails.map((k) => k.bossId)).size;
+
       return {
-        bossKills: killed.size,
-        bosses: Array.from(killed.entries()).map(([id, bossName]) => ({ id, name: bossName })),
+        bossKills: uniqueBosses,
+        bossKillDetails,
         source: "warcraftlogs" as const,
       };
     });

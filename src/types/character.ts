@@ -1,5 +1,12 @@
 import { RioBestRun, RioGearItem, RioMythicPlusScore, RioRaidProgression } from "@/lib/raiderio-api";
 
+export interface BossKill {
+  bossId: number;
+  bossName: string;
+  difficulty: "normal" | "heroic" | "mythic";
+  killedAt: number; // Unix timestamp ms
+}
+
 export interface CharacterData {
   id: number;
   name: string;
@@ -21,6 +28,7 @@ export interface CharacterData {
   profileUrl: string;
   lastScanned: string;
   weeklyRaidBosses: number;
+  weeklyBossKills: BossKill[];
 }
 
 export interface ScanProgress {

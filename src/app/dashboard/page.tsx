@@ -3,32 +3,57 @@
 import { useRosterStore } from "@/lib/store";
 import { DungeonGrid } from "@/components/dungeon-grid";
 import { VaultOverview } from "@/components/vault-overview";
+import { RaidTracker } from "@/components/raid-tracker";
 import { AddCharacterModal } from "@/components/add-character-modal";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useI18n } from "@/lib/i18n";
+import { useSession } from "next-auth/react";
 
-type StoreView = "mplus" | "vault";
+type StoreView = "mplus" | "vault" | "hunt";
 
 export default function DashboardPage() {
-  const { characters, isScanning, scan, lastScanAt, error, view, setView } = useRosterStore();
+  const { characters, isScanning, scan, lastScanAt, error, view, setView, trackedUserId, setTrackedUserId, clearCharacters, isGuest, loadSavedCharacters } = useRosterStore();
   const [addModalOpen, setAddModalOpen] = useState(false);
   const { t } = useI18n();
+  const { data: session } = useSession();
+  const hasBnetToken = !!session?.accessToken;
+
+  // Si l'utilisateur connecté diffère du propriétaire du store → vider
+  useEffect(() => {
+    const currentId = session?.userId ?? (isGuest ? "guest" : null);
+    if (currentId && trackedUserId && currentId !== trackedUserId) {
+      clearCharacters();
+    }
+    if (currentId && currentId !== trackedUserId) {
+      setTrackedUserId(currentId);
+    }
+  }, [session?.userId, isGuest, trackedUserId, clearCharacters, setTrackedUserId]);
+
+  // Auto-restore des personnages sauvegardés au login
+  useEffect(() => {
+    if (session?.userId && !isGuest && characters.length === 0 && !isScanning) {
+      loadSavedCharacters();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.userId]);
 
   const VIEWS: { key: StoreView; label: string; icon: string }[] = [
-    { key: "vault", label: t("dash.tab.vault"),  icon: "🏛" },
-    { key: "mplus", label: t("dash.tab.mplus"),  icon: "⚔" },
+    { key: "vault", label: t("dash.tab.vault"), icon: "🏛" },
+    { key: "mplus", label: t("dash.tab.mplus"), icon: "⚔" },
+    { key: "hunt",  label: t("dash.tab.hunt"),  icon: "🎯" },
   ];
 
   const timeSince = lastScanAt
     ? Math.round((Date.now() - new Date(lastScanAt).getTime()) / 60000)
     : null;
 
-  const totalRuns  = characters.reduce((s, c) => s + c.weeklyRuns.length, 0);
-  const bestKey    = characters.reduce((m, c) => Math.max(m, ...c.weeklyRuns.map(r => r.mythic_level), 0), 0);
-  const bestScore  = characters.reduce((m, c) => Math.max(m, c.rioScore?.all ?? 0), 0);
+  const totalRuns = characters.reduce((s, c) => s + c.weeklyRuns.length, 0);
+  const bestKey   = characters.reduce((m, c) => Math.max(m, ...c.weeklyRuns.map((r) => r.mythic_level), 0), 0);
+  const bestScore = characters.reduce((m, c) => Math.max(m, c.rioScore?.all ?? 0), 0);
 
-  const activeView: StoreView = (["mplus", "vault"] as const).includes(view as StoreView) ? (view as StoreView) : "mplus";
+  const validViews: StoreView[] = ["mplus", "vault", "hunt"];
+  const activeView: StoreView = validViews.includes(view as StoreView) ? (view as StoreView) : "mplus";
 
   return (
     <div style={{ minHeight: "calc(100dvh - 64px)", backgroundColor: "var(--bg)" }}>
@@ -72,7 +97,6 @@ export default function DashboardPage() {
               }}
             >
               <span style={{ fontSize: "14px" }}>{icon}</span>
-              <span style={{ display: "none" as const }} className="sm-visible">{label}</span>
               <span>{label}</span>
             </button>
           ))}
@@ -133,31 +157,33 @@ export default function DashboardPage() {
           >
             +
           </button>
-          <button
-            onClick={scan}
-            disabled={isScanning}
-            style={{
-              backgroundColor: isScanning ? "var(--surface-3)" : "var(--gold)",
-              color: isScanning ? "var(--text-3)" : "#07090f",
-              border: isScanning ? "1px solid var(--border-2)" : "none",
-              borderRadius: "6px",
-              padding: "6px 16px",
-              fontSize: "13px",
-              fontWeight: 700,
-              cursor: isScanning ? "not-allowed" : "pointer",
-              transition: "all 0.15s",
-              letterSpacing: "0.05em",
-              textTransform: "uppercase" as const,
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-            }}
-          >
-            {isScanning && (
-              <span style={{ width: "9px", height: "9px", borderRadius: "50%", border: "2px solid var(--text-3)", borderTopColor: "transparent", display: "inline-block", animation: "spin 0.8s linear infinite" }} />
-            )}
-            {isScanning ? t("dash.scanning") : t("dash.scan")}
-          </button>
+          {hasBnetToken && (
+            <button
+              onClick={scan}
+              disabled={isScanning}
+              style={{
+                backgroundColor: isScanning ? "var(--surface-3)" : "var(--gold)",
+                color: isScanning ? "var(--text-3)" : "#07090f",
+                border: isScanning ? "1px solid var(--border-2)" : "none",
+                borderRadius: "6px",
+                padding: "6px 16px",
+                fontSize: "13px",
+                fontWeight: 700,
+                cursor: isScanning ? "not-allowed" : "pointer",
+                transition: "all 0.15s",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase" as const,
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              {isScanning && (
+                <span style={{ width: "9px", height: "9px", borderRadius: "50%", border: "2px solid var(--text-3)", borderTopColor: "transparent", display: "inline-block", animation: "spin 0.8s linear infinite" }} />
+              )}
+              {isScanning ? t("dash.scanning") : t("dash.scan")}
+            </button>
+          )}
         </div>
       </div>
 
@@ -186,26 +212,28 @@ export default function DashboardPage() {
             {t("dash.empty.desc")}
           </div>
           <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
-            <button
-              onClick={scan}
-              style={{
-                backgroundColor: "var(--gold)",
-                color: "#07090f",
-                border: "none",
-                borderRadius: "6px",
-                padding: "10px 28px",
-                fontSize: "13px",
-                fontWeight: 700,
-                cursor: "pointer",
-                transition: "opacity 0.15s",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase" as const,
-              }}
-              onMouseOver={e => (e.currentTarget.style.opacity = "0.85")}
-              onMouseOut={e => (e.currentTarget.style.opacity = "1")}
-            >
-              {t("dash.empty.scan")}
-            </button>
+            {hasBnetToken && (
+              <button
+                onClick={scan}
+                style={{
+                  backgroundColor: "var(--gold)",
+                  color: "#07090f",
+                  border: "none",
+                  borderRadius: "6px",
+                  padding: "10px 28px",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  transition: "opacity 0.15s",
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase" as const,
+                }}
+                onMouseOver={(e) => (e.currentTarget.style.opacity = "0.85")}
+                onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                {t("dash.empty.scan")}
+              </button>
+            )}
             <button
               onClick={() => setAddModalOpen(true)}
               style={{
@@ -219,8 +247,8 @@ export default function DashboardPage() {
                 cursor: "pointer",
                 transition: "opacity 0.15s",
               }}
-              onMouseOver={e => (e.currentTarget.style.opacity = "0.75")}
-              onMouseOut={e => (e.currentTarget.style.opacity = "1")}
+              onMouseOver={(e) => (e.currentTarget.style.opacity = "0.75")}
+              onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
             >
               {t("dash.addManual")}
             </button>
@@ -231,7 +259,7 @@ export default function DashboardPage() {
       {/* ── Loading skeletons ── */}
       {isScanning && characters.length === 0 && (
         <div className="skeleton-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "18px", padding: "24px" }}>
-          {[1, 2, 3, 4, 5, 6].map(i => (
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} style={{ height: "140px", borderRadius: "8px" }} className="skeleton" />
           ))}
         </div>
@@ -247,6 +275,12 @@ export default function DashboardPage() {
       {activeView === "vault" && characters.length > 0 && (
         <div className="tab-content dash-content" key="vault" style={{ padding: "20px 24px" }}>
           <VaultOverview />
+        </div>
+      )}
+
+      {activeView === "hunt" && characters.length > 0 && (
+        <div className="tab-content dash-content" key="hunt" style={{ padding: "20px 24px" }}>
+          <RaidTracker />
         </div>
       )}
 

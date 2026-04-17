@@ -1,38 +1,30 @@
 import NextAuth from "next-auth";
-import type { NextAuthConfig } from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+import bcrypt from "bcryptjs";
+import { prisma } from "@/lib/prisma";
+import { authConfig } from "@/lib/auth.config";
 
 declare module "next-auth" {
   interface Session {
     accessToken?: string;
     region?: string;
+    userId?: string;
   }
 }
 
-const region = process.env.BATTLENET_REGION ?? "eu";
+const envRegion = process.env.BATTLENET_REGION ?? "eu";
 
-function getAuthUrls(reg: string) {
-  if (reg === "cn") {
-    return {
-      authorization: "https://oauth.battlenet.com.cn/authorize",
-      token: "https://oauth.battlenet.com.cn/token",
-      userinfo: "https://gateway.battlenet.com.cn/oauth/userinfo",
-    };
-  }
-  return {
-    authorization: "https://oauth.battle.net/authorize",
-    token: "https://oauth.battle.net/token",
-    userinfo: `https://${reg}.battle.net/oauth/userinfo`,
-  };
+function getTokenUrl(reg: string): string {
+  if (reg === "cn") return "https://oauth.battlenet.com.cn/token";
+  return "https://oauth.battle.net/token";
 }
-
-const urls = getAuthUrls(region);
 
 async function refreshBlizzardToken(refreshToken: string): Promise<{
   access_token: string;
   expires_in: number;
   refresh_token?: string;
 }> {
-  const res = await fetch(urls.token, {
+  const res = await fetch(getTokenUrl(envRegion), {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -46,73 +38,106 @@ async function refreshBlizzardToken(refreshToken: string): Promise<{
   return res.json();
 }
 
-export const authConfig: NextAuthConfig = {
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  ...authConfig,
   providers: [
-    {
-      id: "battlenet",
-      name: "Battle.net",
-      type: "oauth",
-      authorization: {
-        url: urls.authorization,
-        params: {
-          scope: "wow.profile",
-          redirect_uri: `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/auth/bnet/callback`,
-        },
+    Credentials({
+      id: "credentials",
+      name: "Email",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
       },
-      token: {
-        url: urls.token,
-        params: {
-          redirect_uri: `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/auth/bnet/callback`,
-        },
+      async authorize(credentials) {
+        const email = credentials?.email as string | undefined;
+        const password = credentials?.password as string | undefined;
+        if (!email || !password) return null;
+
+        try {
+          const user = await prisma.user.findUnique({ where: { email } });
+          if (!user?.passwordHash) return null;
+
+          const valid = await bcrypt.compare(password, user.passwordHash);
+          if (!valid) return null;
+
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { lastLogin: new Date() },
+          });
+
+          return {
+            id: user.id,
+            email: user.email ?? undefined,
+            name: user.username ?? user.battletag ?? user.email ?? "Utilisateur",
+          };
+        } catch {
+          return null;
+        }
       },
-      userinfo: urls.userinfo,
-      clientId: process.env.BATTLENET_CLIENT_ID,
-      clientSecret: process.env.BATTLENET_CLIENT_SECRET,
-      checks: ["state"],
-      profile(profile: Record<string, unknown>) {
-        return {
-          id: String(profile.id ?? profile.sub),
-          name: String(profile.battle_tag ?? profile.battletag ?? profile.sub ?? "Unknown"),
-          email: null,
-          image: null,
-        };
-      },
-    },
+    }),
+    // Battle.net provider comes from authConfig.providers
+    ...authConfig.providers,
   ],
   callbacks: {
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token as string | undefined;
-        token.refreshToken = account.refresh_token as string | undefined;
+    async signIn({ user, account, profile }) {
+      if (account?.provider === "battlenet") {
+        const battlenetId = String(profile?.id ?? profile?.sub ?? account.providerAccountId);
+        const battletag = String(profile?.name ?? user.name ?? "");
+
+        try {
+          const existing = await prisma.user.findUnique({ where: { battlenetId } });
+          if (existing) {
+            user.id = existing.id;
+            user.name = existing.battletag ?? battletag;
+            await prisma.user.update({
+              where: { id: existing.id },
+              data: { lastLogin: new Date(), battletag },
+            });
+          } else {
+            const newUser = await prisma.user.create({
+              data: { battlenetId, battletag, region: envRegion },
+            });
+            user.id = newUser.id;
+            user.name = battletag;
+          }
+        } catch (err) {
+          console.error("[Auth] Battle.net signIn DB error:", err);
+          return false;
+        }
+      }
+      return true;
+    },
+
+    async jwt({ token, user, account }) {
+      if (user?.id) token.userId = user.id;
+      if (account?.provider === "battlenet") {
+        token.accessToken = account.access_token;
+        token.refreshToken = account.refresh_token;
         token.expiresAt = account.expires_at;
-        token.region = region;
-        return token;
+        token.region = envRegion;
       }
 
-      // Refresh the access token if it's expired
+      // Auto-refresh Blizzard access token when expired
       const expiresAt = token.expiresAt as number | undefined;
       if (expiresAt && expiresAt * 1000 < Date.now() && token.refreshToken) {
         try {
           const refreshed = await refreshBlizzardToken(token.refreshToken as string);
           token.accessToken = refreshed.access_token;
           token.expiresAt = Math.floor(Date.now() / 1000) + refreshed.expires_in;
-          if (refreshed.refresh_token) {
-            token.refreshToken = refreshed.refresh_token;
-          }
+          if (refreshed.refresh_token) token.refreshToken = refreshed.refresh_token;
         } catch {
-          // Refresh failed — token stays stale, user may need to re-login
           console.warn("[Auth] Token refresh failed, user may need to re-authenticate");
         }
       }
 
       return token;
     },
+
     async session({ session, token }) {
+      if (token.userId) session.userId = token.userId as string;
       session.accessToken = token.accessToken as string | undefined;
-      session.region = token.region as string | undefined;
-      if (token.battletag) {
-        session.user.name = token.battletag as string;
-      }
+      session.region = (token.region as string | undefined) ?? envRegion;
+      if (token.battletag) session.user.name = token.battletag as string;
       return session;
     },
   },
@@ -120,8 +145,5 @@ export const authConfig: NextAuthConfig = {
     signIn: "/",
     error: "/auth/error",
   },
-  session: { strategy: "jwt" },
   trustHost: true,
-};
-
-export const { handlers, auth, signIn, signOut } = NextAuth(authConfig);
+});

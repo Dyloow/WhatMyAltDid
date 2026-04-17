@@ -1,9 +1,14 @@
-import { auth } from "@/lib/auth";
+import NextAuth from "next-auth";
+import { authConfig } from "@/lib/auth.config";
 import { NextResponse } from "next/server";
+
+const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
   const isProtected = req.nextUrl.pathname.startsWith("/dashboard");
-  if (isProtected && !req.auth) {
+  const isGuest = req.cookies.get("guest-mode")?.value === "1";
+
+  if (isProtected && !req.auth && !isGuest) {
     return NextResponse.redirect(new URL("/", req.nextUrl.origin));
   }
   return NextResponse.next();

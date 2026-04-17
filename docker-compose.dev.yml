@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: wmad
+      POSTGRES_PASSWORD: wmad_dev_pass
+      POSTGRES_DB: wmad
+    ports:
+      - "5432:5432"
+    volumes:
+      - wmad_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wmad -d wmad"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  wmad_pg_data:
