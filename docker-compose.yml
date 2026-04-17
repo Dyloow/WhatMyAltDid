@@ -2,8 +2,14 @@ services:
   app:
     image: ghcr.io/dyloow/whatmyaltdid:${IMAGE_TAG:-latest}
     restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
-      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-wmad}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-wmad}?sslmode=disable
+      REDIS_URL: redis://redis:6379
       NEXTAUTH_URL: https://whatmyaltdid.com
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       AUTH_SECRET: ${NEXTAUTH_SECRET}
@@ -12,6 +18,7 @@ services:
       NODE_ENV: production
     networks:
       - proxy
+      - internal
     labels:
       - "traefik.enable=true"
       # Redirect HTTP → HTTPS
@@ -25,7 +32,6 @@ services:
       - "traefik.http.routers.whatmyaltdid.entrypoints=websecure"
       - "traefik.http.routers.whatmyaltdid.tls.certresolver=letsencrypt"
       - "traefik.http.services.whatmyaltdid.loadbalancer.server.port=3000"
-      # Healthcheck Traefik — retire le container si unhealthy
       - "traefik.http.services.whatmyaltdid.loadbalancer.healthcheck.path=/api/health"
       - "traefik.http.services.whatmyaltdid.loadbalancer.healthcheck.interval=10s"
     healthcheck:
@@ -35,6 +41,42 @@ services:
       start_period: 60s
       retries: 5
 
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-wmad}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-wmad}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-wmad} -d ${POSTGRES_DB:-wmad}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 networks:
   proxy:
     external: true
+  internal:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
