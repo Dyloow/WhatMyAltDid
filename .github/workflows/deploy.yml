@@ -81,6 +81,11 @@ jobs:
               exit 1
             fi
 
+            if [ -z "${{ secrets.NEXTAUTH_SECRET }}" ]; then
+              echo "ERROR: NEXTAUTH_SECRET secret is missing! Run: openssl rand -base64 32"
+              exit 1
+            fi
+
             echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
             cat <<EOF > .env
