@@ -74,46 +74,51 @@ jobs:
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1
-        env:
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
-          BATTLENET_CLIENT_ID: ${{ secrets.BATTLENET_CLIENT_ID }}
-          BATTLENET_CLIENT_SECRET: ${{ secrets.BATTLENET_CLIENT_SECRET }}
-          APP_DOMAIN: ${{ secrets.APP_DOMAIN }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB,NEXTAUTH_SECRET,BATTLENET_CLIENT_ID,BATTLENET_CLIENT_SECRET,APP_DOMAIN
           script: |
             set -e
             cd ${{ secrets.DEPLOY_PATH }}
 
-            # Setup Image Tag
-            export IMAGE_TAG=sha-$(echo "${{ github.sha }}" | cut -c1-7)
-            
+            # Variables passed from GitHub Secrets
+            export POSTGRES_USER="${{ secrets.POSTGRES_USER || 'wmad' }}"
+            export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
+            export POSTGRES_DB="${{ secrets.POSTGRES_DB || 'wmad' }}"
+            export NEXTAUTH_SECRET="${{ secrets.NEXTAUTH_SECRET }}"
+            export BATTLENET_CLIENT_ID="${{ secrets.BATTLENET_CLIENT_ID }}"
+            export BATTLENET_CLIENT_SECRET="${{ secrets.BATTLENET_CLIENT_SECRET }}"
+            export APP_DOMAIN="${{ secrets.APP_DOMAIN }}"
+            export IMAGE_TAG="sha-$(echo "${{ github.sha }}" | cut -c1-7)"
+
+            # Validation check
+            if [ -z "$POSTGRES_PASSWORD" ]; then
+              echo "ERROR: POSTGRES_PASSWORD secret is missing in GitHub Actions!"
+              exit 1
+            fi
+
             # Login GHCR
             echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
-            # Create or update .env file on server for docker-compose to read
+            # Create .env
             cat <<EOF > .env
-            IMAGE_TAG=${IMAGE_TAG}
-            POSTGRES_USER=${POSTGRES_USER:-wmad}
-            POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            POSTGRES_DB=${POSTGRES_DB:-wmad}
-            NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
-            BATTLENET_CLIENT_ID=${BATTLENET_CLIENT_ID}
-            BATTLENET_CLIENT_SECRET=${BATTLENET_CLIENT_SECRET}
-            APP_DOMAIN=${APP_DOMAIN}
+            IMAGE_TAG=$IMAGE_TAG
+            POSTGRES_USER=$POSTGRES_USER
+            POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            POSTGRES_DB=$POSTGRES_DB
+            NEXTAUTH_SECRET=$NEXTAUTH_SECRET
+            BATTLENET_CLIENT_ID=$BATTLENET_CLIENT_ID
+            BATTLENET_CLIENT_SECRET=$BATTLENET_CLIENT_SECRET
+            APP_DOMAIN=$APP_DOMAIN
+            REDIS_URL=redis://redis:6379
             EOF
 
-            # Pull and Restart everything
+            # Pull and Restart
             docker compose pull
             docker compose up -d --wait || {
-              echo "=== CONTAINER LOGS ==="
-              docker compose logs --tail=100
+              echo "=== DEBUG: DOCKER COMPOSE LOGS ==="
+              docker compose logs --tail=50
               exit 1
             }
 
