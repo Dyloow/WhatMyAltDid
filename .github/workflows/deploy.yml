@@ -78,29 +78,41 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: POSTGRES_PASSWORD,NEXTAUTH_SECRET,BATTLENET_CLIENT_ID,BATTLENET_CLIENT_SECRET,APP_DOMAIN
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB,NEXTAUTH_SECRET,BATTLENET_CLIENT_ID,BATTLENET_CLIENT_SECRET,APP_DOMAIN
           script: |
             set -e
             cd ${{ secrets.DEPLOY_PATH }}
 
-            # Mise à jour du tag de l'image (7 premiers chars, cohérent avec le build)
+            # Setup Image Tag
             export IMAGE_TAG=sha-$(echo "${{ github.sha }}" | cut -c1-7)
-            echo "IMAGE_TAG=${IMAGE_TAG}" > .image_tag.env
-
-            # Login GHCR depuis le serveur (PAT avec read:packages)
+            
+            # Login GHCR
             echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
-            # Pull la nouvelle image
-            IMAGE_TAG=${IMAGE_TAG} docker compose pull app
+            # Create or update .env file on server for docker-compose to read
+            cat <<EOF > .env
+            IMAGE_TAG=${IMAGE_TAG}
+            POSTGRES_USER=${POSTGRES_USER:-wmad}
+            POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            POSTGRES_DB=${POSTGRES_DB:-wmad}
+            NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+            BATTLENET_CLIENT_ID=${BATTLENET_CLIENT_ID}
+            BATTLENET_CLIENT_SECRET=${BATTLENET_CLIENT_SECRET}
+            APP_DOMAIN=${APP_DOMAIN}
+            EOF
 
-            # Redémarrage avec zero-downtime : le nouveau container démarre,
-            # Traefik bascule le trafic, l'ancien s'arrête
-            IMAGE_TAG=${IMAGE_TAG} docker compose up -d --wait app || {
-              echo "=== CONTAINER LOGS (last 100 lines) ==="
-              docker compose logs --tail=100 app
-              echo "=== CONTAINER STATUS ==="
-              docker compose ps app
+            # Pull and Restart everything
+            docker compose pull
+            docker compose up -d --wait || {
+              echo "=== CONTAINER LOGS ==="
+              docker compose logs --tail=100
               exit 1
             }
 
-            # Nettoyage des anciennes images
+            # Cleanup
             docker image prune -f
