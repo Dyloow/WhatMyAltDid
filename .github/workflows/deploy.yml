@@ -54,6 +54,9 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Lowercase image name
+        run: echo "IMAGE_LC=$(echo '${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build and push (migrator)
         uses: docker/build-push-action@v6
         with:
@@ -61,8 +64,8 @@ jobs:
           target: builder
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:migrator-${{ steps.meta.outputs.version }}
-            ghcr.io/${{ github.repository }}:migrator-latest
+            ${{ env.IMAGE_LC }}:migrator-${{ steps.meta.outputs.version }}
+            ${{ env.IMAGE_LC }}:migrator-latest
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
