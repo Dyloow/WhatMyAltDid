@@ -5,7 +5,9 @@ FROM node:20-alpine AS deps
 RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile && \
+    # cp -rL suit les symlinks pnpm → produit un dossier autonome avec @prisma/engines et @prisma/config déjà imbriqués
+    mkdir -p /prisma-export && cp -rL node_modules/prisma /prisma-export/prisma
 
 # ---- builder ----
 FROM node:20-alpine AS builder
@@ -36,9 +38,8 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Prisma CLI + schema engine for migrations at startup
-COPY --from=deps /app/node_modules/prisma ./node_modules/prisma
-COPY --from=deps /app/node_modules/@prisma/engines ./node_modules/@prisma/engines
+# Prisma CLI + ses dépendances (engines, config) résolues sans symlinks pnpm
+COPY --from=deps /prisma-export/prisma ./node_modules/prisma
 COPY prisma ./prisma
 COPY --chmod=755 docker-entrypoint.sh ./docker-entrypoint.sh
 
