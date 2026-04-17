@@ -74,11 +74,14 @@ jobs:
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: POSTGRES_PASSWORD,NEXTAUTH_SECRET,BATTLENET_CLIENT_ID,BATTLENET_CLIENT_SECRET,APP_DOMAIN
+        env:
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          BATTLENET_CLIENT_ID: ${{ secrets.BATTLENET_CLIENT_ID }}
+          BATTLENET_CLIENT_SECRET: ${{ secrets.BATTLENET_CLIENT_SECRET }}
+          APP_DOMAIN: ${{ secrets.APP_DOMAIN }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
