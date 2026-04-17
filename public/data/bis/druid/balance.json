@@ -11,7 +11,7 @@
       "item_level": 289,
       "icon": "inv_helm_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9615810276679841,
+      "frequency": 0.9584189723320158,
       "raw_count": 48,
       "slot": "head",
       "dungeon": null,
@@ -23,8 +23,8 @@
       "item_level": 276,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.19193675889328063,
-      "raw_count": 9,
+      "frequency": 0.20932806324110673,
+      "raw_count": 10,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,7 +35,7 @@
       "item_level": 289,
       "icon": "inv_shoulder_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.9584189723320158,
+      "frequency": 0.961897233201581,
       "raw_count": 48,
       "slot": "shoulder",
       "dungeon": null,
@@ -44,11 +44,11 @@
     "back": {
       "item_id": 258575,
       "name": "Rigid Scale Greatcloak",
-      "item_level": 289,
+      "item_level": 272,
       "icon": "inv_cape_draenordungeon_c_02_plate",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
-      "frequency": 0.2607114624505929,
-      "raw_count": 13,
+      "frequency": 0.24284584980237153,
+      "raw_count": 12,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 276,
       "icon": "inv_chest_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 50,
+      "frequency": 0.9799209486166008,
+      "raw_count": 49,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.31762845849802374,
-      "raw_count": 16,
+      "frequency": 0.30434782608695654,
+      "raw_count": 15,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,20 +83,20 @@
       "item_level": 285,
       "icon": "inv_bracer_leather_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.5097233201581027,
-      "raw_count": 25,
+      "frequency": 0.5655335968379447,
+      "raw_count": 28,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
     },
     "hands": {
-      "item_id": 251113,
-      "name": "Gloves of Viscous Goo",
-      "item_level": 289,
-      "icon": "inv_glove_leather_dungeonharronir_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_dungeonharronir_c_01.jpg",
-      "frequency": 0.2700395256916996,
-      "raw_count": 14,
+      "item_id": 244575,
+      "name": "Silvermoon Agent's Handwraps",
+      "item_level": 285,
+      "icon": "inv_glove_leather_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_questbloodelf_b_01.jpg",
+      "frequency": 0.23367588932806324,
+      "raw_count": 12,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -104,11 +104,11 @@
     "legs": {
       "item_id": 250023,
       "name": "Phloemwraps of the Luminous Bloom",
-      "item_level": 279,
+      "item_level": 285,
       "icon": "inv_pant_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 50,
+      "frequency": 0.9612648221343874,
+      "raw_count": 48,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 276,
       "icon": "inv_boot_leather_raiddruidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.28221343873517785,
-      "raw_count": 14,
+      "frequency": 0.2483794466403162,
+      "raw_count": 12,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,7 +131,7 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.6929644268774704,
+      "frequency": 0.6902766798418972,
       "raw_count": 35,
       "slot": "finger",
       "dungeon": null,
@@ -143,8 +143,8 @@
       "item_level": 289,
       "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
-      "frequency": 0.7742292490118577,
-      "raw_count": 39,
+      "frequency": 0.8085375494071146,
+      "raw_count": 40,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.7718577075098815,
-      "raw_count": 39,
+      "frequency": 0.7917786561264822,
+      "raw_count": 40,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -167,8 +167,8 @@
       "item_level": 285,
       "icon": "inv_offhand_1h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
-      "frequency": 0.09375494071146245,
-      "raw_count": 4,
+      "frequency": 0.0708300395256917,
+      "raw_count": 3,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -181,8 +181,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.5965217391304348,
-      "raw_count": 30,
+      "frequency": 0.5430830039525691,
+      "raw_count": 27,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,19 +193,19 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.6305138339920948,
-      "raw_count": 31,
+      "frequency": 0.6909090909090909,
+      "raw_count": 34,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 258514,
-      "name": "Umbral Spire of Zuraal",
-      "item_level": 289,
-      "icon": "inv_staff_2h_oribosdungeon_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_oribosdungeon_c_01.jpg",
-      "frequency": 0.0558102766798419,
+      "item_id": 258047,
+      "name": "Spire of the Furious Construct",
+      "item_level": 285,
+      "icon": "invstaff_2h_draenordungeon_c_04",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/invstaff_2h_draenordungeon_c_04.jpg",
+      "frequency": 0.06292490118577075,
       "raw_count": 3,
       "slot": "mainhand",
       "dungeon": null,
@@ -216,60 +216,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.9819762845849802,
-      "raw_count": 49
+      "frequency": 0.9274308300395256,
+      "raw_count": 46
     },
     "legs": {
       "enchant_id": 7935,
       "slot": "legs",
-      "frequency": 0.9003952569169961,
+      "frequency": 0.9002371541501977,
       "raw_count": 45
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.7652173913043478,
+      "frequency": 0.7577865612648221,
       "raw_count": 38
     },
     "finger": {
       "enchant_id": 7969,
       "slot": "finger",
-      "frequency": 1.0684584980237155,
-      "raw_count": 53
+      "frequency": 0.9911462450592885,
+      "raw_count": 49
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.9650592885375494,
+      "frequency": 0.9623715415019762,
       "raw_count": 48
     }
   },
   "gems": [
     {
       "gem_id": 240983,
-      "frequency": 0.8777865612648221,
-      "raw_count": 44
+      "frequency": 0.9171541501976285,
+      "raw_count": 46
     },
     {
       "gem_id": 240900,
-      "frequency": 0.8085375494071146,
-      "raw_count": 39
+      "frequency": 0.8135968379446641,
+      "raw_count": 40
     },
     {
       "gem_id": 240908,
-      "frequency": 0.4591304347826087,
-      "raw_count": 23
+      "frequency": 0.5293280632411067,
+      "raw_count": 27
     },
     {
-      "gem_id": 240898,
-      "frequency": 0.39557312252964427,
-      "raw_count": 21
+      "gem_id": 240906,
+      "frequency": 0.3723320158102767,
+      "raw_count": 18
     },
     {
       "gem_id": 240892,
-      "frequency": 0.36300395256916995,
+      "frequency": 0.35699604743083,
       "raw_count": 18
     }
   ],
-  "generated_at": "2026-04-16T08:39:26.282Z"
+  "generated_at": "2026-04-17T09:13:57.470Z"
 }

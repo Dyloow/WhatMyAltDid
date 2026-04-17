@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 50,
+  "analyzed_count": 1,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Priest",
@@ -8,35 +8,35 @@
     "head": {
       "item_id": 250051,
       "name": "Blind Oath's Winged Crest",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_helm_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.840345544712846,
-      "raw_count": 42,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 249368,
-      "name": "Eternal Voidsong Chain",
-      "item_level": 276,
-      "icon": "inv_12_jewelry_silvermoonelf_necklace_blue1",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_blue1.jpg",
-      "frequency": 0.3007518796992481,
-      "raw_count": 15,
+      "item_id": 266314,
+      "name": "Novice Combatant's Necklace",
+      "item_level": 269,
+      "icon": "inv_112_raidtrinkets_necklace01_etherealnontechnologicalstyle_terra",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_112_raidtrinkets_necklace01_etherealnontechnologicalstyle_terra.jpg",
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
     },
     "shoulder": {
-      "item_id": 250049,
-      "name": "Blind Oath's Seraphguards",
+      "item_id": 258578,
+      "name": "Lightbinder Shoulderguards",
       "item_level": 289,
-      "icon": "inv_shoulder_cloth_raidpriestmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.8051511758118701,
-      "raw_count": 41,
+      "icon": "inv_cloth_draenordungeon_c_01shoulder",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cloth_draenordungeon_c_01shoulder.jpg",
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 266,
       "icon": "inv_cape_draenordungeon_c_02_plate",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
-      "frequency": 0.3527435610302352,
-      "raw_count": 18,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,35 +56,35 @@
     "chest": {
       "item_id": 250054,
       "name": "Blind Oath's Raiment",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_robe_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.9625659894416894,
-      "raw_count": 48,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
     },
     "waist": {
-      "item_id": 239664,
-      "name": "Arcanoweave Cord",
+      "item_id": 250048,
+      "name": "Blind Oath's Jeweled Sash",
       "item_level": 285,
-      "icon": "inv_belt_cloth_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.7091665333546633,
-      "raw_count": 36,
+      "icon": "inv_belt_cloth_raidpriestmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_raidpriestmidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
     },
     "wrist": {
-      "item_id": 249315,
-      "name": "Voracious Wristwraps",
-      "item_level": 266,
-      "icon": "inv_bracer_cloth_raidpriestmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.3253879379299312,
-      "raw_count": 16,
+      "item_id": 239648,
+      "name": "Martyr's Bindings",
+      "item_level": 285,
+      "icon": "inv_bracer_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 276,
       "icon": "inv_glove_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.5384738441849304,
-      "raw_count": 27,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -108,7 +108,7 @@
       "icon": "inv_pant_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidpriestmidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 50,
+      "raw_count": 1,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -116,11 +116,11 @@
     "feet": {
       "item_id": 250053,
       "name": "Blind Oath's Slippers",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_boot_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.4455287154055351,
-      "raw_count": 22,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -128,11 +128,11 @@
     "finger": {
       "item_id": 251093,
       "name": "Omission of Light",
-      "item_level": 276,
+      "item_level": 266,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.7074068149096144,
-      "raw_count": 35,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.7923532234842425,
-      "raw_count": 39,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.9760038393856982,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -166,11 +166,11 @@
     "finger": {
       "item_id": 251217,
       "name": "Occlusion of Void",
-      "item_level": 276,
+      "item_level": 266,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.6486962086066229,
-      "raw_count": 32,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -178,11 +178,11 @@
     "trinket": {
       "item_id": 249346,
       "name": "Vaelgor's Final Stare",
-      "item_level": 276,
+      "item_level": 282,
       "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_int1_voiddragoneye.jpg",
-      "frequency": 0.762438009918413,
-      "raw_count": 38,
+      "frequency": 1,
+      "raw_count": 1,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -192,60 +192,50 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.9795232762757958,
-      "raw_count": 49
+      "frequency": 1,
+      "raw_count": 1
     },
     "legs": {
       "enchant_id": 7935,
       "slot": "legs",
-      "frequency": 0.9622460406334986,
-      "raw_count": 48
+      "frequency": 1,
+      "raw_count": 1
     },
     "feet": {
-      "enchant_id": 7963,
+      "enchant_id": 7993,
       "slot": "feet",
-      "frequency": 0.47384418493041114,
-      "raw_count": 23
+      "frequency": 1,
+      "raw_count": 1
     },
     "finger": {
       "enchant_id": 7969,
       "slot": "finger",
-      "frequency": 1.1316589345704686,
-      "raw_count": 57
+      "frequency": 2,
+      "raw_count": 2
     },
     "mainhand": {
       "enchant_id": 8041,
       "slot": "mainhand",
-      "frequency": 0.5000799872020477,
-      "raw_count": 25
+      "frequency": 1,
+      "raw_count": 1
     }
   },
   "gems": [
     {
-      "gem_id": 240983,
-      "frequency": 0.9275315949448089,
-      "raw_count": 46
-    },
-    {
       "gem_id": 240900,
-      "frequency": 0.8878579427291633,
-      "raw_count": 44
+      "frequency": 2,
+      "raw_count": 2
     },
     {
-      "gem_id": 240892,
-      "frequency": 0.5037593984962406,
-      "raw_count": 26
-    },
-    {
-      "gem_id": 240908,
-      "frequency": 0.4447288433850584,
-      "raw_count": 21
+      "gem_id": 240983,
+      "frequency": 1,
+      "raw_count": 1
     },
     {
       "gem_id": 240898,
-      "frequency": 0.2965925451927692,
-      "raw_count": 15
+      "frequency": 1,
+      "raw_count": 1
     }
   ],
-  "generated_at": "2026-04-16T08:46:02.054Z"
+  "generated_at": "2026-04-17T09:21:03.442Z"
 }

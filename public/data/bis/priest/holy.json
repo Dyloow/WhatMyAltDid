@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 50,
+  "analyzed_count": 31,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Priest",
@@ -11,8 +11,8 @@
       "item_level": 276,
       "icon": "inv_helm_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.9835573122529644,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 31,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -20,11 +20,11 @@
     "neck": {
       "item_id": 50228,
       "name": "Barbed Ymirheim Choker",
-      "item_level": 269,
+      "item_level": 272,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.3927272727272727,
-      "raw_count": 20,
+      "frequency": 0.3965057024993934,
+      "raw_count": 12,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -32,23 +32,23 @@
     "shoulder": {
       "item_id": 250049,
       "name": "Blind Oath's Seraphguards",
-      "item_level": 276,
+      "item_level": 279,
       "icon": "inv_shoulder_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.9794466403162055,
-      "raw_count": 49,
+      "frequency": 0.9623877699587479,
+      "raw_count": 29,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
     },
     "back": {
-      "item_id": 49823,
-      "name": "Cloak of the Fallen Cardinal",
+      "item_id": 193712,
+      "name": "Potion-Stained Cloak",
       "item_level": 266,
-      "icon": "inv_misc_cape_18",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_cape_18.jpg",
-      "frequency": 0.19098814229249012,
-      "raw_count": 9,
+      "icon": "inv_leather_dragondungeon_c_01_cape",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_dragondungeon_c_01_cape.jpg",
+      "frequency": 0.23173986896384371,
+      "raw_count": 7,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 276,
       "icon": "inv_robe_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.8099604743083004,
-      "raw_count": 40,
+      "frequency": 0.8359621451104101,
+      "raw_count": 26,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.5103557312252964,
-      "raw_count": 26,
+      "frequency": 0.46590633341421983,
+      "raw_count": 15,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.3236363636363636,
-      "raw_count": 16,
+      "frequency": 0.3322009221062849,
+      "raw_count": 10,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 289,
       "icon": "inv_glove_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.704505928853755,
-      "raw_count": 35,
+      "frequency": 0.7371997088085416,
+      "raw_count": 23,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 276,
       "icon": "inv_pant_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.7370750988142293,
-      "raw_count": 37,
+      "frequency": 0.7054113079349672,
+      "raw_count": 22,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 289,
       "icon": "inv_boot_cloth_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_cloth_dungeonharronir_c_01.jpg",
-      "frequency": 0.2784189723320158,
-      "raw_count": 14,
+      "frequency": 0.29628730890560545,
+      "raw_count": 9,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,58 +131,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.34339920948616603,
-      "raw_count": 17,
-      "slot": "finger",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "trinket": {
-      "item_id": 249808,
-      "name": "Litany of Lightblind Wrath",
-      "item_level": 276,
-      "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
-      "frequency": 0.4248221343873518,
-      "raw_count": 21,
-      "slot": "trinket",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "mainhand": {
-      "item_id": 245770,
-      "name": "Aln'hara Cane",
-      "item_level": 285,
-      "icon": "inv_staff_2h_dungeonharronir_c_02",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.824189723320158,
-      "raw_count": 41,
-      "slot": "mainhand",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "offhand": {
-      "item_id": 245769,
-      "name": "Aln'hara Lantern",
-      "item_level": 285,
-      "icon": "inv_offhand_1h_dungeonharronir_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
-      "frequency": 0.07794466403162055,
-      "raw_count": 4,
-      "slot": "offhand",
-      "dungeon": null,
-      "dungeon_display": null
-    }
-  },
-  "bis_alternatives": {
-    "finger": {
-      "item_id": 151311,
-      "name": "Band of the Triumvirate",
-      "item_level": 276,
-      "icon": "inv_70_dungeon_ring2b",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring2b.jpg",
-      "frequency": 0.29596837944664034,
-      "raw_count": 15,
+      "frequency": 0.4411550594515894,
+      "raw_count": 14,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,9 +143,71 @@
       "item_level": 289,
       "icon": "inv_10_jewelcrafting3_soulcage_air",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
-      "frequency": 0.3611067193675889,
-      "raw_count": 18,
+      "frequency": 0.4950254792526086,
+      "raw_count": 15,
       "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 245770,
+      "name": "Aln'hara Cane",
+      "item_level": 285,
+      "icon": "inv_staff_2h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
+      "frequency": 0.8689638437272507,
+      "raw_count": 27,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 245769,
+      "name": "Aln'hara Lantern",
+      "item_level": 285,
+      "icon": "inv_offhand_1h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
+      "frequency": 0.06454743994176171,
+      "raw_count": 2,
+      "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 193708,
+      "name": "Platinum Star Band",
+      "item_level": 276,
+      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
+      "frequency": 0.29458869206503274,
+      "raw_count": 9,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 249808,
+      "name": "Litany of Lightblind Wrath",
+      "item_level": 276,
+      "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
+      "frequency": 0.4760980344576559,
+      "raw_count": 15,
+      "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 251083,
+      "name": "Excavating Cudgel",
+      "item_level": 289,
+      "icon": "inv_mace_1h_dungeonharronir_c_02",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mace_1h_dungeonharronir_c_02.jpg",
+      "frequency": 0.06454743994176171,
+      "raw_count": 2,
+      "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     }
@@ -204,60 +216,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.48569169960474307,
-      "raw_count": 24
+      "frequency": 0.5081290948798836,
+      "raw_count": 15
     },
     "legs": {
       "enchant_id": 7937,
       "slot": "legs",
-      "frequency": 0.5781818181818181,
-      "raw_count": 29
+      "frequency": 0.6330987624363019,
+      "raw_count": 19
     },
     "feet": {
       "enchant_id": 7993,
       "slot": "feet",
-      "frequency": 0.6063241106719368,
-      "raw_count": 30
+      "frequency": 0.6054355738898326,
+      "raw_count": 19
     },
     "finger": {
       "enchant_id": 7997,
       "slot": "finger",
-      "frequency": 0.8150197628458498,
-      "raw_count": 42
+      "frequency": 0.5872361077408396,
+      "raw_count": 18
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.9397628458498024,
-      "raw_count": 47
+      "frequency": 0.9318126668284397,
+      "raw_count": 28
     }
   },
   "gems": [
     {
       "gem_id": 240983,
-      "frequency": 0.7405533596837944,
-      "raw_count": 37
+      "frequency": 0.7323465178354768,
+      "raw_count": 22
     },
     {
       "gem_id": 240910,
-      "frequency": 0.6072727272727273,
-      "raw_count": 32
+      "frequency": 0.37757825770444065,
+      "raw_count": 12
     },
     {
       "gem_id": 240890,
-      "frequency": 0.34197628458498025,
-      "raw_count": 17
+      "frequency": 0.3314729434603252,
+      "raw_count": 10
     },
     {
       "gem_id": 240914,
-      "frequency": 0.22403162055335968,
-      "raw_count": 11
+      "frequency": 0.2613443338995389,
+      "raw_count": 8
     },
     {
-      "gem_id": 240906,
-      "frequency": 0.13865612648221343,
-      "raw_count": 7
+      "gem_id": 240916,
+      "frequency": 0.2057752972579471,
+      "raw_count": 6
     }
   ],
-  "generated_at": "2026-04-16T08:45:55.034Z"
+  "generated_at": "2026-04-17T09:20:25.041Z"
 }

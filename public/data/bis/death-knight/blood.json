@@ -11,7 +11,7 @@
       "item_level": 276,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_helm",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_helm.jpg",
-      "frequency": 0.8036363636363636,
+      "frequency": 0.8011067193675889,
       "raw_count": 40,
       "slot": "head",
       "dungeon": null,
@@ -23,8 +23,8 @@
       "item_level": 285,
       "icon": "inv_12_profession_jewelcrafting_necklace2_gold",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_profession_jewelcrafting_necklace2_gold.jpg",
-      "frequency": 0.26529644268774705,
-      "raw_count": 13,
+      "frequency": 0.2592885375494071,
+      "raw_count": 12,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,8 +35,8 @@
       "item_level": 289,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_shoulder",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_shoulder.jpg",
-      "frequency": 0.8891699604743083,
-      "raw_count": 45,
+      "frequency": 0.8670355731225297,
+      "raw_count": 44,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 269,
       "icon": "inv_cape_cloth_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_dungeonharronir_c_01.jpg",
-      "frequency": 0.19952569169960474,
-      "raw_count": 10,
+      "frequency": 0.22055335968379447,
+      "raw_count": 11,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,10 +56,10 @@
     "chest": {
       "item_id": 249973,
       "name": "Relentless Rider's Cuirass",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_chest",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_chest.jpg",
-      "frequency": 0.8177075098814229,
+      "frequency": 0.820395256916996,
       "raw_count": 41,
       "slot": "chest",
       "dungeon": null,
@@ -71,8 +71,8 @@
       "item_level": 276,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_belt",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_belt.jpg",
-      "frequency": 0.40980237154150195,
-      "raw_count": 20,
+      "frequency": 0.47320158102766796,
+      "raw_count": 23,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_plate_questbloodelf_b_01_bracer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
-      "frequency": 0.4883794466403162,
-      "raw_count": 25,
+      "frequency": 0.5124110671936759,
+      "raw_count": 26,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 289,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_glove",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_glove.jpg",
-      "frequency": 0.6937549407114625,
-      "raw_count": 34,
+      "frequency": 0.7358102766798419,
+      "raw_count": 36,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,7 +107,7 @@
       "item_level": 289,
       "icon": "inv_plate_raiddeathknightmidnight_d_01_pant",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_raiddeathknightmidnight_d_01_pant.jpg",
-      "frequency": 0.8972332015810277,
+      "frequency": 0.896600790513834,
       "raw_count": 45,
       "slot": "legs",
       "dungeon": null,
@@ -119,20 +119,20 @@
       "item_level": 276,
       "icon": "inv_boot_plate_legiondungeon_c_03",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_legiondungeon_c_03.jpg",
-      "frequency": 0.2739920948616601,
+      "frequency": 0.2782608695652174,
       "raw_count": 14,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
     },
     "finger": {
-      "item_id": 151308,
-      "name": "Eredath Seal of Nobility",
+      "item_id": 193708,
+      "name": "Platinum Star Band",
       "item_level": 266,
-      "icon": "inv_70_dungeon_ring3c",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring3c.jpg",
-      "frequency": 0.3737549407114624,
-      "raw_count": 19,
+      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
+      "frequency": 0.35952569169960474,
+      "raw_count": 18,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 285,
       "icon": "inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger.jpg",
-      "frequency": 0.4085375494071146,
-      "raw_count": 21,
+      "frequency": 0.4259288537549407,
+      "raw_count": 22,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,7 +155,7 @@
       "item_level": 285,
       "icon": "inv_sword_2h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
-      "frequency": 0.7500395256916996,
+      "frequency": 0.7498814229249012,
       "raw_count": 37,
       "slot": "mainhand",
       "dungeon": null,
@@ -164,13 +164,13 @@
   },
   "bis_alternatives": {
     "finger": {
-      "item_id": 193708,
-      "name": "Platinum Star Band",
-      "item_level": 266,
-      "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
-      "frequency": 0.3282213438735178,
-      "raw_count": 16,
+      "item_id": 151308,
+      "name": "Eredath Seal of Nobility",
+      "item_level": 276,
+      "icon": "inv_70_dungeon_ring3c",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring3c.jpg",
+      "frequency": 0.3549407114624506,
+      "raw_count": 18,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -181,8 +181,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.34466403162055337,
-      "raw_count": 17,
+      "frequency": 0.36015810276679844,
+      "raw_count": 18,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -193,8 +193,8 @@
       "item_level": 285,
       "icon": "inv_axe_2h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_axe_2h_dungeonharronir_c_01.jpg",
-      "frequency": 0.07731225296442688,
-      "raw_count": 4,
+      "frequency": 0.09296442687747035,
+      "raw_count": 5,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -204,60 +204,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.6031620553359683,
-      "raw_count": 30
+      "frequency": 0.6178656126482214,
+      "raw_count": 31
     },
     "legs": {
       "enchant_id": 8159,
       "slot": "legs",
-      "frequency": 0.8286166007905138,
+      "frequency": 0.8260869565217391,
       "raw_count": 42
     },
     "feet": {
       "enchant_id": 8019,
       "slot": "feet",
-      "frequency": 0.611699604743083,
+      "frequency": 0.6126482213438735,
       "raw_count": 31
     },
     "finger": {
       "enchant_id": 8027,
       "slot": "finger",
-      "frequency": 0.5269565217391304,
-      "raw_count": 26
+      "frequency": 0.5878260869565217,
+      "raw_count": 29
     },
     "mainhand": {
       "enchant_id": 6241,
       "slot": "mainhand",
-      "frequency": 0.7038735177865613,
-      "raw_count": 36
+      "frequency": 0.7296442687747036,
+      "raw_count": 37
     }
   },
   "gems": [
     {
       "gem_id": 240983,
-      "frequency": 0.8325691699604743,
-      "raw_count": 42
+      "frequency": 0.8494861660079052,
+      "raw_count": 43
     },
     {
       "gem_id": 240918,
-      "frequency": 0.515098814229249,
-      "raw_count": 26
+      "frequency": 0.6836363636363636,
+      "raw_count": 35
     },
     {
       "gem_id": 240908,
-      "frequency": 0.31415019762845847,
-      "raw_count": 15
+      "frequency": 0.29106719367588935,
+      "raw_count": 14
     },
     {
       "gem_id": 240914,
-      "frequency": 0.22750988142292491,
-      "raw_count": 12
+      "frequency": 0.2134387351778656,
+      "raw_count": 11
     },
     {
-      "gem_id": 240910,
-      "frequency": 0.17628458498023716,
-      "raw_count": 9
+      "gem_id": 240898,
+      "frequency": 0.17027667984189723,
+      "raw_count": 8
     }
   ],
-  "generated_at": "2026-04-16T08:37:33.603Z"
+  "generated_at": "2026-04-17T09:12:21.700Z"
 }

@@ -11,8 +11,8 @@
       "item_level": 276,
       "icon": "inv_helm_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.9239525691699605,
-      "raw_count": 46,
+      "frequency": 0.9410276679841897,
+      "raw_count": 47,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,7 +23,7 @@
       "item_level": 266,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.44711462450592887,
+      "frequency": 0.4505928853754941,
       "raw_count": 23,
       "slot": "neck",
       "dungeon": null,
@@ -35,8 +35,8 @@
       "item_level": 276,
       "icon": "inv_shoulder_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.730592885375494,
-      "raw_count": 37,
+      "frequency": 0.7109881422924901,
+      "raw_count": 36,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 266,
       "icon": "inv_cape_plate_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_dungeonharronir_c_01.jpg",
-      "frequency": 0.3634782608695652,
-      "raw_count": 18,
+      "frequency": 0.3089328063241107,
+      "raw_count": 15,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,7 +59,7 @@
       "item_level": 289,
       "icon": "inv_robe_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_robe_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.7775494071146245,
+      "frequency": 0.775494071146245,
       "raw_count": 39,
       "slot": "chest",
       "dungeon": null,
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.5898814229249012,
-      "raw_count": 30,
+      "frequency": 0.6088537549407115,
+      "raw_count": 31,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.34561264822134385,
-      "raw_count": 17,
+      "frequency": 0.30924901185770753,
+      "raw_count": 15,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -95,8 +95,8 @@
       "item_level": 276,
       "icon": "inv_glove_cloth_raidpriestmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_cloth_raidpriestmidnight_d_01.jpg",
-      "frequency": 0.8436363636363636,
-      "raw_count": 42,
+      "frequency": 0.8624505928853755,
+      "raw_count": 43,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -119,7 +119,7 @@
       "item_level": 276,
       "icon": "inv_boots_cloth_26",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boots_cloth_26.jpg",
-      "frequency": 0.3449802371541502,
+      "frequency": 0.3473517786561265,
       "raw_count": 17,
       "slot": "feet",
       "dungeon": null,
@@ -131,20 +131,20 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.6091699604743083,
-      "raw_count": 30,
+      "frequency": 0.5389723320158103,
+      "raw_count": 26,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 249808,
-      "name": "Litany of Lightblind Wrath",
+      "item_id": 250256,
+      "name": "Heart of Wind",
       "item_level": 276,
-      "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
-      "frequency": 0.4776284584980237,
-      "raw_count": 24,
+      "icon": "inv_10_jewelcrafting3_soulcage_air",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
+      "frequency": 0.38387351778656126,
+      "raw_count": 19,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,7 +155,7 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.7378656126482214,
+      "frequency": 0.7422924901185771,
       "raw_count": 37,
       "slot": "mainhand",
       "dungeon": null,
@@ -167,7 +167,7 @@
       "item_level": 285,
       "icon": "inv_offhand_1h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_dungeonharronir_c_01.jpg",
-      "frequency": 0.16268774703557312,
+      "frequency": 0.1592094861660079,
       "raw_count": 8,
       "slot": "offhand",
       "dungeon": null,
@@ -181,20 +181,20 @@
       "item_level": 276,
       "icon": "inv_jewelry_ring_42",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_ring_42.jpg",
-      "frequency": 0.4671936758893281,
-      "raw_count": 23,
+      "frequency": 0.4991304347826087,
+      "raw_count": 25,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 250256,
-      "name": "Heart of Wind",
+      "item_id": 249808,
+      "name": "Litany of Lightblind Wrath",
       "item_level": 276,
-      "icon": "inv_10_jewelcrafting3_soulcage_air",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
-      "frequency": 0.3473517786561265,
-      "raw_count": 17,
+      "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
+      "frequency": 0.37691699604743084,
+      "raw_count": 19,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -205,7 +205,7 @@
       "item_level": 285,
       "icon": "inv_knife_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_knife_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.061343873517786564,
+      "frequency": 0.05992094861660079,
       "raw_count": 3,
       "slot": "mainhand",
       "dungeon": null,
@@ -216,60 +216,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.5525691699604743,
-      "raw_count": 28
+      "frequency": 0.5002371541501976,
+      "raw_count": 25
     },
     "legs": {
       "enchant_id": 7937,
       "slot": "legs",
-      "frequency": 0.5938339920948617,
-      "raw_count": 30
+      "frequency": 0.5660079051383399,
+      "raw_count": 28
     },
     "feet": {
       "enchant_id": 7993,
       "slot": "feet",
-      "frequency": 0.6833201581027668,
-      "raw_count": 34
+      "frequency": 0.6262450592885376,
+      "raw_count": 31
     },
     "finger": {
       "enchant_id": 8025,
       "slot": "finger",
-      "frequency": 1.1533596837944664,
-      "raw_count": 58
+      "frequency": 1.085217391304348,
+      "raw_count": 54
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.7449802371541502,
-      "raw_count": 37
+      "frequency": 0.782292490118577,
+      "raw_count": 39
     }
   },
   "gems": [
     {
       "gem_id": 240890,
-      "frequency": 1.4640316205533597,
-      "raw_count": 72
+      "frequency": 1.3878260869565218,
+      "raw_count": 68
     },
     {
       "gem_id": 240983,
-      "frequency": 0.7429249011857707,
+      "frequency": 0.739604743083004,
       "raw_count": 37
     },
     {
       "gem_id": 240906,
-      "frequency": 0.2189723320158103,
+      "frequency": 0.22039525691699605,
       "raw_count": 11
     },
     {
-      "gem_id": 240910,
-      "frequency": 0.11114624505928854,
+      "gem_id": 240908,
+      "frequency": 0.12853754940711462,
       "raw_count": 6
     },
     {
-      "gem_id": 240892,
-      "frequency": 0.10276679841897234,
-      "raw_count": 5
+      "gem_id": 240910,
+      "frequency": 0.11288537549407114,
+      "raw_count": 6
     }
   ],
-  "generated_at": "2026-04-16T08:45:49.214Z"
+  "generated_at": "2026-04-17T09:19:50.559Z"
 }
