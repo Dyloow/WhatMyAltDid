@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  logging: {
+    incomingRequests: true,
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "wow.zamimg.com" },
