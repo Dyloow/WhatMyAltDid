@@ -204,6 +204,7 @@ export default function DashboardPage() {
             height={300}
             className="animate-float"
             style={{ maxWidth: "300px", width: "100%", height: "auto", marginBottom: "12px" }}
+            priority
           />
           <div style={{ fontSize: "16px", fontWeight: 700, color: "var(--text)", fontFamily: "'Cinzel', serif" }}>
             {t("dash.empty.title")}

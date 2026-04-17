@@ -1,6 +1,6 @@
 services:
   migrate:
-    image: ghcr.io/dyloow/whatmyaltdid:migrator-${IMAGE_TAG:-migrator-latest}
+    image: ghcr.io/dyloow/whatmyaltdid:migrator-latest
     restart: "no"
     command: ["pnpm", "prisma", "migrate", "deploy"]
     depends_on:
@@ -12,7 +12,7 @@ services:
       - internal
 
   app:
-    image: ghcr.io/dyloow/whatmyaltdid:${IMAGE_TAG:-latest}
+    image: ghcr.io/dyloow/whatmyaltdid:latest
     restart: unless-stopped
     depends_on:
       db:
