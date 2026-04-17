@@ -86,6 +86,21 @@ jobs:
               exit 1
             fi
 
+            if [ -z "${{ secrets.BATTLENET_CLIENT_ID }}" ]; then
+              echo "ERROR: BATTLENET_CLIENT_ID secret is missing!"
+              exit 1
+            fi
+
+            if [ -z "${{ secrets.BATTLENET_CLIENT_SECRET }}" ]; then
+              echo "ERROR: BATTLENET_CLIENT_SECRET secret is missing!"
+              exit 1
+            fi
+
+            if [ -z "${{ secrets.APP_DOMAIN }}" ]; then
+              echo "ERROR: APP_DOMAIN secret is missing!"
+              exit 1
+            fi
+
             echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
             cat <<EOF > .env
