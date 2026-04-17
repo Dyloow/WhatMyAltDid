@@ -36,6 +36,12 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Prisma CLI + schema engine for migrations at startup
+COPY --from=deps /app/node_modules/prisma ./node_modules/prisma
+COPY --from=deps /app/node_modules/@prisma/engines ./node_modules/@prisma/engines
+COPY prisma ./prisma
+COPY --chmod=755 docker-entrypoint.sh ./docker-entrypoint.sh
+
 USER nextjs
 
 EXPOSE 3000
@@ -45,4 +51,5 @@ ENV HOSTNAME="0.0.0.0"
 HEALTHCHECK --interval=15s --timeout=5s --start-period=60s --retries=5 \
   CMD wget -qO /dev/null http://127.0.0.1:3000/api/health || exit 1
 
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["node", "server.js"]
