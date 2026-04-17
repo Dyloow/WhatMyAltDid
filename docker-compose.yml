@@ -1,4 +1,16 @@
 services:
+  migrate:
+    image: ghcr.io/dyloow/whatmyaltdid:migrator-${IMAGE_TAG:-migrator-latest}
+    restart: "no"
+    command: ["pnpm", "prisma", "migrate", "deploy"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-wmad}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-wmad}?sslmode=disable
+    networks:
+      - internal
+
   app:
     image: ghcr.io/dyloow/whatmyaltdid:${IMAGE_TAG:-latest}
     restart: unless-stopped
@@ -7,6 +19,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-wmad}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-wmad}?sslmode=disable
       REDIS_URL: redis://redis:6379

@@ -5,9 +5,7 @@ FROM node:20-alpine AS deps
 RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile && \
-    # cp -rL suit les symlinks pnpm → produit un dossier autonome avec @prisma/engines et @prisma/config déjà imbriqués
-    mkdir -p /prisma-export && cp -rL node_modules/prisma /prisma-export/prisma
+RUN pnpm install --frozen-lockfile
 
 # ---- builder ----
 FROM node:20-alpine AS builder
@@ -38,11 +36,6 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Prisma CLI + ses dépendances (engines, config) résolues sans symlinks pnpm
-COPY --from=deps /prisma-export/prisma ./node_modules/prisma
-COPY prisma ./prisma
-COPY --chmod=755 docker-entrypoint.sh ./docker-entrypoint.sh
-
 USER nextjs
 
 EXPOSE 3000
@@ -52,5 +45,4 @@ ENV HOSTNAME="0.0.0.0"
 HEALTHCHECK --interval=15s --timeout=5s --start-period=60s --retries=5 \
   CMD wget -qO /dev/null http://127.0.0.1:3000/api/health || exit 1
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["node", "server.js"]
