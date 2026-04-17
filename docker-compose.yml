@@ -3,8 +3,10 @@ services:
     image: ghcr.io/dyloow/whatmyaltdid:${IMAGE_TAG:-latest}
     restart: unless-stopped
     environment:
+      DATABASE_URL: ${DATABASE_URL}
       NEXTAUTH_URL: https://whatmyaltdid.com
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      AUTH_SECRET: ${NEXTAUTH_SECRET}
       BATTLENET_CLIENT_ID: ${BATTLENET_CLIENT_ID}
       BATTLENET_CLIENT_SECRET: ${BATTLENET_CLIENT_SECRET}
       NODE_ENV: production
