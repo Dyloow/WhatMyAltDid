@@ -11,8 +11,8 @@
       "item_level": 289,
       "icon": "inv_helm_leather_raidmonkmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raidmonkmidnight_d_01.jpg",
-      "frequency": 0.9840966921119593,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 50,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,8 +23,8 @@
       "item_level": 266,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.3743638676844784,
-      "raw_count": 19,
+      "frequency": 0.34868421052631576,
+      "raw_count": 18,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,8 +35,8 @@
       "item_level": 276,
       "icon": "inv_shoulder_leather_raidmonkmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raidmonkmidnight_d_01.jpg",
-      "frequency": 0.9840966921119593,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 50,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 266,
       "icon": "inv_cape_plate_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_dungeonharronir_c_01.jpg",
-      "frequency": 0.35146310432569977,
-      "raw_count": 18,
+      "frequency": 0.2777599486521181,
+      "raw_count": 14,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,8 +59,8 @@
       "item_level": 276,
       "icon": "inv_chest_leather_raidmonkmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raidmonkmidnight_d_01.jpg",
-      "frequency": 0.9840966921119593,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 50,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -71,32 +71,32 @@
       "item_level": 266,
       "icon": "inv_belt_65",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_65.jpg",
-      "frequency": 0.2832379134860051,
-      "raw_count": 14,
+      "frequency": 0.30038510911424904,
+      "raw_count": 15,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
     },
     "wrist": {
-      "item_id": 249327,
-      "name": "Void-Skinned Bracers",
-      "item_level": 276,
-      "icon": "inv_bracer_leather_raidroguemidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_raidroguemidnight_d_01.jpg",
-      "frequency": 0.26463104325699743,
+      "item_id": 50264,
+      "name": "Chewed Leather Wristguards",
+      "item_level": 266,
+      "icon": "inv_bracer_23a",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_23a.jpg",
+      "frequency": 0.25673940949935814,
       "raw_count": 13,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
     },
     "hands": {
-      "item_id": 249321,
-      "name": "Vaelgor's Fearsome Grasp",
-      "item_level": 282,
-      "icon": "inv_glove_leather_raiddruidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raiddruidmidnight_d_01.jpg",
-      "frequency": 0.3452608142493639,
-      "raw_count": 17,
+      "item_id": 151318,
+      "name": "Gloves of the Dark Shroud",
+      "item_level": 276,
+      "icon": "inv_glove_leather_legiondungeon_c_03",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_legiondungeon_c_03.jpg",
+      "frequency": 0.2947689345314506,
+      "raw_count": 15,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,7 +107,7 @@
       "item_level": 276,
       "icon": "inv_pant_leather_raidmonkmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raidmonkmidnight_d_01.jpg",
-      "frequency": 0.9265267175572519,
+      "frequency": 0.926829268292683,
       "raw_count": 46,
       "slot": "legs",
       "dungeon": null,
@@ -119,8 +119,8 @@
       "item_level": 276,
       "icon": "inv_boot_leather_raidmonkmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_raidmonkmidnight_d_01.jpg",
-      "frequency": 0.3193384223918575,
-      "raw_count": 16,
+      "frequency": 0.3034338896020539,
+      "raw_count": 15,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 285,
       "icon": "inv_12_profession_jewelcrafting_ring3_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_profession_jewelcrafting_ring3_silver.jpg",
-      "frequency": 0.9427480916030534,
-      "raw_count": 47,
+      "frequency": 0.9587612323491655,
+      "raw_count": 48,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_misc_enggizmos_18",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
-      "frequency": 0.9432251908396947,
-      "raw_count": 47,
+      "frequency": 0.8997111681643132,
+      "raw_count": 45,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,20 +155,20 @@
       "item_level": 289,
       "icon": "inv_polearm_2h_raidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_polearm_2h_raidmidnight_d_01.jpg",
-      "frequency": 0.2717875318066158,
-      "raw_count": 13,
+      "frequency": 0.2944480102695764,
+      "raw_count": 14,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     },
     "offhand": {
-      "item_id": 260423,
-      "name": "Arator's Swift Remembrance",
-      "item_level": 276,
-      "icon": "inv_sword_1h_raidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.05518447837150127,
-      "raw_count": 3,
+      "item_id": 237845,
+      "name": "Bloomforged Claw",
+      "item_level": 285,
+      "icon": "inv_hand_1h_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_hand_1h_dungeonharronir_c_01.jpg",
+      "frequency": 0.07124518613607189,
+      "raw_count": 4,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -181,8 +181,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_silver",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
-      "frequency": 0.2964376590330789,
-      "raw_count": 15,
+      "frequency": 0.2652439024390244,
+      "raw_count": 13,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,31 +193,31 @@
       "item_level": 289,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.7121501272264631,
-      "raw_count": 35,
+      "frequency": 0.7641206675224647,
+      "raw_count": 38,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 249278,
-      "name": "Alnscorned Spire",
-      "item_level": 289,
-      "icon": "inv_staff_2h_raidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_raidmidnight_d_01.jpg",
-      "frequency": 0.16666666666666666,
-      "raw_count": 8,
-      "slot": "mainhand",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "offhand": {
       "item_id": 237845,
       "name": "Bloomforged Claw",
       "item_level": 285,
       "icon": "inv_hand_1h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_hand_1h_dungeonharronir_c_01.jpg",
-      "frequency": 0.05423027989821883,
+      "frequency": 0.13366495507060333,
+      "raw_count": 7,
+      "slot": "mainhand",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "offhand": {
+      "item_id": 260423,
+      "name": "Arator's Swift Remembrance",
+      "item_level": 276,
+      "icon": "inv_sword_1h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_raidmidnight_d_01.jpg",
+      "frequency": 0.05744544287548139,
       "raw_count": 3,
       "slot": "offhand",
       "dungeon": null,
@@ -228,60 +228,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.8737277353689568,
-      "raw_count": 43
+      "frequency": 0.837772785622593,
+      "raw_count": 41
     },
     "legs": {
       "enchant_id": 8159,
       "slot": "legs",
-      "frequency": 0.9013994910941476,
+      "frequency": 0.8989088575096277,
       "raw_count": 45
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.8501908396946565,
+      "frequency": 0.8453145057766367,
       "raw_count": 42
     },
     "finger": {
       "enchant_id": 8025,
       "slot": "finger",
-      "frequency": 1.0170165394402035,
-      "raw_count": 51
+      "frequency": 1.0648267008985879,
+      "raw_count": 54
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.9169847328244275,
+      "frequency": 0.9192875481386393,
       "raw_count": 46
     }
   },
   "gems": [
     {
       "gem_id": 240890,
-      "frequency": 1.451972010178117,
+      "frequency": 1.4379011553273426,
       "raw_count": 72
     },
     {
       "gem_id": 240983,
-      "frequency": 0.9214376590330788,
+      "frequency": 0.9196084724005135,
       "raw_count": 46
     },
     {
       "gem_id": 240892,
-      "frequency": 0.6855916030534351,
+      "frequency": 0.6803594351732991,
       "raw_count": 33
     },
     {
       "gem_id": 240900,
-      "frequency": 0.1946564885496183,
-      "raw_count": 9
+      "frequency": 0.21614249037227215,
+      "raw_count": 10
     },
     {
       "gem_id": 240889,
-      "frequency": 0.14185750636132316,
-      "raw_count": 7
+      "frequency": 0.12275353016688062,
+      "raw_count": 6
     }
   ],
-  "generated_at": "2026-04-16T08:43:45.474Z"
+  "generated_at": "2026-04-17T09:27:14.458Z"
 }

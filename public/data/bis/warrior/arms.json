@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 2,
+  "analyzed_count": 45,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Warrior",
@@ -8,11 +8,11 @@
     "head": {
       "item_id": 249952,
       "name": "Night Ender's Tusks",
-      "item_level": 279,
+      "item_level": 289,
       "icon": "inv_helm_plate_raidwarriormidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 2,
+      "frequency": 0.9748492678725237,
+      "raw_count": 44,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,8 +23,8 @@
       "item_level": 276,
       "icon": "inv_jewelry_necklace_22",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 1,
-      "raw_count": 2,
+      "frequency": 0.751421188630491,
+      "raw_count": 33,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -32,11 +32,11 @@
     "shoulder": {
       "item_id": 249950,
       "name": "Night Ender's Pauldrons",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_shoulder_plate_raidwarriormidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 2,
+      "frequency": 0.9567614125753661,
+      "raw_count": 43,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 285,
       "icon": "inv_cape_cloth_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "frequency": 0.4701119724375538,
+      "raw_count": 21,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,23 +56,23 @@
     "chest": {
       "item_id": 249955,
       "name": "Night Ender's Breastplate",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_chest_plate_raidwarriormidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidwarriormidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 2,
+      "raw_count": 45,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
     },
     "waist": {
-      "item_id": 49808,
-      "name": "Bent Gold Belt",
+      "item_id": 249949,
+      "name": "Night Ender's Girdle",
       "item_level": 276,
-      "icon": "inv_belt_70",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_70.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "icon": "inv_belt_plate_raidwarriormidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raidwarriormidnight_d_01.jpg",
+      "frequency": 0.4608096468561585,
+      "raw_count": 21,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,20 +83,20 @@
       "item_level": 285,
       "icon": "inv_plate_questbloodelf_b_01_bracer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
-      "frequency": 1,
-      "raw_count": 2,
+      "frequency": 0.6365202411714039,
+      "raw_count": 29,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
     },
     "hands": {
-      "item_id": 249953,
-      "name": "Night Ender's Fists",
+      "item_id": 151332,
+      "name": "Voidclaw Gauntlets",
       "item_level": 289,
-      "icon": "inv_glove_plate_raidwarriormidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "icon": "inv_glove_plate_legiondungeon_c_03",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_legiondungeon_c_03.jpg",
+      "frequency": 0.31266149870801035,
+      "raw_count": 14,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -104,11 +104,11 @@
     "legs": {
       "item_id": 249951,
       "name": "Night Ender's Chausses",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_pant_plate_raidwarriormidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 2,
+      "frequency": 0.9274763135228251,
+      "raw_count": 42,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -116,11 +116,11 @@
     "feet": {
       "item_id": 249954,
       "name": "Night Ender's Greatboots",
-      "item_level": 279,
+      "item_level": 289,
       "icon": "inv_boot_plate_raidwarriormidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "frequency": 0.6280792420327304,
+      "raw_count": 28,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "frequency": 0.8470284237726098,
+      "raw_count": 38,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -140,23 +140,23 @@
     "trinket": {
       "item_id": 249342,
       "name": "Heart of Ancient Hunger",
-      "item_level": 282,
+      "item_level": 276,
       "icon": "inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger.jpg",
-      "frequency": 1,
-      "raw_count": 2,
+      "frequency": 0.7645133505598621,
+      "raw_count": 34,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 249277,
-      "name": "Bellamy's Final Judgement",
-      "item_level": 289,
-      "icon": "inv_mace_2h_raidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mace_2h_raidmidnight_d_01.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "item_id": 237846,
+      "name": "Blood Knight's Warblade",
+      "item_level": 285,
+      "icon": "inv_sword_2h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
+      "frequency": 0.662015503875969,
+      "raw_count": 30,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -169,32 +169,32 @@
       "item_level": 276,
       "icon": "inv_jewelry_ring_42",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_ring_42.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "frequency": 0.4440999138673557,
+      "raw_count": 20,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 264507,
-      "name": "Crucible of Erratic Energies",
-      "item_level": 263,
-      "icon": "inv_112_raidtrinkets_etherealenergystoragebattery_gold",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_112_raidtrinkets_etherealenergystoragebattery_gold.jpg",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1,
+      "item_id": 249343,
+      "name": "Gaze of the Alnseer",
+      "item_level": 289,
+      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
+      "frequency": 0.45839793281653746,
+      "raw_count": 21,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 237846,
-      "name": "Blood Knight's Warblade",
-      "item_level": 285,
-      "icon": "inv_sword_2h_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
-      "frequency": 0.49829351535836175,
-      "raw_count": 1,
+      "item_id": 251117,
+      "name": "Whirling Voidcleaver",
+      "item_level": 289,
+      "icon": "inv_axe_2h_domanaar_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_axe_2h_domanaar_b_01.jpg",
+      "frequency": 0.0694229112833764,
+      "raw_count": 3,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -204,55 +204,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 1,
-      "raw_count": 2
+      "frequency": 0.8523686477174849,
+      "raw_count": 38
     },
     "legs": {
       "enchant_id": 8163,
       "slot": "legs",
-      "frequency": 0.5017064846416383,
-      "raw_count": 1
+      "frequency": 0.7193798449612403,
+      "raw_count": 32
     },
     "feet": {
-      "enchant_id": 8019,
+      "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 1,
-      "raw_count": 2
+      "frequency": 0.770198105081826,
+      "raw_count": 35
     },
     "finger": {
       "enchant_id": 7967,
       "slot": "finger",
-      "frequency": 2,
-      "raw_count": 4
+      "frequency": 1.496640826873385,
+      "raw_count": 66
     },
     "mainhand": {
       "enchant_id": 7981,
       "slot": "mainhand",
-      "frequency": 1,
-      "raw_count": 2
+      "frequency": 0.32385874246339363,
+      "raw_count": 14
     }
   },
   "gems": [
     {
       "gem_id": 240906,
-      "frequency": 1.5017064846416381,
-      "raw_count": 3
-    },
-    {
-      "gem_id": 240890,
-      "frequency": 1.0034129692832765,
-      "raw_count": 2
+      "frequency": 1.891817398794143,
+      "raw_count": 84
     },
     {
       "gem_id": 240983,
-      "frequency": 1,
-      "raw_count": 2
+      "frequency": 0.8871662360034454,
+      "raw_count": 40
+    },
+    {
+      "gem_id": 240890,
+      "frequency": 0.2987080103359173,
+      "raw_count": 14
     },
     {
       "gem_id": 240900,
-      "frequency": 0.49829351535836175,
-      "raw_count": 1
+      "frequency": 0.2864771748492679,
+      "raw_count": 13
+    },
+    {
+      "gem_id": 240892,
+      "frequency": 0.16899224806201552,
+      "raw_count": 8
     }
   ],
-  "generated_at": "2026-04-16T08:49:34.993Z"
+  "generated_at": "2026-04-17T09:24:29.482Z"
 }

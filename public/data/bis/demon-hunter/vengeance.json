@@ -1,30 +1,30 @@
 {
-  "analyzed_count": 5,
+  "analyzed_count": 2,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Demon Hunter",
   "spec": "Vengeance",
   "bis": {
     "head": {
-      "item_id": 251177,
-      "name": "Fetid Vilecrown",
+      "item_id": 250033,
+      "name": "Devouring Reaver's Intake",
       "item_level": 276,
-      "icon": "inv_helm_leather_dungeonharronir_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_dungeonharronir_c_01.jpg",
-      "frequency": 0.6447368421052632,
-      "raw_count": 1,
+      "icon": "inv_helm_leather_raiddemonhuntermidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_leather_raiddemonhuntermidnight_d_01.jpg",
+      "frequency": 1,
+      "raw_count": 2,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 251096,
-      "name": "Pendant of Aching Grief",
+      "item_id": 151309,
+      "name": "Necklace of the Twisting Void",
       "item_level": 266,
-      "icon": "inv_12_jewelry_silvermoonelf_necklace_white",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_white.jpg",
-      "frequency": 0.6535087719298246,
-      "raw_count": 2,
+      "icon": "inv_7_0raid_necklace_06d",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_7_0raid_necklace_06d.jpg",
+      "frequency": 0.782608695652174,
+      "raw_count": 1,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -32,35 +32,35 @@
     "shoulder": {
       "item_id": 250031,
       "name": "Devouring Reaver's Exhaustplates",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_shoulder_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_leather_raiddemonhuntermidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 5,
+      "raw_count": 2,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
     },
     "back": {
-      "item_id": 251161,
-      "name": "Shroud of the Soulhunter",
-      "item_level": 266,
-      "icon": "inv_cape_special_hextroll_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_special_hextroll_d_01.jpg",
-      "frequency": 0.6447368421052632,
-      "raw_count": 1,
+      "item_id": 239656,
+      "name": "Adherent's Silken Shroud",
+      "item_level": 285,
+      "icon": "inv_cape_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
+      "frequency": 1,
+      "raw_count": 2,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
     },
     "chest": {
-      "item_id": 250036,
-      "name": "Devouring Reaver's Engine",
+      "item_id": 151313,
+      "name": "Vest of the Void's Embrace",
       "item_level": 289,
-      "icon": "inv_chest_leather_raiddemonhuntermidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 5,
+      "icon": "inv_chest_leather_legiondungeon_c_03",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_leather_legiondungeon_c_03.jpg",
+      "frequency": 0.782608695652174,
+      "raw_count": 1,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
@@ -68,22 +68,22 @@
     "waist": {
       "item_id": 49806,
       "name": "Flayer's Black Belt",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_belt_65",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_65.jpg",
-      "frequency": 0.6535087719298246,
+      "frequency": 1,
       "raw_count": 2,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
     },
     "wrist": {
-      "item_id": 50264,
-      "name": "Chewed Leather Wristguards",
-      "item_level": 266,
-      "icon": "inv_bracer_23a",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_23a.jpg",
-      "frequency": 0.6447368421052632,
+      "item_id": 251103,
+      "name": "Custodial Cuffs",
+      "item_level": 276,
+      "icon": "inv_bracer_leather_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_leather_dungeonharronir_c_01.jpg",
+      "frequency": 0.782608695652174,
       "raw_count": 1,
       "slot": "wrist",
       "dungeon": null,
@@ -92,11 +92,11 @@
     "hands": {
       "item_id": 250034,
       "name": "Devouring Reaver's Essence Grips",
-      "item_level": 269,
+      "item_level": 276,
       "icon": "inv_glove_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_leather_raiddemonhuntermidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 5,
+      "raw_count": 2,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -104,96 +104,46 @@
     "legs": {
       "item_id": 250032,
       "name": "Devouring Reaver's Pistons",
-      "item_level": 276,
+      "item_level": 263,
       "icon": "inv_pant_leather_raiddemonhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_leather_raiddemonhuntermidnight_d_01.jpg",
-      "frequency": 0.6535087719298246,
-      "raw_count": 2,
+      "frequency": 0.782608695652174,
+      "raw_count": 1,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
     },
     "feet": {
-      "item_id": 244569,
-      "name": "Silvermoon Agent's Sneakers",
-      "item_level": 285,
-      "icon": "inv_boot_leather_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_questbloodelf_b_01.jpg",
-      "frequency": 0.9122807017543859,
-      "raw_count": 2,
+      "item_id": 251210,
+      "name": "Eclipse Espadrilles",
+      "item_level": 276,
+      "icon": "inv_boot_leather_dungeonharronir_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_leather_dungeonharronir_c_01.jpg",
+      "frequency": 0.782608695652174,
+      "raw_count": 1,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
     },
     "finger": {
-      "item_id": 251513,
-      "name": "Loa Worshiper's Band",
-      "item_level": 285,
-      "icon": "inv_12_profession_jewelcrafting_ring3_silver",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_profession_jewelcrafting_ring3_silver.jpg",
-      "frequency": 0.9122807017543859,
-      "raw_count": 2,
-      "slot": "finger",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "trinket": {
-      "item_id": 249343,
-      "name": "Gaze of the Alnseer",
-      "item_level": 276,
-      "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.7324561403508771,
-      "raw_count": 4,
-      "slot": "trinket",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "mainhand": {
-      "item_id": 237839,
-      "name": "Spellbreaker's Blade",
-      "item_level": 285,
-      "icon": "inv_sword_1h_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.6447368421052632,
-      "raw_count": 1,
-      "slot": "mainhand",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "offhand": {
-      "item_id": 193717,
-      "name": "Mystakria's Harvester",
-      "item_level": 276,
-      "icon": "inv_glaive_1h_drakonid_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_drakonid_c_01.jpg",
-      "frequency": 0.6447368421052632,
-      "raw_count": 1,
-      "slot": "offhand",
-      "dungeon": null,
-      "dungeon_display": null
-    }
-  },
-  "bis_alternatives": {
-    "finger": {
-      "item_id": 151311,
-      "name": "Band of the Triumvirate",
+      "item_id": 251217,
+      "name": "Occlusion of Void",
       "item_level": 266,
-      "icon": "inv_70_dungeon_ring2b",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring2b.jpg",
-      "frequency": 0.6447368421052632,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.782608695652174,
       "raw_count": 1,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 250256,
-      "name": "Heart of Wind",
-      "item_level": 285,
-      "icon": "inv_10_jewelcrafting3_soulcage_air",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
-      "frequency": 0.6447368421052632,
+      "item_id": 252420,
+      "name": "Solarflare Prism",
+      "item_level": 266,
+      "icon": "inv_enchant_shardbrilliantlarge",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_enchant_shardbrilliantlarge.jpg",
+      "frequency": 0.782608695652174,
       "raw_count": 1,
       "slot": "trinket",
       "dungeon": null,
@@ -205,21 +155,47 @@
       "item_level": 285,
       "icon": "inv_glaive_1h_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
-      "frequency": 0.32456140350877194,
-      "raw_count": 3,
+      "frequency": 1,
+      "raw_count": 2,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     },
     "offhand": {
-      "item_id": 249298,
-      "name": "Tormentor's Bladed Fists",
-      "item_level": 276,
-      "icon": "inv_hand_1h_raidmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_hand_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.2675438596491228,
-      "raw_count": 1,
+      "item_id": 237840,
+      "name": "Spellbreaker's Warglaive",
+      "item_level": 285,
+      "icon": "inv_glaive_1h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glaive_1h_questbloodelf_b_01.jpg",
+      "frequency": 1,
+      "raw_count": 2,
       "slot": "offhand",
+      "dungeon": null,
+      "dungeon_display": null
+    }
+  },
+  "bis_alternatives": {
+    "finger": {
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 266,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.782608695652174,
+      "raw_count": 1,
+      "slot": "finger",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "trinket": {
+      "item_id": 250256,
+      "name": "Heart of Wind",
+      "item_level": 266,
+      "icon": "inv_10_jewelcrafting3_soulcage_air",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
+      "frequency": 0.782608695652174,
+      "raw_count": 1,
+      "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     }
@@ -229,59 +205,54 @@
       "enchant_id": 7987,
       "slot": "chest",
       "frequency": 1,
-      "raw_count": 5
+      "raw_count": 2
     },
     "legs": {
-      "enchant_id": 8159,
+      "enchant_id": 8158,
       "slot": "legs",
-      "frequency": 0.9210526315789473,
-      "raw_count": 3
-    },
-    "feet": {
-      "enchant_id": 7963,
-      "slot": "feet",
-      "frequency": 0.6535087719298246,
-      "raw_count": 2
-    },
-    "finger": {
-      "enchant_id": 7967,
-      "slot": "finger",
-      "frequency": 0.6447368421052632,
+      "frequency": 0.782608695652174,
       "raw_count": 1
     },
-    "mainhand": {
-      "enchant_id": 7981,
-      "slot": "mainhand",
-      "frequency": 0.6535087719298246,
+    "feet": {
+      "enchant_id": 8019,
+      "slot": "feet",
+      "frequency": 0.782608695652174,
+      "raw_count": 1
+    },
+    "finger": {
+      "enchant_id": 8025,
+      "slot": "finger",
+      "frequency": 1.565217391304348,
       "raw_count": 2
+    },
+    "mainhand": {
+      "enchant_id": 8039,
+      "slot": "mainhand",
+      "frequency": 0.782608695652174,
+      "raw_count": 1
     }
   },
   "gems": [
     {
-      "gem_id": 240890,
-      "frequency": 0.9122807017543859,
-      "raw_count": 2
-    },
-    {
       "gem_id": 240983,
-      "frequency": 0.7324561403508771,
-      "raw_count": 4
+      "frequency": 1,
+      "raw_count": 2
     },
     {
       "gem_id": 240916,
-      "frequency": 0.6535087719298246,
-      "raw_count": 2
-    },
-    {
-      "gem_id": 240906,
-      "frequency": 0.6447368421052632,
+      "frequency": 0.782608695652174,
       "raw_count": 1
     },
     {
-      "gem_id": 240967,
-      "frequency": 0.2675438596491228,
+      "gem_id": 240894,
+      "frequency": 0.782608695652174,
       "raw_count": 1
+    },
+    {
+      "gem_id": 240908,
+      "frequency": 0.6521739130434783,
+      "raw_count": 3
     }
   ],
-  "generated_at": "2026-04-16T08:38:50.211Z"
+  "generated_at": "2026-04-17T09:13:23.900Z"
 }

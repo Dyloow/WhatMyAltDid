@@ -11,8 +11,8 @@
       "item_level": 276,
       "icon": "inv_helm_mail_raidhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidhuntermidnight_d_01.jpg",
-      "frequency": 0.9832411067193676,
-      "raw_count": 49,
+      "frequency": 1,
+      "raw_count": 50,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
@@ -23,8 +23,8 @@
       "item_level": 285,
       "icon": "inv_12_profession_jewelcrafting_necklace2_gold",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_profession_jewelcrafting_necklace2_gold.jpg",
-      "frequency": 0.2807905138339921,
-      "raw_count": 14,
+      "frequency": 0.33865612648221344,
+      "raw_count": 17,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,8 +35,8 @@
       "item_level": 276,
       "icon": "inv_mail_dragondungeon_c_01_shoulder",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mail_dragondungeon_c_01_shoulder.jpg",
-      "frequency": 0.33296442687747035,
-      "raw_count": 16,
+      "frequency": 0.3626877470355731,
+      "raw_count": 18,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
@@ -47,8 +47,8 @@
       "item_level": 276,
       "icon": "inv_cape_draenordungeon_c_02_plate",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_draenordungeon_c_02_plate.jpg",
-      "frequency": 0.6888537549407114,
-      "raw_count": 34,
+      "frequency": 0.64,
+      "raw_count": 32,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -59,7 +59,7 @@
       "item_level": 289,
       "icon": "inv_chest_mail_raidhuntermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidhuntermidnight_d_01.jpg",
-      "frequency": 0.9818181818181818,
+      "frequency": 0.9826086956521739,
       "raw_count": 49,
       "slot": "chest",
       "dungeon": null,
@@ -71,8 +71,8 @@
       "item_level": 285,
       "icon": "inv_belt_mail_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_mail_questbloodelf_b_01.jpg",
-      "frequency": 0.8221343873517787,
-      "raw_count": 41,
+      "frequency": 0.8553359683794466,
+      "raw_count": 43,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -80,11 +80,11 @@
     "wrist": {
       "item_id": 249304,
       "name": "Fallen King's Cuffs",
-      "item_level": 289,
+      "item_level": 276,
       "icon": "inv_bracer_mail_raidshamanmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_raidshamanmidnight_d_01.jpg",
-      "frequency": 0.29881422924901185,
-      "raw_count": 15,
+      "frequency": 0.28537549407114626,
+      "raw_count": 14,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 285,
       "icon": "inv_boot_mail_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_questbloodelf_b_01.jpg",
-      "frequency": 0.8403162055335969,
-      "raw_count": 42,
+      "frequency": 0.8727272727272727,
+      "raw_count": 44,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 276,
       "icon": "inv_10_dungeonjewelry_explorer_ring_1_color1",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_dungeonjewelry_explorer_ring_1_color1.jpg",
-      "frequency": 0.7456126482213439,
-      "raw_count": 37,
+      "frequency": 0.6836363636363636,
+      "raw_count": 34,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 289,
       "icon": "inv_firearm_2h_raidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_firearm_2h_raidmidnight_d_01.jpg",
-      "frequency": 0.4366798418972332,
-      "raw_count": 22,
+      "frequency": 0.4037944664031621,
+      "raw_count": 20,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -169,7 +169,7 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency2_void",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency2_void.jpg",
-      "frequency": 0.2567588932806324,
+      "frequency": 0.2545454545454545,
       "raw_count": 13,
       "slot": "finger",
       "dungeon": null,
@@ -181,7 +181,7 @@
       "item_level": 289,
       "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_dreamrift_gazeofthealnseer.jpg",
-      "frequency": 0.291699604743083,
+      "frequency": 0.2940711462450593,
       "raw_count": 14,
       "slot": "trinket",
       "dungeon": null,
@@ -193,8 +193,8 @@
       "item_level": 285,
       "icon": "inv_bow_1h_dungeonharronir_c_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bow_1h_dungeonharronir_c_01.jpg",
-      "frequency": 0.20521739130434782,
-      "raw_count": 10,
+      "frequency": 0.2192885375494071,
+      "raw_count": 11,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -204,60 +204,60 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 0.9239525691699605,
-      "raw_count": 46
+      "frequency": 0.9418181818181818,
+      "raw_count": 47
     },
     "legs": {
       "enchant_id": 8159,
       "slot": "legs",
-      "frequency": 0.9598418972332016,
-      "raw_count": 48
+      "frequency": 0.9802371541501976,
+      "raw_count": 49
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.7206324110671937,
-      "raw_count": 36
+      "frequency": 0.7370750988142293,
+      "raw_count": 37
     },
     "finger": {
       "enchant_id": 7967,
       "slot": "finger",
-      "frequency": 1.0831620553359684,
-      "raw_count": 54
+      "frequency": 1.007905138339921,
+      "raw_count": 49
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 0.943399209486166,
+      "frequency": 0.9438735177865613,
       "raw_count": 47
     }
   },
   "gems": [
     {
       "gem_id": 240898,
-      "frequency": 1.4180237154150197,
-      "raw_count": 70
+      "frequency": 1.5116205533596838,
+      "raw_count": 76
     },
     {
       "gem_id": 240908,
-      "frequency": 0.7933596837944664,
-      "raw_count": 39
+      "frequency": 0.7291699604743083,
+      "raw_count": 35
     },
     {
       "gem_id": 240983,
-      "frequency": 0.59699604743083,
-      "raw_count": 29
+      "frequency": 0.7214229249011858,
+      "raw_count": 36
     },
     {
       "gem_id": 240967,
-      "frequency": 0.36300395256916995,
-      "raw_count": 19
+      "frequency": 0.2551778656126482,
+      "raw_count": 13
     },
     {
       "gem_id": 240890,
-      "frequency": 0.17438735177865614,
-      "raw_count": 9
+      "frequency": 0.1990513833992095,
+      "raw_count": 10
     }
   ],
-  "generated_at": "2026-04-16T08:41:17.635Z"
+  "generated_at": "2026-04-17T09:16:07.791Z"
 }

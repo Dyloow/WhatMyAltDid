@@ -6,25 +6,25 @@
   "spec": "Augmentation",
   "bis": {
     "head": {
-      "item_id": 249317,
-      "name": "Frenzy's Rebuke",
+      "item_id": 249997,
+      "name": "Hornhelm of the Black Talon",
       "item_level": 289,
       "icon": "inv_helm_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.4023715415019763,
-      "raw_count": 20,
+      "frequency": 0.4220707150784842,
+      "raw_count": 22,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 50228,
-      "name": "Barbed Ymirheim Choker",
-      "item_level": 276,
-      "icon": "inv_jewelry_necklace_22",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
-      "frequency": 0.4834782608695652,
-      "raw_count": 25,
+      "item_id": 249337,
+      "name": "Ribbon of Coiled Malice",
+      "item_level": 279,
+      "icon": "inv_12_jewelry_devouringhost_necklace_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_devouringhost_necklace_bronze.jpg",
+      "frequency": 0.46614872364039955,
+      "raw_count": 22,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,20 +35,20 @@
       "item_level": 289,
       "icon": "inv_shoulder_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.9174703557312253,
+      "frequency": 0.9183446963691136,
       "raw_count": 46,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
     },
     "back": {
-      "item_id": 260312,
-      "name": "Defiant Defender's Drape",
-      "item_level": 289,
-      "icon": "inv_cape_plate_dungeonharronir_c_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_plate_dungeonharronir_c_01.jpg",
-      "frequency": 0.4156521739130435,
-      "raw_count": 21,
+      "item_id": 239656,
+      "name": "Adherent's Silken Shroud",
+      "item_level": 285,
+      "icon": "inv_cape_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.39892183288409705,
+      "raw_count": 19,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
@@ -56,10 +56,10 @@
     "chest": {
       "item_id": 250000,
       "name": "Frenzyward of the Black Talon",
-      "item_level": 276,
+      "item_level": 285,
       "icon": "inv_chest_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.9596837944664032,
+      "frequency": 0.9598858411289044,
       "raw_count": 48,
       "slot": "chest",
       "dungeon": null,
@@ -71,8 +71,8 @@
       "item_level": 276,
       "icon": "inv_belt_69",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_69.jpg",
-      "frequency": 0.3457707509881423,
-      "raw_count": 17,
+      "frequency": 0.3323291580783257,
+      "raw_count": 16,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
@@ -83,8 +83,8 @@
       "item_level": 285,
       "icon": "inv_bracer_mail_questbloodelf_b_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_mail_questbloodelf_b_01.jpg",
-      "frequency": 0.718102766798419,
-      "raw_count": 36,
+      "frequency": 0.7680355160932297,
+      "raw_count": 39,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
@@ -92,11 +92,11 @@
     "hands": {
       "item_id": 249998,
       "name": "Enforcer's Grips of the Black Talon",
-      "item_level": 266,
+      "item_level": 276,
       "icon": "inv_glove_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.8915415019762846,
-      "raw_count": 44,
+      "frequency": 0.8741081338195655,
+      "raw_count": 43,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -107,8 +107,8 @@
       "item_level": 276,
       "icon": "inv_pant_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.9011857707509882,
-      "raw_count": 45,
+      "frequency": 0.8861582368796576,
+      "raw_count": 44,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
@@ -119,8 +119,8 @@
       "item_level": 289,
       "icon": "inv_boot_mail_raidevokermidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_mail_raidevokermidnight_d_01.jpg",
-      "frequency": 0.7090909090909091,
-      "raw_count": 35,
+      "frequency": 0.6928809259552878,
+      "raw_count": 34,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
@@ -131,8 +131,8 @@
       "item_level": 276,
       "icon": "inv_12_trinket_devouring_host_currency1_bronze",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
-      "frequency": 0.9290118577075099,
-      "raw_count": 46,
+      "frequency": 0.945140320279055,
+      "raw_count": 47,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -143,8 +143,8 @@
       "item_level": 276,
       "icon": "inv_10_jewelcrafting3_soulcage_air",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_10_jewelcrafting3_soulcage_air.jpg",
-      "frequency": 0.6461660079051383,
-      "raw_count": 32,
+      "frequency": 0.6984303155224354,
+      "raw_count": 35,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -155,8 +155,8 @@
       "item_level": 285,
       "icon": "inv_staff_2h_dungeonharronir_c_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_staff_2h_dungeonharronir_c_02.jpg",
-      "frequency": 0.8377865612648221,
-      "raw_count": 42,
+      "frequency": 0.8539717773902014,
+      "raw_count": 43,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -167,8 +167,8 @@
       "item_level": 289,
       "icon": "inv_offhand_1h_raidmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_offhand_1h_raidmidnight_d_01.jpg",
-      "frequency": 0.12458498023715416,
-      "raw_count": 6,
+      "frequency": 0.10829237355319486,
+      "raw_count": 5,
       "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
@@ -178,11 +178,11 @@
     "finger": {
       "item_id": 49812,
       "name": "Purloined Wedding Ring",
-      "item_level": 266,
+      "item_level": 276,
       "icon": "inv_jewelry_ring_42",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_ring_42.jpg",
-      "frequency": 0.6988142292490118,
-      "raw_count": 35,
+      "frequency": 0.649120025368638,
+      "raw_count": 32,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
@@ -193,8 +193,8 @@
       "item_level": 276,
       "icon": "inv_jewelry_necklace_32",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_32.jpg",
-      "frequency": 0.2501185770750988,
-      "raw_count": 13,
+      "frequency": 0.3028381163786269,
+      "raw_count": 16,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
@@ -205,8 +205,8 @@
       "item_level": 289,
       "icon": "inv_mace_1h_raidmidnight_d_02",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mace_1h_raidmidnight_d_02.jpg",
-      "frequency": 0.08252964426877471,
-      "raw_count": 4,
+      "frequency": 0.06643412081813857,
+      "raw_count": 3,
       "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
@@ -222,20 +222,20 @@
     "legs": {
       "enchant_id": 7935,
       "slot": "legs",
-      "frequency": 0.9799209486166008,
+      "frequency": 0.9808149674964325,
       "raw_count": 49
     },
     "feet": {
       "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 0.9011857707509882,
+      "frequency": 0.9028064055811004,
       "raw_count": 45
     },
     "finger": {
       "enchant_id": 7997,
       "slot": "finger",
-      "frequency": 1.3073517786561264,
-      "raw_count": 65
+      "frequency": 1.2272078642777866,
+      "raw_count": 60
     },
     "mainhand": {
       "enchant_id": 8039,
@@ -247,29 +247,29 @@
   "gems": [
     {
       "gem_id": 240906,
-      "frequency": 1.771699604743083,
-      "raw_count": 86
+      "frequency": 1.8449342000951323,
+      "raw_count": 90
     },
     {
       "gem_id": 240983,
-      "frequency": 0.8817391304347826,
-      "raw_count": 44
+      "frequency": 0.8680830822895196,
+      "raw_count": 43
     },
     {
       "gem_id": 240890,
-      "frequency": 0.6668774703557312,
-      "raw_count": 34
+      "frequency": 0.5918820358332012,
+      "raw_count": 30
     },
     {
       "gem_id": 240905,
-      "frequency": 0.17881422924901186,
-      "raw_count": 10
+      "frequency": 0.12731885206912955,
+      "raw_count": 7
     },
     {
-      "gem_id": 240898,
-      "frequency": 0.14561264822134387,
-      "raw_count": 7
+      "gem_id": 240908,
+      "frequency": 0.10226732202314888,
+      "raw_count": 5
     }
   ],
-  "generated_at": "2026-04-16T08:39:53.998Z"
+  "generated_at": "2026-04-17T09:26:56.383Z"
 }

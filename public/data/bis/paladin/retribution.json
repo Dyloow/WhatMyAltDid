@@ -1,5 +1,5 @@
 {
-  "analyzed_count": 1,
+  "analyzed_count": 50,
   "total_scanned": 150,
   "season": "season-mn-1",
   "class": "Paladin",
@@ -12,19 +12,19 @@
       "icon": "inv_helm_plate_raidpaladinmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_helm_plate_raidpaladinmidnight_d_01.jpg",
       "frequency": 1,
-      "raw_count": 1,
+      "raw_count": 50,
       "slot": "head",
       "dungeon": null,
       "dungeon_display": null
     },
     "neck": {
-      "item_id": 249368,
-      "name": "Eternal Voidsong Chain",
+      "item_id": 50228,
+      "name": "Barbed Ymirheim Choker",
       "item_level": 276,
-      "icon": "inv_12_jewelry_silvermoonelf_necklace_blue1",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_jewelry_silvermoonelf_necklace_blue1.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "icon": "inv_jewelry_necklace_22",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_jewelry_necklace_22.jpg",
+      "frequency": 0.3707509881422925,
+      "raw_count": 19,
       "slot": "neck",
       "dungeon": null,
       "dungeon_display": null
@@ -35,68 +35,68 @@
       "item_level": 276,
       "icon": "inv_shoulder_plate_raidpaladinmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shoulder_plate_raidpaladinmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "frequency": 0.9761264822134388,
+      "raw_count": 49,
       "slot": "shoulder",
       "dungeon": null,
       "dungeon_display": null
     },
     "back": {
-      "item_id": 193712,
-      "name": "Potion-Stained Cloak",
-      "item_level": 266,
-      "icon": "inv_leather_dragondungeon_c_01_cape",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_leather_dragondungeon_c_01_cape.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "item_id": 239656,
+      "name": "Adherent's Silken Shroud",
+      "item_level": 272,
+      "icon": "inv_cape_cloth_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_cape_cloth_questbloodelf_b_01.jpg",
+      "frequency": 0.44458498023715415,
+      "raw_count": 22,
       "slot": "back",
       "dungeon": null,
       "dungeon_display": null
     },
     "chest": {
-      "item_id": 260376,
-      "name": "Breastplate of the Final Defense",
-      "item_level": 282,
-      "icon": "inv_chest_plate_raidwarriormidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "item_id": 249964,
+      "name": "Luminant Verdict's Divine Warplate",
+      "item_level": 289,
+      "icon": "inv_chest_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_chest_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.9767588932806324,
+      "raw_count": 49,
       "slot": "chest",
       "dungeon": null,
       "dungeon_display": null
     },
     "waist": {
-      "item_id": 49808,
-      "name": "Bent Gold Belt",
-      "item_level": 276,
-      "icon": "inv_belt_70",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_70.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "item_id": 249958,
+      "name": "Luminant Verdict's Undaunted Emblem",
+      "item_level": 289,
+      "icon": "inv_belt_plate_raidpaladinmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_belt_plate_raidpaladinmidnight_d_01.jpg",
+      "frequency": 0.37976284584980236,
+      "raw_count": 19,
       "slot": "waist",
       "dungeon": null,
       "dungeon_display": null
     },
     "wrist": {
-      "item_id": 249326,
-      "name": "Light's March Bracers",
-      "item_level": 282,
-      "icon": "inv_bracer_plate_raidwarriormidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_bracer_plate_raidwarriormidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "item_id": 237834,
+      "name": "Spellbreaker's Bracers",
+      "item_level": 285,
+      "icon": "inv_plate_questbloodelf_b_01_bracer",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_plate_questbloodelf_b_01_bracer.jpg",
+      "frequency": 0.6061660079051383,
+      "raw_count": 31,
       "slot": "wrist",
       "dungeon": null,
       "dungeon_display": null
     },
     "hands": {
-      "item_id": 249962,
-      "name": "Luminant Verdict's Gauntlets",
+      "item_id": 258583,
+      "name": "Incarnadine Gauntlets",
       "item_level": 276,
-      "icon": "inv_glove_plate_raidpaladinmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_raidpaladinmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "icon": "inv_glove_plate_draenordungeon_c_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_glove_plate_draenordungeon_c_01.jpg",
+      "frequency": 0.3125691699604743,
+      "raw_count": 16,
       "slot": "hands",
       "dungeon": null,
       "dungeon_display": null
@@ -104,98 +104,98 @@
     "legs": {
       "item_id": 249960,
       "name": "Luminant Verdict's Greaves",
-      "item_level": 276,
+      "item_level": 289,
       "icon": "inv_pant_plate_raidpaladinmidnight_d_01",
       "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_pant_plate_raidpaladinmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "frequency": 0.9269565217391305,
+      "raw_count": 46,
       "slot": "legs",
       "dungeon": null,
       "dungeon_display": null
     },
     "feet": {
-      "item_id": 249332,
-      "name": "Parasite Stompers",
+      "item_id": 249381,
+      "name": "Greaves of the Unformed",
       "item_level": 289,
-      "icon": "inv_boot_plate_raidpaladinmidnight_d_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidpaladinmidnight_d_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "icon": "inv_boot_plate_raidwarriormidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_boot_plate_raidwarriormidnight_d_01.jpg",
+      "frequency": 0.3359683794466403,
+      "raw_count": 17,
       "slot": "feet",
       "dungeon": null,
       "dungeon_display": null
     },
     "finger": {
-      "item_id": 240949,
-      "name": "Masterwork Sin'dorei Band",
-      "item_level": 285,
-      "icon": "inv_12_profession_jewelcrafting_ring4_gold",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_profession_jewelcrafting_ring4_gold.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "item_id": 251093,
+      "name": "Omission of Light",
+      "item_level": 276,
+      "icon": "inv_12_trinket_devouring_host_currency1_silver",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_silver.jpg",
+      "frequency": 0.4567588932806324,
+      "raw_count": 23,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 193718,
-      "name": "Emerald Coach's Whistle",
-      "item_level": 289,
-      "icon": "inv_misc_head_dragon_green",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_head_dragon_green.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "item_id": 193701,
+      "name": "Algeth'ar Puzzle Box",
+      "item_level": 276,
+      "icon": "inv_misc_enggizmos_18",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_misc_enggizmos_18.jpg",
+      "frequency": 0.9416600790513834,
+      "raw_count": 47,
       "slot": "trinket",
       "dungeon": null,
       "dungeon_display": null
     },
     "mainhand": {
-      "item_id": 237843,
-      "name": "Magister's Mana Sword",
+      "item_id": 237846,
+      "name": "Blood Knight's Warblade",
       "item_level": 285,
-      "icon": "inv_sword_1h_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_1h_questbloodelf_b_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "icon": "inv_sword_2h_questbloodelf_b_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_sword_2h_questbloodelf_b_01.jpg",
+      "frequency": 0.594308300395257,
+      "raw_count": 30,
       "slot": "mainhand",
-      "dungeon": null,
-      "dungeon_display": null
-    },
-    "offhand": {
-      "item_id": 237831,
-      "name": "Spellbreaker's Rebuke",
-      "item_level": 285,
-      "icon": "inv_shield_1h_questbloodelf_b_01",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_shield_1h_questbloodelf_b_01.jpg",
-      "frequency": 1,
-      "raw_count": 1,
-      "slot": "offhand",
       "dungeon": null,
       "dungeon_display": null
     }
   },
   "bis_alternatives": {
     "finger": {
-      "item_id": 151311,
-      "name": "Band of the Triumvirate",
+      "item_id": 251217,
+      "name": "Occlusion of Void",
       "item_level": 276,
-      "icon": "inv_70_dungeon_ring2b",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_70_dungeon_ring2b.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_devouring_host_currency1_bronze.jpg",
+      "frequency": 0.4559683794466403,
+      "raw_count": 23,
       "slot": "finger",
       "dungeon": null,
       "dungeon_display": null
     },
     "trinket": {
-      "item_id": 249808,
-      "name": "Litany of Lightblind Wrath",
+      "item_id": 249342,
+      "name": "Heart of Ancient Hunger",
       "item_level": 276,
-      "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
-      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath.jpg",
-      "frequency": 1,
-      "raw_count": 1,
+      "icon": "inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger.jpg",
+      "frequency": 0.5958893280632411,
+      "raw_count": 30,
       "slot": "trinket",
+      "dungeon": null,
+      "dungeon_display": null
+    },
+    "mainhand": {
+      "item_id": 249277,
+      "name": "Bellamy's Final Judgement",
+      "item_level": 289,
+      "icon": "inv_mace_2h_raidmidnight_d_01",
+      "icon_url": "https://wow.zamimg.com/images/wow/icons/medium/inv_mace_2h_raidmidnight_d_01.jpg",
+      "frequency": 0.10687747035573122,
+      "raw_count": 5,
+      "slot": "mainhand",
       "dungeon": null,
       "dungeon_display": null
     }
@@ -204,45 +204,66 @@
     "chest": {
       "enchant_id": 7987,
       "slot": "chest",
-      "frequency": 1,
-      "raw_count": 1
+      "frequency": 0.9223715415019763,
+      "raw_count": 46
     },
     "legs": {
-      "enchant_id": 7935,
+      "enchant_id": 8159,
       "slot": "legs",
-      "frequency": 1,
-      "raw_count": 1
+      "frequency": 0.9829249011857708,
+      "raw_count": 49
     },
     "feet": {
-      "enchant_id": 7993,
+      "enchant_id": 7963,
       "slot": "feet",
-      "frequency": 1,
-      "raw_count": 1
+      "frequency": 0.6042687747035573,
+      "raw_count": 29
     },
     "finger": {
-      "enchant_id": 8027,
+      "enchant_id": 7967,
       "slot": "finger",
-      "frequency": 2,
-      "raw_count": 2
+      "frequency": 1.5957312252964426,
+      "raw_count": 79
     },
     "mainhand": {
       "enchant_id": 8039,
       "slot": "mainhand",
-      "frequency": 1,
-      "raw_count": 1
+      "frequency": 0.9576284584980237,
+      "raw_count": 48
+    },
+    "back": {
+      "enchant_id": 4897,
+      "slot": "back",
+      "frequency": 0.06260869565217392,
+      "raw_count": 3
     }
   },
   "gems": [
     {
-      "gem_id": 240900,
-      "frequency": 3,
-      "raw_count": 3
+      "gem_id": 240908,
+      "frequency": 1.0730434782608695,
+      "raw_count": 54
     },
     {
       "gem_id": 240983,
-      "frequency": 1,
-      "raw_count": 1
+      "frequency": 0.9160474308300395,
+      "raw_count": 46
+    },
+    {
+      "gem_id": 240898,
+      "frequency": 0.724901185770751,
+      "raw_count": 37
+    },
+    {
+      "gem_id": 240890,
+      "frequency": 0.44173913043478263,
+      "raw_count": 20
+    },
+    {
+      "gem_id": 240892,
+      "frequency": 0.29375494071146246,
+      "raw_count": 13
     }
   ],
-  "generated_at": "2026-04-16T08:45:15.080Z"
+  "generated_at": "2026-04-17T09:19:43.985Z"
 }
